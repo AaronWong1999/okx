@@ -21,9 +21,19 @@ MANIFEST_PATH = os.path.join(RECON_DIR, "resources", "AndroidManifest.xml")
 
 def load_data():
     catalog = {}
+    all_classes = []
     if os.path.exists(CATALOG_PATH):
         with open(CATALOG_PATH, "r", encoding="utf-8") as f:
             catalog = json.load(f)
+        all_classes = list(catalog.get("classes") or [])
+        if not all_classes and catalog.get("catalog_chunks"):
+            dex_dir = os.path.dirname(CATALOG_PATH)
+            for ch in catalog["catalog_chunks"]:
+                ch_path = os.path.join(dex_dir, ch["file"])
+                if os.path.exists(ch_path):
+                    with open(ch_path, "r", encoding="utf-8") as cf:
+                        all_classes.extend(json.load(cf))
+            catalog["classes"] = all_classes
 
     manifest_xml = ""
     if os.path.exists(MANIFEST_PATH):

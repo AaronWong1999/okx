@@ -1,0 +1,4929 @@
+[
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTUREUPGRADEPOPUPINFOVECWITHOKSTFFIERROR_CANCEL",
+    "module": "social_trading",
+    "interface": "OKRustFutureUpgradePopupInfoVecWithOKSTFFIError",
+    "name": "cancel",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Cancel running task"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTUREPROFITINFOVECWITHOKSTFFIERROR_IS_FINISHED",
+    "module": "social_trading",
+    "interface": "OKRustFutureProfitInfoVecWithOKSTFFIError",
+    "name": "is_finished",
+    "is_async": false,
+    "args": [],
+    "return_type": "bool",
+    "doc": "Check whether the task has finished (success/failure/cancelled).\n"
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_INTERFACE_ONGOINGLEADTRADESINTERACTOR",
+    "module": "social_trading",
+    "name": "OngoingLeadTradesInteractor",
+    "trait_kind": 4,
+    "doc": "Ongoing Lead Trades Interactor\n\nManages position summaries, details, and instruments for lead traders."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_INTERFACE_COPYCONTRACTSETTINGSUIEVENTOBSERVER",
+    "module": "social_trading",
+    "name": "CopyContractSettingsUiEventObserver",
+    "trait_kind": 13,
+    "doc": "Deprecated UniFFI callback interface for observing UI events. Prefer the cycle-free `CopyContractSettingsUiEventStream` returned by `interactor.ui_event_stream()`."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTUREBOOLWITHOKSTFFIERROR_IS_FINISHED",
+    "module": "social_trading",
+    "interface": "OKRustFutureboolWithOKSTFFIError",
+    "name": "is_finished",
+    "is_async": false,
+    "args": [],
+    "return_type": "bool",
+    "doc": "Check whether the task has finished (success/failure/cancelled).\n"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKSTCORECOPYTRADERRETENTIONUSECASE_POST_CANCEL_FOLLOW",
+    "module": "social_trading",
+    "interface": "OKSTCoreCopytraderRetentionUseCase",
+    "name": "post_cancel_follow",
+    "is_async": false,
+    "args": [
+      {
+        "name": "business_line",
+        "type": "CancelFollowBusinessLine",
+        "default": null
+      },
+      {
+        "name": "unique_name",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "remain_mgn_deal",
+        "type": "Option<String>",
+        "default": null
+      }
+    ],
+    "return_type": "Arc<OKRustFutureboolWithOKSTFFIError>",
+    "doc": "Cancels the copy trading relationship with a trader.\n\nThis operation stops copying the specified trader. If there are open positions,\nthe `remain_mgn_deal` parameter specifies how to handle them.\n\n# Arguments\n\n* `business_line` - Business line type (Contract or Spot) to determine endpoint\n* `unique_name` - Trader's unique identifier\n* `remain_mgn_deal` - Optional position close type:\n- `None` or `\"0\"` - No open positions / default\n- `\"1\"` - Close at market price\n- `\"2\"` - Let trader close (follow trader)\n- `\"3\"` - Manual process (user will handle)\n\n# Returns\n\nA cancellable `OKRustFuture` resolving to:\n- `Ok(true)` - Cancel follow successful\n- `Err(NetworkFailed)` - Network request failed\n- `Err(ServerResponseError)` - Server returned a business error"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTUREPROFILEPOSITIONHISTORYVECWITHOKSTFFIERROR_GET_ERROR",
+    "module": "social_trading",
+    "interface": "OKRustFutureProfilePositionHistoryVecWithOKSTFFIError",
+    "name": "get_error",
+    "is_async": false,
+    "args": [],
+    "return_type": "Option<OKSTFFIError>",
+    "doc": "Get error information (if any)"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_LEADTRADERSETTINGSINTERACTOR_CONFIRM_PRIVATE_MODE",
+    "module": "social_trading",
+    "interface": "LeadTraderSettingsInteractor",
+    "name": "confirm_private_mode",
+    "is_async": false,
+    "args": [
+      {
+        "name": "is_on",
+        "type": "bool",
+        "default": null
+      },
+      {
+        "name": "share_ratio",
+        "type": "Option<f64>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Confirm and apply private mode change."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_SMARTCOPYTRADINGREDUCIBLEAMOUNT",
+    "module": "social_trading",
+    "name": "SmartCopyTradingReducibleAmount",
+    "fields": [
+      {
+        "name": "follow_amount",
+        "type": "String",
+        "default": null,
+        "doc": "Current follow amount"
+      },
+      {
+        "name": "min_follow_amount",
+        "type": "String",
+        "default": null,
+        "doc": "Minimum follow amount required"
+      },
+      {
+        "name": "available_amount",
+        "type": "String",
+        "default": null,
+        "doc": "Available amount for copy trading"
+      },
+      {
+        "name": "reducible_amount",
+        "type": "String",
+        "default": null,
+        "doc": "Amount that can be reduced/withdrawn"
+      },
+      {
+        "name": "follow_and_min_amount_diff",
+        "type": "String",
+        "default": null,
+        "doc": "Difference between follow amount and min amount"
+      }
+    ],
+    "doc": "UniFFI-compatible wrapper for smart copy reducible amount"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_ONGOINGLEADTRADESINTERACTOR_SET_CURRENT_PNL_ID",
+    "module": "social_trading",
+    "interface": "OngoingLeadTradesInteractor",
+    "name": "set_current_pnl_id",
+    "is_async": false,
+    "args": [
+      {
+        "name": "pnl_id",
+        "type": "Option<String>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Track which order's PnL bottom sheet is currently open.\nMirrors native `OrderListViewModel.currentPnlId` (line 169).\nUsed by the WS update path to know which order should trigger live updates.\nPass `None` when the sheet is closed."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_FOLLOWERLISTINTERACTOR_SET_DEBUG",
+    "module": "social_trading",
+    "interface": "FollowerListInteractor",
+    "name": "set_debug",
+    "is_async": false,
+    "args": [
+      {
+        "name": "_enabled",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Enable or disable debug logging.\n\nIn release builds this is a no-op, but the symbol must exist\nso that UniFFI bindings generated in debug mode continue to\nlink successfully against the release library."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_COPYMODEDTO",
+    "module": "social_trading",
+    "name": "CopyModeDto",
+    "fields": [
+      {
+        "name": "copy_mode",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Copy mode type: FIXED_COST, RATIO_COPY, SMART_COPY"
+      },
+      {
+        "name": "copy_rel_id",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Copy relation ID if already copying"
+      }
+    ],
+    "doc": "Copy mode information returned when querying copy mode.\n\n# API\nGET /priapi/v5/ecotrade/universals/relation/copier/copy-mode"
+  },
+  {
+    "kind": "constructor",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_CONSTRUCTOR_OKSTCORELEADERRANKUSECASE_NEW",
+    "module": "social_trading",
+    "interface": "OKSTCoreLeaderRankUseCase",
+    "name": "new",
+    "is_async": false,
+    "args": [],
+    "return_type": "Arc<OKSTCoreLeaderRankUseCase>",
+    "doc": "Creates a new use case instance with default dependencies.\n\nUses the global `DependencyContainer` to wire up the request center."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_COPIERMESSAGEINTERACTOR_REMOVE_STATE_OBSERVER",
+    "module": "social_trading",
+    "interface": "CopierMessageInteractor",
+    "name": "remove_state_observer",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Remove the state observer (UniFFI export).\n\nDEPRECATED: callback-based observation. Use `state_stream()` —\nit needs no removal call. Until migrated, every\n`set_state_observer` MUST be paired with this (or `release()`)\nat host lifecycle end, or the UniFFI handleMap pins the\nobserver and its host forever."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_RECOMMENDRATIODTO",
+    "module": "social_trading",
+    "name": "RecommendRatioDto",
+    "fields": [
+      {
+        "name": "min_recommend_ratio",
+        "type": "String",
+        "default": null,
+        "doc": "Minimum recommended ratio (multiplier)"
+      },
+      {
+        "name": "max_recommend_ratio",
+        "type": "String",
+        "default": null,
+        "doc": "Maximum recommended ratio (multiplier)"
+      }
+    ],
+    "doc": "Recommended ratio response from the server.\n\nThis struct contains the min and max recommended multiplier ratios\nfor proportional copy trading."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTUREPROFITINFOVECWITHOKSTFFIERROR_CANCEL",
+    "module": "social_trading",
+    "interface": "OKRustFutureProfitInfoVecWithOKSTFFIError",
+    "name": "cancel",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Cancel running task"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTUREBOOLWITHOKSTFFIERROR_CANCEL",
+    "module": "social_trading",
+    "interface": "OKRustFutureboolWithOKSTFFIError",
+    "name": "cancel",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Cancel running task"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTUREPREPROFITVECWITHOKSTFFIERROR_IS_FINISHED",
+    "module": "social_trading",
+    "interface": "OKRustFuturePreProfitVecWithOKSTFFIError",
+    "name": "is_finished",
+    "is_async": false,
+    "args": [],
+    "return_type": "bool",
+    "doc": "Check whether the task has finished (success/failure/cancelled).\n"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTUREBENEFITDETAILVECWITHOKSTFFIERROR_START_WITH_CALLBACK",
+    "module": "social_trading",
+    "interface": "OKRustFutureBenefitDetailVecWithOKSTFFIError",
+    "name": "start_with_callback",
+    "is_async": false,
+    "args": [
+      {
+        "name": "callback",
+        "type": "Box<dyn OKRustFutureCallback>",
+        "default": null
+      }
+    ],
+    "return_type": "Result<(), OKSTFFIError>",
+    "doc": "Start async task with uniffi callback interface"
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_ENUM_MANAGEDCOPIERSORTORDER",
+    "module": "social_trading",
+    "name": "ManagedCopierSortOrder",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Descending",
+        "discr": null,
+        "fields": [],
+        "doc": "Descending order (high to low)"
+      },
+      {
+        "name": "Ascending",
+        "discr": null,
+        "fields": [],
+        "doc": "Ascending order (low to high)"
+      }
+    ],
+    "doc": "Sort order for managed copiers"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_LEADTRADERAPPLICATIONINTERACTOR_CLEAR_CALLBACKS",
+    "module": "social_trading",
+    "interface": "LeadTraderApplicationInteractor",
+    "name": "clear_callbacks",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Clear all callbacks.\n\nCall this when the native side is being destroyed to prevent callbacks\nto deallocated objects."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_MYCOPIESHISTORYLISTSPOTINTERACTOR_REMOVE_UI_EVENT_OBSERVER",
+    "module": "social_trading",
+    "interface": "MyCopiesHistoryListSpotInteractor",
+    "name": "remove_ui_event_observer",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "DEPRECATED. Use `ui_event_stream()`; drop the returned stream\nwrapper to unsubscribe."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_INTERFACE_LEADTRADERAPPLICATIONINTERACTOR",
+    "module": "social_trading",
+    "name": "LeadTraderApplicationInteractor",
+    "trait_kind": 4,
+    "doc": "Lead Trader Application Interactor\n\nManages the complete application flow with state management.\nAll business logic is delegated to UseCases; Native only observes state changes.\n\n# Architecture\n\nInteractor injects UseCases (Account pattern):\n- `LoadStatusUseCase`: Load trader status and check if applying\n- `PreCheckUseCase`: Pre-check eligibility and decide result\n- `VerifyAffiliateUseCase`: Verify affiliate ID\n- `SubmitApplicationUseCase`: Submit application and decide approval type\n\n# Usage (Native side)\n\n```kotlin\n// Create interactor\nval interactor = createLeadTraderApplicationInteractor(LeadTraderApplicationBizType.FUTURES)\n\n// Get state (poll or use callback)\nval state = interactor.getState()\n\n// Handle effects\nif (state.effectId > lastEffectId) {\nwhen (state.effectType) {\nEffectType.PRECHECK_PASSED -> navigateToForm()\nEffectType.PRECHECK_NOT_PASSED_TOAST -> showToast(state.effectPayload.message)\n// ...\n}\ninteractor.ackEffect(state.effectId)\n}\n\n// Trigger actions\ninteractor.loadData()\ninteractor.performPrecheck()\ninteractor.submitApplication(request)\n```"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_ECOPNLWEEKLYINTERACTOR_STATE_STREAM",
+    "module": "social_trading",
+    "interface": "EcoPnlWeeklyInteractor",
+    "name": "state_stream",
+    "is_async": false,
+    "args": [],
+    "return_type": "Arc<InteractorStateStream>",
+    "doc": "Opt-in async state-change stream (cycle-free, signal-only).\nSingle-subscriber, latest-wins. `changed()` resolves `true` on\nchange (pull `state()` for the snapshot), `false` when the\ninteractor is released or a newer subscription replaces this one."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_MANAGECOPYTRADERSINTERACTOR_SET_FILTERS",
+    "module": "social_trading",
+    "interface": "ManageCopyTradersInteractor",
+    "name": "set_filters",
+    "is_async": false,
+    "args": [
+      {
+        "name": "traffic_type",
+        "type": "Option<String>",
+        "default": null
+      },
+      {
+        "name": "affiliate_invitee_type",
+        "type": "Option<String>",
+        "default": null
+      },
+      {
+        "name": "private_relation_type",
+        "type": "Option<String>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Set filters for the copier list query.\n\nMaps to the native filter logic:\n- For private leads: `privateRelationType` = relation_type, `trafficType` = traffic_type\n- For public leads (Swap): `affiliateInviteeType` = relation_type, `trafficType` = traffic_type\n- For public leads (Spot): `affiliateInviteeType` = relation_type, `trafficType` = null\n\n# Parameters\n\n* `traffic_type` - \"0\"=all, \"1\"=public/platform, \"2\"=private/invite. None to clear.\n* `affiliate_invitee_type` - Relation type for public leads. None to clear.\n* `private_relation_type` - Relation type for private leads. None to clear."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_ENUM_LEADTRADERTONE",
+    "module": "social_trading",
+    "name": "LeadTraderTone",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Profit",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "Loss",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "Flat",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      }
+    ],
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_PROFITSETTLEMENTINTERACTOR_LOAD_MORE_HISTORY_PROFIT",
+    "module": "social_trading",
+    "interface": "ProfitSettlementInteractor",
+    "name": "load_more_history_profit",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Load next page of dividend history and append."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_ENUM_COPYMODERESTRICTION",
+    "module": "social_trading",
+    "name": "CopyModeRestriction",
+    "shape": 0,
+    "discr_type": "i32",
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Unrestricted",
+        "discr": "0",
+        "fields": [],
+        "doc": "All copy modes available (Smart sync + Custom)"
+      },
+      {
+        "name": "SmartSyncOnly",
+        "discr": "1",
+        "fields": [],
+        "doc": "Only Smart Sync mode available"
+      }
+    ],
+    "doc": "Copy mode restriction options.\n\nDetermines which copy modes are available for followers.\nMaps to Android `CopyModeRestriction` enum."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_INTERFACE_OKRUSTFUTUREHISTORYPROFITVECWITHOKSTFFIERROR",
+    "module": "social_trading",
+    "name": "OKRustFutureHistoryProfitVecWithOKSTFFIError",
+    "trait_kind": 4,
+    "doc": "OKRustFuture wrapper generated for specific type (non-generic) with uniffi export"
+  },
+  {
+    "kind": "trait_method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_COPYTRADERETAINEDUIEVENTOBSERVER_ON_UI_EVENT",
+    "module": "social_trading",
+    "interface": "CopyTradeRetainedUiEventObserver",
+    "index": 0,
+    "name": "on_ui_event",
+    "is_async": false,
+    "args": [
+      {
+        "name": "event",
+        "type": "CopyTradeRetainedUiEvent",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_VANGUARDSHAREINTERACTOR_FETCH_VANGUARD_SHARE",
+    "module": "social_trading",
+    "interface": "VanguardShareInteractor",
+    "name": "fetch_vanguard_share",
+    "is_async": false,
+    "args": [
+      {
+        "name": "unique_name",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "trade_type",
+        "type": "VanguardShareTradeType",
+        "default": null
+      }
+    ],
+    "return_type": "Arc<OKRustFutureOptionalVanguardShareInfoWithOKSTFFIError>",
+    "doc": "Fetch vanguard share data for a trader.\n\nReturns trader share data for generating share cards.\n\n# Arguments\n\n* `unique_name` - Trader's unique identifier\n* `trade_type` - Trading type: `Contract` (futures) or `Spot`\n\n# Returns\n\nA cancellable `OKRustFuture` resolving to:\n- `Ok(Some(VanguardShareInfo))` - Share data found\n- `Ok(None)` - No share data available\n- `Err(NetworkFailed)` - Network request failed\n- `Err(JSONParseError)` - Response parsing failed\n- `Err(ServerResponseError)` - Server returned a business error"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_MYLEADTRADERDETAILSINTERACTOR_SET_TRADING_MODE",
+    "module": "social_trading",
+    "interface": "MyLeadTraderDetailsInteractor",
+    "name": "set_trading_mode",
+    "is_async": false,
+    "args": [
+      {
+        "name": "trading_mode",
+        "type": "CopierPnlTradingMode",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Set the trading mode (Live/Demo)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_LEADTRADEHISTORYINTERACTOR_RELEASE",
+    "module": "social_trading",
+    "interface": "LeadTradeHistoryInteractor",
+    "name": "release",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Stop-gap teardown (TEMPORARY — target state is the stream APIs,\nwhich need no teardown call).\n\nOne idempotent call at host lifecycle end that breaks the\nUniFFI handleMap cycle for any registered callback observers,\nends active streams, and stops effects. On Kotlin call BEFORE\n`destroy()`. Includes `stop()`."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_COPYSETTINGSSWAPINTERACTOR_START_QUICK_COPY",
+    "module": "social_trading",
+    "interface": "CopySettingsSwapInteractor",
+    "name": "start_quick_copy",
+    "is_async": false,
+    "args": [
+      {
+        "name": "input",
+        "type": "LoadTraderDataInput",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Start quick copy flow."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_ENUM_PARTNEREMAILCODELOADSTATE",
+    "module": "social_trading",
+    "name": "PartnerEmailCodeLoadState",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Idle",
+        "discr": null,
+        "fields": [],
+        "doc": "Initial state, not sent yet"
+      },
+      {
+        "name": "Loading",
+        "discr": null,
+        "fields": [],
+        "doc": "Sending email code"
+      },
+      {
+        "name": "Success",
+        "discr": null,
+        "fields": [],
+        "doc": "Email code sent successfully"
+      },
+      {
+        "name": "Error",
+        "discr": null,
+        "fields": [],
+        "doc": "Error occurred"
+      }
+    ],
+    "doc": "Content load state for the partner email code action"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_MYFOLLOWERSINTERACTOR_SET_STATE_OBSERVER",
+    "module": "social_trading",
+    "interface": "MyFollowersInteractor",
+    "name": "set_state_observer",
+    "is_async": false,
+    "args": [
+      {
+        "name": "observer",
+        "type": "Arc<dyn InteractorStateChangeObserver>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Set a state observer (UniFFI export).\n\nDEPRECATED: callback-based observer. Use `state_stream()` —\nthe callback observer pins the foreign object in UniFFI's\nstatic handleMap and produces a cross-language retain cycle\n(Android GC + iOS ARC)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTURETRADERFOLLOWERLISTWITHOKSTFFIERROR_IS_FINISHED",
+    "module": "social_trading",
+    "interface": "OKRustFutureTraderFollowerListWithOKSTFFIError",
+    "name": "is_finished",
+    "is_async": false,
+    "args": [],
+    "return_type": "bool",
+    "doc": "Check whether the task has finished (success/failure/cancelled).\n"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_COPIERMESSAGEINTERACTOR_STOP",
+    "module": "social_trading",
+    "interface": "CopierMessageInteractor",
+    "name": "stop",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Stop the interactor and cancel all effects.\n\nCalls the user's `InteractorLifecycle::stop()` implementation first,\nthen cancels all effects as a framework guarantee."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_ENUM_FOLLOWERLISTTRADETYPE",
+    "module": "social_trading",
+    "name": "FollowerListTradeType",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Futures",
+        "discr": null,
+        "fields": [],
+        "doc": "Futures/Swap trading"
+      },
+      {
+        "name": "Spot",
+        "discr": null,
+        "fields": [],
+        "doc": "Spot trading"
+      }
+    ],
+    "doc": "Trade type for Follower List"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_COPYCONTRACTSETTINGSINTERACTOR_SET_DEBUG",
+    "module": "social_trading",
+    "interface": "CopyContractSettingsInteractor",
+    "name": "set_debug",
+    "is_async": false,
+    "args": [
+      {
+        "name": "_enabled",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Enable or disable debug logging.\n\nIn release builds this is a no-op, but the symbol must exist\nso that UniFFI bindings generated in debug mode continue to\nlink successfully against the release library."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTURECOPIERBATCHSETLEVERAGERESULTWITHOKSTFFIERROR_GET_ERROR",
+    "module": "social_trading",
+    "interface": "OKRustFutureCopierBatchSetLeverageResultWithOKSTFFIError",
+    "name": "get_error",
+    "is_async": false,
+    "args": [],
+    "return_type": "Option<OKSTFFIError>",
+    "doc": "Get error information (if any)"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_LEADTRADEHISTORYINTERACTOR_SET_TRADE_TYPE",
+    "module": "social_trading",
+    "interface": "LeadTradeHistoryInteractor",
+    "name": "set_trade_type",
+    "is_async": false,
+    "args": [
+      {
+        "name": "trade_type",
+        "type": "LeadTradeHistoryTradeType",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Change trade type and reload."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_PREPROFIT",
+    "module": "social_trading",
+    "name": "PreProfit",
+    "fields": [
+      {
+        "name": "pre_profit",
+        "type": "String",
+        "default": null,
+        "doc": "Estimated pending profit amount"
+      },
+      {
+        "name": "followers",
+        "type": "Vec<PreProfitFollower>",
+        "default": null,
+        "doc": "List of followers contributing to this profit"
+      },
+      {
+        "name": "remain_time",
+        "type": "String",
+        "default": null,
+        "doc": "Remaining time until settlement (in seconds or formatted string)"
+      },
+      {
+        "name": "symbol",
+        "type": "String",
+        "default": null,
+        "doc": "Currency symbol (e.g., \"USDT\")"
+      }
+    ],
+    "doc": "Pre-profit (estimated pending profit) information\n\nContains estimated profit to be settled and list of followers with their contributions.\nUsed by GET /priapi/v5/ecotrade/account/pre-profit (Contract)\nUsed by GET /priapi/v5/ecotrade/spot/account/pre-profit (Spot)"
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_ENUM_VANGUARDSHAREDEEPLINKINTENT",
+    "module": "social_trading",
+    "name": "VanguardShareDeeplinkIntent",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "TraderProfile",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "PrivateCopySettings",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      }
+    ],
+    "doc": ""
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_ENUM_ECOPNLWEEKLYLOADSTATE",
+    "module": "social_trading",
+    "name": "EcoPnlWeeklyLoadState",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Loading",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "Success",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "Error",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      }
+    ],
+    "doc": "Content load state for the eco pnl weekly page"
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_COPIERPNLDETAILINFO",
+    "module": "social_trading",
+    "name": "CopierPnlDetailInfo",
+    "fields": [
+      {
+        "name": "pnl",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "net_pnl",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "realized_pnl",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "upl",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "today_pnl",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": "PnL metrics in detail block"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTUREUSERPROFILEOVERVIEWVECWITHOKSTFFIERROR_GET_RESULT_STATUS",
+    "module": "social_trading",
+    "interface": "OKRustFutureUserProfileOverviewVecWithOKSTFFIError",
+    "name": "get_result_status",
+    "is_async": false,
+    "args": [],
+    "return_type": "OKRustFutureStatus",
+    "doc": "Get current task status.\n\n# Returns\n- `NotReady` if the task hasn't produced a result yet\n- `Success` if the task completed successfully\n- `Failed` if the task completed with an error (includes cancellation)"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_SMARTCOPYTRADINGINTERACTOR_VALIDATE_TRANSFER_INPUT",
+    "module": "social_trading",
+    "interface": "SmartCopyTradingInteractor",
+    "name": "validate_transfer_input",
+    "is_async": false,
+    "args": [
+      {
+        "name": "amount",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "is_increase",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": "SmartCopyTransferValidation",
+    "doc": "Synchronously validate a transfer-amount input for LIVE (per-keystroke) UI\nfeedback, WITHOUT performing the transfer. Returns the validation result;\nthe caller renders the error text / button-enable state / computed final\namount (locale formatting stays platform-side).\n\nShares its rules with `transfer_amount`'s submit guard via\n[`validate_transfer_input_inner`], so live feedback and the submit check\ncan never diverge. Reads `settings` / `reducible_amount` / `available_balance`\nfrom the current state (populated by `load_data` / `fetch_reducible_amount`\n/ `update_available_balance`)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_COPYSETTINGSSWAPINTERACTOR_UI_EVENT_STREAM",
+    "module": "social_trading",
+    "interface": "CopySettingsSwapInteractor",
+    "name": "ui_event_stream",
+    "is_async": false,
+    "args": [],
+    "return_type": "Arc<CopySettingsSwapUiEventStream>",
+    "doc": "Opt-in async UI event stream (cycle-free). Single-subscriber."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_COPIERPOSITIONHISTORYINTERACTOR_REMOVE_STATE_OBSERVER",
+    "module": "social_trading",
+    "interface": "CopierPositionHistoryInteractor",
+    "name": "remove_state_observer",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Remove the state observer (UniFFI export).\n\nDEPRECATED: callback-based observation. Use `state_stream()` —\nit needs no removal call. Until migrated, every\n`set_state_observer` MUST be paired with this (or `release()`)\nat host lifecycle end, or the UniFFI handleMap pins the\nobserver and its host forever."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_ENUM_MYLEADTRADERDETAILSUIEVENT",
+    "module": "social_trading",
+    "name": "MyLeadTraderDetailsUiEvent",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "DetailLoaded",
+        "discr": null,
+        "fields": [],
+        "doc": "Detail loaded successfully"
+      },
+      {
+        "name": "DetailLoadError",
+        "discr": null,
+        "fields": [
+          {
+            "name": "message",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Detail load failed"
+      },
+      {
+        "name": "VoucherLoaded",
+        "discr": null,
+        "fields": [],
+        "doc": "Voucher loaded successfully"
+      },
+      {
+        "name": "VoucherLoadError",
+        "discr": null,
+        "fields": [
+          {
+            "name": "message",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Voucher load failed"
+      },
+      {
+        "name": "WsStarted",
+        "discr": null,
+        "fields": [],
+        "doc": "PnL WebSocket started"
+      },
+      {
+        "name": "WsStopped",
+        "discr": null,
+        "fields": [
+          {
+            "name": "message",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "PnL WebSocket stopped"
+      },
+      {
+        "name": "WsSnapshotUpdated",
+        "discr": null,
+        "fields": [],
+        "doc": "PnL WebSocket snapshot updated"
+      },
+      {
+        "name": "HistoryListLoaded",
+        "discr": null,
+        "fields": [],
+        "doc": "History list page loaded"
+      },
+      {
+        "name": "HistoryListLoadError",
+        "discr": null,
+        "fields": [
+          {
+            "name": "message",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "History list load failed"
+      }
+    ],
+    "doc": "One-time UI events emitted by the My Lead Trader Details interactor."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKSTCOREUSERPROFILEUSECASE_GET_HISTORY_FUTURE_POSITION",
+    "module": "social_trading",
+    "interface": "OKSTCoreUserProfileUseCase",
+    "name": "get_history_future_position",
+    "is_async": false,
+    "args": [
+      {
+        "name": "unique_name",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "limit",
+        "type": "Option<String>",
+        "default": null
+      },
+      {
+        "name": "after",
+        "type": "Option<String>",
+        "default": null
+      },
+      {
+        "name": "before",
+        "type": "Option<String>",
+        "default": null
+      },
+      {
+        "name": "inst_type",
+        "type": "Option<String>",
+        "default": null
+      },
+      {
+        "name": "inst_id",
+        "type": "Option<String>",
+        "default": null
+      },
+      {
+        "name": "sort_type",
+        "type": "Option<String>",
+        "default": null
+      }
+    ],
+    "return_type": "Arc<OKRustFutureProfilePositionHistoryVecWithOKSTFFIError>",
+    "doc": "Get history future position\n\n# Arguments\n* `unique_name` - Unique name of the user\n* `limit` - Optional limit for pagination\n* `after` - Optional pagination cursor (after)\n* `before` - Optional pagination cursor (before)\n* `inst_type` - Optional instrument type\n* `inst_id` - Optional instrument ID\n* `sort_type` - Optional sort type (\"1\" for recently closed, \"4\" for highest profit ratio, \"5\" for lowest profit ratio)\n\n# Returns\n* `OKRustFuture` - Cancellable future that resolves to Result<Vec<ProfilePositionHistory>, OKSTFFIError>\n- Ok(history) with list of position history\n- Err(NetworkFailed) if network request fails\n- Err(JSONParseError) if response parsing fails\n- Err(ServerResponseError) if server returns business error"
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_INTERFACE_MYFOLLOWERSUIEVENTSTREAM",
+    "module": "social_trading",
+    "name": "MyFollowersUiEventStream",
+    "trait_kind": 4,
+    "doc": "Opt-in async event stream from `interactor.ui_event_stream()`.\nSingle-subscriber, latest-wins. `next()` resolves to `None` when the\ninteractor is dropped or a new subscription replaces this one."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKSTCORESOCIALTRADINGUSECASE_GET_PUBLIC_PROFIT_SHARING_RATIO",
+    "module": "social_trading",
+    "interface": "OKSTCoreSocialTradingUseCase",
+    "name": "get_public_profit_sharing_ratio",
+    "is_async": false,
+    "args": [
+      {
+        "name": "unique_name",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "Arc<OKRustFuturePublicProfitSharingRatioVecWithOKSTFFIError>",
+    "doc": "Fetches public profit sharing ratio for a trader.\n\nGets the profit sharing ratio configuration for a specific trader.\n\n# Arguments\n\n* `unique_name` - The unique identifier of the trader\n\n# Returns\n\nA cancellable `OKRustFuture` resolving to:\n- `Ok(Vec<PublicProfitSharingRatio>)` - Profit sharing ratio info (usually single item)\n- `Err(NetworkFailed)` - Network request failed\n- `Err(JSONParseError)` - Response parsing failed\n- `Err(ServerResponseError)` - Server returned a business error\n\n# Example (Kotlin)\n```kotlin\nval useCase = OkstCoreSocialTradingUseCase()\nval future = useCase.getPublicProfitSharingRatio(\"UNIQUE123\")\nval result = OkRustFutureWrapper(...).exec()\n```"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_COPYTRADERETAINEDINTERACTOR_REMOVE_STATE_OBSERVER",
+    "module": "social_trading",
+    "interface": "CopyTradeRetainedInteractor",
+    "name": "remove_state_observer",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Remove the state observer (UniFFI export).\n\nDEPRECATED: callback-based observation. Use `state_stream()` —\nit needs no removal call. Until migrated, every\n`set_state_observer` MUST be paired with this (or `release()`)\nat host lifecycle end, or the UniFFI handleMap pins the\nobserver and its host forever."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTUREPROFITSHARINGINFOVECWITHOKSTFFIERROR_GET_SUCCESS_RESULT",
+    "module": "social_trading",
+    "interface": "OKRustFutureProfitSharingInfoVecWithOKSTFFIError",
+    "name": "get_success_result",
+    "is_async": false,
+    "args": [],
+    "return_type": "Option<Vec<ProfitSharingInfo>>",
+    "doc": "Get successful result (if any)"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_LEADTRADECRYPTOINTERACTOR_REMOVE_STATE_OBSERVER",
+    "module": "social_trading",
+    "interface": "LeadTradeCryptoInteractor",
+    "name": "remove_state_observer",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Remove the state observer (UniFFI export).\n\nDEPRECATED: callback-based observation. Use `state_stream()` —\nit needs no removal call. Until migrated, every\n`set_state_observer` MUST be paired with this (or `release()`)\nat host lifecycle end, or the UniFFI handleMap pins the\nobserver and its host forever."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_FUNC_CREATE_TOTAL_ASSET_INTERACTOR",
+    "module": "social_trading",
+    "name": "create_total_asset_interactor",
+    "is_async": false,
+    "args": [],
+    "return_type": "Arc<TotalAssetInteractor>",
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_ONGOINGLEADTRADESINTERACTOR_SET_UI_EVENT_OBSERVER",
+    "module": "social_trading",
+    "interface": "OngoingLeadTradesInteractor",
+    "name": "set_ui_event_observer",
+    "is_async": false,
+    "args": [
+      {
+        "name": "observer",
+        "type": "Arc<dyn OngoingLeadTradesUiEventObserver>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "DEPRECATED: callback-based observer. Use `ui_event_stream()` —\nthe callback observer pins the foreign object in UniFFI's\nstatic handleMap and produces a cross-language retain cycle\n(Android GC + iOS ARC)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTURECURRENTPOSITIONVECWITHOKSTFFIERROR_START_WITH_CALLBACK",
+    "module": "social_trading",
+    "interface": "OKRustFutureCurrentPositionVecWithOKSTFFIError",
+    "name": "start_with_callback",
+    "is_async": false,
+    "args": [
+      {
+        "name": "callback",
+        "type": "Box<dyn OKRustFutureCallback>",
+        "default": null
+      }
+    ],
+    "return_type": "Result<(), OKSTFFIError>",
+    "doc": "Start async task with uniffi callback interface"
+  },
+  {
+    "kind": "trait_method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_MARKETPLACEHOMEUIEVENTOBSERVER_ON_UI_EVENT",
+    "module": "social_trading",
+    "interface": "MarketplaceHomeUiEventObserver",
+    "index": 0,
+    "name": "on_ui_event",
+    "is_async": false,
+    "args": [
+      {
+        "name": "event",
+        "type": "MarketplaceHomeUiEvent",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_MYLEADTRADERDETAILSINTERACTOR_SET_CYCLE",
+    "module": "social_trading",
+    "interface": "MyLeadTraderDetailsInteractor",
+    "name": "set_cycle",
+    "is_async": false,
+    "args": [
+      {
+        "name": "rise_fall_cycle",
+        "type": "CopierPnlRiseFallCycleType",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Set the cycle for PnL WS."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_COPIERRETENTIONPOPUPRESPONSE",
+    "module": "social_trading",
+    "name": "CopierRetentionPopupResponse",
+    "fields": [
+      {
+        "name": "first_pop",
+        "type": "Option<FirstRetentionPopup>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "second_pop",
+        "type": "Option<SecondRetentionPopup>",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": "Response data for copier retention popup\nContains information about first and second retention popups"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_LEADTRADERSETTINGSINTERACTOR_SET_STATE_OBSERVER",
+    "module": "social_trading",
+    "interface": "LeadTraderSettingsInteractor",
+    "name": "set_state_observer",
+    "is_async": false,
+    "args": [
+      {
+        "name": "observer",
+        "type": "Arc<dyn InteractorStateChangeObserver>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Set a state observer (UniFFI export).\n\nDEPRECATED: callback-based observer. Use `state_stream()` —\nthe callback observer pins the foreign object in UniFFI's\nstatic handleMap and produces a cross-language retain cycle\n(Android GC + iOS ARC)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTUREBENEFITDETAILVECWITHOKSTFFIERROR_GET_ERROR",
+    "module": "social_trading",
+    "interface": "OKRustFutureBenefitDetailVecWithOKSTFFIError",
+    "name": "get_error",
+    "is_async": false,
+    "args": [],
+    "return_type": "Option<OKSTFFIError>",
+    "doc": "Get error information (if any)"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_SMARTCOPYTRADINGINTERACTOR_SET_DEBUG",
+    "module": "social_trading",
+    "interface": "SmartCopyTradingInteractor",
+    "name": "set_debug",
+    "is_async": false,
+    "args": [
+      {
+        "name": "_enabled",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Enable or disable debug logging.\n\nIn release builds this is a no-op, but the symbol must exist\nso that UniFFI bindings generated in debug mode continue to\nlink successfully against the release library."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTURECANCELCOPYPOSRESPONSEWITHOKSTFFIERROR_IS_FINISHED",
+    "module": "social_trading",
+    "interface": "OKRustFutureCancelCopyPosResponseWithOKSTFFIError",
+    "name": "is_finished",
+    "is_async": false,
+    "args": [],
+    "return_type": "bool",
+    "doc": "Check whether the task has finished (success/failure/cancelled).\n"
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_ENUM_SMARTCOPYTRANSFERVALIDATION",
+    "module": "social_trading",
+    "name": "SmartCopyTransferValidation",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Valid",
+        "discr": null,
+        "fields": [
+          {
+            "name": "final_amount",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Input is valid; the transfer button may be enabled. `final_amount` is the\npost-transfer follow amount (current ± input), truncated to 2 dp — mirrors\nnative `setAmendBalance` / `setReduceBalance` (`setScale(2, DOWN)`)."
+      },
+      {
+        "name": "EmptyOrZero",
+        "discr": null,
+        "fields": [],
+        "doc": "Input is empty or zero — button disabled, no error text (native parity)."
+      },
+      {
+        "name": "IncreaseInsufficientBalance",
+        "discr": null,
+        "fields": [],
+        "doc": "Increase amount exceeds the wallet available balance."
+      },
+      {
+        "name": "IncreaseExceedsMax",
+        "discr": null,
+        "fields": [
+          {
+            "name": "max_amount",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Increase amount exceeds the max-increase limit (`max_amount`)."
+      },
+      {
+        "name": "DecreaseExceedsReducible",
+        "discr": null,
+        "fields": [
+          {
+            "name": "reducible_amount",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Decrease amount exceeds the reducible amount (`reducible_amount`)."
+      }
+    ],
+    "doc": "Result of validating a transfer-amount input for LIVE (per-keystroke) UI\nfeedback, before the transfer is submitted.\n\nSingle source of truth shared by `transfer_amount` (submit guard) and the\nsynchronous `validate_transfer_input` (live validation). Non-`Valid` variants\nmap 1:1 to the corresponding `SmartCopyTradingUiEvent`. Rules mirror the\nnative `checkInput` logic in `IncreaseBalanceFragment` / `ReduceBalanceFragment`."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_MANAGECOPYTRADERSINTERACTOR_REFRESH",
+    "module": "social_trading",
+    "interface": "ManageCopyTradersInteractor",
+    "name": "refresh",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Refresh data (pull-to-refresh).\n\nReloads the first page of managed copiers and aggregated trade info.\n\n# Effects\n\n- `RefreshCompleted` on success\n- `RefreshError` on failure"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_MYCOPIESCURRENTTRADERSINTERACTOR_RELEASE",
+    "module": "social_trading",
+    "interface": "MyCopiesCurrentTradersInteractor",
+    "name": "release",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Stop-gap teardown (TEMPORARY — target state is the stream APIs,\nwhich need no teardown call).\n\nOne idempotent call at host lifecycle end that breaks the\nUniFFI handleMap cycle for any registered callback observers,\nends active streams, and stops effects. On Kotlin call BEFORE\n`destroy()`. Includes `stop()`."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_TRANSFERSMARTAMOUNTREQUEST",
+    "module": "social_trading",
+    "name": "TransferSmartAmountRequest",
+    "fields": [
+      {
+        "name": "copy_rel_id",
+        "type": "String",
+        "default": null,
+        "doc": "Copy relation ID"
+      },
+      {
+        "name": "transfer_type",
+        "type": "String",
+        "default": null,
+        "doc": "Transfer type: \"2\"=increase, \"3\"=decrease"
+      },
+      {
+        "name": "transfer_amount",
+        "type": "String",
+        "default": null,
+        "doc": "Transfer amount"
+      },
+      {
+        "name": "inst_type",
+        "type": "String",
+        "default": null,
+        "doc": "Instrument type (SWAP/SPOT)"
+      }
+    ],
+    "doc": "Request body for transferring smart copy amount.\n\n# API\nPOST /priapi/v5/ecotrade/copytrading/relation/copier/transfer-smart-amount"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTUREPUBLICPROFITSHARINGRATIOVECWITHOKSTFFIERROR_GET_ERROR",
+    "module": "social_trading",
+    "interface": "OKRustFuturePublicProfitSharingRatioVecWithOKSTFFIError",
+    "name": "get_error",
+    "is_async": false,
+    "args": [],
+    "return_type": "Option<OKSTFFIError>",
+    "doc": "Get error information (if any)"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTURELEVERINTERVALRESULTWITHOKSTFFIERROR_START_WITH_CALLBACK",
+    "module": "social_trading",
+    "interface": "OKRustFutureLeverIntervalResultWithOKSTFFIError",
+    "name": "start_with_callback",
+    "is_async": false,
+    "args": [
+      {
+        "name": "callback",
+        "type": "Box<dyn OKRustFutureCallback>",
+        "default": null
+      }
+    ],
+    "return_type": "Result<(), OKSTFFIError>",
+    "doc": "Start async task with uniffi callback interface"
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_CURRENTTRADERRESPONSE",
+    "module": "social_trading",
+    "name": "CurrentTraderResponse",
+    "fields": [
+      {
+        "name": "trader_info",
+        "type": "PartialTraderInfoResponse",
+        "default": null,
+        "doc": "Trader information"
+      },
+      {
+        "name": "relation_info",
+        "type": "OngoingRelationInfoResponse",
+        "default": null,
+        "doc": "Relation information"
+      },
+      {
+        "name": "follow_pnl_detail",
+        "type": "FollowPnlDetailResponse",
+        "default": null,
+        "doc": "Follow PnL details"
+      },
+      {
+        "name": "follow_amount_info",
+        "type": "FollowAmountInfoResponse",
+        "default": null,
+        "doc": "Follow amount information"
+      }
+    ],
+    "doc": "Current trader response from API\nGET /priapi/v5/ecotrade/universals/relation/copier/list"
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_TRADERPROFILEFOLLOWINPUT",
+    "module": "social_trading",
+    "name": "TraderProfileFollowInput",
+    "fields": [
+      {
+        "name": "trader_unique_name",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "should_follow",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "request_id",
+        "type": "String",
+        "default": "\"\"",
+        "doc": "Client-supplied correlation id echoed back verbatim on the terminal\n`FollowUpdated` / `FollowUpdateError` event. Lets the native layer correlate\neach terminal with the exact request that produced it and drop stale\nterminals from superseded/cancelled follow taps (making the stale-terminal\nbug class unrepresentable — see the trader-profile-root migration plan §1.2).\n\n`#[uniffi(default = \"\")]` keeps existing Kotlin/Swift callers source-compatible:\nconsumers that have not yet been migrated to supply a correlation id still\ncompile (omitting it yields an empty, no-correlation id) — forward-compat per\nOKCore best practices."
+      }
+    ],
+    "doc": "Follow/unfollow input."
+  },
+  {
+    "kind": "trait_method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_COPIERPNLWSUIEVENTOBSERVER_ON_UI_EVENT",
+    "module": "social_trading",
+    "interface": "CopierPnlWsUiEventObserver",
+    "index": 0,
+    "name": "on_ui_event",
+    "is_async": false,
+    "args": [
+      {
+        "name": "event",
+        "type": "CopierPnlWsUiEvent",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTUREONGOINGLEADTRADESPOSITIONSUMMARYVECWITHOKSTFFIERROR_IS_FINISHED",
+    "module": "social_trading",
+    "interface": "OKRustFutureOngoingLeadTradesPositionSummaryVecWithOKSTFFIError",
+    "name": "is_finished",
+    "is_async": false,
+    "args": [],
+    "return_type": "bool",
+    "doc": "Check whether the task has finished (success/failure/cancelled).\n"
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_FUNC_CREATE_TRADER_PROFILE_ROOT_INTERACTOR",
+    "module": "social_trading",
+    "name": "create_trader_profile_root_interactor",
+    "is_async": false,
+    "args": [
+      {
+        "name": "trader_unique_name",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "is_self_profile",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": "Arc<TraderProfileRootInteractor>",
+    "doc": "Factory function to create the interactor."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_INTERFACE_MYCOPIESHISTORYLISTSPOTUIEVENTSTREAM",
+    "module": "social_trading",
+    "name": "MyCopiesHistoryListSpotUiEventStream",
+    "trait_kind": 4,
+    "doc": "Opt-in async event stream from `interactor.ui_event_stream()`.\nSingle-subscriber, latest-wins. `next()` resolves to `None` when the\ninteractor is dropped or a new subscription replaces this one."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTURETRADERAPPLYFORMRESULTSWITHOKSTFFIERROR_GET_RESULT_STATUS",
+    "module": "social_trading",
+    "interface": "OKRustFutureTraderApplyFormResultsWithOKSTFFIError",
+    "name": "get_result_status",
+    "is_async": false,
+    "args": [],
+    "return_type": "OKRustFutureStatus",
+    "doc": "Get current task status.\n\n# Returns\n- `NotReady` if the task hasn't produced a result yet\n- `Success` if the task completed successfully\n- `Failed` if the task completed with an error (includes cancellation)"
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_INTERFACE_OKRUSTFUTUREPROFILECHARTVECWITHOKSTFFIERROR",
+    "module": "social_trading",
+    "name": "OKRustFutureProfileChartVecWithOKSTFFIError",
+    "trait_kind": 4,
+    "doc": "OKRustFuture wrapper generated for specific type (non-generic) with uniffi export"
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_COPIERPOSITIONHISTORYSTATE",
+    "module": "social_trading",
+    "name": "CopierPositionHistoryState",
+    "fields": [
+      {
+        "name": "inst_type",
+        "type": "CopierPnlInstType",
+        "default": null,
+        "doc": "Instrument type (Swap or Spot). Set at construction."
+      },
+      {
+        "name": "copy_rel_id",
+        "type": "String",
+        "default": null,
+        "doc": "Lead-trader relation id (identifies the copier-trader pair). Set at construction."
+      },
+      {
+        "name": "copy_mode",
+        "type": "MyLeadTraderCopyMode",
+        "default": null,
+        "doc": "Copy mode of the relation. Set at construction — decides which endpoint\nthe load action calls (`copier/positions-history` vs `copier/position-history`)."
+      },
+      {
+        "name": "content_state",
+        "type": "ContentLoadState",
+        "default": null,
+        "doc": "Load state for the history list."
+      },
+      {
+        "name": "error_message",
+        "type": "String",
+        "default": null,
+        "doc": "Backend error message captured on any fetch failure.\nCleared on Loading entry (refresh start) and on SUCCESS."
+      },
+      {
+        "name": "items_smart",
+        "type": "Vec<SmartCopyPositionHistoryDto>",
+        "default": null,
+        "doc": "Smart-copy history items (populated when `copy_mode = SmartCopy`)."
+      },
+      {
+        "name": "items_custom",
+        "type": "Vec<CustomCopyPositionHistoryDto>",
+        "default": null,
+        "doc": "Custom-copy history items (populated when `copy_mode = FixedCost | RatioCopy`)."
+      },
+      {
+        "name": "items_smart_display",
+        "type": "Vec<CopierPositionHistoryRowDisplay>",
+        "default": "[]",
+        "doc": "Display projection of [`Self::items_smart`], index-aligned: index `i`\nhere corresponds to index `i` of `items_smart`.\n\niOS-only projection; Android reads the raw `items_smart` DTOs directly.\n`#[uniffi(default = [])]` keeps Kotlin/Swift memberwise constructors\nsource-compatible for older/Android clients that never populate this\nfield (precedent: `LeadTraderListState::cards`)."
+      },
+      {
+        "name": "items_custom_display",
+        "type": "Vec<CopierPositionHistoryRowDisplay>",
+        "default": "[]",
+        "doc": "Display projection of [`Self::items_custom`], index-aligned: index `i`\nhere corresponds to index `i` of `items_custom`.\n\niOS-only projection; Android reads the raw `items_custom` DTOs directly.\n`#[uniffi(default = [])]` keeps Kotlin/Swift memberwise constructors\nsource-compatible for older/Android clients that never populate this\nfield (precedent: `LeadTraderListState::cards`)."
+      },
+      {
+        "name": "next_after",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Pagination cursor for the next page (timestamp for Smart, id for Custom)."
+      }
+    ],
+    "doc": "State for Copier Position History Interactor.\n\n`copy_mode` is supplied at construction by the caller (Fragment / Holder).\nNative VM (`HistoricalPositionViewModel`) takes `CurrentPositionType` from\nFragment arguments — Rust mirrors that semantic by accepting `copy_mode`\nup-front rather than reading from a detail-load state."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_ECOPNLWEEKLYUIEVENTSTREAM_NEXT",
+    "module": "social_trading",
+    "interface": "EcoPnlWeeklyUiEventStream",
+    "name": "next",
+    "is_async": true,
+    "args": [],
+    "return_type": "Option<EcoPnlWeeklyUiEvent>",
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_COPYTRADERETAINEDINTERACTOR_START",
+    "module": "social_trading",
+    "interface": "CopyTradeRetainedInteractor",
+    "name": "start",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Start the interactor lifecycle.\n\nCalls the user's `InteractorLifecycle::start()` implementation.\nOverride that method to add custom startup behavior (e.g., initial data loads)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_COPIERMESSAGEINTERACTOR_SET_UI_EVENT_OBSERVER",
+    "module": "social_trading",
+    "interface": "CopierMessageInteractor",
+    "name": "set_ui_event_observer",
+    "is_async": false,
+    "args": [
+      {
+        "name": "observer",
+        "type": "Arc<dyn CopierMessageUiEventObserver>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "DEPRECATED: callback-based observer. Use `ui_event_stream()` —\nthe callback observer pins the foreign object in UniFFI's\nstatic handleMap and produces a cross-language retain cycle\n(Android GC + iOS ARC)."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_STARTCOPYCHECKINPUT",
+    "module": "social_trading",
+    "name": "StartCopyCheckInput",
+    "fields": [
+      {
+        "name": "trade_type",
+        "type": "CopySettingsTradeType",
+        "default": null,
+        "doc": "Trade type (Swap/Spot). Passed per-call so the Fragment (ground truth for\ntradeType, mirrors native savedStateHandle) always wins — avoids the\nconstruction-order trap (skill incident 2026-05-24)."
+      },
+      {
+        "name": "trader_unique_name",
+        "type": "String",
+        "default": null,
+        "doc": "Trader to copy."
+      },
+      {
+        "name": "relation_id",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Relation id (manage flows only)."
+      },
+      {
+        "name": "should_expand",
+        "type": "bool",
+        "default": null,
+        "doc": "Should-expand passthrough."
+      },
+      {
+        "name": "edit_trade_setting",
+        "type": "bool",
+        "default": null,
+        "doc": "true = manage existing copy, false = new copy."
+      },
+      {
+        "name": "show_toast",
+        "type": "bool",
+        "default": null,
+        "doc": "When true, emit `ShowSwitchSuccessToast` first\n(= native `showToast`, set on switch-account re-entry)."
+      },
+      {
+        "name": "eligibility",
+        "type": "SelfCopierEligibility",
+        "default": null,
+        "doc": "Self-user eligibility (used on new-copy branch only)."
+      },
+      {
+        "name": "prefetched_basic",
+        "type": "Option<PrefetchedBasicInfo>",
+        "default": null,
+        "doc": "Pre-provided trader basic info; when Some, skips the basic-info fetch\n(mirrors native `basicUserInfo ?:`). When None, the gatekeeper fetches."
+      }
+    ],
+    "doc": "Input for [`init_start_copy_check`] / switch-account re-entry."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_INTERFACE_OKSTCOREORDEROPERATIONSUSECASE",
+    "module": "social_trading",
+    "name": "OkstCoreOrderOperationsUseCase",
+    "trait_kind": 4,
+    "doc": "Use case for order operations\n\nProvides methods for managing copy trading orders including\namending, creating algo orders, querying, and canceling.\n\n# Example (Swift)\n```swift\nlet useCase = OkstCoreOrderOperationsUseCase()\n\n// Amend order\nlet amendRequest = OrderOperationsAmendOrderRequest(\nordId: \"ORDER123\",\ntradeItemId: \"TRADE456\",\npx: \"50000\"\n)\nlet future = useCase.amendOrder(request: amendRequest)\ntry await OkRustFutureWrapper(future).execute()\n\n// Query order\nlet queryFuture = useCase.queryOrder(tradeItemId: \"TRADE123\")\nlet orders = try await OkRustFutureWrapper(queryFuture).execute()\n```"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_LEADTRADEHISTORYINTERACTOR_REMOVE_STATE_OBSERVER",
+    "module": "social_trading",
+    "interface": "LeadTradeHistoryInteractor",
+    "name": "remove_state_observer",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Remove the state observer (UniFFI export).\n\nDEPRECATED: callback-based observation. Use `state_stream()` —\nit needs no removal call. Until migrated, every\n`set_state_observer` MUST be paired with this (or `release()`)\nat host lifecycle end, or the UniFFI handleMap pins the\nobserver and its host forever."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_ENUM_COPYTRADERETAINEDUIEVENT",
+    "module": "social_trading",
+    "name": "CopyTradeRetainedUiEvent",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Loading",
+        "discr": null,
+        "fields": [],
+        "doc": "Loading started (= native `UiEvent.Loading`)."
+      },
+      {
+        "name": "StartCopyTrade",
+        "discr": null,
+        "fields": [
+          {
+            "name": "params",
+            "type": "CopyFlowParams",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "New-copy success → open SmartCopyFlowFragment (= `StartCopyTrade`)."
+      },
+      {
+        "name": "ManageCopyTrade",
+        "discr": null,
+        "fields": [
+          {
+            "name": "params",
+            "type": "CopyFlowParams",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Manage success → open SocialCopyFlowManageActivity (= `ManageCopyTrade`)."
+      },
+      {
+        "name": "NavigateToCustomCopySetting",
+        "discr": null,
+        "fields": [
+          {
+            "name": "params",
+            "type": "CopyFlowParams",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Custom-copy → open SocialCopyFlowSettingsActivity (= `NavigateToCustomCopySetting`)."
+      },
+      {
+        "name": "ShowSwitchDialog",
+        "discr": null,
+        "fields": [],
+        "doc": "59247 single-currency → switch-account dialog."
+      },
+      {
+        "name": "ShowKycDialog",
+        "discr": null,
+        "fields": [
+          {
+            "name": "message",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "59211 → KYC dialog (carries server message)."
+      },
+      {
+        "name": "ShowUpperLimitDialog",
+        "discr": null,
+        "fields": [],
+        "doc": "59205 → custom-copy upper-limit dialog."
+      },
+      {
+        "name": "ShowSpotSwitchDialog",
+        "discr": null,
+        "fields": [],
+        "doc": "59266 → spot switch-account dialog."
+      },
+      {
+        "name": "ShowSpotAccModeForSwapSmartSync",
+        "discr": null,
+        "fields": [],
+        "doc": "59267 → spot account-mode-for-swap-smart-sync dialog."
+      },
+      {
+        "name": "ShowCopyFullDialog",
+        "discr": null,
+        "fields": [
+          {
+            "name": "limit_count",
+            "type": "i32",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Copy-full dialog (new-copy eligibility; carries trader limit)."
+      },
+      {
+        "name": "ShowSwitchPositionModeDialog",
+        "discr": null,
+        "fields": [
+          {
+            "name": "limit_count",
+            "type": "i32",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Single-position switch dialog (new-copy eligibility; carries trader limit)."
+      },
+      {
+        "name": "ShowSwitchSuccessToast",
+        "discr": null,
+        "fields": [],
+        "doc": "Account-switch success toast (= native `ShowSwitchSuccessToast`)."
+      },
+      {
+        "name": "ErrorToast",
+        "discr": null,
+        "fields": [
+          {
+            "name": "message",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Generic error toast (else / non-OKServerException)."
+      },
+      {
+        "name": "SettingLoadError",
+        "discr": null,
+        "fields": [
+          {
+            "name": "code",
+            "type": "i32",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "message",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Trader-settings load failed (= native SettingException branch). Kotlin\nfires COPYTRADINGSETTING_FULL_PAGE_VIEW tracking with this code, then toasts."
+      }
+    ],
+    "doc": "UI events for the gatekeeper flow. Mirrors native `CopyTradeRetainedViewModel.UiEvent`\n(minus dead events `DismissLoading`/`ErrorShortToast` which the VM never emits,\nand `ShowLogin` which stays a Kotlin pre-guard)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_COPYTRADERETAINEDINTERACTOR_STATE",
+    "module": "social_trading",
+    "interface": "CopyTradeRetainedInteractor",
+    "name": "state",
+    "is_async": false,
+    "args": [],
+    "return_type": "CopyTradeRetainedState",
+    "doc": "Get the current state (UniFFI export).\n\nReturns the External type (UniFFI-compatible)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTURETRADERTRADEPERFORMANCESTATSWITHOKSTFFIERROR_START_WITH_CALLBACK",
+    "module": "social_trading",
+    "interface": "OKRustFutureTraderTradePerformanceStatsWithOKSTFFIError",
+    "name": "start_with_callback",
+    "is_async": false,
+    "args": [
+      {
+        "name": "callback",
+        "type": "Box<dyn OKRustFutureCallback>",
+        "default": null
+      }
+    ],
+    "return_type": "Result<(), OKSTFFIError>",
+    "doc": "Start async task with uniffi callback interface"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_LEADTRADECRYPTOINTERACTOR_STATE_STREAM",
+    "module": "social_trading",
+    "interface": "LeadTradeCryptoInteractor",
+    "name": "state_stream",
+    "is_async": false,
+    "args": [],
+    "return_type": "Arc<InteractorStateStream>",
+    "doc": "Opt-in async state-change stream (cycle-free, signal-only).\nSingle-subscriber, latest-wins. `changed()` resolves `true` on\nchange (pull `state()` for the snapshot), `false` when the\ninteractor is released or a newer subscription replaces this one."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_COPIERPOSITIONHISTORYUIEVENTSTREAM_NEXT",
+    "module": "social_trading",
+    "interface": "CopierPositionHistoryUiEventStream",
+    "name": "next",
+    "is_async": true,
+    "args": [],
+    "return_type": "Option<CopierPositionHistoryUiEvent>",
+    "doc": ""
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_COPYTRADINGORDERCOUPONFLAG",
+    "module": "social_trading",
+    "name": "CopyTradingOrderCouponFlag",
+    "fields": [
+      {
+        "name": "item_id",
+        "type": "String",
+        "default": null,
+        "doc": "Position/trade item ID (posId or tradeItemId)"
+      },
+      {
+        "name": "compensation_ticket_flag",
+        "type": "String",
+        "default": null,
+        "doc": "Flag indicating if coupon should be shown (\"0\" = no, \"1\" = yes)"
+      },
+      {
+        "name": "compensation_ticket_amount",
+        "type": "String",
+        "default": null,
+        "doc": "Amount of the compensation ticket"
+      },
+      {
+        "name": "compensation_ticket_unit",
+        "type": "String",
+        "default": null,
+        "doc": "Unit/currency of the compensation (e.g., \"USDT\")"
+      },
+      {
+        "name": "compensation_ticket_name",
+        "type": "String",
+        "default": null,
+        "doc": "Display name of the compensation ticket"
+      },
+      {
+        "name": "compensation_ticket_state",
+        "type": "String",
+        "default": null,
+        "doc": "State of the compensation ticket"
+      }
+    ],
+    "doc": "Copy trading order coupon flag information\n\nContains compensation ticket/coupon information for a trade position.\nUsed to display voucher/bonus indicators on ongoing positions.\n\n# Fields\n- `item_id`: Position/trade item ID\n- `compensation_ticket_flag`: Flag indicating if coupon should be shown (\"0\" or \"1\")\n- `compensation_ticket_amount`: Amount of the compensation ticket\n- `compensation_ticket_unit`: Unit/currency of the compensation (e.g., \"USDT\")\n- `compensation_ticket_name`: Display name of the compensation ticket\n- `compensation_ticket_state`: State of the compensation ticket"
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_ENUM_VANGUARDSHARETRADETYPE",
+    "module": "social_trading",
+    "name": "VanguardShareTradeType",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Contract",
+        "discr": null,
+        "fields": [],
+        "doc": "Futures/Contract trading"
+      },
+      {
+        "name": "Spot",
+        "discr": null,
+        "fields": [],
+        "doc": "Spot trading"
+      }
+    ],
+    "doc": "Trade type for Vanguard Share"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKSTCOREUSERPROFILEUSECASE_GET_USER_PROFILE_OVERVIEW",
+    "module": "social_trading",
+    "interface": "OKSTCoreUserProfileUseCase",
+    "name": "get_user_profile_overview",
+    "is_async": false,
+    "args": [
+      {
+        "name": "unique_name",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "Arc<OKRustFutureUserProfileOverviewVecWithOKSTFFIError>",
+    "doc": "Get user profile overview information\n\n# Arguments\n* `unique_name` - Unique name of the user\n\n# Returns\n* `OKRustFuture` - Cancellable future that resolves to Result<Vec<UserProfileOverview>, OKSTFFIError>\n- Ok(overviews) with list of user profile overviews\n- Err(NetworkFailed) if network request fails\n- Err(JSONParseError) if response parsing fails\n- Err(ServerResponseError) if server returns business error"
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_FUNC_SOCIAL_INVESTMENT_CCY",
+    "module": "social_trading",
+    "name": "social_investment_ccy",
+    "is_async": false,
+    "args": [
+      {
+        "name": "inst_type",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "Option<String>",
+    "doc": "Bridge `getInvestmentCcyWithInstType` NON-spot branch — native\n`getSuggestedInstrument(instType, instId).getMarginSymbol()`. The SPOT branch is the\nmulti-quote storage path (`OKTTradeReceiveStorage`) and stays native. `None` = empty /\ncold / unknown / blank margin → Kotlin falls back to the native read (whose own\ndefault is the empty string)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_TOTALASSETINTERACTOR_COIN_SIGN",
+    "module": "social_trading",
+    "interface": "TotalAssetInteractor",
+    "name": "coin_sign",
+    "is_async": false,
+    "args": [
+      {
+        "name": "symbol",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "String",
+    "doc": "Coin sign (e.g. \"₿\") for `symbol`. `\"\"` on a store miss — native parity with\n`OkTrade.getCoinSign`. The coins store is warmed during `fetch_total_asset`\n(`ensure_coins_loaded`), mirroring the native `ensureInitializedSuspend()` the\nholder previously ran before formatting."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_FUNC_SOCIAL_RESOLVED_COIN_URL",
+    "module": "social_trading",
+    "name": "social_resolved_coin_url",
+    "is_async": false,
+    "args": [
+      {
+        "name": "symbol",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "String",
+    "doc": "Display-ready coin icon URL. `\"\"` means *no icon* — do not fall back.\n\n`symbol` may be empty, in which case the base currency is taken from `inst_id`."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_INTERFACE_MARKETPLACEHOMEUIEVENTOBSERVER",
+    "module": "social_trading",
+    "name": "MarketplaceHomeUiEventObserver",
+    "trait_kind": 13,
+    "doc": "Deprecated UniFFI callback interface for observing UI events. Prefer the cycle-free `MarketplaceHomeUiEventStream` returned by `interactor.ui_event_stream()`."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_MYCOPIESCURRENTTRADERSINTERACTOR_REMOVE_STATE_OBSERVER",
+    "module": "social_trading",
+    "interface": "MyCopiesCurrentTradersInteractor",
+    "name": "remove_state_observer",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Remove the state observer (UniFFI export).\n\nDEPRECATED: callback-based observation. Use `state_stream()` —\nit needs no removal call. Until migrated, every\n`set_state_observer` MUST be paired with this (or `release()`)\nat host lifecycle end, or the UniFFI handleMap pins the\nobserver and its host forever."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKSTCORETRADERFOLLOWERLISTUSECASE_FETCH_MY_FOLLOWERS_PAGINATED",
+    "module": "social_trading",
+    "interface": "OKSTCoreTraderFollowerListUseCase",
+    "name": "fetch_my_followers_paginated",
+    "is_async": false,
+    "args": [
+      {
+        "name": "page",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "size",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "sort",
+        "type": "Option<String>",
+        "default": null
+      },
+      {
+        "name": "business_line",
+        "type": "BusinessLine",
+        "default": null
+      }
+    ],
+    "return_type": "Arc<OKRustFutureTraderFollowerListWithOKSTFFIError>",
+    "doc": "Fetches account follower list with pagination (authenticated user's own followers).\n\nReturns follower statistics and list for the authenticated user's own followers\nwith support for pagination and sorting.\n\n# Arguments\n\n* `page` - Page number (e.g., `\"1\"`)\n* `size` - Page size (e.g., `\"20\"`)\n* `sort` - Optional sort order: `\"asc\"` or `\"desc\"` (defaults to no sorting if None)\n* `business_line` - Trading type: `Contract` (futures) or `Spot`\n\n# Returns\n\nA cancellable `OKRustFuture` resolving to:\n- `Ok(TraderFollowerList)` - Follower statistics and list\n- `Err(NetworkFailed)` - Network request failed\n- `Err(JSONParseError)` - Response parsing failed\n- `Err(ServerResponseError)` - Server returned a business error"
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_ENUM_COPYSETTINGSTRADETYPE",
+    "module": "social_trading",
+    "name": "CopySettingsTradeType",
+    "shape": 0,
+    "discr_type": "i32",
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Swap",
+        "discr": "0",
+        "fields": [],
+        "doc": "Contract/Futures trading (instType = \"SWAP\")"
+      },
+      {
+        "name": "Spot",
+        "discr": "1",
+        "fields": [],
+        "doc": "Spot trading (instType = \"SPOT\")"
+      }
+    ],
+    "doc": "Trade type for copy settings.\n\nMaps to iOS `businessLine` parameter."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_FOLLOWAMOUNTDETAIL",
+    "module": "social_trading",
+    "name": "FollowAmountDetail",
+    "fields": [
+      {
+        "name": "max_follow_amount",
+        "type": "String",
+        "default": null,
+        "doc": "Maximum follow amount"
+      },
+      {
+        "name": "follow_amount",
+        "type": "String",
+        "default": null,
+        "doc": "Current follow amount"
+      },
+      {
+        "name": "investment_amount",
+        "type": "String",
+        "default": null,
+        "doc": "Investment amount"
+      },
+      {
+        "name": "init_follow_amount",
+        "type": "String",
+        "default": null,
+        "doc": "Initial follow amount"
+      },
+      {
+        "name": "transfer_add_amount",
+        "type": "String",
+        "default": null,
+        "doc": "Transfer add amount"
+      },
+      {
+        "name": "transfer_reduce_amount",
+        "type": "String",
+        "default": null,
+        "doc": "Transfer reduce amount"
+      }
+    ],
+    "doc": "Follow amount detail (used in trader detail)"
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_PUBLICPROFITSHARINGRATIO",
+    "module": "social_trading",
+    "name": "PublicProfitSharingRatio",
+    "fields": [
+      {
+        "name": "min_profit_sharing_ratio",
+        "type": "String",
+        "default": null,
+        "doc": "Minimum profit sharing ratio (e.g., \"0\", \"0.05\")"
+      },
+      {
+        "name": "max_profit_sharing_ratio",
+        "type": "String",
+        "default": null,
+        "doc": "Maximum profit sharing ratio (e.g., \"0.5\", \"0.3\")"
+      },
+      {
+        "name": "limit_num",
+        "type": "String",
+        "default": null,
+        "doc": "Limit number (e.g., \"500\", \"1000\")"
+      }
+    ],
+    "doc": "Public profit sharing ratio information\n\nContains min/max profit sharing ratio and limit number for a trader.\n\n# Fields\n- `min_profit_sharing_ratio`: Minimum profit sharing ratio (e.g., \"0\", \"0.05\")\n- `max_profit_sharing_ratio`: Maximum profit sharing ratio (e.g., \"0.5\", \"0.3\")\n- `limit_num`: Limit number (e.g., \"500\", \"1000\")"
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_USERSPOTTRADEINFOPUBLIC",
+    "module": "social_trading",
+    "name": "UserSpotTradeInfoPublic",
+    "fields": [
+      {
+        "name": "role_type",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "is_lead_trader",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "is_copy_trader",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "symbol",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "aum",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "share_ratio",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "public_share_ratio",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "private_share_ratio",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "follower_num",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "total_follower_num",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "follower_limit",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "lead_mode",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "is_private_lead_mode",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "pre_profit",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "instruments",
+        "type": "Vec<UserSpotTradeInfoInstrument>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "signal_protect",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "is_signal_protection_enabled",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "auto_add_new_inst",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "is_auto_add_new_inst_enabled",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "recommended_copy_mode",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "rank_remind",
+        "type": "Option<RankRemind>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "grade_level",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "follow_pnl",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "pnl",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "margin",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "copier_can_follow",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "copier_followee_limit",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "unrealized_pnl",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "realized_pnl",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "settle_profit",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "wait_settle_profit",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "affiliate_trade_volume",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "is_affiliate_trader",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": "User spot trade info domain model (UniFFI-compatible)"
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_FUNC_SOCIAL_IS_SINGLE_POSITION_MODE",
+    "module": "social_trading",
+    "name": "social_is_single_position_mode",
+    "is_async": false,
+    "args": [],
+    "return_type": "Option<bool>",
+    "doc": "Bridge native `TradeDataSettings.fetchPositionMode() == SINGLE_POSITION_MODE`\n(single/net vs long-short position mode; `\"net_mode\"` / `\"long_short_mode\"`,\n`TradeConfigInfoProvider.kt:441` + `TradeConst.kt:116-117`). `None` when the\naccount-config store is cold → Kotlin falls back to the native read (never default\nthe bool — see the trait doc for the cold-store rule)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_TRADERPROFILEROOTINTERACTOR_SET_DEBUG",
+    "module": "social_trading",
+    "interface": "TraderProfileRootInteractor",
+    "name": "set_debug",
+    "is_async": false,
+    "args": [
+      {
+        "name": "_enabled",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Enable or disable debug logging.\n\nIn release builds this is a no-op, but the symbol must exist\nso that UniFFI bindings generated in debug mode continue to\nlink successfully against the release library."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_ASSOCIATEDAFFILIATEINFO",
+    "module": "social_trading",
+    "name": "AssociatedAffiliateInfo",
+    "fields": [
+      {
+        "name": "nick_name",
+        "type": "String",
+        "default": null,
+        "doc": "Affiliate's nickname"
+      },
+      {
+        "name": "portrait",
+        "type": "String",
+        "default": null,
+        "doc": "Affiliate's portrait URL"
+      },
+      {
+        "name": "target_id",
+        "type": "String",
+        "default": null,
+        "doc": "Affiliate's target ID"
+      }
+    ],
+    "doc": "Associated affiliate info (UniFFI-compatible)\n\nContains information about the affiliate trader if the viewer is an invitee."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_MYFOLLOWERSINTERACTOR_STATE_STREAM",
+    "module": "social_trading",
+    "interface": "MyFollowersInteractor",
+    "name": "state_stream",
+    "is_async": false,
+    "args": [],
+    "return_type": "Arc<InteractorStateStream>",
+    "doc": "Opt-in async state-change stream (cycle-free, signal-only).\nSingle-subscriber, latest-wins. `changed()` resolves `true` on\nchange (pull `state()` for the snapshot), `false` when the\ninteractor is released or a newer subscription replaces this one."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_SPOTSAFETYCHECKSSTATE",
+    "module": "social_trading",
+    "name": "SpotSafetyChecksState",
+    "fields": [
+      {
+        "name": "content_state",
+        "type": "SpotSafetyChecksLoadState",
+        "default": null,
+        "doc": "Content load state"
+      },
+      {
+        "name": "check_result",
+        "type": "SpotSafetyChecksCheckResult",
+        "default": null,
+        "doc": "Last check result"
+      },
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null,
+        "doc": "The instrument ID that was checked"
+      },
+      {
+        "name": "side",
+        "type": "String",
+        "default": null,
+        "doc": "The side that was checked (buy/sell)"
+      },
+      {
+        "name": "px",
+        "type": "String",
+        "default": null,
+        "doc": "The price that was checked"
+      },
+      {
+        "name": "sz",
+        "type": "String",
+        "default": null,
+        "doc": "The size that was checked"
+      }
+    ],
+    "doc": "State for Spot Trade Safety Checks Interactor."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_FUNC_CREATE_LEAD_TRADER_LIST_INTERACTOR",
+    "module": "social_trading",
+    "name": "create_lead_trader_list_interactor",
+    "is_async": false,
+    "args": [
+      {
+        "name": "business_line",
+        "type": "LeadTraderListBusinessLine",
+        "default": null
+      }
+    ],
+    "return_type": "Arc<LeadTraderListInteractor>",
+    "doc": "Factory function to create the Interactor."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_SYSTEMSTATUSRESULT",
+    "module": "social_trading",
+    "name": "SystemStatusResult",
+    "fields": [
+      {
+        "name": "is_valid",
+        "type": "bool",
+        "default": null,
+        "doc": "Indicates the server is valid and available.\nAlways `true` when returned from a successful check."
+      }
+    ],
+    "doc": "Result type for system status check (UniFFI-compatible).\n\nSince the endpoint returns no data on success, this is a simple marker type\nindicating the server status check completed successfully."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_TOTALASSETINTERACTOR_UI_EVENT_STREAM",
+    "module": "social_trading",
+    "interface": "TotalAssetInteractor",
+    "name": "ui_event_stream",
+    "is_async": false,
+    "args": [],
+    "return_type": "Arc<TotalAssetUiEventStream>",
+    "doc": "Opt-in async UI event stream (cycle-free). Single-subscriber."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_ENUM_PREFERENCECOINACCESSLEVEL",
+    "module": "social_trading",
+    "name": "PreferenceCoinAccessLevel",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Public",
+        "discr": null,
+        "fields": [],
+        "doc": "Public endpoint (viewing other traders)"
+      },
+      {
+        "name": "Account",
+        "discr": null,
+        "fields": [],
+        "doc": "Account endpoint (viewing own data)"
+      }
+    ],
+    "doc": "Access level enum for currency preference chart"
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_INTERFACE_LEADTRADEHISTORYUIEVENTSTREAM",
+    "module": "social_trading",
+    "name": "LeadTradeHistoryUiEventStream",
+    "trait_kind": 4,
+    "doc": "Opt-in async event stream from `interactor.ui_event_stream()`.\nSingle-subscriber, latest-wins. `next()` resolves to `None` when the\ninteractor is dropped or a new subscription replaces this one."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTUREHISTORYPROFITVECWITHOKSTFFIERROR_GET_ERROR",
+    "module": "social_trading",
+    "interface": "OKRustFutureHistoryProfitVecWithOKSTFFIError",
+    "name": "get_error",
+    "is_async": false,
+    "args": [],
+    "return_type": "Option<OKSTFFIError>",
+    "doc": "Get error information (if any)"
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_ENUM_SPOTSAFETYCHECKSUIEVENT",
+    "module": "social_trading",
+    "name": "SpotSafetyChecksUiEvent",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "CheckPassed",
+        "discr": null,
+        "fields": [],
+        "doc": "Price limit check passed (not triggered)"
+      },
+      {
+        "name": "CheckTriggered",
+        "discr": null,
+        "fields": [
+          {
+            "name": "sell_limit",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Price limit check triggered (price below limit)"
+      },
+      {
+        "name": "CheckError",
+        "discr": null,
+        "fields": [
+          {
+            "name": "msg",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Error during price limit check"
+      }
+    ],
+    "doc": "One-time UI events emitted by the Spot Trade Safety Checks interactor."
+  },
+  {
+    "kind": "trait_method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_TRADERPROFILEROOTUIEVENTOBSERVER_ON_UI_EVENT",
+    "module": "social_trading",
+    "interface": "TraderProfileRootUiEventObserver",
+    "index": 0,
+    "name": "on_ui_event",
+    "is_async": false,
+    "args": [
+      {
+        "name": "event",
+        "type": "TraderProfileRootUiEvent",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTUREONGOINGLEADTRADESPOSITIONSUMMARYVECWITHOKSTFFIERROR_GET_ERROR",
+    "module": "social_trading",
+    "interface": "OKRustFutureOngoingLeadTradesPositionSummaryVecWithOKSTFFIError",
+    "name": "get_error",
+    "is_async": false,
+    "args": [],
+    "return_type": "Option<OKSTFFIError>",
+    "doc": "Get error information (if any)"
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_SMARTCOPYSETTINGSDTO",
+    "module": "social_trading",
+    "name": "SmartCopySettingsDto",
+    "fields": [
+      {
+        "name": "current_follow_amount",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Current follow amount (investment)"
+      },
+      {
+        "name": "min_follow_amount",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Minimum follow amount"
+      },
+      {
+        "name": "max_follow_amount",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Maximum follow amount"
+      },
+      {
+        "name": "stop_loss_amount",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Stop loss amount"
+      },
+      {
+        "name": "remain_mgn_deal",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Remaining margin deal mode: 1=market close, 2=follow trader, 3=manual"
+      },
+      {
+        "name": "copy_state",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Copy state: \"0\"=not copying, \"1\"=copying"
+      },
+      {
+        "name": "symbol",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Currency symbol (e.g., \"USDT\")"
+      },
+      {
+        "name": "max_increase_amount",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Maximum amount that can be added"
+      },
+      {
+        "name": "recommended_copy_mode",
+        "type": "Option<RecommendedCopyModeDto>",
+        "default": null,
+        "doc": "Recommended copy mode"
+      }
+    ],
+    "doc": "Smart copy settings response.\n\n# API\nGET /priapi/v5/ecotrade/copytrading/relation/copier/smart-settings"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_MYCOPIESHISTORYLISTSWAPINTERACTOR_REFRESH",
+    "module": "social_trading",
+    "interface": "MyCopiesHistoryListSwapInteractor",
+    "name": "refresh",
+    "is_async": false,
+    "args": [
+      {
+        "name": "page_size",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "rise_fall_cycle",
+        "type": "CopierPnlRiseFallCycleType",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Refresh the history list (first page)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTUREONGOINGLEADTRADESINSTRUMENTINFOVECWITHOKSTFFIERROR_GET_RESULT_STATUS",
+    "module": "social_trading",
+    "interface": "OKRustFutureOngoingLeadTradesInstrumentInfoVecWithOKSTFFIError",
+    "name": "get_result_status",
+    "is_async": false,
+    "args": [],
+    "return_type": "OKRustFutureStatus",
+    "doc": "Get current task status.\n\n# Returns\n- `NotReady` if the task hasn't produced a result yet\n- `Success` if the task completed successfully\n- `Failed` if the task completed with an error (includes cancellation)"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_COPIERPOSITIONSINTERACTOR_START",
+    "module": "social_trading",
+    "interface": "CopierPositionsInteractor",
+    "name": "start",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Start the interactor lifecycle.\n\nCalls the user's `InteractorLifecycle::start()` implementation.\nOverride that method to add custom startup behavior (e.g., initial data loads)."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_INTERFACE_ECOPNLWEEKLYINTERACTOR",
+    "module": "social_trading",
+    "name": "EcoPnlWeeklyInteractor",
+    "trait_kind": 4,
+    "doc": "Eco Pnl Weekly Interactor"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_COPIERPOSITIONHISTORYINTERACTOR_SET_UI_EVENT_OBSERVER",
+    "module": "social_trading",
+    "interface": "CopierPositionHistoryInteractor",
+    "name": "set_ui_event_observer",
+    "is_async": false,
+    "args": [
+      {
+        "name": "observer",
+        "type": "Arc<dyn CopierPositionHistoryUiEventObserver>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "DEPRECATED: callback-based observer. Use `ui_event_stream()` —\nthe callback observer pins the foreign object in UniFFI's\nstatic handleMap and produces a cross-language retain cycle\n(Android GC + iOS ARC)."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_INTERFACE_LEADTRADERLISTINTERACTOR",
+    "module": "social_trading",
+    "name": "LeadTraderListInteractor",
+    "trait_kind": 4,
+    "doc": "Lead Trader List Interactor"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_COPIERPOSITIONSINTERACTOR_STATE",
+    "module": "social_trading",
+    "interface": "CopierPositionsInteractor",
+    "name": "state",
+    "is_async": false,
+    "args": [],
+    "return_type": "CopierPositionsState",
+    "doc": "Get the current state (UniFFI export).\n\nReturns the External type (UniFFI-compatible)."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_INTERFACE_COPIERPOSITIONSUIEVENTSTREAM",
+    "module": "social_trading",
+    "name": "CopierPositionsUiEventStream",
+    "trait_kind": 4,
+    "doc": "Opt-in async event stream from `interactor.ui_event_stream()`.\nSingle-subscriber, latest-wins. `next()` resolves to `None` when the\ninteractor is dropped or a new subscription replaces this one."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_COPIERPNLWSUIEVENTSTREAM_NEXT",
+    "module": "social_trading",
+    "interface": "CopierPnlWsUiEventStream",
+    "name": "next",
+    "is_async": true,
+    "args": [],
+    "return_type": "Option<CopierPnlWsUiEvent>",
+    "doc": ""
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_LEADERRANKITEM",
+    "module": "social_trading",
+    "name": "LeaderRankItem",
+    "fields": [
+      {
+        "name": "nick_name",
+        "type": "String",
+        "default": null,
+        "doc": "User nickname"
+      },
+      {
+        "name": "unique_name",
+        "type": "String",
+        "default": null,
+        "doc": "Unique user identifier"
+      },
+      {
+        "name": "portrait",
+        "type": "String",
+        "default": null,
+        "doc": "Avatar URL"
+      },
+      {
+        "name": "target_id",
+        "type": "String",
+        "default": null,
+        "doc": "Custom avatar ID (targetId in API)"
+      },
+      {
+        "name": "pnl",
+        "type": "String",
+        "default": null,
+        "doc": "Total profit/loss (PnL) - sortable"
+      },
+      {
+        "name": "yield_ratio",
+        "type": "String",
+        "default": null,
+        "doc": "Yield ratio (return rate) - sortable"
+      },
+      {
+        "name": "win_ratio",
+        "type": "String",
+        "default": null,
+        "doc": "Win ratio (winning percentage) - sortable"
+      },
+      {
+        "name": "follow_pnl",
+        "type": "String",
+        "default": null,
+        "doc": "Follower total profit/loss - sortable"
+      },
+      {
+        "name": "aum",
+        "type": "String",
+        "default": null,
+        "doc": "Assets Under Management (AUM) - sortable"
+      },
+      {
+        "name": "symbol",
+        "type": "String",
+        "default": null,
+        "doc": "Currency symbol (e.g., \"USDT\")"
+      },
+      {
+        "name": "follower_num",
+        "type": "String",
+        "default": null,
+        "doc": "Current number of followers - sortable"
+      },
+      {
+        "name": "history_follower_num",
+        "type": "String",
+        "default": null,
+        "doc": "Cumulative follower count (historical) - not sortable"
+      },
+      {
+        "name": "follower_limit",
+        "type": "String",
+        "default": null,
+        "doc": "Maximum allowed followers"
+      },
+      {
+        "name": "follow_type",
+        "type": "String",
+        "default": null,
+        "doc": "Follow type: \"0\" = not followed, \"1\" = followed"
+      },
+      {
+        "name": "copy_rel_id",
+        "type": "String",
+        "default": null,
+        "doc": "Copy relationship ID (if following)"
+      },
+      {
+        "name": "empty_minder_state",
+        "type": "String",
+        "default": null,
+        "doc": "Empty slot reminder state: \"0\" = not subscribed, \"1\" = subscribed"
+      },
+      {
+        "name": "full_status",
+        "type": "bool",
+        "default": null,
+        "doc": "System limit reached - no more followers allowed"
+      },
+      {
+        "name": "initial_day",
+        "type": "String",
+        "default": null,
+        "doc": "Number of days leading trades"
+      },
+      {
+        "name": "api_trader",
+        "type": "String",
+        "default": null,
+        "doc": "API trader flag: \"0\" = not quant trader, \"1\" = quant trader"
+      },
+      {
+        "name": "leverage",
+        "type": "String",
+        "default": null,
+        "doc": "Leverage value"
+      },
+      {
+        "name": "total_lead_inst_num",
+        "type": "String",
+        "default": null,
+        "doc": "Total number of instruments led"
+      },
+      {
+        "name": "trader_card_time_dimension",
+        "type": "String",
+        "default": null,
+        "doc": "Trader card time dimension"
+      },
+      {
+        "name": "channel",
+        "type": "i32",
+        "default": null,
+        "doc": "Channel (numeric)"
+      },
+      {
+        "name": "is_affiliate_invitee",
+        "type": "bool",
+        "default": null,
+        "doc": "Whether copier is an affiliate invitee"
+      },
+      {
+        "name": "has_affiliate_invitee",
+        "type": "bool",
+        "default": null,
+        "doc": "Whether trader has any affiliate invitees"
+      },
+      {
+        "name": "rates",
+        "type": "Vec<RateChartData>",
+        "default": null,
+        "doc": "Yield rate curve data points"
+      },
+      {
+        "name": "coin_asset_ratios",
+        "type": "Vec<CoinAssetRatio>",
+        "default": null,
+        "doc": "Coin asset ratios (usually empty in this API)"
+      },
+      {
+        "name": "instruments",
+        "type": "Vec<LeaderRankInstrument>",
+        "default": null,
+        "doc": "Traded instruments (max 5)"
+      },
+      {
+        "name": "tier",
+        "type": "Option<TraderTier>",
+        "default": null,
+        "doc": "Trader tier information"
+      },
+      {
+        "name": "follow_state",
+        "type": "FollowState",
+        "default": null,
+        "doc": "Resolved follow/copy state (native `FollowTypeEnum.map`)."
+      },
+      {
+        "name": "time_period",
+        "type": "LeaderTimePeriod",
+        "default": null,
+        "doc": "Resolved trader-card time period (native `timeDimMap2TimePeriod`)."
+      },
+      {
+        "name": "is_quant",
+        "type": "bool",
+        "default": null,
+        "doc": "Quant (API) trader flag (native `apiTrader == \"1\"`)."
+      },
+      {
+        "name": "is_subscribed",
+        "type": "bool",
+        "default": null,
+        "doc": "Subscribed to the empty-slot reminder (native `emptyMinderState == \"1\"`)."
+      },
+      {
+        "name": "pnl_direction",
+        "type": "i32",
+        "default": null,
+        "doc": "PnL direction for the UI color decision: `1` = up, `-1` = down, `0` = neutral.\nSinks the SIGN decision of native `getRateColor(pnl)`; the theme-aware color\nresource itself stays in the Kotlin/Swift layer."
+      }
+    ],
+    "doc": "Individual trader in the leader rank list.\n\nMirrors ObjC `OKGTESquareCellModel`."
+  },
+  {
+    "kind": "constructor",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_CONSTRUCTOR_RELATIONCOUNTINTERACTOR_NEW",
+    "module": "social_trading",
+    "interface": "RelationCountInteractor",
+    "name": "new",
+    "is_async": false,
+    "args": [],
+    "return_type": "Arc<RelationCountInteractor>",
+    "doc": "Default constructor wired through the social-trading DI container."
+  },
+  {
+    "kind": "constructor",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_CONSTRUCTOR_OKSTCORESOCIALTRADINGUSECASE_NEW",
+    "module": "social_trading",
+    "interface": "OKSTCoreSocialTradingUseCase",
+    "name": "new",
+    "is_async": false,
+    "args": [],
+    "return_type": "Arc<OKSTCoreSocialTradingUseCase>",
+    "doc": "Creates a new use case instance with default dependencies.\n\nUses the global `DependencyContainer` to wire up the request center."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_COPYTRADERETAINEDINTERACTOR_SET_UI_EVENT_OBSERVER",
+    "module": "social_trading",
+    "interface": "CopyTradeRetainedInteractor",
+    "name": "set_ui_event_observer",
+    "is_async": false,
+    "args": [
+      {
+        "name": "observer",
+        "type": "Arc<dyn CopyTradeRetainedUiEventObserver>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "DEPRECATED: callback-based observer. Use `ui_event_stream()` —\nthe callback observer pins the foreign object in UniFFI's\nstatic handleMap and produces a cross-language retain cycle\n(Android GC + iOS ARC)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_TOTALASSETINTERACTOR_REMOVE_STATE_OBSERVER",
+    "module": "social_trading",
+    "interface": "TotalAssetInteractor",
+    "name": "remove_state_observer",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Remove the state observer (UniFFI export).\n\nDEPRECATED: callback-based observation. Use `state_stream()` —\nit needs no removal call. Until migrated, every\n`set_state_observer` MUST be paired with this (or `release()`)\nat host lifecycle end, or the UniFFI handleMap pins the\nobserver and its host forever."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTUREYIELDPNLCHARTDATAITEMVECWITHOKSTFFIERROR_GET_SUCCESS_RESULT",
+    "module": "social_trading",
+    "interface": "OKRustFutureYieldPnlChartDataItemVecWithOKSTFFIError",
+    "name": "get_success_result",
+    "is_async": false,
+    "args": [],
+    "return_type": "Option<Vec<YieldPnlChartDataItem>>",
+    "doc": "Get successful result (if any)"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_COPIERPNLWSINTERACTOR_REMOVE_STATE_OBSERVER",
+    "module": "social_trading",
+    "interface": "CopierPnlWsInteractor",
+    "name": "remove_state_observer",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Remove the state observer (UniFFI export).\n\nDEPRECATED: callback-based observation. Use `state_stream()` —\nit needs no removal call. Until migrated, every\n`set_state_observer` MUST be paired with this (or `release()`)\nat host lifecycle end, or the UniFFI handleMap pins the\nobserver and its host forever."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTUREBENEFITDETAILVECWITHOKSTFFIERROR_GET_RESULT_STATUS",
+    "module": "social_trading",
+    "interface": "OKRustFutureBenefitDetailVecWithOKSTFFIError",
+    "name": "get_result_status",
+    "is_async": false,
+    "args": [],
+    "return_type": "OKRustFutureStatus",
+    "doc": "Get current task status.\n\n# Returns\n- `NotReady` if the task hasn't produced a result yet\n- `Success` if the task completed successfully\n- `Failed` if the task completed with an error (includes cancellation)"
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_LEADTRADECRYPTOSTATE",
+    "module": "social_trading",
+    "name": "LeadTradeCryptoState",
+    "fields": [
+      {
+        "name": "content_state",
+        "type": "ContentLoadState",
+        "default": null,
+        "doc": "Content loading state (for initial data load)"
+      },
+      {
+        "name": "submit_state",
+        "type": "ContentLoadState",
+        "default": null,
+        "doc": "Submit loading state (for save operation)"
+      },
+      {
+        "name": "trade_type",
+        "type": "LeadTradeCryptoTradeType",
+        "default": null,
+        "doc": "Current trade type (Futures/Spot)"
+      },
+      {
+        "name": "instruments",
+        "type": "Vec<LeadTradeCryptoItem>",
+        "default": null,
+        "doc": "All available crypto items with selection status"
+      },
+      {
+        "name": "is_auto_include_new",
+        "type": "bool",
+        "default": null,
+        "doc": "Whether \"Auto-include new crypto\" is enabled"
+      },
+      {
+        "name": "search_query",
+        "type": "String",
+        "default": null,
+        "doc": "Current search query (native can use this for filtering)"
+      },
+      {
+        "name": "selected_count",
+        "type": "i32",
+        "default": null,
+        "doc": "Number of currently selected items"
+      },
+      {
+        "name": "total_count",
+        "type": "i32",
+        "default": null,
+        "doc": "Total number of available items"
+      }
+    ],
+    "doc": "Lead Trade Crypto state.\n\nContains all data for the \"Lead trade crypto\" selection screen.\nThe `#[interactor::state]` macro adds: `Clone, Debug, PartialEq, uniffi::Record`\n\n# Corresponding UI Elements\n\n| Field | UI Element |\n|-------|------------|\n| `instruments` | List of selectable crypto items |\n| `is_auto_include_new` | \"Auto-include new crypto\" toggle |\n| `selected_count` | \"Selected (X/Y)\" counter |\n| `total_count` | Total available items count |\n| `search_query` | Search input field (client-side filtering) |"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTUREUPGRADEPOPUPINFOVECWITHOKSTFFIERROR_GET_ERROR",
+    "module": "social_trading",
+    "interface": "OKRustFutureUpgradePopupInfoVecWithOKSTFFIError",
+    "name": "get_error",
+    "is_async": false,
+    "args": [],
+    "return_type": "Option<OKSTFFIError>",
+    "doc": "Get error information (if any)"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKSTCOREAMENDSETTINGSUSECASE_AMEND_SETTINGS_CONTRACT",
+    "module": "social_trading",
+    "interface": "OKSTCoreAmendSettingsUseCase",
+    "name": "amend_settings_contract",
+    "is_async": false,
+    "args": [
+      {
+        "name": "request",
+        "type": "AmendSettingsRequest",
+        "default": null
+      }
+    ],
+    "return_type": "Arc<OKRustFutureboolWithOKSTFFIError>",
+    "doc": "Amend copy trading settings (Contract).\n\n# Parameters\n- `request`: The amend settings request\n\n# Returns\nReturns Ok(true) if successful"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_LEADTRADECRYPTOINTERACTOR_SET_UI_EVENT_OBSERVER",
+    "module": "social_trading",
+    "interface": "LeadTradeCryptoInteractor",
+    "name": "set_ui_event_observer",
+    "is_async": false,
+    "args": [
+      {
+        "name": "observer",
+        "type": "Arc<dyn LeadTradeCryptoUiEventObserver>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "DEPRECATED: callback-based observer. Use `ui_event_stream()` —\nthe callback observer pins the foreign object in UniFFI's\nstatic handleMap and produces a cross-language retain cycle\n(Android GC + iOS ARC)."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_FUNC_CREATE_LEAD_TRADER_SETTINGS_INTERACTOR",
+    "module": "social_trading",
+    "name": "create_lead_trader_settings_interactor",
+    "is_async": false,
+    "args": [
+      {
+        "name": "trade_type",
+        "type": "LeadTraderSettingsTradeType",
+        "default": null
+      }
+    ],
+    "return_type": "Arc<LeadTraderSettingsInteractor>",
+    "doc": "Factory function to create the Interactor."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_COPIERMESSAGEITEM",
+    "module": "social_trading",
+    "name": "CopierMessageItem",
+    "fields": [
+      {
+        "name": "id",
+        "type": "String",
+        "default": null,
+        "doc": "Unique identifier for the message"
+      },
+      {
+        "name": "level",
+        "type": "String",
+        "default": null,
+        "doc": "Message level as string: \"1\"=info, \"2\"=warn, \"3\"=important"
+      },
+      {
+        "name": "title",
+        "type": "String",
+        "default": null,
+        "doc": "Message title"
+      },
+      {
+        "name": "content",
+        "type": "String",
+        "default": null,
+        "doc": "Message content body"
+      },
+      {
+        "name": "link",
+        "type": "String",
+        "default": null,
+        "doc": "Optional URL link for the message"
+      },
+      {
+        "name": "display_transfer",
+        "type": "bool",
+        "default": null,
+        "doc": "Whether to display transfer button (\"1\" = true)"
+      }
+    ],
+    "doc": "Individual copier message item for UniFFI export"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_ECOPNLWEEKLYINTERACTOR_REMOVE_UI_EVENT_OBSERVER",
+    "module": "social_trading",
+    "interface": "EcoPnlWeeklyInteractor",
+    "name": "remove_ui_event_observer",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "DEPRECATED. Use `ui_event_stream()`; drop the returned stream\nwrapper to unsubscribe."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_ONGOINGLEADTRADESINTERACTOR_SET_DEBUG",
+    "module": "social_trading",
+    "interface": "OngoingLeadTradesInteractor",
+    "name": "set_debug",
+    "is_async": false,
+    "args": [
+      {
+        "name": "_enabled",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Enable or disable debug logging.\n\nIn release builds this is a no-op, but the symbol must exist\nso that UniFFI bindings generated in debug mode continue to\nlink successfully against the release library."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_PROFITSHARINGINFO",
+    "module": "social_trading",
+    "name": "ProfitSharingInfo",
+    "fields": [
+      {
+        "name": "aum_level",
+        "type": "String",
+        "default": null,
+        "doc": "AUM (Assets Under Management) level/tier"
+      },
+      {
+        "name": "profit_sharing_ratio",
+        "type": "String",
+        "default": null,
+        "doc": "Current profit sharing ratio (e.g., \"0.10\" means 10%)"
+      },
+      {
+        "name": "last30_days_aum_avg",
+        "type": "String",
+        "default": null,
+        "doc": "Average AUM over the last 30 days"
+      },
+      {
+        "name": "last90_days_aum_avg",
+        "type": "String",
+        "default": null,
+        "doc": "Average AUM over the last 90 days"
+      },
+      {
+        "name": "unique_name",
+        "type": "String",
+        "default": null,
+        "doc": "Trader's unique identifier"
+      },
+      {
+        "name": "portrait",
+        "type": "String",
+        "default": null,
+        "doc": "Trader's avatar URL"
+      },
+      {
+        "name": "petname",
+        "type": "String",
+        "default": null,
+        "doc": "Trader's display name (nickname)"
+      },
+      {
+        "name": "target_id",
+        "type": "String",
+        "default": null,
+        "doc": "Target ID used for default avatar color selection (last digit of identify_id)"
+      },
+      {
+        "name": "en_petname",
+        "type": "String",
+        "default": null,
+        "doc": "English nickname"
+      }
+    ],
+    "doc": "Profit sharing information for a trader\n\nContains AUM level, profit sharing ratio, and trader profile information.\nUsed by GET /priapi/v5/ecotrade/trader/profit-sharing-info (Contract)\nUsed by GET /priapi/v5/ecotrade/spot/trader/profit-sharing-info (Spot)"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_LEADTRADECRYPTOINTERACTOR_INIT_WITH_DATA",
+    "module": "social_trading",
+    "interface": "LeadTradeCryptoInteractor",
+    "name": "init_with_data",
+    "is_async": false,
+    "args": [
+      {
+        "name": "instruments",
+        "type": "Vec<LeadTradeCryptoItem>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Initialize state from external data (skip API load).\nUse when instrument data is already available from parent page."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_CANCELCOPYPOSRESPONSE",
+    "module": "social_trading",
+    "name": "CancelCopyPosResponse",
+    "fields": [
+      {
+        "name": "has_position",
+        "type": "String",
+        "default": null,
+        "doc": "Whether the user has open positions with this trader\nServer returns \"1\" for has positions, \"0\" for no positions\nStored as String to preserve original format for Kotlin serialization"
+      }
+    ],
+    "doc": "Response for cancel copy trade check (apply-cancel)\nIndicates whether the user has open positions with the trader\n\n## API Response Example\n```json\n{\"hasPosition\": \"1\"}  // \"1\" = true, \"0\" = false\n```"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_MANAGECOPYTRADERSINTERACTOR_SET_STATE_CALLBACK",
+    "module": "social_trading",
+    "interface": "ManageCopyTradersInteractor",
+    "name": "set_state_callback",
+    "is_async": false,
+    "args": [
+      {
+        "name": "callback",
+        "type": "Arc<dyn ManageCopyTradersStateCallback>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Set state change callback."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_INTERFACE_COPYSETTINGSSWAPINTERACTOR",
+    "module": "social_trading",
+    "name": "CopySettingsSwapInteractor",
+    "trait_kind": 4,
+    "doc": "Copy Settings Swap Interactor\n\nManages the copy trading settings for Contract/Futures (SWAP)."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_INTERFACE_OKRUSTFUTUREPREFERENCECOINITEMVECWITHOKSTFFIERROR",
+    "module": "social_trading",
+    "name": "OKRustFuturePreferenceCoinItemVecWithOKSTFFIError",
+    "trait_kind": 4,
+    "doc": "OKRustFuture wrapper generated for specific type (non-generic) with uniffi export"
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_ENUM_LEADTRADERLISTUIEVENT",
+    "module": "social_trading",
+    "name": "LeadTraderListUiEvent",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "DataLoaded",
+        "discr": null,
+        "fields": [],
+        "doc": "Data loaded successfully"
+      },
+      {
+        "name": "DataLoadError",
+        "discr": null,
+        "fields": [
+          {
+            "name": "message",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Data load failed"
+      },
+      {
+        "name": "NoMoreData",
+        "discr": null,
+        "fields": [],
+        "doc": "No more data to load"
+      },
+      {
+        "name": "TraderSelected",
+        "discr": null,
+        "fields": [],
+        "doc": "Trader selected for copy action"
+      },
+      {
+        "name": "SelectionError",
+        "discr": null,
+        "fields": [
+          {
+            "name": "message",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Selection failed (invalid index or uniqueName)"
+      }
+    ],
+    "doc": "UI events for Lead Trader List."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_ENUM_MARKETPLACEBANNERTYPE",
+    "module": "social_trading",
+    "name": "MarketplaceBannerType",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Normal",
+        "discr": null,
+        "fields": [],
+        "doc": "Normal banner"
+      },
+      {
+        "name": "Voucher",
+        "discr": null,
+        "fields": [],
+        "doc": "Voucher banner"
+      }
+    ],
+    "doc": "Marketplace banner type.\n\nDetermines the type of banner content."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_ONGOINGLEADTRADESINTERACTOR_SET_SHOW_CURRENT_PAIR_ONLY",
+    "module": "social_trading",
+    "interface": "OngoingLeadTradesInteractor",
+    "name": "set_show_current_pair_only",
+    "is_async": false,
+    "args": [
+      {
+        "name": "enabled",
+        "type": "bool",
+        "default": null
+      },
+      {
+        "name": "current_inst_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "current_inst_type",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Toggle \"show only current trading pair\". Mirrors native\n`OrderListViewModel.Action.OnSortChanged.showCurrentPairOnly`.\n`current_inst_id` / `current_inst_type` must come from the bridge\n(read from `SelectBizManager.getCurrentBizInstrument()` natively).\nRecomputes both displayed lists."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_ENUM_SMARTCOPYTRADINGUIEVENT",
+    "module": "social_trading",
+    "name": "SmartCopyTradingUiEvent",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "SettingsLoaded",
+        "discr": null,
+        "fields": [],
+        "doc": "Settings loaded successfully"
+      },
+      {
+        "name": "SettingsLoadError",
+        "discr": null,
+        "fields": [
+          {
+            "name": "message",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Failed to load settings"
+      },
+      {
+        "name": "ReducibleAmountLoaded",
+        "discr": null,
+        "fields": [],
+        "doc": "Reducible amount loaded successfully"
+      },
+      {
+        "name": "ReducibleAmountLoadError",
+        "discr": null,
+        "fields": [
+          {
+            "name": "message",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Failed to load reducible amount"
+      },
+      {
+        "name": "TransferAmountSuccess",
+        "discr": null,
+        "fields": [],
+        "doc": "Transfer amount succeeded"
+      },
+      {
+        "name": "TransferAmountError",
+        "discr": null,
+        "fields": [
+          {
+            "name": "message",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Transfer amount failed"
+      },
+      {
+        "name": "TransferAmountEmptyOrZero",
+        "discr": null,
+        "fields": [],
+        "doc": "Transfer amount validation failed: amount is empty or zero"
+      },
+      {
+        "name": "TransferIncreaseInsufficientBalance",
+        "discr": null,
+        "fields": [],
+        "doc": "Transfer amount validation failed: increase amount exceeds available balance"
+      },
+      {
+        "name": "TransferIncreaseExceedsMax",
+        "discr": null,
+        "fields": [
+          {
+            "name": "max_amount",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Transfer amount validation failed: increase amount exceeds max increase limit"
+      },
+      {
+        "name": "TransferDecreaseExceedsReducible",
+        "discr": null,
+        "fields": [
+          {
+            "name": "reducible_amount",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Transfer amount validation failed: decrease amount exceeds reducible limit"
+      },
+      {
+        "name": "AmendSettingsSuccess",
+        "discr": null,
+        "fields": [],
+        "doc": "Amend settings succeeded"
+      },
+      {
+        "name": "AmendSettingsError",
+        "discr": null,
+        "fields": [
+          {
+            "name": "message",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Amend settings failed"
+      },
+      {
+        "name": "AvailableBalanceLoaded",
+        "discr": null,
+        "fields": [],
+        "doc": "Wallet available balance loaded into state (read it from `available_balance`)"
+      },
+      {
+        "name": "AvailableBalanceLoadError",
+        "discr": null,
+        "fields": [
+          {
+            "name": "message",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Failed to load the wallet available balance"
+      }
+    ],
+    "doc": "UI events for Smart Copy Trading."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_FUNC_SOCIAL_SET_ORDER_REMIND_CONFIRM",
+    "module": "social_trading",
+    "name": "social_set_order_remind_confirm",
+    "is_async": true,
+    "args": [
+      {
+        "name": "value",
+        "type": "bool",
+        "default": null
+      },
+      {
+        "name": "cancel_token",
+        "type": "Arc<OKCancellationToken>",
+        "default": null
+      }
+    ],
+    "return_type": "bool",
+    "doc": "Bridge `skipTradeConfirmation` (write): persist the order-remind confirmation preference\n— native `setOrderRemindConfirm(!skip)`. `true` = written (HTTP + cache); `false` = update\nfailed → Kotlin falls back to the native write. Cancellation also resolves to `false`,\npreserving that fallback contract. Async (network)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_PROFITSETTLEMENTINTERACTOR_SET_DEBUG",
+    "module": "social_trading",
+    "interface": "ProfitSettlementInteractor",
+    "name": "set_debug",
+    "is_async": false,
+    "args": [
+      {
+        "name": "_enabled",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Enable or disable debug logging.\n\nIn release builds this is a no-op, but the symbol must exist\nso that UniFFI bindings generated in debug mode continue to\nlink successfully against the release library."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_INTERFACE_OKRUSTFUTURELEADTRADERAPPLICATIONPRECHECKWITHOKSTFFIERROR",
+    "module": "social_trading",
+    "name": "OKRustFutureLeadTraderApplicationPreCheckWithOKSTFFIError",
+    "trait_kind": 4,
+    "doc": "OKRustFuture wrapper generated for specific type (non-generic) with uniffi export"
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_FUNC_SOCIAL_ROUND_PNL",
+    "module": "social_trading",
+    "name": "social_round_pnl",
+    "is_async": false,
+    "args": [
+      {
+        "name": "inst_type",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "raw",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "Option<String>",
+    "doc": "F1.6: Kotlin-callable view of [`round_pnl`] (the F1.1 helper was Rust-internal only) —\nthe value step of native `internalFormatPNL` (`PNLFormat.kt:211-245`:\n`convertWithNumber(raw).setKeepZero(true).down()`): per-instrument profit precision,\nDown, trailing zeros kept. Kotlin keeps the rest of the native chain (color from the\nrounded value, ICU min/max precision, sign, optional symbol). `None` → native fallback.\nThe rounded value carries EXACTLY the profit precision's decimal count (zeros kept), so\nKotlin derives the ICU min-precision from the returned string — no separate field."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_SPOTTRADESAFETYCHECKSINTERACTOR_REMOVE_UI_EVENT_OBSERVER",
+    "module": "social_trading",
+    "interface": "SpotTradeSafetyChecksInteractor",
+    "name": "remove_ui_event_observer",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "DEPRECATED. Use `ui_event_stream()`; drop the returned stream\nwrapper to unsubscribe."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_FUNC_SOCIAL_OPTION_LIQ_PRICE_DIG",
+    "module": "social_trading",
+    "name": "social_option_liq_price_dig",
+    "is_async": false,
+    "args": [
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "Option<i32>",
+    "doc": "Bridge `formatLiquidationPrice` precision — native option charge-currency `priceDig`:\n`index` = OPTION `getSuggestedInstrument(instId).getInstFamily()` (else\n`convertInstFamily(instId)`), `priceDig` = `getBiz(OPTION).getChargeCurrencyByReferId(\nindex, USD).priceDig.ifEmpty { DEFAULT_LEGAL_DIGIT }`. Rust returns only the PRECISION;\nKotlin keeps native's `price.formatDownToMax(dig)` render (a localization function that\nsurvives the OKTradeCore sunset). `None` (empty / cold charge store) → Kotlin\nfalls back to the whole native path."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_INTERFACE_OKRUSTFUTUREUSERPROFILEOVERVIEWVECWITHOKSTFFIERROR",
+    "module": "social_trading",
+    "name": "OKRustFutureUserProfileOverviewVecWithOKSTFFIError",
+    "trait_kind": 4,
+    "doc": "OKRustFuture wrapper generated for specific type (non-generic) with uniffi export"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTURECURRENTPOSITIONVECWITHOKSTFFIERROR_GET_ERROR",
+    "module": "social_trading",
+    "interface": "OKRustFutureCurrentPositionVecWithOKSTFFIError",
+    "name": "get_error",
+    "is_async": false,
+    "args": [],
+    "return_type": "Option<OKSTFFIError>",
+    "doc": "Get error information (if any)"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTUREUSERPROFILEOVERVIEWVECWITHOKSTFFIERROR_GET_ERROR",
+    "module": "social_trading",
+    "interface": "OKRustFutureUserProfileOverviewVecWithOKSTFFIError",
+    "name": "get_error",
+    "is_async": false,
+    "args": [],
+    "return_type": "Option<OKSTFFIError>",
+    "doc": "Get error information (if any)"
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_ENUM_COPIERPNLRISEFALLCYCLETYPE",
+    "module": "social_trading",
+    "name": "CopierPnlRiseFallCycleType",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Utc0",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "Utc8",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      }
+    ],
+    "doc": "Rise/Fall cycle mapping to timeZone"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTURELEADERRANKRESPONSEWITHOKSTFFIERROR_IS_FINISHED",
+    "module": "social_trading",
+    "interface": "OKRustFutureLeaderRankResponseWithOKSTFFIError",
+    "name": "is_finished",
+    "is_async": false,
+    "args": [],
+    "return_type": "bool",
+    "doc": "Check whether the task has finished (success/failure/cancelled).\n"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_LEADTRADEHISTORYINTERACTOR_SET_UI_EVENT_OBSERVER",
+    "module": "social_trading",
+    "interface": "LeadTradeHistoryInteractor",
+    "name": "set_ui_event_observer",
+    "is_async": false,
+    "args": [
+      {
+        "name": "observer",
+        "type": "Arc<dyn LeadTradeHistoryUiEventObserver>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "DEPRECATED: callback-based observer. Use `ui_event_stream()` —\nthe callback observer pins the foreign object in UniFFI's\nstatic handleMap and produces a cross-language retain cycle\n(Android GC + iOS ARC)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_COPYSETTINGSSPOTINTERACTOR_CHECK_CANCEL_COPY_TRADE",
+    "module": "social_trading",
+    "interface": "CopySettingsSpotInteractor",
+    "name": "check_cancel_copy_trade",
+    "is_async": false,
+    "args": [
+      {
+        "name": "trader_unique_name",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": ""
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_TRADEEXPERTRATEDATA",
+    "module": "social_trading",
+    "name": "TradeExpertRateData",
+    "fields": [
+      {
+        "name": "ratio",
+        "type": "String",
+        "default": null,
+        "doc": "Historical rate of return (ratio)"
+      },
+      {
+        "name": "stat_time",
+        "type": "String",
+        "default": null,
+        "doc": "Data timestamp (milliseconds)"
+      }
+    ],
+    "doc": "Rate data point for yield curve.\n\nUsed for displaying historical rate of return."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_INSTRUMENTINFODTO",
+    "module": "social_trading",
+    "name": "InstrumentInfoDto",
+    "fields": [
+      {
+        "name": "instruments",
+        "type": "Vec<UserInstrumentDto>",
+        "default": null,
+        "doc": "List of instruments"
+      },
+      {
+        "name": "copy_instrument_mode",
+        "type": "String",
+        "default": null,
+        "doc": "Copy instrument mode\nResponse values: \"1\" = custom, \"2\" = follow trader"
+      },
+      {
+        "name": "copy_state",
+        "type": "String",
+        "default": null,
+        "doc": "Copy state: \"0\" = not copying, \"1\" = copying"
+      }
+    ],
+    "doc": "Instrument info response for trader's tradeable instruments.\n\n# API\nGET /priapi/v5/ecotrade/copytrading/relation/copier/trader-instruments-setting"
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_ENUM_POSITIONSCATTEREMPTYPOLICY",
+    "module": "social_trading",
+    "name": "PositionScatterEmptyPolicy",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "ErrorOnEmpty",
+        "discr": null,
+        "fields": [],
+        "doc": "Android parity: an empty API array becomes `Err` (mirrors Kotlin `.first()`)."
+      },
+      {
+        "name": "EmptySuccess",
+        "discr": null,
+        "fields": [],
+        "doc": "iOS parity: an empty API array becomes `Ok(PositionHistoryScatter::default())`\nso the UI renders its own empty state."
+      }
+    ],
+    "doc": "How the request center treats an empty API response array.\n\nThe two platforms genuinely differ here, and both behaviours must keep shipping:\n\n* Android mirrors Kotlin's `List.first()` throwing `NoSuchElementException` on an\nempty list (`EcoUserChartDataRepository.kt:61,74` -> `runOrErrorResponse` ->\n`ApiResult.Error` -> `ViewState.error`), so an empty array is an **error**.\n* iOS treats an empty array as a *successful empty*: `OKGTEPositionDistributionVC.m`\nchecks `[OKGTEUtils validateArray:]` (false for nil, non-array **or** `count == 0`)\nand calls `showEmptyStatusView`, still marking the page as fully displayed.\n\nThe policy is opt-in and additive: the original\n`create_eco_hold_position_interactor` export keeps `ErrorOnEmpty`, so Android's\nexported factory and runtime behaviour are unchanged. iOS selects `EmptySuccess`\nthrough `create_eco_hold_position_interactor_with_empty_policy` so the Rust branch\nrenders the same empty state as the legacy native branch."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_COPIERPOSITIONSINTERACTOR_RELEASE",
+    "module": "social_trading",
+    "interface": "CopierPositionsInteractor",
+    "name": "release",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Stop-gap teardown (TEMPORARY — target state is the stream APIs,\nwhich need no teardown call).\n\nOne idempotent call at host lifecycle end that breaks the\nUniFFI handleMap cycle for any registered callback observers,\nends active streams, and stops effects. On Kotlin call BEFORE\n`destroy()`. Includes `stop()`."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKSTCOREPROFITSETTLEMENTUSECASE_GET_PROFIT_SHARING_RATIO_LIMIT",
+    "module": "social_trading",
+    "interface": "OKSTCoreProfitSettlementUseCase",
+    "name": "get_profit_sharing_ratio_limit",
+    "is_async": false,
+    "args": [
+      {
+        "name": "inst_type",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "Arc<OKRustFutureSettlementRatioLimitVecWithOKSTFFIError>",
+    "doc": "Fetch profit sharing ratio limit\n\nGets the min/max profit sharing ratio limits for an instrument type.\n\n# Parameters\n- `inst_type`: Instrument type (\"SWAP\" for contract, \"SPOT\" for spot)\n\n# Returns\nA cancellable future that resolves to a list of SettlementRatioLimit or an error."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTURESETTLEMENTRATIOLIMITVECWITHOKSTFFIERROR_GET_SUCCESS_RESULT",
+    "module": "social_trading",
+    "interface": "OKRustFutureSettlementRatioLimitVecWithOKSTFFIError",
+    "name": "get_success_result",
+    "is_async": false,
+    "args": [],
+    "return_type": "Option<Vec<SettlementRatioLimit>>",
+    "doc": "Get successful result (if any)"
+  },
+  {
+    "kind": "constructor",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_CONSTRUCTOR_OKSTCORETRADERTRADEPERFORMANCEUSECASE_NEW",
+    "module": "social_trading",
+    "interface": "OKSTCoreTraderTradePerformanceUseCase",
+    "name": "new",
+    "is_async": false,
+    "args": [],
+    "return_type": "Arc<OKSTCoreTraderTradePerformanceUseCase>",
+    "doc": "Creates a new use case instance with default dependencies.\n\nUses the global `DependencyContainer` to wire up the request center."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_LEADTRADEHISTORYINTERACTOR_STATE_STREAM",
+    "module": "social_trading",
+    "interface": "LeadTradeHistoryInteractor",
+    "name": "state_stream",
+    "is_async": false,
+    "args": [],
+    "return_type": "Arc<InteractorStateStream>",
+    "doc": "Opt-in async state-change stream (cycle-free, signal-only).\nSingle-subscriber, latest-wins. `changed()` resolves `true` on\nchange (pull `state()` for the snapshot), `false` when the\ninteractor is released or a newer subscription replaces this one."
+  },
+  {
+    "kind": "trait_method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_PROFITSETTLEMENTUIEVENTOBSERVER_ON_UI_EVENT",
+    "module": "social_trading",
+    "interface": "ProfitSettlementUiEventObserver",
+    "index": 0,
+    "name": "on_ui_event",
+    "is_async": false,
+    "args": [
+      {
+        "name": "event",
+        "type": "ProfitSettlementUiEvent",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_FOLLOWERLISTINTERACTOR_STOP",
+    "module": "social_trading",
+    "interface": "FollowerListInteractor",
+    "name": "stop",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Stop the interactor and cancel all effects.\n\nCalls the user's `InteractorLifecycle::stop()` implementation first,\nthen cancels all effects as a framework guarantee."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_COPIERPOSITIONSINTERACTOR_START_WS_IF_FOLLOWING",
+    "module": "social_trading",
+    "interface": "CopierPositionsInteractor",
+    "name": "start_ws_if_following",
+    "is_async": false,
+    "args": [
+      {
+        "name": "copy_mode",
+        "type": "MyLeadTraderCopyMode",
+        "default": null
+      },
+      {
+        "name": "follow_type",
+        "type": "MyLeadTraderFollowType",
+        "default": null
+      },
+      {
+        "name": "trading_mode",
+        "type": "CopierPnlTradingMode",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Start the positions WebSocket if `follow_type` is not Unfollow.\n\nIf `follow_type.is_unfollow()`, any running WS is stopped and this is a\nno-op otherwise. When following, a fresh `PositionsWsSource` is created\nbased on `copy_mode` + the interactor's current `custom_ongoing_selected_tab`,\nand `do_start_positions_ws` is spawned to actually connect."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTUREPUBLICINSTRUMENTINFOVECWITHOKSTFFIERROR_START_WITH_CALLBACK",
+    "module": "social_trading",
+    "interface": "OKRustFuturePublicInstrumentInfoVecWithOKSTFFIError",
+    "name": "start_with_callback",
+    "is_async": false,
+    "args": [
+      {
+        "name": "callback",
+        "type": "Box<dyn OKRustFutureCallback>",
+        "default": null
+      }
+    ],
+    "return_type": "Result<(), OKSTFFIError>",
+    "doc": "Start async task with uniffi callback interface"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_MYCOPIESCURRENTTRADERSINTERACTOR_SET_UI_EVENT_OBSERVER",
+    "module": "social_trading",
+    "interface": "MyCopiesCurrentTradersInteractor",
+    "name": "set_ui_event_observer",
+    "is_async": false,
+    "args": [
+      {
+        "name": "observer",
+        "type": "Arc<dyn MyCopiesCurrentTradersUiEventObserver>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "DEPRECATED: callback-based observer. Use `ui_event_stream()` —\nthe callback observer pins the foreign object in UniFFI's\nstatic handleMap and produces a cross-language retain cycle\n(Android GC + iOS ARC)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_COPYSETTINGSSPOTINTERACTOR_SUBMIT_FIRST_SETTINGS",
+    "module": "social_trading",
+    "interface": "CopySettingsSpotInteractor",
+    "name": "submit_first_settings",
+    "is_async": false,
+    "args": [
+      {
+        "name": "input",
+        "type": "SubmitFirstSettingsInput",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_FOLLOWERLISTINTERACTOR_CHANGE_SORT",
+    "module": "social_trading",
+    "interface": "FollowerListInteractor",
+    "name": "change_sort",
+    "is_async": false,
+    "args": [
+      {
+        "name": "sort_type",
+        "type": "FollowerListSortType",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Change sort order (triggers refresh)."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_ENUM_COPIERPNLINSTTYPE",
+    "module": "social_trading",
+    "name": "CopierPnlInstType",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Swap",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "Spot",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      }
+    ],
+    "doc": "instType values for copytrading-pnl"
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_SMARTCOPYREDUCIBLEAMOUNTDTO",
+    "module": "social_trading",
+    "name": "SmartCopyReducibleAmountDto",
+    "fields": [
+      {
+        "name": "follow_amount",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Current follow amount"
+      },
+      {
+        "name": "min_follow_amount",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Minimum follow amount required"
+      },
+      {
+        "name": "available_amount",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Available amount for copy trading"
+      },
+      {
+        "name": "reducible_amount",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Amount that can be reduced/withdrawn"
+      },
+      {
+        "name": "follow_and_min_amount_diff",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Difference between follow amount and min amount"
+      }
+    ],
+    "doc": "Smart copy reducible amount response.\n\n# API\nGET /priapi/v5/ecotrade/copytrading/relation/copier/smart-reducible-amount"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_PROFITSETTLEMENTINTERACTOR_REMOVE_STATE_OBSERVER",
+    "module": "social_trading",
+    "interface": "ProfitSettlementInteractor",
+    "name": "remove_state_observer",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Remove the state observer (UniFFI export).\n\nDEPRECATED: callback-based observation. Use `state_stream()` —\nit needs no removal call. Until migrated, every\n`set_state_observer` MUST be paired with this (or `release()`)\nat host lifecycle end, or the UniFFI handleMap pins the\nobserver and its host forever."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTUREHISTORYPROFITVECWITHOKSTFFIERROR_IS_FINISHED",
+    "module": "social_trading",
+    "interface": "OKRustFutureHistoryProfitVecWithOKSTFFIError",
+    "name": "is_finished",
+    "is_async": false,
+    "args": [],
+    "return_type": "bool",
+    "doc": "Check whether the task has finished (success/failure/cancelled).\n"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_ECOHOLDPOSITIONUIEVENTSTREAM_NEXT",
+    "module": "social_trading",
+    "interface": "EcoHoldPositionUiEventStream",
+    "name": "next",
+    "is_async": true,
+    "args": [],
+    "return_type": "Option<EcoHoldPositionUiEvent>",
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_LEADTRADERSETTINGSUIEVENTSTREAM_NEXT",
+    "module": "social_trading",
+    "interface": "LeadTraderSettingsUiEventStream",
+    "name": "next",
+    "is_async": true,
+    "args": [],
+    "return_type": "Option<LeadTraderSettingsUiEvent>",
+    "doc": ""
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_ENUM_MANAGECOPYTRADERSEFFECTTYPE",
+    "module": "social_trading",
+    "name": "ManageCopyTradersEffectType",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "None",
+        "discr": null,
+        "fields": [],
+        "doc": "No effect"
+      },
+      {
+        "name": "DataLoaded",
+        "discr": null,
+        "fields": [],
+        "doc": "Data loaded successfully"
+      },
+      {
+        "name": "DataLoadError",
+        "discr": null,
+        "fields": [],
+        "doc": "Data load failed"
+      },
+      {
+        "name": "RefreshCompleted",
+        "discr": null,
+        "fields": [],
+        "doc": "Refresh completed"
+      },
+      {
+        "name": "RefreshError",
+        "discr": null,
+        "fields": [],
+        "doc": "Refresh failed"
+      },
+      {
+        "name": "MoreDataLoaded",
+        "discr": null,
+        "fields": [],
+        "doc": "More data loaded"
+      },
+      {
+        "name": "MoreDataLoadError",
+        "discr": null,
+        "fields": [],
+        "doc": "More data load failed"
+      },
+      {
+        "name": "CopiersRemoved",
+        "discr": null,
+        "fields": [],
+        "doc": "Copiers removed successfully"
+      },
+      {
+        "name": "CopiersRemoveError",
+        "discr": null,
+        "fields": [],
+        "doc": "Copiers removal failed"
+      },
+      {
+        "name": "CopiersFailedToRemove",
+        "discr": null,
+        "fields": [],
+        "doc": "Copiers removal failed due to specific business reason (error_code 59220/59221)"
+      }
+    ],
+    "doc": "Effect type for one-shot events"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_MYLEADTRADERDETAILSINTERACTOR_HISTORY_LIST_RESET_AND_LOAD_FIRST_PAGE",
+    "module": "social_trading",
+    "interface": "MyLeadTraderDetailsInteractor",
+    "name": "history_list_reset_and_load_first_page",
+    "is_async": false,
+    "args": [
+      {
+        "name": "page_size",
+        "type": "i32",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Reset and load first history list page."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTUREBOOLWITHOKSTFFIERROR_GET_SUCCESS_RESULT",
+    "module": "social_trading",
+    "interface": "OKRustFutureboolWithOKSTFFIError",
+    "name": "get_success_result",
+    "is_async": false,
+    "args": [],
+    "return_type": "Option<bool>",
+    "doc": "Get successful result (if any)"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_LEADTRADERAPPLICATIONINTERACTOR_SET_STATE_CALLBACK",
+    "module": "social_trading",
+    "interface": "LeadTraderApplicationInteractor",
+    "name": "set_state_callback",
+    "is_async": false,
+    "args": [
+      {
+        "name": "callback",
+        "type": "Arc<dyn LeadTraderStateCallback>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Set state change callback.\n\nWhen state changes, the callback's `on_state_changed` method will be called.\nThis eliminates the need for polling `get_state()`.\n\n# Parameters\n\n* `callback` - The callback to receive state updates"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_SMARTCOPYTRADINGUIEVENTSTREAM_NEXT",
+    "module": "social_trading",
+    "interface": "SmartCopyTradingUiEventStream",
+    "name": "next",
+    "is_async": true,
+    "args": [],
+    "return_type": "Option<SmartCopyTradingUiEvent>",
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_COPYCONTRACTSETTINGSINTERACTOR_ON_CHANGE_LEVERAGE",
+    "module": "social_trading",
+    "interface": "CopyContractSettingsInteractor",
+    "name": "on_change_leverage",
+    "is_async": false,
+    "args": [
+      {
+        "name": "item",
+        "type": "ContractLeverageItem",
+        "default": null
+      },
+      {
+        "name": "pos_side",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "leverage",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Resolve the inputs for the adjust-leverage dialog (native `Action.OnChangeLeverage`,\n`CopyTradingSettingContractViewModel.kt:373-407`): suspend-gate via core-trading\n(`checkInstrumentSuspend` → `ensure_swap_biz_loaded`), then fetch the ticker last price\n(`getMarketTickerByInstId().last` → `market_last_price`). On success emits\n`ShowAdjustLeverageDialog` (native then shows the trade-core dialog — UI stays native);\nif biz isn't ready or the ticker is unavailable, emits `AdjustLeverageDismissed`.\nBoth core-trading reads go through `trade_core`, with no config gate in this crate:\nnative decides whether the Rust interactor runs at all."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_COPIERPOSITIONSINTERACTOR_UI_EVENT_STREAM",
+    "module": "social_trading",
+    "interface": "CopierPositionsInteractor",
+    "name": "ui_event_stream",
+    "is_async": false,
+    "args": [],
+    "return_type": "Arc<CopierPositionsUiEventStream>",
+    "doc": "Opt-in async UI event stream (cycle-free). Single-subscriber."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_MYCOPIESCURRENTTRADERSINTERACTOR_SET_STATE_OBSERVER",
+    "module": "social_trading",
+    "interface": "MyCopiesCurrentTradersInteractor",
+    "name": "set_state_observer",
+    "is_async": false,
+    "args": [
+      {
+        "name": "observer",
+        "type": "Arc<dyn InteractorStateChangeObserver>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Set a state observer (UniFFI export).\n\nDEPRECATED: callback-based observer. Use `state_stream()` —\nthe callback observer pins the foreign object in UniFFI's\nstatic handleMap and produces a cross-language retain cycle\n(Android GC + iOS ARC)."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_CONTRASTLEVERAGEINFO",
+    "module": "social_trading",
+    "name": "ContrastLeverageInfo",
+    "fields": [
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null,
+        "doc": "Instrument ID (e.g., \"ETH-USDT-SWAP\")."
+      },
+      {
+        "name": "mgn_mode",
+        "type": "String",
+        "default": null,
+        "doc": "Margin mode (e.g., \"isolated\", \"cross\")."
+      },
+      {
+        "name": "pos_side",
+        "type": "String",
+        "default": null,
+        "doc": "Position side (\"long\" or \"short\")."
+      },
+      {
+        "name": "copier_lever",
+        "type": "String",
+        "default": null,
+        "doc": "Copier's current leverage value."
+      },
+      {
+        "name": "trader_lever",
+        "type": "String",
+        "default": null,
+        "doc": "Trader's current leverage value."
+      }
+    ],
+    "doc": "Leverage info for a single position side within an instrument."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_MYLEADTRADERLIVEPNLSLICE",
+    "module": "social_trading",
+    "name": "MyLeadTraderLivePnlSlice",
+    "fields": [
+      {
+        "name": "copy_state",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "u_time",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "pnl",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "today_pnl",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "net_pnl",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "realized_pnl",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "upl",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "investment_amount",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": "Live PnL slice used by header UI."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_FUNC_CREATE_MANAGE_COPY_TRADERS_INTERACTOR",
+    "module": "social_trading",
+    "name": "create_manage_copy_traders_interactor",
+    "is_async": false,
+    "args": [
+      {
+        "name": "trade_type",
+        "type": "ManageCopyTradersTradeType",
+        "default": null
+      }
+    ],
+    "return_type": "Arc<ManageCopyTradersInteractor>",
+    "doc": "Factory function to create the Interactor.\n\n# Parameters\n\n* `trade_type` - The trade type (Futures or Spot)\n\n# Returns\n\nArc-wrapped Interactor instance."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_PROFITSETTLEMENTINTERACTOR_UPDATE_PROFIT_SHARING_RATIO",
+    "module": "social_trading",
+    "interface": "ProfitSettlementInteractor",
+    "name": "update_profit_sharing_ratio",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Submit updated profit sharing ratio."
+  },
+  {
+    "kind": "constructor",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_CONSTRUCTOR_OKSTCORETRADERFOLLOWERLISTUSECASE_NEW",
+    "module": "social_trading",
+    "interface": "OKSTCoreTraderFollowerListUseCase",
+    "name": "new",
+    "is_async": false,
+    "args": [],
+    "return_type": "Arc<OKSTCoreTraderFollowerListUseCase>",
+    "doc": "Creates a new use case instance with default dependencies.\n\nUses the global `DependencyContainer` to wire up the request center."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_RECORD_COPIERMESSAGESTATE",
+    "module": "social_trading",
+    "name": "CopierMessageState",
+    "fields": [
+      {
+        "name": "content_state",
+        "type": "CopierMessageLoadState",
+        "default": null,
+        "doc": "Content load state"
+      },
+      {
+        "name": "messages",
+        "type": "Vec<CopierMessageItem>",
+        "default": null,
+        "doc": "All messages loaded from API"
+      },
+      {
+        "name": "is_empty",
+        "type": "bool",
+        "default": null,
+        "doc": "Whether the list is empty"
+      },
+      {
+        "name": "error_message",
+        "type": "String",
+        "default": null,
+        "doc": "Backend error message — empty when not in Error state.\nBridge surfaces this via OKServerException to match native error display\n(see social-trading-migration skill: Error Display Native Parity Rule)."
+      }
+    ],
+    "doc": "State for Copier Message Interactor"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_TOTALASSETINTERACTOR_SET_UI_EVENT_OBSERVER",
+    "module": "social_trading",
+    "interface": "TotalAssetInteractor",
+    "name": "set_ui_event_observer",
+    "is_async": false,
+    "args": [
+      {
+        "name": "observer",
+        "type": "Arc<dyn TotalAssetUiEventObserver>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "DEPRECATED: callback-based observer. Use `ui_event_stream()` —\nthe callback observer pins the foreign object in UniFFI's\nstatic handleMap and produces a cross-language retain cycle\n(Android GC + iOS ARC)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_COPIERPNLWSINTERACTOR_SET_UI_EVENT_OBSERVER",
+    "module": "social_trading",
+    "interface": "CopierPnlWsInteractor",
+    "name": "set_ui_event_observer",
+    "is_async": false,
+    "args": [
+      {
+        "name": "observer",
+        "type": "Arc<dyn CopierPnlWsUiEventObserver>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "DEPRECATED: callback-based observer. Use `ui_event_stream()` —\nthe callback observer pins the foreign object in UniFFI's\nstatic handleMap and produces a cross-language retain cycle\n(Android GC + iOS ARC)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_SMARTCOPYTRADINGINTERACTOR_UPDATE_SETTINGS",
+    "module": "social_trading",
+    "interface": "SmartCopyTradingInteractor",
+    "name": "update_settings",
+    "is_async": false,
+    "args": [
+      {
+        "name": "settings",
+        "type": "SmartCopyTradingSettings",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Inject smart copy settings from an upstream source that already holds\nthem (e.g. the modify-amount screen receives them via navigation args),\nso increase validation has `current_follow_amount` / `max_increase_amount`\nwithout a redundant `load_data` fetch (which would require the trader\nunique name that this screen does not carry)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTUREONGOINGLEADTRADESINSTRUMENTINFOVECWITHOKSTFFIERROR_START_WITH_CALLBACK",
+    "module": "social_trading",
+    "interface": "OKRustFutureOngoingLeadTradesInstrumentInfoVecWithOKSTFFIError",
+    "name": "start_with_callback",
+    "is_async": false,
+    "args": [
+      {
+        "name": "callback",
+        "type": "Box<dyn OKRustFutureCallback>",
+        "default": null
+      }
+    ],
+    "return_type": "Result<(), OKSTFFIError>",
+    "doc": "Start async task with uniffi callback interface"
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_ENUM_OKSTCOPIERMESSAGELEVEL",
+    "module": "social_trading",
+    "name": "OKSTCopierMessageLevel",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Info",
+        "discr": null,
+        "fields": [],
+        "doc": "Informational message (level=\"1\")"
+      },
+      {
+        "name": "Warn",
+        "discr": null,
+        "fields": [],
+        "doc": "Warning message (level=\"2\")"
+      },
+      {
+        "name": "Important",
+        "discr": null,
+        "fields": [],
+        "doc": "Important message (level=\"3\")"
+      },
+      {
+        "name": "Others",
+        "discr": null,
+        "fields": [],
+        "doc": "Any other level value"
+      }
+    ],
+    "doc": "Message level for copier notifications\n\nMaps to native MessageRecord.Level enum"
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_INTERFACE_COPIERPOSITIONSUIEVENTOBSERVER",
+    "module": "social_trading",
+    "name": "CopierPositionsUiEventObserver",
+    "trait_kind": 13,
+    "doc": "Deprecated UniFFI callback interface for observing UI events. Prefer the cycle-free `CopierPositionsUiEventStream` returned by `interactor.ui_event_stream()`."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_COPYSETTINGSSPOTINTERACTOR_GET_TRADE_TYPE",
+    "module": "social_trading",
+    "interface": "CopySettingsSpotInteractor",
+    "name": "get_trade_type",
+    "is_async": false,
+    "args": [],
+    "return_type": "CopySettingsTradeType",
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTURELEADTRADERAPPLICATIONPRECHECKWITHOKSTFFIERROR_GET_SUCCESS_RESULT",
+    "module": "social_trading",
+    "interface": "OKRustFutureLeadTraderApplicationPreCheckWithOKSTFFIError",
+    "name": "get_success_result",
+    "is_async": false,
+    "args": [],
+    "return_type": "Option<LeadTraderApplicationPreCheck>",
+    "doc": "Get successful result (if any)"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_LEADTRADEHISTORYINTERACTOR_STOP",
+    "module": "social_trading",
+    "interface": "LeadTradeHistoryInteractor",
+    "name": "stop",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Stop the interactor and cancel all effects.\n\nCalls the user's `InteractorLifecycle::stop()` implementation first,\nthen cancels all effects as a framework guarantee."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_ENUM_TRADERPROFILEROOTUIEVENT",
+    "module": "social_trading",
+    "name": "TraderProfileRootUiEvent",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "ProfileLoaded",
+        "discr": null,
+        "fields": [
+          {
+            "name": "request_id",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Profile loaded successfully. `request_id` echoes the initiating load/refresh\ncommand's client-supplied id (`TraderProfileRootLoadInput::request_id`) so\nnative can correlate this terminal with the exact load cycle and drop stale\nterminals from superseded loads — same contract as `FollowUpdated`."
+      },
+      {
+        "name": "ProfileLoadError",
+        "discr": null,
+        "fields": [
+          {
+            "name": "request_id",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "message",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Profile load failed (or a degraded load's paired trade-info error). Carries\nthe same `request_id` correlation as `ProfileLoaded` (see above)."
+      },
+      {
+        "name": "FollowUpdated",
+        "discr": null,
+        "fields": [
+          {
+            "name": "request_id",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "message",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Follow state updated successfully (message is server response).\n`request_id` echoes the input's client-supplied id so native can correlate\nthis terminal with the exact request and drop stale/superseded terminals."
+      },
+      {
+        "name": "FollowUpdateError",
+        "discr": null,
+        "fields": [
+          {
+            "name": "request_id",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "message",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Follow update failed. Carries the same `request_id` correlation as\n`FollowUpdated` (see above)."
+      },
+      {
+        "name": "EmptyReminderUpdated",
+        "discr": null,
+        "fields": [
+          {
+            "name": "request_id",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Empty reminder updated successfully. `request_id` echoes the input's\nclient-supplied id so native can correlate this terminal with the exact\nrequest and drop stale/superseded terminals (same contract as `FollowUpdated`)."
+      },
+      {
+        "name": "EmptyReminderUpdateError",
+        "discr": null,
+        "fields": [
+          {
+            "name": "request_id",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "message",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Empty reminder update failed. Carries the same `request_id` correlation as\n`EmptyReminderUpdated` (see above)."
+      }
+    ],
+    "doc": "One-time UI events emitted by the Trader Profile Root interactor."
+  },
+  {
+    "kind": "trait_method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_MANAGECOPYTRADERSSTATECALLBACK_ON_STATE_CHANGED",
+    "module": "social_trading",
+    "interface": "ManageCopyTradersStateCallback",
+    "index": 0,
+    "name": "on_state_changed",
+    "is_async": false,
+    "args": [
+      {
+        "name": "state",
+        "type": "ManageCopyTradersState",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Called when state changes."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKSTCOREYIELDPNLCHARTDATAUSECASE_FETCH_ACCOUNT_CHART_DATA",
+    "module": "social_trading",
+    "interface": "OKSTCoreYieldPnlChartDataUseCase",
+    "name": "fetch_account_chart_data",
+    "is_async": false,
+    "args": [
+      {
+        "name": "latest_num",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "business_line",
+        "type": "YieldPnlBusinessLine",
+        "default": null
+      }
+    ],
+    "return_type": "Arc<OKRustFutureYieldPnlChartDataItemVecWithOKSTFFIError>",
+    "doc": "Fetches account yield PnL chart data (authentication required).\n\nReturns yield/PnL chart data from authenticated API endpoints.\nUsed for viewing the logged-in user's own data.\n\n# Arguments\n\n* `latest_num` - Number of days to fetch (\"7\", \"30\", \"90\", or \"0\" for all)\n* `business_line` - Trading type: `Contract` (futures) or `Spot`\n\n# Returns\n\nA cancellable `OKRustFuture` resolving to:\n- `Ok(Vec<YieldPnlChartDataItem>)` - List of chart data items\n- `Err(NetworkFailed)` - Network request failed\n- `Err(JSONParseError)` - Response parsing failed\n- `Err(ServerResponseError)` - Server returned a business error"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_SOCIAL_TRADING_METHOD_OKRUSTFUTUREPROFILEPOSITIONHISTORYVECWITHOKSTFFIERROR_GET_SUCCESS_RESULT",
+    "module": "social_trading",
+    "interface": "OKRustFutureProfilePositionHistoryVecWithOKSTFFIError",
+    "name": "get_success_result",
+    "is_async": false,
+    "args": [],
+    "return_type": "Option<Vec<ProfilePositionHistory>>",
+    "doc": "Get successful result (if any)"
+  }
+]

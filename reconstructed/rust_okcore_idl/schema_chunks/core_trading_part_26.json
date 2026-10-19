@@ -1,0 +1,1209 @@
+[
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_CORE_TRADING_METHOD_COMMONFUNCTIONINTERACTOR_ON_ITEM_CLICKED",
+    "module": "core_trading",
+    "interface": "CommonFunctionInteractor",
+    "name": "on_item_clicked",
+    "is_async": false,
+    "args": [
+      {
+        "name": "item_id",
+        "type": "CommonFunctionItemId",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Grid item clicked — clear its Rust-owned red dot, emit native UI work,\nand dismiss the sheet for items with immediate destinations."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_CORE_TRADING_METHOD_PURESPLITTPSLCONFIRMINTERACTOR_SUBMIT_FOLLOW_ORDER",
+    "module": "core_trading",
+    "interface": "PureSplitTpslConfirmInteractor",
+    "name": "submit_follow_order",
+    "is_async": false,
+    "args": [
+      {
+        "name": "request",
+        "type": "PureAttachedTpslOrderLeadRequest",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "FROM_ORDER_FOLLOW submit (V1 line 139). Forces `type = \"2\"`."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_CORE_TRADING_METHOD_OPTIONSHELLINTERACTOR_REMOVE_STATE_OBSERVER",
+    "module": "core_trading",
+    "interface": "OptionShellInteractor",
+    "name": "remove_state_observer",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Remove the state observer (UniFFI export).\n\nDEPRECATED: callback-based observation. Use `state_stream()` —\nit needs no removal call. Until migrated, every\n`set_state_observer` MUST be paired with this (or `release()`)\nat host lifecycle end, or the UniFFI handleMap pins the\nobserver and its host forever."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_CORE_TRADING_METHOD_PURESPOTMPCONFIRMINTERACTOR_RELEASE",
+    "module": "core_trading",
+    "interface": "PureSpotMpConfirmInteractor",
+    "name": "release",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Stop-gap teardown (TEMPORARY — target state is the stream APIs,\nwhich need no teardown call).\n\nOne idempotent call at host lifecycle end that breaks the\nUniFFI handleMap cycle for any registered callback observers,\nends active streams, and stops effects. On Kotlin call BEFORE\n`destroy()`. Includes `stop()`."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_CORE_TRADING_METHOD_PUREPOSITIONASSETLISTINTERACTOR_UPDATE_INSTRUMENT",
+    "module": "core_trading",
+    "interface": "PurePositionAssetListInteractor",
+    "name": "update_instrument",
+    "is_async": false,
+    "args": [
+      {
+        "name": "inst_id",
+        "type": "Option<String>",
+        "default": null
+      },
+      {
+        "name": "base_ccy",
+        "type": "Option<String>",
+        "default": null
+      },
+      {
+        "name": "quote_ccy",
+        "type": "Option<String>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Update the current instrument context.\nCalled by the parent when the user switches trading pairs."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_CORE_TRADING_METHOD_PURESPOTMARKETINTERACTOR_ON_LEADER_NAVIGATION_REQUESTED",
+    "module": "core_trading",
+    "interface": "PureSpotMarketInteractor",
+    "name": "on_leader_navigation_requested",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "SpotFollower available dialog — user taps \"Leader\". Emits\n`MainTradeUiEvent::NavigateToLeaderPositions` via the parent session so\nthe host (`TradeRustFragment`) can navigate to the leader-positions tab\nwithout a `unify_trade` import in the pure fragment."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_CORE_TRADING_METHOD_MAINTRADEINTERACTOR_CREATE_TRADE_FILTER_INTERACTOR",
+    "module": "core_trading",
+    "interface": "MainTradeInteractor",
+    "name": "create_trade_filter_interactor",
+    "is_async": false,
+    "args": [],
+    "return_type": "Arc<TradeFilterInteractor>",
+    "doc": "Create a `TradeFilterInteractor` (V2 Pure) that shares this session.\n\nSessioned-kernel factory for the orders/positions instrument filter\nsheet (mirrors `create_pure_order_list_interactor`). The filter\ninteractor is a child node of the trade-session tree: it subscribes to\n`TradeUpdate` so the supported-type set / charge\ngroups rebuild on a biz-type switch. It sources its tab/chip/row business\nfrom the Rust biz layer (`OkBizTrait` + inst-group data), replacing the\nnative `TradeInstEntryLoader` + `TradeInstFilterSheetDataSource`\nOKTradeCore reads (R-MIG-370). The OKMarket cross-tab search stays\nKotlin-side (migration brief §4); P3 wires its results back in."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_CORE_TRADING_ENUM_STUDYGUIDESTEP",
+    "module": "core_trading",
+    "name": "StudyGuideStep",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "PairSelector",
+        "discr": null,
+        "fields": [],
+        "doc": "Trading-pair selector."
+      },
+      {
+        "name": "AmountInput",
+        "discr": null,
+        "fields": [],
+        "doc": "Order amount input."
+      },
+      {
+        "name": "AvailBalance",
+        "discr": null,
+        "fields": [],
+        "doc": "Available-balance row."
+      },
+      {
+        "name": "OrderTitle",
+        "discr": null,
+        "fields": [],
+        "doc": "Order-type title / tab."
+      },
+      {
+        "name": "MoreMenu",
+        "discr": null,
+        "fields": [],
+        "doc": "\"More\" settings menu."
+      },
+      {
+        "name": "MarginSwitch",
+        "discr": null,
+        "fields": [],
+        "doc": "\"Switch to margin\" step — appended only when `should_show_spot_margin_switch`."
+      },
+      {
+        "name": "MgnMode",
+        "discr": null,
+        "fields": [],
+        "doc": "Margin-mode selector."
+      },
+      {
+        "name": "Leverage",
+        "discr": null,
+        "fields": [],
+        "doc": "Leverage selector."
+      },
+      {
+        "name": "TradeUnit",
+        "discr": null,
+        "fields": [],
+        "doc": "Trade-unit toggle."
+      },
+      {
+        "name": "ReduceOnly",
+        "discr": null,
+        "fields": [],
+        "doc": "Reduce-only toggle."
+      },
+      {
+        "name": "Tpsl",
+        "discr": null,
+        "fields": [],
+        "doc": "TP/SL entry."
+      },
+      {
+        "name": "More",
+        "discr": null,
+        "fields": [],
+        "doc": "\"More\" settings (contract panel)."
+      }
+    ],
+    "doc": "One ordered coach-mark step. Platform-neutral: each platform resolves a step\nto its own anchor View (Android: the `collectSwapStudyView` / `guideViewLv`\nanchor type; iOS: its own). Rust owns the ORDER + which steps apply; the\nrenderer only resolves each step to an anchor and draws it, skipping any whose\nanchor is absent (Native `GuideUtil` per-anchor null/GONE guards)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_CORE_TRADING_METHOD_PURESPOTSTOPDOUBLEINTERACTOR_ON_DEPTH_ROW_CLICKED",
+    "module": "core_trading",
+    "interface": "PureSpotStopDoubleInteractor",
+    "name": "on_depth_row_clicked",
+    "is_async": false,
+    "args": [
+      {
+        "name": "scope",
+        "type": "PanelAsyncScope",
+        "default": null
+      },
+      {
+        "name": "price_target",
+        "type": "PanelDepthPriceTarget",
+        "default": null
+      },
+      {
+        "name": "is_bids",
+        "type": "bool",
+        "default": null
+      },
+      {
+        "name": "price",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "amount",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "F-G — depth AMOUNT-column tap (OCO). Caps the clicked amount to the\nside-aware max-available then writes it via on_amount_changed. Price is\nfilled by the Kotlin depthItemPriceLd observer."
+  },
+  {
+    "kind": "constructor",
+    "symbol": "UNIFFI_META_CORE_TRADING_CONSTRUCTOR_CTFUNDINGRATEDATASOURCE_NEW",
+    "module": "core_trading",
+    "interface": "CTFundingRateDataSource",
+    "name": "new",
+    "is_async": false,
+    "args": [
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "Arc<CTFundingRateDataSource>",
+    "doc": ""
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_CORE_TRADING_RECORD_OKTREVIEWQUOTESNAPSHOT",
+    "module": "core_trading",
+    "name": "OKTReviewQuoteSnapshot",
+    "fields": [
+      {
+        "name": "rfq_session_token",
+        "type": "String",
+        "default": null,
+        "doc": "Opaque process-local lifecycle token. Native must transport, not inspect it."
+      },
+      {
+        "name": "inst_family",
+        "type": "String",
+        "default": null,
+        "doc": "Instrument family, e.g. \"BTC-USD\"."
+      },
+      {
+        "name": "rfq_id",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "quote_id",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "quoted_price",
+        "type": "String",
+        "default": null,
+        "doc": "Quoted net premium / price string for display."
+      },
+      {
+        "name": "valid_until",
+        "type": "String",
+        "default": null,
+        "doc": "Millisecond timestamp string until the current quote is valid."
+      },
+      {
+        "name": "c_time",
+        "type": "Option<String>",
+        "default": "None",
+        "doc": "Server RFQ creation timestamp. Additive optional field for native source compatibility."
+      },
+      {
+        "name": "rfq_valid_until",
+        "type": "Option<String>",
+        "default": "None",
+        "doc": "Millisecond timestamp string until the RFQ lifecycle is valid."
+      },
+      {
+        "name": "direction",
+        "type": "String",
+        "default": null,
+        "doc": "\"buy\" or \"sell\"."
+      },
+      {
+        "name": "crypto_coin",
+        "type": "String",
+        "default": null,
+        "doc": "Coin symbol, e.g. \"BTC\"."
+      },
+      {
+        "name": "strategy_type_key",
+        "type": "String",
+        "default": null,
+        "doc": "Strategy key string, e.g. \"call_spread\"."
+      },
+      {
+        "name": "expire",
+        "type": "String",
+        "default": null,
+        "doc": "Expiry date string, e.g. \"250328\"."
+      },
+      {
+        "name": "low_stk_price",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "high_stk_price",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "zhang_amount_value",
+        "type": "String",
+        "default": null,
+        "doc": "Amount in zhang (non-ratio strategies)."
+      },
+      {
+        "name": "zhang_low_amount_value",
+        "type": "String",
+        "default": null,
+        "doc": "Lower leg amount in zhang (ratio strategies)."
+      },
+      {
+        "name": "zhang_high_amount_value",
+        "type": "String",
+        "default": null,
+        "doc": "Higher leg amount in zhang (ratio strategies)."
+      },
+      {
+        "name": "is_reduce_only",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": "Frozen quote parameters — read by `execute_quote()` and shown on the review screen.\nOnce set in `rfq_phase = QuoteReceived`, this must not be mutated until the\norder succeeds, fails, or is cancelled."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_CORE_TRADING_ENUM_PUREORDERDETAILCANCELCONFIRMATION",
+    "module": "core_trading",
+    "name": "PureOrderDetailCancelConfirmation",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "None",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "OpenPriceStopLoss",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "LinkedOrder",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      }
+    ],
+    "doc": "Native cancel-warning branch for strategy orders."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_CORE_TRADING_METHOD_ADJUSTLEVERDUALINTERACTOR_SET_STATE_OBSERVER",
+    "module": "core_trading",
+    "interface": "AdjustLeverDualInteractor",
+    "name": "set_state_observer",
+    "is_async": false,
+    "args": [
+      {
+        "name": "observer",
+        "type": "Arc<dyn InteractorStateChangeObserver>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Set a state observer (UniFFI export).\n\nDEPRECATED: callback-based observer. Use `state_stream()` —\nthe callback observer pins the foreign object in UniFFI's\nstatic handleMap and produces a cross-language retain cycle\n(Android GC + iOS ARC)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_CORE_TRADING_METHOD_CALCULATORPNLINTERACTOR_RELEASE",
+    "module": "core_trading",
+    "interface": "CalculatorPnlInteractor",
+    "name": "release",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Stop-gap teardown (TEMPORARY — target state is the stream APIs,\nwhich need no teardown call).\n\nOne idempotent call at host lifecycle end that breaks the\nUniFFI handleMap cycle for any registered callback observers,\nends active streams, and stops effects. On Kotlin call BEFORE\n`destroy()`. Includes `stop()`."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_CORE_TRADING_METHOD_DEXASSETDETAILINTERACTOR_STOP",
+    "module": "core_trading",
+    "interface": "DexAssetDetailInteractor",
+    "name": "stop",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Stop the interactor and cancel all effects.\n\nCalls the user's `InteractorLifecycle::stop()` implementation first,\nthen cancels all effects as a framework guarantee."
+  },
+  {
+    "kind": "constructor",
+    "symbol": "UNIFFI_META_CORE_TRADING_CONSTRUCTOR_RISKUNITMRDETAILINTERACTOR_CREATE_FOR_NATIVE",
+    "module": "core_trading",
+    "interface": "RiskUnitMrDetailInteractor",
+    "name": "create_for_native",
+    "is_async": false,
+    "args": [],
+    "return_type": "Arc<RiskUnitMrDetailInteractor>",
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_CORE_TRADING_METHOD_CONTRACTTRIGGERINTERACTOR_SET_TRIGGER_ORD_TYPE",
+    "module": "core_trading",
+    "interface": "ContractTriggerInteractor",
+    "name": "set_trigger_ord_type",
+    "is_async": false,
+    "args": [
+      {
+        "name": "ord_type",
+        "type": "i32",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Order type (market/limit/FOK/IOC) switched -- Kotlin FutureTriggerOrderType\n(MARKET=1 / LIMIT=2 / FOK=3 / IOC=4). Changes the max-avail deal price (market\nprices at the trigger px, limit-family at the order px) so it re-fetches."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_CORE_TRADING_METHOD_MARGINLIMITINTERACTOR_CONFIRM_ORDER",
+    "module": "core_trading",
+    "interface": "MarginLimitInteractor",
+    "name": "confirm_order",
+    "is_async": false,
+    "args": [
+      {
+        "name": "attach_algo_ords",
+        "type": "Vec<OKTSpotAttachAlgoOrder>",
+        "default": null
+      },
+      {
+        "name": "transfer_info",
+        "type": "Option<OKTSpotTransferInfo>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_CORE_TRADING_METHOD_PUREATTACHEDTPSLINTERACTOR_HAS_ACTIVE_ATTACHED_TPSL",
+    "module": "core_trading",
+    "interface": "PureAttachedTpslInteractor",
+    "name": "has_active_attached_tpsl",
+    "is_async": false,
+    "args": [],
+    "return_type": "bool",
+    "doc": "TRUE when an attached TP/SL is currently active in the kernel — an\nadvance-confirmed OCO (`is_advance_oco_active`) OR a stored MULTI set. The\nsignal-clone host reads this right after applying a seed to decide whether\nto reflect it into the Kotlin-owned master TP/SL checkbox, keeping the\nOCO/MULTI/None decision Rust-owned (Kotlin does no classification). §C pure\nquery, zero side effect."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_CORE_TRADING_METHOD_MARGINTRAILINGSTOPINTERACTOR_SET_UI_EVENT_OBSERVER",
+    "module": "core_trading",
+    "interface": "MarginTrailingStopInteractor",
+    "name": "set_ui_event_observer",
+    "is_async": false,
+    "args": [
+      {
+        "name": "observer",
+        "type": "Arc<dyn MarginTrailingStopUxEventObserver>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "DEPRECATED: callback-based observer. Use `ui_event_stream()` —\nthe callback observer pins the foreign object in UniFFI's\nstatic handleMap and produces a cross-language retain cycle\n(Android GC + iOS ARC)."
+  },
+  {
+    "kind": "constructor",
+    "symbol": "UNIFFI_META_CORE_TRADING_CONSTRUCTOR_DEXMARKETINFOINTERACTOR_CREATE_FOR_NATIVE",
+    "module": "core_trading",
+    "interface": "DexMarketInfoInteractor",
+    "name": "create_for_native",
+    "is_async": false,
+    "args": [
+      {
+        "name": "params",
+        "type": "DexMarketInfoInitParams",
+        "default": null
+      }
+    ],
+    "return_type": "Arc<DexMarketInfoInteractor>",
+    "doc": "Create a new DexMarketInfoInteractor from Kotlin/Swift via UniFFI."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_CORE_TRADING_METHOD_ADJUSTMARGININTERACTOR_REMOVE_UI_EVENT_OBSERVER",
+    "module": "core_trading",
+    "interface": "AdjustMarginInteractor",
+    "name": "remove_ui_event_observer",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "DEPRECATED. Use `ui_event_stream()`; drop the returned stream\nwrapper to unsubscribe."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_CORE_TRADING_ENUM_OKTLIQSECONDARYACTION",
+    "module": "core_trading",
+    "name": "OktLiqSecondaryAction",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "None",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "ShowMmrRiskLevels",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      }
+    ],
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_CORE_TRADING_METHOD_EVENTCLOSEDPOSITIONLISTINTERACTOR_SET_STATE_OBSERVER",
+    "module": "core_trading",
+    "interface": "EventClosedPositionListInteractor",
+    "name": "set_state_observer",
+    "is_async": false,
+    "args": [
+      {
+        "name": "observer",
+        "type": "Arc<dyn InteractorStateChangeObserver>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Set a state observer (UniFFI export).\n\nDEPRECATED: callback-based observer. Use `state_stream()` —\nthe callback observer pins the foreign object in UniFFI's\nstatic handleMap and produces a cross-language retain cycle\n(Android GC + iOS ARC)."
+  },
+  {
+    "kind": "constructor",
+    "symbol": "UNIFFI_META_CORE_TRADING_CONSTRUCTOR_POSITIONHISTORYDETAILINTERACTOR_CREATE_FOR_NATIVE",
+    "module": "core_trading",
+    "interface": "PositionHistoryDetailInteractor",
+    "name": "create_for_native",
+    "is_async": false,
+    "args": [],
+    "return_type": "Arc<PositionHistoryDetailInteractor>",
+    "doc": ""
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_CORE_TRADING_ENUM_MARGINSTOPDOUBLEUXEVENT",
+    "module": "core_trading",
+    "name": "MarginStopDoubleUxEvent",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "SubmitTemporarilyUnavailable",
+        "discr": null,
+        "fields": [],
+        "doc": "The dispatch raced a temporarily unavailable panel scope."
+      },
+      {
+        "name": "ShowOrderConfirmDialog",
+        "discr": null,
+        "fields": [
+          {
+            "name": "attempt_id",
+            "type": "u64",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Validation passed with the live order-confirm preference enabled.\nKotlin starts the confirm-data/pre-check path."
+      },
+      {
+        "name": "DirectPlaceOrder",
+        "discr": null,
+        "fields": [],
+        "doc": "Legacy compatibility landing for older routing paths. New Rust submit\npaths place directly without a Kotlin round-trip when confirmation is off."
+      },
+      {
+        "name": "ShowConfirmDialog",
+        "discr": null,
+        "fields": [
+          {
+            "name": "attempt_id",
+            "type": "u64",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Dialog ON + no pre-check — show confirm dialog without pre-check data."
+      },
+      {
+        "name": "FocusTpTriggerPriceInput",
+        "discr": null,
+        "fields": [
+          {
+            "name": "attempt_id",
+            "type": "u64",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Focus TP trigger price input."
+      },
+      {
+        "name": "FocusTpOrderPriceInput",
+        "discr": null,
+        "fields": [
+          {
+            "name": "attempt_id",
+            "type": "u64",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Focus TP order price input."
+      },
+      {
+        "name": "FocusSlTriggerPriceInput",
+        "discr": null,
+        "fields": [
+          {
+            "name": "attempt_id",
+            "type": "u64",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Focus SL trigger price input."
+      },
+      {
+        "name": "FocusSlOrderPriceInput",
+        "discr": null,
+        "fields": [
+          {
+            "name": "attempt_id",
+            "type": "u64",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Focus SL order price input."
+      },
+      {
+        "name": "FocusAmountInput",
+        "discr": null,
+        "fields": [
+          {
+            "name": "attempt_id",
+            "type": "u64",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Focus amount input."
+      },
+      {
+        "name": "ShowMinOrderSizeError",
+        "discr": null,
+        "fields": [
+          {
+            "name": "attempt_id",
+            "type": "u64",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "min_size",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "unit",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "amount_in_quote",
+            "type": "bool",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Native minimum amount/total toast followed by amount keyboard focus."
+      },
+      {
+        "name": "TpMaxSizeExceeded",
+        "discr": null,
+        "fields": [
+          {
+            "name": "attempt_id",
+            "type": "u64",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "TP market max-size exceeded."
+      },
+      {
+        "name": "SlMaxSizeExceeded",
+        "discr": null,
+        "fields": [
+          {
+            "name": "attempt_id",
+            "type": "u64",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "SL market max-size exceeded."
+      },
+      {
+        "name": "ShowPriceRelationshipWarning",
+        "discr": null,
+        "fields": [
+          {
+            "name": "attempt_id",
+            "type": "u64",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Price relationship warning — user can proceed after confirmation."
+      },
+      {
+        "name": "AmountDerivedByPercent",
+        "discr": null,
+        "fields": [
+          {
+            "name": "amount",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Amount derived from a seekbar percent selection (audit item15 /\nV1 `setAmtInputPercent`). Carries the Rust-computed amount string that\nKotlin writes into the amount input. Empty `amount` = no balance / zero\nbase size (V1 `toSafeString` fall-through; Kotlin should clear/ignore)."
+      },
+      {
+        "name": "MaxAvailableLoaded",
+        "discr": null,
+        "fields": [
+          {
+            "name": "available",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "max_size",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "buy_size",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "sell_size",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "long_avail",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "short_avail",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "change_debt",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "change_debt_ccy",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "loan_available",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "loan_max_size",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "total_debt",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "total_debt_ccy",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "repay_amount",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "spot_iso_bal",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "buy_cost",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "sell_cost",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "threshold",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Max available balance loaded."
+      },
+      {
+        "name": "MaxAvailableFailed",
+        "discr": null,
+        "fields": [
+          {
+            "name": "message",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Max available fetch failed."
+      },
+      {
+        "name": "PreCheckSuccess",
+        "discr": null,
+        "fields": [
+          {
+            "name": "attempt_id",
+            "type": "u64",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "fee",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "fee_ccy",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "ord_cost",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "bonus",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "liq_px",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "change_debt",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "change_debt_ccy",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "repay_amount",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "debt_amount",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "hour_rates",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "year_rates",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "rate_type",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "debt",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "total_balance",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "change_total_balance",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "position_type",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Pre-check succeeded (Lesson Issue 3: must include all 4 position-asset fields)."
+      },
+      {
+        "name": "PreCheckFailed",
+        "discr": null,
+        "fields": [
+          {
+            "name": "attempt_id",
+            "type": "u64",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "error_code",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "error_message",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Pre-check failed."
+      },
+      {
+        "name": "OrderSuccess",
+        "discr": null,
+        "fields": [
+          {
+            "name": "attempt_id",
+            "type": "u64",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "order_id",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "result",
+            "type": "OrderPlaceResultData",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Order placed successfully."
+      },
+      {
+        "name": "OrderFailed",
+        "discr": null,
+        "fields": [
+          {
+            "name": "attempt_id",
+            "type": "u64",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "error_code",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "error_message",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "suggested_price",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "Order placement failed."
+      },
+      {
+        "name": "OrderErrorAccountFrozen",
+        "discr": null,
+        "fields": [
+          {
+            "name": "attempt_id",
+            "type": "u64",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "code",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "message",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "inst_type",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "result",
+            "type": "OrderPlaceResultData",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": ""
+      },
+      {
+        "name": "OrderErrorToast",
+        "discr": null,
+        "fields": [
+          {
+            "name": "attempt_id",
+            "type": "u64",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "code",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "result",
+            "type": "OrderPlaceResultData",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": ""
+      },
+      {
+        "name": "OrderErrorBiz",
+        "discr": null,
+        "fields": [
+          {
+            "name": "attempt_id",
+            "type": "u64",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "code",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "message",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "result",
+            "type": "OrderPlaceResultData",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": ""
+      }
+    ],
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_CORE_TRADING_METHOD_TRADEFACADE_RELOAD_TRADE_SETTING_DATA",
+    "module": "core_trading",
+    "interface": "TradeFacade",
+    "name": "reload_trade_setting_data",
+    "is_async": true,
+    "args": [
+      {
+        "name": "cancel_token",
+        "type": "Arc<OKCancellationToken>",
+        "default": null
+      }
+    ],
+    "return_type": "Result<Success, FFITradingError>",
+    "doc": "Reload trade setting data from server (cancellable)\n\nThis method forces a refresh of the account trade configuration data\nby setting `is_force_refresh` to true. Supports cancellation via OKCancellationToken.\n\n# Arguments\n* `cancel_token` - Cancellation token to allow cancelling the operation\n\n# Returns\n* `Ok(Success)`: Data reloaded successfully\n* `Err(FFITradingError)`: Failed to reload data"
+  }
+]

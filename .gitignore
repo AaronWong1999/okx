@@ -12,5 +12,7 @@ __pycache__/
 *.pyc
 .DS_Store
 
-# ── REA 证据包（158MB 单文件，分析中间产物） ──
-reconstructed/rea_evidence/
+# ── REA 原始全量会话快照（158MB 单文件，超 GitHub 100MB 限制）；其余 01~08 规范化 REA 证据 JSON 均入库 ──
+reconstructed/rea_evidence/00_rea_session_evidence_bundle.json
+tools/rea_android_engine/rea_java_home/
+

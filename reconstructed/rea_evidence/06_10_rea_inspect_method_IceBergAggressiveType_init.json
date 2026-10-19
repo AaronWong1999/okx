@@ -1,0 +1,146 @@
+{
+  "evidence_id": "ev_8551c2df25456dfca68c171340c2e964fd19e5c47a4c3ff546e4124b581693e7",
+  "subject": {
+    "name": "android.apk",
+    "digest": {
+      "sha256": "2b3b4e670997890ebf759d92b5904556b349de2845cfc9835c4a24d7b8addb85"
+    },
+    "format": "apk",
+    "architecture": null,
+    "local_path": "/Users/aaron/Downloads/android.apk"
+  },
+  "provider": {
+    "id": "jadx",
+    "name": "JADX headless",
+    "version": "0.7.1"
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.analysis",
+  "operation": "inspect_android_method",
+  "parameters": {
+    "path": "/Users/aaron/Downloads/android.apk",
+    "class_name": "com.okinc.unify_trade.bot.config.IceBergAggressiveType",
+    "method_name": "<init>",
+    "overload_index": 0
+  },
+  "raw_result": {
+    "server": {
+      "name": "rea-jadx-bridge",
+      "version": "1"
+    },
+    "bridge_sha256": "5a5a4e32264fbe597a329d7ad4b06a6266b7b31243e86b0263dbddcecaf351a1",
+    "jar_sha256": "4506e93b5642c158aedaabbcc3e25c186f066cd9386028c549d54a447f402324",
+    "loaded": {
+      "state": "LOADED",
+      "apk_path": "/var/folders/gq/5z0rgh1902n8sks4y9lv6thw0000gn/T/rea-android-Bl3QXt/target.apk",
+      "class_count": 10267,
+      "resource_count": 85616,
+      "threads": 1,
+      "resources": "full"
+    },
+    "calls": [
+      {
+        "operation": "rea_jvm_status",
+        "input": {},
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"engine_reported_version\": \"0.7.1\", \"max_heap_bytes\": 4294967296, \"available_processors\": 8, \"java_version\": \"21.0.2\", \"metadata_scope\": \"parsed_members\"}"
+            }
+          ],
+          "isError": false
+        }
+      },
+      {
+        "operation": "load_apk",
+        "input": {
+          "path": "/var/folders/gq/5z0rgh1902n8sks4y9lv6thw0000gn/T/rea-android-Bl3QXt/target.apk",
+          "threads": 1,
+          "resources": "full"
+        },
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"state\": \"LOADED\", \"apk_path\": \"/var/folders/gq/5z0rgh1902n8sks4y9lv6thw0000gn/T/rea-android-Bl3QXt/target.apk\", \"class_count\": 10267, \"resource_count\": 85616, \"threads\": 1, \"resources\": \"full\"}"
+            }
+          ],
+          "isError": false
+        }
+      },
+      {
+        "operation": "get_class_summary",
+        "input": {
+          "class_name": "com.okinc.unify_trade.bot.config.IceBergAggressiveType"
+        },
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"full_name\": \"com.okinc.unify_trade.bot.config.IceBergAggressiveType\", \"name\": \"IceBergAggressiveType\", \"method_count\": 1, \"field_count\": 0, \"inner_class_count\": 1, \"methods\": [{\"name\": \"<init>\", \"signature\": \"public void <init>()\", \"is_constructor\": true, \"def_pos\": 0}], \"fields\": [], \"inner_classes\": [\"com.okinc.unify_trade.bot.config.IceBergAggressiveType$StateListAnimator\"]}"
+            }
+          ],
+          "isError": false
+        }
+      },
+      {
+        "operation": "get_method_body",
+        "input": {
+          "class_name": "com.okinc.unify_trade.bot.config.IceBergAggressiveType",
+          "method_name": "<init>",
+          "overload_index": 0,
+          "smali_fallback": true
+        },
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"class_name\": \"com.okinc.unify_trade.bot.config.IceBergAggressiveType\", \"method_name\": \"<init>\", \"full_name\": \"com.okinc.unify_trade.bot.config.IceBergAggressiveType.<init>\", \"overload_index\": 0, \"overload_count\": 1, \"mode\": \"java\", \"fell_back\": false, \"markers\": [], \"body\": \"public void <init>() { /* DEX bytecode */ }\"}"
+            }
+          ],
+          "isError": false
+        }
+      }
+    ]
+  },
+  "normalized_result": {
+    "engine": {
+      "name": "jadx-headless-mcp",
+      "version": "0.7.1",
+      "artifact_sha256": "4506e93b5642c158aedaabbcc3e25c186f066cd9386028c549d54a447f402324",
+      "source_revision": null,
+      "worker_count": 1,
+      "heap_limit_mib": 4096
+    },
+    "class_name": "com.okinc.unify_trade.bot.config.IceBergAggressiveType",
+    "method": {
+      "name": "<init>",
+      "reported_signature": "public void <init>()",
+      "overload_index": 0,
+      "is_constructor": true,
+      "dex_descriptor": null
+    },
+    "overload_count": 1,
+    "representation": "java",
+    "body_status": "available",
+    "fell_back": false,
+    "markers": [],
+    "source": {
+      "status": "complete",
+      "text": "public void <init>() { /* DEX bytecode */ }",
+      "reported_total_bytes": null
+    }
+  },
+  "confidence": "derived",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+    "Method signatures use provider display types; exact DEX descriptors and instruction offsets are unavailable. Overload indices are local to this engine and artifact.",
+    "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+    "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+  ],
+  "locations": [],
+  "evidence_links": []
+}

@@ -1,0 +1,29 @@
+{
+  "evidence_id": "ev_75bae4a1cd07e6f81f6bda1f7583520f1fc8ff1abd7a55623ece156e01002c8c",
+  "subject": null,
+  "provider": {
+    "id": "apktool",
+    "name": "Apktool",
+    "version": "2.9.3-okx-rea-py"
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.analysis",
+  "operation": "inspect_apktool_client",
+  "parameters": {},
+  "raw_result": null,
+  "normalized_result": {
+    "client": {
+      "command": "/Users/aaron/Desktop/aaron/okx/tools/rea_android_engine/rea_apktool_bridge.py",
+      "command_source": "environment",
+      "apktool_version": "2.9.3-okx-rea-py"
+    }
+  },
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Artifact identity is unavailable for this observation."
+  ],
+  "locations": [],
+  "evidence_links": []
+}

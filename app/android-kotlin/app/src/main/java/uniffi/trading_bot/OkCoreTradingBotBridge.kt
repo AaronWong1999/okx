@@ -179,3 +179,134 @@ class ContractGridPlaceOrderInteractor(
         release()
     }
 }
+
+/**
+ * 01 & 12. Spot Grid & Stock-Token Spot Grid Interactor (`SpotGridPlaceOrderInteractor`)
+ */
+class SpotGridPlaceOrderInteractor(
+    val instId: String = "BTC-USDT",
+    val isStockToken: Boolean = instId.startsWith("x"),
+    var lastPrice: Double = 82226.6
+) : AutoCloseable {
+    fun evaluate(minPx: Double, maxPx: Double, gridNum: Int, runType: StrategyBotMathEngine.GridRunType, investUsdt: Double) =
+        StrategyBotMathEngine.computeGridBot(
+            lastPrice = lastPrice,
+            minPx = minPx,
+            maxPx = maxPx,
+            gridNum = gridNum,
+            runType = runType,
+            isContract = false,
+            investAmountUsdt = investUsdt
+        )
+    override fun close() {}
+}
+
+/**
+ * 03 & 14. Smart Portfolio & AI Strategy Rust Bridge (`SmartPortfolioRustRequestBridge`)
+ */
+class SmartPortfolioRustRequestBridge : AutoCloseable {
+    fun evaluatePortfolio(coins: List<StrategyBotMathEngine.PortfolioCoinWeight>, investUsdt: Double) =
+        StrategyBotMathEngine.computeSmartPortfolio(coins, investUsdt)
+    override fun close() {}
+}
+
+/**
+ * 04 & 05. Futures & Spot Martingale / DCA Interactor (`ContractDcaPlaceOrderInteractor` / `SpotDcaPlaceOrderInteractor`)
+ */
+class MartingaleDcaPlaceOrderInteractor(
+    val instId: String = "BTC-USDT-SWAP",
+    val isContract: Boolean = true,
+    var entryPrice: Double = 82145.8
+) : AutoCloseable {
+    fun evaluateLadder(
+        direction: StrategyBotMathEngine.BotDirection,
+        leverage: Double,
+        pxStepsPct: Double,
+        tpPct: Double,
+        initOrdAmt: Double,
+        safetyOrdAmt: Double,
+        maxSafetyOrds: Int,
+        pxStepsMult: Double = 1.05,
+        volMult: Double = 1.05,
+        reserveFunds: Boolean = true
+    ) = StrategyBotMathEngine.computeDcaMartingaleBot(
+        entryPrice = entryPrice,
+        direction = direction,
+        isContract = isContract,
+        leverage = leverage,
+        pxStepsPct = pxStepsPct,
+        tpPct = tpPct,
+        initOrdAmtUsdt = initOrdAmt,
+        safetyOrdAmtUsdt = safetyOrdAmt,
+        maxSafetyOrds = maxSafetyOrds,
+        pxStepsMult = pxStepsMult,
+        volMult = volMult,
+        reserveFunds = reserveFunds
+    )
+    override fun close() {}
+}
+
+/**
+ * 06. Smart Arbitrage & Dual-Leg Arbitrage Interactor (`SmartArbitragePlaceOrderInteractor`)
+ */
+class SmartArbitragePlaceOrderInteractor(
+    val instId: String = "BTC-USDT-SWAP",
+    var spotPrice: Double = 82100.0,
+    var swapPrice: Double = 82145.8
+) : AutoCloseable {
+    fun evaluate(investUsdt: Double, leverage: Double = 10.0, stakingApyPct: Double = 6.85) =
+        StrategyBotMathEngine.computeSmartArbitrage(
+            totalInvestUsdt = investUsdt,
+            spotPrice = spotPrice,
+            swapPrice = swapPrice,
+            swapLeverage = leverage,
+            stakingApyPct = stakingApyPct
+        )
+    override fun close() {}
+}
+
+/**
+ * 07. Signal Bot TradingView Webhook Interactor (`SignalBotCopyCreateInteractor`)
+ */
+class SignalBotCopyCreateInteractor : AutoCloseable {
+    fun evaluate(signalName: String, pairsCount: Int, leverage: Double, investUsdt: Double) =
+        StrategyBotMathEngine.computeSignalBot(signalName, pairsCount, leverage, investUsdt)
+    override fun close() {}
+}
+
+/**
+ * 08 & 09. Smart Iceberg & TWAP Execution Slicing Interactor (`SmartIcebergDetailComposition` / `TwapRustOrderConfirmFragment`)
+ */
+class ExecutionSlicingOrderInteractor(val isTwap: Boolean) : AutoCloseable {
+    fun evaluate(
+        lastPrice: Double,
+        leverage: Double,
+        singleOrdSz: Double,
+        totalOrdSz: Double,
+        activeOrdersCount: Int = 3,
+        timeIntervalSec: Int = 15
+    ) = StrategyBotMathEngine.computeExecutionSlicing(
+        isTwap = isTwap,
+        lastPrice = lastPrice,
+        leverage = leverage,
+        singleOrderSz = singleOrdSz,
+        totalOrderSz = totalOrdSz,
+        activeOrdersCount = activeOrdersCount,
+        timeIntervalSec = timeIntervalSec
+    )
+    override fun close() {}
+}
+
+/**
+ * 10 & 11. Recurring Buy (`RecurringBuyAiOrderService`) & Dip-Buy Take-Profit (`DcdBotInteractor`)
+ */
+class RecurringAndDcdInteractor : AutoCloseable {
+    fun evaluateRecurring(perCycleUsdt: Double, availUsdt: Double) =
+        StrategyBotMathEngine.computeRecurringBuy(perCycleUsdt, availUsdt)
+
+    fun evaluateDipBuyDcd(lastPrice: Double, dropPct: Double, minApyPct: Double, investUsdt: Double) =
+        StrategyBotMathEngine.computeDipBuyTakeProfit(lastPrice, dropPct, minApyPct, investUsdt)
+
+    override fun close() {}
+}
+

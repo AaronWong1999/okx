@@ -37,6 +37,13 @@
 
   const state = {
     folderId: "01_现货网格_SpotGrid",
+    appTab: "trade",
+    tradeTab: "策略&跟单",
+    hubSubTab: "推荐",
+    klineExpanded: false,
+    klinePeriod: "4时",
+    klineIndicator: "EMA",
+    advExpanded: true,
     priceScale: 1,
     sheet: null,
     filter: "全部",
@@ -324,25 +331,41 @@
     );
   }
 
-  function shell(title, body, cta) {
+  function shell(title, body, ctaHtml) {
     const inst = activeInst();
     const down = inst.change24hPct < 0;
+    const klineDrawer = state.klineExpanded
+      ? '<div class="okx-phone-kline-drawer">' +
+        '<div style="display:flex;justify-content:space-between;font-size:11.5px;margin-bottom:6px">' +
+        ["15分", "1时", "4时", "1日"].map((pd) =>
+          '<span style="cursor:pointer;font-weight:' + (state.klinePeriod === pd ? "800;color:var(--okx-text-primary)" : "500;color:var(--okx-text-secondary)") +
+          '" data-act="kline-pd" data-val="' + pd + '">' + pd + "</span>"
+        ).join("") +
+        '<span style="cursor:pointer;font-weight:700" data-act="kline-ind">' + esc(state.klineIndicator) + " ▾</span></div>" +
+        '<div style="font-size:10.5px;color:#d97706;margin-bottom:4px" class="tabular">' +
+        (state.klineIndicator === "EMA"
+          ? "EMA7: " + fmt(inst.lastPx * 0.998, 1) + "  EMA14: " + fmt(inst.lastPx * 0.994, 1) + "  EMA28: " + fmt(inst.lastPx * 0.989, 1)
+          : "MA(5): " + fmt(inst.lastPx * 0.997, 1) + "  MA(10): " + fmt(inst.lastPx * 0.993, 1) + "  MA(20): " + fmt(inst.lastPx * 0.988, 1)) +
+        "</div></div>"
+      : "";
     return (
       '<header class="okx-nav-header">' +
       '<button class="okx-nav-back" data-act="folder" data-id="00_公共组件_创建策略与通用功能">‹</button>' +
       '<button class="okx-nav-title-btn" data-act="sheet" data-sheet="create">' + esc(title) + " ▾</button>" +
-      '<div class="okx-nav-icons"><span class="okx-icon-btn">▣</span><span class="okx-icon-btn">···</span></div></header>' +
+      '<div class="okx-nav-icons"><span class="okx-icon-btn" data-act="sheet" data-sheet="tutorial">▣</span><span class="okx-icon-btn">···</span></div></header>' +
       '<div class="okx-pair-strip"><button class="okx-pair-name" data-act="cycle-inst" style="background:none;border:none">' +
       esc(inst.displayName) + " ▾</button>" +
-      '<div class="okx-pair-price-cluster"><span class="' + (down ? "price-down" : "price-up") + '">' +
-      fmt(inst.lastPx, inst.tickSz < 0.1 ? 2 : 1) + (down ? " ↓" : " ↑") + "</span></div></div>" +
+      '<div class="okx-pair-price-cluster"><span class="' + (down ? "price-down" : "price-up") + ' tabular">' +
+      fmt(inst.lastPx, inst.tickSz < 0.1 ? 2 : 1) + (down ? " ↓" : " ↑") +
+      '</span><button class="okx-icon-btn" data-act="toggle-kline" title="展开/收起K线">📈 ' + (state.klineExpanded ? "▴" : "▾") + "</button></div></div>" +
+      klineDrawer +
       '<div class="phone-body" id="phoneBody">' + body + "</div>" +
-      '<div class="phone-bottom-cta">' + cta + "</div>"
+      '<div class="phone-bottom-cta">' + ctaHtml + "</div>"
     );
   }
 
   function cta(label, enabled) {
-    return '<button class="okx-black-pill-btn" data-act="create"' + (enabled ? "" : " disabled style=\"opacity:.45\"") + ">" + esc(label) + "</button>";
+    return '<button class="okx-black-pill-btn" data-act="create"' + (enabled ? "" : ' disabled style="opacity:.45"') + ">" + esc(label) + "</button>";
   }
 
   function renderGridForm(contract) {
@@ -350,9 +373,10 @@
     const calc = compute();
     const inst = activeInst();
     const unit = inst.marginCcy;
+    const isCm = inst.instType === "SWAP_CM";
     const minTxt = contract
-      ? "> " + fmt(calc.minInvest, inst.instType === "SWAP_CM" ? 4 : 2) + " (" + unit + ")"
-      : "> " + fmt(calc.minInvest || 60.2, 1);
+      ? "> " + fmt(calc.minInvest, isCm ? 4 : 2) + " " + unit
+      : "> " + fmt(calc.minInvest || 60.2, 1) + " USDT";
     const profit = calc.profitMinPct
       ? fmt(calc.profitMinPct, 2) + "% ~ " + fmt(calc.profitMaxPct, 2) + "%"
       : "--";
@@ -361,165 +385,191 @@
       html += seg("modeTab", [["ai", "AI 策略"], ["manual", "手动创建"]]);
     }
     if (p.modeTab === "ai" && !contract) {
-      html += '<div class="okx-border-card"><div style="font-weight:700;margin-bottom:6px">AI 推荐参数</div>' +
-        "<div>回测年化 <b class=\"price-up\">+18.6%</b> · 网格 " + esc(p.gridNum) + " · 等差</div>" +
-        "<div style=\"color:var(--okx-text-secondary);margin-top:6px\">区间 " + fmt(p.minPx, 1) + " – " + fmt(p.maxPx, 1) + "</div></div>";
+      const tiers = [
+        ["中期均衡型", "+33.27%", "1~2个月", "73,544.5 - 89,779.6", 75],
+        ["短期激进型", "+16.77%", "7~30天", "77,800.0 - 86,200.0", 42],
+        ["长期稳健型", "+10.47%", "3~6个月", "68,000.0 - 96,000.0", 120]
+      ];
+      tiers.forEach((tr, idx) => {
+        html += '<div class="okx-border-card"><div style="display:flex;justify-content:space-between"><b>' + tr[0] + '</b><span class="badge-soft">' + tr[2] + "</span></div>" +
+          '<div class="price-up" style="font-size:19px;font-weight:800;margin:4px 0">' + tr[1] + ' <span style="font-size:11px;color:var(--okx-text-secondary)">回测年化收益率</span></div>' +
+          '<div style="font-size:12px;color:var(--okx-text-secondary)">价格区间 ' + tr[3] + " · 网格数量 " + tr[4] + "</div>" +
+          (idx === 0 ? '<div class="okx-chip-grid" style="margin-top:8px">' +
+            ["500", "1000", "5000"].map((amt) => '<button class="okx-chip-option" data-act="set" data-key="investAmt" data-val="' + amt + '">' + amt + "</button>").join("") +
+            '<button class="okx-chip-option selected" data-act="set" data-key="modeTab" data-val="manual">填入参数</button></div>' : "") +
+          "</div>";
+      });
+      return shell(currentFolder().navTitle, html, cta("创建 AI 网格策略", true));
     }
+
     if (contract) {
-      html += '<div class="okx-field-header"><span>方向</span></div>' + chips("direction", [["long", "做多"], ["short", "做空"], ["neutral", "中性"]]);
-      html += '<div class="okx-kv-row"><span class="okx-kv-label">杠杆</span><button class="okx-chip-option selected" data-act="sheet" data-sheet="lever">' + esc(p.lever) + "x ▾</button></div>";
+      html += '<div class="okx-dir-3">' +
+        '<button class="okx-dir-btn' + (p.direction === "long" ? " active-long" : "") + '" data-act="set" data-key="direction" data-val="long">做多</button>' +
+        '<button class="okx-dir-btn' + (p.direction === "short" ? " active-short" : "") + '" data-act="set" data-key="direction" data-val="short">做空</button>' +
+        '<button class="okx-dir-btn' + (p.direction === "neutral" ? " active-neutral" : "") + '" data-act="set" data-key="direction" data-val="neutral">中性</button></div>';
     }
-    html += field(contract ? "投资额 (保证金)" : "投资额", "investAmt", unit + " ▾", minTxt);
+
+    html += '<div class="okx-field-header"><span>价格区间 (' + (isCm ? "USD" : "USDT") + ')</span>' +
+      '<button class="okx-icon-btn" style="font-size:12px;color:var(--okx-text-secondary)" data-act="clear-grid">🗑 清除参数</button></div>';
+    html += '<div class="okx-range-pair">' +
+      '<label class="okx-gray-input"><span class="okx-input-mini-label">最低价</span><span class="okx-input-row"><input data-act="input" data-key="minPx" value="' + esc(p.minPx) + '" inputmode="decimal" /></span></label>' +
+      '<span class="okx-range-dash">—</span>' +
+      '<label class="okx-gray-input"><span class="okx-input-mini-label">最高价</span><span class="okx-input-row"><input data-act="input" data-key="maxPx" value="' + esc(p.maxPx) + '" inputmode="decimal" /></span></label></div>';
+
+    html += field("网格数量 (2 - 1,000) ⓘ", "gridNum", "格 (" + (p.runType === "2" ? "等比" : "等差") + ")");
+    html += row("单网格收益率 (已扣手续费)", profit);
+
+    if (contract && isCm) {
+      html += '<div class="okx-border-card" style="background:var(--okx-bg-elevated);font-size:12px">' +
+        row("预估卖出均价", fmt(calc.estSellAvgPx, 1) + " USD") +
+        row("预估买入均价", fmt(calc.estBuyAvgPx, 1) + " USD") +
+        row("30日年化资金费率", '<span class="price-up">+5.50%</span>') + "</div>";
+    }
+
+    if (contract) {
+      html += '<div class="okx-invest-lever-row"><div style="flex:1">' + field("投资额 (保证金)", "investAmt", unit + " ▾", minTxt) + '</div>' +
+        '<button class="okx-lever-box" data-act="sheet" data-sheet="lever">' + esc(p.lever) + "x ▾</button></div>";
+    } else {
+      html += field("投资额", "investAmt", unit + " ▾", minTxt);
+    }
     html += '<div class="okx-error-text" data-error style="' + (calc.error ? "" : "display:none") + '">' + esc(calc.error || "") + "</div>";
     html += '<div class="okx-slider-wrap"><input type="range" min="0" max="' + (contract ? 5000 : 2000) + '" step="1" data-act="input" data-key="investAmt" value="' + esc(p.investAmt || 0) + '" /></div>';
-    html += row("可用", "0 " + unit);
+    html += row("可用", "0.00 " + unit + " ⊕");
+
     if (contract) {
-      html += toggle("自动预留保证金", "autoReserveMargin");
-      html += row("实际保证金 + 预留保证金", p.investAmt > 0 ? fmt(calc.actualMargin, 2) + " + " + fmt(calc.reservedMargin, 2) : "--");
-      html += row("含杠杆的实际投入", p.investAmt > 0 ? fmt(calc.leveragedNotional, 2) + " " + unit : "--");
-      html += row("预估强平价 (多)", calc.liqLong ? fmt(calc.liqLong, 1) : "--");
-      html += row("预估强平价 (空)", calc.liqShort ? fmt(calc.liqShort, 1) : "--");
-      html += '<button class="okx-kv-row" data-act="sheet" data-sheet="slippage" style="width:100%;background:none;border:none;cursor:pointer"><span class="okx-kv-label">滑点控制</span><span class="okx-kv-val">' + (p.slippageOn ? esc(p.slippagePct) + "%" : "关") + " ›</span></button>";
+      html += toggle("☑ 自动预留保证金 ⓘ", "autoReserveMargin");
+      html += row("实际保证金 + 预留保证金", p.investAmt > 0 ? fmt(calc.actualMargin, isCm ? 4 : 2) + " + " + fmt(calc.reservedMargin, isCm ? 4 : 2) : "--");
+      html += row("含杠杆的实际投入", p.investAmt > 0 ? fmt(calc.leveragedNotional, isCm ? 4 : 2) + " " + unit : "--");
+      html += row("预估强平价 (多 / 空)", (calc.liqLong ? fmt(calc.liqLong, 1) : "--") + " / " + (calc.liqShort ? fmt(calc.liqShort, 1) : "--"));
+      html += '<button class="okx-kv-row" data-act="sheet" data-sheet="slippage" style="width:100%;background:none;border:none;cursor:pointer"><span class="okx-kv-label dotted">滑点控制</span><span class="okx-kv-val">' + (p.slippageOn ? "AI 推荐 " + esc(p.slippagePct) + "%" : "关") + " ›</span></button>";
     } else {
-      html += toggle("利润复投", "profitReinvest");
+      html += toggle("利润复投 ⓘ", "profitReinvest");
       html += '<div class="okx-kv-row"><span class="okx-kv-label">自动赚币</span><span class="okx-kv-val price-up">+' + fmt(inst.simpleEarnApyPct || 2.79, 2) + "% 年化 ›</span></div>";
     }
-    html += '<div class="okx-field-header" style="margin-top:8px"><span>价格区间</span></div>';
-    html += field("最低价", "minPx", unit === "BTC" ? "USD" : "USDT");
-    html += field("最高价", "maxPx", unit === "BTC" ? "USD" : "USDT");
-    html += field("网格数量 (2–1,000)", "gridNum", "格");
-    html += '<div class="okx-field-header"><span>网格模式</span></div>' + chips("runType", [["1", "等差"], ["2", "等比"]]);
-    html += row("单网格收益率", profit);
-    html += row("每格数量", fmt(calc.perGridQty, 6));
-    if (!contract) {
-      html += linkRow("简单赚币分配", "earnAlloc");
+
+    html += '<div class="okx-field-header" style="margin-top:8px;cursor:pointer" data-act="toggle-adv"><span>高级设置 ⓘ</span><span>' + (state.advExpanded ? "▴" : "▾") + "</span></div>";
+    if (state.advExpanded) {
+      html += '<div class="okx-field-header"><span>网格模式</span></div>' + chips("runType", [["1", "等差"], ["2", "等比"]]);
+      if (!contract) html += linkRow("简单赚币分配", "earnAlloc");
       html += linkRow("网格随价格上移", "moveUp");
-      html += linkRow("网格随价格下移", "moveDown");
+      if (!contract) html += linkRow("网格随价格下移", "moveDown");
       html += linkRow("预设开始条件", "startCond");
       html += linkRow("预设停止条件", "stopCond");
-      html += linkRow("止盈", "tp");
-      html += linkRow("止损", "sl");
+      html += linkRow("止盈 / 止损 (最新价/区间/收益率)", "tp");
     }
-    const title = contract ? (p.instId === "BTC-USD-SWAP" ? "合约网格 (币本位)" : currentFolder().navTitle) : currentFolder().navTitle;
-    return shell(title, html, cta("创建策略", calc.valid));
+
+    const title = contract ? (isCm ? "合约网格 (币本位)" : currentFolder().navTitle) : currentFolder().navTitle;
+    let btnHtml = cta("创建策略", calc.valid);
+    if (contract && p.direction === "long") {
+      btnHtml = '<button class="okx-btn-long" style="width:100%" data-act="create"' + (calc.valid ? "" : ' disabled style="opacity:.45"') + ">创建策略 (做多)</button>";
+    } else if (contract && p.direction === "short") {
+      btnHtml = '<button class="okx-btn-short" style="width:100%" data-act="create"' + (calc.valid ? "" : ' disabled style="opacity:.45"') + ">创建策略 (做空)</button>";
+    }
+    return shell(title, html, btnHtml);
   }
 
   function renderDca() {
     const p = params();
     const calc = compute();
     const contract = p.botType === "contract_dca";
-    let html = seg("modeTab", [["ai", "AI 策略"], ["manual", "手动创建"]]);
-    if (p.modeTab === "ai") {
-      html += '<div class="okx-border-card"><b>短期进取建仓 · ' + (p.direction === "short" ? "做空" : "做多") + "</b><div style=\"margin-top:6px;color:var(--okx-text-secondary)\">加仓间距 " + esc(p.pxStepsPct) + "% · 止盈 " + esc(p.tpPct) + "% · 最多 " + esc(p.maxSafetyOrds) + " 笔</div></div>";
-    }
+    let html = "";
     if (contract) {
-      html += chips("direction", [["long", "做多"], ["short", "做空"]]);
-      html += '<div class="okx-kv-row"><span class="okx-kv-label">杠杆</span><button class="okx-chip-option selected" data-act="sheet" data-sheet="lever">' + esc(p.lever) + "x ▾</button></div>";
-      if (calc.highLeverWarning) html += '<div class="okx-error-text">' + esc(calc.highLeverWarning) + "</div>";
+      html += '<div class="okx-dir-3" style="grid-template-columns:1fr 1fr">' +
+        '<button class="okx-dir-btn' + (p.direction === "long" ? " active-long" : "") + '" data-act="set" data-key="direction" data-val="long">做多</button>' +
+        '<button class="okx-dir-btn' + (p.direction === "short" ? " active-short" : "") + '" data-act="set" data-key="direction" data-val="short">做空</button></div>';
     }
-    html += field("跌多少加仓", "pxStepsPct", "%", contract ? "0.1–50" : "0.2–50");
-    html += field("单周期止盈目标", "tpPct", "%");
-    html += field("初次下单金额", "initOrdAmt", "USDT");
-    html += field("加仓单金额", "safetyOrdAmt", "USDT");
-    html += field("最大加仓次数", "maxSafetyOrds", "次");
-    html += field("加仓价差倍数", "pxStepsMult", "x");
-    html += field("加仓金额倍数", "volMult", "x");
-    html += toggle("预留足够资金", "reserveFunds");
-    html += '<button class="okx-kv-row" data-act="sheet" data-sheet="rsi" style="width:100%;background:none;border:none;cursor:pointer"><span class="okx-kv-label">RSI-14 触发</span><span class="okx-kv-val">' + esc(p.rsiTrigger) + " ›</span></button>";
-    html += row("整轮所需保证金", fmt(calc.requiredMargin, 2) + " USDT");
-    html += row("预估强平价", calc.liqPx ? fmt(calc.liqPx, 1) : "现货无强平");
+    html += '<div class="okx-kv-row"><span class="okx-kv-label strong">触发条件 ⓘ</span>' +
+      '<label style="font-size:12.5px;font-weight:700;cursor:pointer"><input type="checkbox" checked data-act="sheet" data-sheet="rsi" /> AI 参数 (' + (p.direction === "short" ? "短期进取建仓-做空" : "智能建仓") + ")</label></div>";
+    html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">' +
+      field("跌多少加仓 (" + (contract ? "0.1-50%" : "0.2-50%") + ")", "pxStepsPct", "%") +
+      field("单周期止盈目标", "tpPct", "%") + "</div>";
+    html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">' +
+      field(contract ? "初次下单保证金" : "初次下单金额", "initOrdAmt", "USDT") +
+      field(contract ? "加仓单保证金" : "加仓单金额", "safetyOrdAmt", "USDT") + "</div>";
+    html += field("最大自动加仓次数 (0-100)", "maxSafetyOrds", "次");
+    if (contract) {
+      html += '<div class="okx-kv-row"><span class="okx-kv-label">杠杆倍数</span><button class="okx-lever-box" style="height:32px" data-act="sheet" data-sheet="lever">' + esc(p.lever) + "x ▾</button></div>";
+      if (calc.highLeverWarning) html += '<div class="okx-error-text">' + esc(calc.highLeverWarning) + "</div>";
+    } else {
+      html += '<div class="okx-kv-row"><span class="okx-kv-label">专属权益 (赚币 + 质押)</span><span class="price-up" style="font-weight:700">+4.62% 年化 ›</span></div>';
+    }
+    html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">' +
+      field("加仓价差倍数", "pxStepsMult", "倍") +
+      field("加仓金额倍数", "volMult", "倍") + "</div>";
+    html += toggle("☑ 预留足够资金 ⓘ", "reserveFunds");
+    if (contract) {
+      html += toggle("下次投资使用利润复投", "profitReinvest");
+      html += '<div class="okx-kv-row"><span class="okx-kv-label">自动划转保证金</span><span class="okx-kv-val">目标保证金率 350% ›</span></div>';
+    }
+    html += row(contract ? "投入保证金" : "当前周期最大投资额", fmt(calc.requiredMargin, 2) + " USDT");
+    html += row("预估强平价", calc.liqPx ? fmt(calc.liqPx, 1) + " USDT" : "现货无强平");
     if (calc.error) html += '<div class="okx-error-text">' + esc(calc.error) + "</div>";
-    html += '<div class="okx-field-header" style="margin-top:10px"><span>委托阶梯</span></div>';
-    html += '<table class="okx-table"><tr><th>#</th><th>触发价</th><th>金额</th><th>止盈价</th></tr>' +
+    html += '<div class="okx-field-header" style="margin-top:8px"><span>加仓委托阶梯预览</span></div>';
+    html += '<table class="okx-table"><tr><th>轮次</th><th>触发价</th><th>金额</th><th>止盈目标</th></tr>' +
       (calc.ladder || []).slice(0, 6).map((r) => "<tr><td>" + esc(r.label) + "</td><td>" + fmt(r.triggerPx, 2) + "</td><td>" + fmt(r.orderAmt, 2) + "</td><td>" + fmt(r.tpPx, 2) + "</td></tr>").join("") +
       "</table>";
-    return shell(currentFolder().navTitle, html, cta("创建策略", calc.valid));
+    const dcaBtns = !contract
+      ? '<div class="okx-dual-btn-row"><button class="okx-chip-option selected" style="height:44px">预览</button>' + cta("创建策略", calc.valid) + "</div>"
+      : cta("创建策略", calc.valid);
+    return shell(currentFolder().navTitle, html, dcaBtns);
   }
 
   function renderPortfolio() {
     const p = params();
     const calc = compute();
-    let html = '<div class="okx-field-header"><span>目标比例（合计必须 100%）</span></div>';
+    let html = seg("modeTab", [["ai", "AI 策略"], ["manual", "手动创建"]]);
+    if (p.modeTab === "ai") {
+      return renderLanding("ai");
+    }
+    const rem = Math.max(0, 100 - (calc.weightSum || 0));
+    html += '<div class="okx-field-header"><span>还需配置 ' + rem + '% / 100%</span>' +
+      '<div style="display:flex;gap:6px"><button class="okx-chip-option" style="padding:3px 8px;font-size:11px" data-act="equal-weights">平均分配</button><button class="okx-chip-option selected" style="padding:3px 8px;font-size:11px">⊕ 新增币种</button></div></div>';
     p.portfolioCoins.forEach((c, i) => {
-      html += '<div class="okx-gray-input" style="margin-bottom:8px"><span class="okx-input-row"><span class="okx-input-mini-label">' + esc(c.ccy) +
-        '</span><input data-act="weight" data-idx="' + i + '" value="' + esc(c.weight) + '" inputmode="decimal" /><span class="okx-input-unit">%</span></span></div>';
+      html += '<div class="okx-gray-input" style="margin-bottom:8px"><span class="okx-input-row"><b style="min-width:64px">' + esc(c.ccy) +
+        '</b><input data-act="weight" data-idx="' + i + '" value="' + esc(c.weight) + '" inputmode="decimal" /><span class="okx-input-unit">%</span></span></div>';
     });
-    html += field("投资额", "investAmt", "USDT", "≥ " + (calc.minInvest || 10));
-    if (calc.error) html += '<div class="okx-error-text">' + esc(calc.error) + "</div>";
-    html += '<div class="okx-field-header"><span>再平衡触发</span></div>' + chips("rebalanceMode", [["proportional", "偏离阈值"], ["periodic", "定期检查"]]);
+    html += field("投资额 (≥ " + (calc.minInvest || 30.31) + " USDT)", "investAmt", "USDT", "≥ " + (calc.minInvest || 30.31));
+    html += toggle("☐ 允许使用交易币", "allowBaseCoins");
+    if (calc.error) html += '<div class="okx-error-text" data-error>' + esc(calc.error) + "</div>";
+    html += '<div class="okx-field-header"><span>自动调仓条件 (再平衡模式)</span></div>' + chips("rebalanceMode", [["proportional", "按比例 (5%)"], ["periodic", "按时间 (4小时)"]]);
     if (p.rebalanceMode === "proportional") html += field("偏离阈值", "rebalanceThresholdPct", "%");
     else html += field("检查周期", "rebalancePeriod", "");
-    html += toggle("自动赚币", "autoEarn");
-    html += toggle("自动质押", "autoStake");
+    html += toggle("自动赚币和自动质押 (+4.62% 年化)", "autoEarn");
     (calc.coins || []).forEach((c) => {
-      html += row(c.ccy + " 配置", fmt(c.allocUsdt, 2) + " USDT");
+      html += row(c.ccy + " 初始分配", fmt(c.allocUsdt, 2) + " USDT");
     });
-    return shell(currentFolder().navTitle, html, cta("创建组合", calc.valid));
+    return shell(currentFolder().navTitle, html, cta("创建策略", calc.valid));
   }
 
+  const H = { field, row, toggle, chips, seg, linkRow, shell, cta, fmt, esc };
+
   function renderArb() {
-    const p = params();
-    const calc = compute();
-    let html = seg("legMode", [["smart", "智能套利"], ["dual", "套利下单"]]);
-    html += chips("arbMarketTab", ["Crypto", "Tradfi"]);
-    html += field("投资额", "investAmt", "USDT", "≥ 50");
-    html += '<div class="okx-kv-row"><span class="okx-kv-label">杠杆</span><button class="okx-chip-option selected" data-act="sheet" data-sheet="lever">' + esc(p.lever) + "x ▾</button></div>";
-    html += toggle("借币补充保证金", "borrowUsdt");
-    if (calc.error) html += '<div class="okx-error-text">' + esc(calc.error) + "</div>";
-    html += row("现货开仓", fmt(calc.spotAllocUsdt, 2) + " USDT");
-    html += row("合约保证金", fmt(calc.swapMarginUsdt, 2) + " USDT");
-    html += row("价差", fmt(calc.spreadPct, 3) + "%");
-    html += row("质押年化", fmt(calc.stakingApy, 2) + "%");
-    html += row("资金费年化", fmt(calc.fundingApy, 2) + "%");
-    html += row("3 日综合年化", fmt(calc.total3dApy, 2) + "%");
-    html += row("预估开仓盈亏", fmt(calc.estOpenPnl, 2) + " USDT");
-    if (p.legMode === "dual") {
-      html += '<div class="okx-field-header"><span>左腿 · 现货</span></div>' + chips("spotPriceType", ["排队价", "超价", "对手价", "市价"]);
-      html += '<div class="okx-field-header"><span>右腿 · 永续</span></div>' + chips("swapPriceType", ["排队价", "超价", "对手价", "市价"]);
-    }
-    return shell("智能套利", html, cta(p.legMode === "dual" ? "预览双腿" : "策略预览", calc.valid));
+    return window.OkxBotScreens1To1.renderArbScreen(params(), compute(), activeInst(), H);
   }
 
   function renderSignal() {
     const p = params();
     const calc = compute();
-    let html = field("信号名称", "signalName", "", "最多 50 字");
-    html += '<div class="okx-field-block"><div class="okx-field-header"><span>简介</span></div><label class="okx-gray-input"><span class="okx-input-row"><input data-act="input" data-key="signalIntro" value="' + esc(p.signalIntro) + '" placeholder="最多 1500 字" /></span></label></div>';
-    html += field("交易对数量", "selectedPairsCount", "个", "最多 10");
-    html += '<div class="okx-kv-row"><span class="okx-kv-label">杠杆</span><button class="okx-chip-option selected" data-act="sheet" data-sheet="lever">' + esc(p.lever) + "x ▾</button></div>";
+    let html = '<div class="okx-field-header"><span>选择信号</span><button class="okx-chip-option selected" style="padding:3px 10px;font-size:11.5px" data-act="sheet" data-sheet="customSignal">＋ 新增自定义信号</button></div>';
+    html += '<button class="okx-gray-input" data-act="sheet" data-sheet="customSignal" style="width:100%;text-align:left;cursor:pointer;margin-bottom:10px"><div class="okx-input-row"><span>' + esc(p.signalName) + '</span><span>▾</span></div></button>';
+    html += '<div class="okx-field-header"><span>交易对</span><span class="badge-soft">⊕ 已选 ' + esc(p.selectedPairsCount) + " / 10 个 ›</span></div>";
+    html += field("交易对数量 (最多 10 个)", "selectedPairsCount", "个");
+    html += '<div class="okx-invest-lever-row"><div style="flex:1">' + field("投资额 (保证金 ≥ 50)", "investAmt", "USDT", "≥ 50") + '</div>' +
+      '<button class="okx-lever-box" data-act="sheet" data-sheet="lever">' + esc(p.lever) + "x ▾</button></div>";
     if (calc.leverWarning) html += '<div class="okx-error-text">' + esc(calc.leverWarning) + "</div>";
-    html += field("投资额 (保证金)", "investAmt", "USDT", "≥ 50");
-    if (calc.error) html += '<div class="okx-error-text">' + esc(calc.error) + "</div>";
-    html += '<div class="okx-field-header"><span>加仓设定</span></div>' + chips("addPosMode", ["占用可用保证金比例", "固定保证金"]);
+    if (calc.error) html += '<div class="okx-error-text" data-error>' + esc(calc.error) + "</div>";
+    html += '<div class="okx-kv-row"><span class="okx-kv-label">自动赚币</span><span class="price-up" style="font-weight:700">+2.81% 年化 ›</span></div>';
+    html += '<div class="okx-field-header" style="margin-top:8px"><span>高级设置 ⓘ</span></div>';
     html += '<div class="okx-field-header"><span>委托类型</span></div>' + chips("sigOrderType", ["市价委托", "限价委托"]);
-    html += field("最大持仓数", "maxPositions", "个");
-    html += '<div class="okx-field-header"><span>止盈止损</span></div>' + chips("tpSlMode", ["收益率", "涨跌幅"]);
-    html += field("止盈", "tpPct", "%");
-    html += field("止损", "slPct", "%");
-    return shell("信号策略", html, cta("创建信号策略", calc.valid));
+    html += '<div class="okx-field-header"><span>加仓设定</span></div>' + chips("addPosMode", ["占用可用保证金比例", "固定保证金"]);
+    html += field("最大持仓数量", "maxPositions", "个");
+    html += '<div class="okx-field-header"><span>止盈止损基准</span></div>' + chips("tpSlMode", ["收益率", "涨跌幅"]);
+    html += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">' + field("止盈", "tpPct", "%") + field("止损", "slPct", "%") + "</div>";
+    return shell("信号策略", html, cta("创建策略", calc.valid));
   }
 
   function renderSlice() {
-    const p = params();
-    const calc = compute();
-    const twap = p.botType === "twap";
-    let html = '<div class="okx-open-close-bar">' +
-      '<button class="okx-oc-btn' + (p.posAction === "open" ? " active-open" : "") + '" data-act="set" data-key="posAction" data-val="open">开仓</button>' +
-      '<button class="okx-oc-btn' + (p.posAction === "close" ? " active-close" : "") + '" data-act="set" data-key="posAction" data-val="close">平仓</button></div>';
-    html += chips("side", [["long", "可开多"], ["short", "可开空"]]);
-    html += '<div class="okx-field-header"><span>保证金模式</span></div>' + chips("marginMode", ["全仓", "逐仓"]);
-    html += '<button class="okx-kv-row" data-act="sheet" data-sheet="marginHelp" style="width:100%;background:none;border:none;cursor:pointer"><span class="okx-kv-label dotted">保证金模式说明</span><span class="okx-kv-val">9 页教程 ›</span></button>';
-    html += '<div class="okx-kv-row"><span class="okx-kv-label">杠杆</span><button class="okx-chip-option selected" data-act="sheet" data-sheet="lever">' + esc(p.lever) + "x ▾</button></div>";
-    html += field("吃单价优于盘口", "priceOffsetUsdt", "USDT");
-    html += field("吃单限制价", "limitPx", "USDT");
-    html += field("单笔委托量", "singleOrdSz", "张");
-    if (!twap) html += field("单次挂单数 (≤5)", "activeOrdersCount", "笔");
-    html += field("委托总量", "totalSz", "张");
-    if (twap) html += field("下单间隔", "timeIntervalSec", "秒", "5–120");
-    html += '<div class="okx-center-toast" data-error style="' + (calc.error ? "" : "display:none") + '">' + esc(calc.error || "") + "</div>";
-    html += row("所需保证金", fmt(calc.reqMargin, 2) + " USDT");
-    html += row("预估强平价 (多/空)", fmt(calc.liqLong, 2) + " / " + fmt(calc.liqShort, 2));
-    return shell(twap ? "时间加权策略" : "冰山策略", html, cta(twap ? "确认 TWAP" : "确认冰山", calc.valid));
+    return window.OkxBotScreens1To1.renderSliceScreen(params(), compute(), activeInst(), H, M);
   }
 
   function renderRecurring() {
@@ -527,84 +577,69 @@
     const calc = compute();
     let html = seg("modeTab", [["featured", "精选专区"], ["manual", "手动创建"]]);
     if (p.modeTab === "featured") {
-      html += '<div class="okx-border-card"><div class="badge-lime">xStock LIVE</div><div style="font-weight:700;margin:8px 0 4px">科技五巨头组合</div><div class="price-up">+51.52% 回测</div></div>';
-      html += '<div class="okx-border-card"><div style="font-weight:700">ETF 核心指数配置</div><div style="color:var(--okx-text-secondary)">xQQQ 每日定投</div><button class="okx-chip-option selected" data-act="set" data-key="modeTab" data-val="manual" style="margin-top:8px">用此组合手动创建</button></div>';
+      html += '<div class="okx-chip-grid" style="margin-bottom:10px"><span class="okx-chip-option selected">热门币种</span><span class="okx-chip-option">ETF</span><span class="okx-chip-option">大宗商品</span><span class="okx-chip-option">精选个股 <span class="badge-lime">xStock LIVE</span></span></div>';
+      html += '<div class="okx-border-card"><div style="display:flex;justify-content:space-between"><b>科技五巨头组合 (xNVDA/xAAPL/xMSFT)</b><span class="badge-lime">xStock</span></div><div class="price-up" style="font-size:18px;font-weight:800;margin:4px 0">+51.52% <span style="font-size:11px;color:var(--okx-text-secondary)">3年历史回测</span></div><button class="okx-chip-option selected" data-act="set" data-key="modeTab" data-val="manual">一键跟投此组合</button></div>';
+      html += '<div class="okx-border-card"><b>ETF 核心指数配置 (xQQQ / xSPY)</b><div style="color:var(--okx-text-secondary);font-size:12px;margin:4px 0">纳斯达克100 与标普500 链上代币每日定投</div><button class="okx-chip-option selected" data-act="set" data-key="modeTab" data-val="manual">用此组合手动创建</button></div>';
     }
-    html += field("每期金额", "perCycleAmt", "USDT", "≥ 2");
-    if (calc.error) html += '<div class="okx-error-text">' + esc(calc.error) + "</div>";
-    html += '<div class="okx-field-header"><span>频率</span></div>' + chips("frequency", ["1小时", "4小时", "8小时", "12小时", "每天", "每周", "每月"]);
-    html += '<div class="okx-field-header"><span>首次买入</span></div>' + chips("firstBuyTime", ["立即买入", "下个整点", "自选时间"]);
-    html += toggle("其他账户自动补足", "autoSupplement");
-    html += field("价格下限", "minPrice", "USDT", "可选");
-    html += field("价格上限", "maxPrice", "USDT", "可选");
-    html += row("可用", fmt(p.availUsdt, 2) + " USDT");
-    html += row("预计可执行期数", String(calc.estCycles || 0));
-    return shell("定投策略", html, cta("创建定投", calc.valid));
+    html += '<div class="okx-field-header"><span>定投币种 (1~20 个)</span><span class="badge-soft">买入 ' + esc(p.targetCcy) + " 100% ▾</span></div>";
+    html += field("单次定投金额 (≥ 2 USDT)", "perCycleAmt", "USDT", "≥ 2");
+    if (calc.error) html += '<div class="okx-error-text" data-error>' + esc(calc.error) + "</div>";
+    html += '<div class="okx-field-header"><span>定投频率</span></div>' + chips("frequency", ["1小时", "4小时", "8小时", "12小时", "每天", "每周", "每月"]);
+    html += '<div class="okx-field-header"><span>首次买入时间</span></div>' + chips("firstBuyTime", ["立即买入", "下个整点", "自选时间"]);
+    html += toggle("其他账户自动补足 (自定义扣款顺序)", "autoSupplement");
+    html += '<div class="okx-field-header"><span>买入价格区间 (高级可选)</span></div>';
+    html += '<div class="okx-range-pair"><label class="okx-gray-input"><span class="okx-input-mini-label">最低价</span><span class="okx-input-row"><input data-act="input" data-key="minPrice" value="' + esc(p.minPrice) + '" placeholder="不限" /></span></label><span class="okx-range-dash">—</span><label class="okx-gray-input"><span class="okx-input-mini-label">最高价</span><span class="okx-input-row"><input data-act="input" data-key="maxPrice" value="' + esc(p.maxPrice) + '" placeholder="不限" /></span></label></div>';
+    html += row("可用资金", fmt(p.availUsdt, 2) + " USDT ⊕");
+    html += row("预计可定投次数", String(calc.estCycles || 0) + " 次");
+    return shell("定投策略", html, cta("创建策略", calc.valid));
   }
 
   function renderDcd() {
     const p = params();
     const calc = compute();
     let html = seg("modeTab", [["ai", "AI 策略"], ["manual", "手动创建"]]);
-    html += '<div class="okx-field-header"><span>抄底跌幅</span></div>' + chips("dropPct", [["0.1", "0.1%"], ["1", "1%"], ["5", "5%"]]);
-    html += field("最低年化收益率", "minApyPct", "%");
-    html += field("最长期限", "maxTenorDays", "天");
-    html += field("申购金额", "investAmt", "USDT", "≥ 10");
-    if (calc.error) html += '<div class="okx-error-text">' + esc(calc.error) + "</div>";
-    html += '<div class="okx-border-card"><div style="font-weight:700">自动匹配产品</div>' +
-      "<div>目标价 " + fmt(calc.buyTargetPx, 0) + " USDT</div>" +
-      '<div class="price-up">年化 +' + fmt(calc.matchedApyPct, 2) + "%</div>" +
-      "<div>结算 " + esc(calc.settlementTimeStr || "") + " · " + esc(calc.settlementHours) + " 小时</div></div>";
-    return shell("抄底止盈策略", html, cta("申购", calc.valid));
+    html += '<div class="okx-field-header"><span>买入方式 · 跌幅百分比 ▾</span></div>' + chips("dropPct", [["0.1", "0.1%"], ["1", "1%"], ["5", "5%"]]);
+    html += '<div class="okx-field-header" style="margin-top:8px"><span>其他条件</span></div>';
+    html += field("最低年化收益率 ⓘ (≥ 1%)", "minApyPct", "%");
+    html += field("最长期限 (1~365 天)", "maxTenorDays", "天");
+    html += '<div class="okx-border-card" style="background:var(--okx-bg-elevated)"><div style="display:flex;justify-content:space-between"><b>匹配到的双币产品 (BTC-USDT)</b><span class="badge-lime">自动匹配</span></div>' +
+      row("买入目标价格", "<b>" + fmt(calc.buyTargetPx, 0) + " USDT</b>") +
+      row("参考年化收益率", '<span class="price-up" style="font-weight:800">+' + fmt(calc.matchedApyPct, 2) + "%</span>") +
+      row("投资期限", esc(calc.settlementHours || 16) + " 小时 (" + esc(calc.settlementTimeStr || "次日 16:00") + ")") + "</div>";
+    html += field("申购投资额 (≥ 10 USDT)", "investAmt", "USDT", "≥ 10");
+    if (calc.error) html += '<div class="okx-error-text" data-error>' + esc(calc.error) + "</div>";
+    return shell("抄底止盈", html, '<button class="okx-black-pill-btn" data-act="sheet" data-sheet="dcdSub">下一步 (申购低价抄底 BTC)</button>');
   }
 
   function renderLanding(kind) {
     const p = params();
-    if (kind === "stock-spot") {
-      let html = '<div style="font-weight:800;font-size:18px;margin-bottom:6px">股票代币现货网格</div><div style="color:var(--okx-text-secondary);margin-bottom:12px">锚定股票代币波动特性，网格自动捕捉每一次起落</div>';
-      STOCK_SPOT.forEach((row) => {
-        const id = row[0];
-        html += '<div class="okx-border-card" style="display:flex;justify-content:space-between;align-items:center"><div><b>' + esc(M.INSTRUMENTS[id].displayName) + '</b><div class="price-up">+' + row[1].toFixed(2) + '%</div><div style="color:var(--okx-text-secondary)">' + row[2] + " 人</div></div>" +
-          '<button class="okx-black-pill-btn" style="width:auto;padding:0 16px;height:34px" data-act="pick-inst" data-id="' + id + '">创建</button></div>';
-      });
-      if (p.modeTab === "manual") return renderGridForm(false);
-      return shell("股票代币现货网格", html, '<button class="okx-black-pill-btn" data-act="set" data-key="modeTab" data-val="manual">手动创建</button>');
-    }
-    if (kind === "stock-fut") {
-      const cards = [
-        ["TSLA-USDT-SWAP", 82.1],
-        ["TSLA-USDT-SWAP", 248.64],
-        ["TSLA-USDT-SWAP", 38.2],
-        ["TSLA-USDT-SWAP", 294.39]
-      ];
-      const names = ["TSLA +82.10%", "HOOD +248.64%", "SPCX +38.20%", "AMZN +294.39%"];
-      let html = '<div style="font-weight:800;font-size:18px">美股代币合约网格</div><div style="color:var(--okx-text-secondary);margin:6px 0 12px">中期进取型 · 累计 5,299 人 · 投入 4.07M</div>';
-      names.forEach((n) => {
-        html += '<div class="okx-border-card"><b>' + esc(n) + '</b><div><button class="okx-chip-option selected" data-act="sheet" data-sheet="stockRisk">创建</button></div></div>';
-      });
-      if (p.riskAck && p.modeTab === "manual") return renderGridForm(true);
-      return shell("美股代币合约网格", html, '<button class="okx-black-pill-btn" data-act="sheet" data-sheet="stockRisk">阅读风险须知</button>');
+    if (kind === "stock-spot" || kind === "stock-fut") {
+      const m = window.OkxBotScreens1To1.renderStockMatrixScreen(kind, p, compute(), H, M);
+      if (m) return m;
+      return renderGridForm(kind === "stock-fut");
     }
     const presets = [
-      ["桥水基金全天候加密版", 18.14],
-      ["存储与储备组合", 6.2],
-      ["AI数据与储备组合", 8.39]
+      ["桥水基金全天候加密版", 18.14, "BTC 40% · PAXG 30% · ETH 20% · SOL 10%"],
+      ["存储与储备组合", 12.60, "xMU 40% · xBMNR 35% · xREN 25%"],
+      ["AI数据与储备组合", 8.39, "xNVDA 45% · xAMD 30% · BTC 25%"]
     ];
-    let html = '<div style="font-weight:800;font-size:18px;margin-bottom:8px">AI 策略与 AI 组合</div>';
+    let html = '<div style="font-weight:800;font-size:17px;margin-bottom:8px">官方 AI 组合与 BTC 生息单</div>';
     presets.forEach((pr) => {
-      html += '<button class="okx-border-card" data-act="preset" data-name="' + esc(pr[0]) + '" style="width:100%;text-align:left;cursor:pointer"><b>' + esc(pr[0]) + '</b><div class="price-up">+' + pr[1].toFixed(2) + '%</div><div style="color:var(--okx-text-secondary)">偏离 5% 自动再平衡</div></button>';
+      html += '<button class="okx-border-card" data-act="preset" data-name="' + esc(pr[0]) + '" style="width:100%;text-align:left;cursor:pointer"><div style="display:flex;justify-content:space-between"><b>' + esc(pr[0]) + '</b><span class="price-up" style="font-weight:800">+' + pr[1].toFixed(2) + '%</span></div><div style="color:var(--okx-text-secondary);font-size:12px;margin-top:4px">' + pr[2] + " · 偏离 5% 自动调仓</div></button>";
     });
-    html += '<div class="okx-border-card"><b>BTC 生息单</b><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px">' +
-      ["网格套利", "双币生息", "自动赚币", "利润复投", "随价格移动", "预设停止"].map((x) => '<span class="badge-soft">' + x + "</span>").join("") +
-      "</div></div>";
+    html += '<div class="okx-border-card"><b>BTC 生息单 · 6 大全天候收益引擎</b><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px">' +
+      [["网格套利", "捕捉震荡价差"], ["双币生息", "挂单享高额票息"], ["自动赚币", "+2.79% 余币宝"], ["利润复投", "网格收益滚入本金"], ["随价格移动", "破区间自动上移"], ["预设停止", "触发止盈自动赎回"]].map((x) =>
+        '<div style="background:var(--okx-bg-elevated);padding:6px 8px;border-radius:8px"><div style="font-weight:700;font-size:12px">' + x[0] + '</div><div style="font-size:10.5px;color:var(--okx-text-secondary)">' + x[1] + "</div></div>"
+      ).join("") + "</div></div>";
     const calc = compute();
     if (calc.error) html += '<div class="okx-error-text" data-error>' + esc(calc.error) + "</div>";
-    html += field("投资额", "investAmt", "USDT", "≥ " + (calc.minInvest || 10));
-    html += row("比例合计", (calc.weightSum || 0) + "%");
-    return shell("AI 策略与组合", html, cta("按此组合创建", calc.valid));
+    html += field("组合投资额", "investAmt", "USDT", "≥ " + (calc.minInvest || 30));
+    html += row("当前权重合计", (calc.weightSum || 100) + "%");
+    return shell("AI 策略与组合", html, cta("一键创建此 AI 组合", calc.valid));
   }
 
   function renderHub() {
+    const W = window.OkxWholeAppViews;
     const cards = [
       ["xMU/USDT", "+12.54%", "1,922", "12_股票代币现货网格_StockTokenSpotGrid", "xMU-USDT"],
       ["xSOXL/USDT", "+27.15%", "418", "12_股票代币现货网格_StockTokenSpotGrid", "xSOXL-USDT"],
@@ -612,35 +647,60 @@
     ];
     const quick = [
       ["＋", "创建策略", "create"],
-      ["格", "现货网格", "01_现货网格_SpotGrid"],
+      ["▦", "现货网格", "01_现货网格_SpotGrid"],
       ["5x", "合约网格", "02_合约网格_FuturesGrid"],
-      ["组", "智能组合", "03_智能组合_SmartPortfolio"],
-      ["期", "定投策略", "10_定投策略_RecurringBuy"]
+      ["❖", "智能组合", "03_智能组合_SmartPortfolio"],
+      ["📅", "定投策略", "10_定投策略_RecurringBuy"]
     ];
-    let html = '<div style="padding:8px 16px 0"><div class="okx-kv-label">总资产估值</div><div style="font-size:28px;font-weight:800">0.00 USD</div><div class="okx-kv-label dotted">$0.00 今日收益</div></div>';
-    html += '<div class="okx-circle-grid-4" style="padding:12px 8px">';
+    let html = W.renderTopTradeBar(state.tradeTab);
+    html += '<div style="padding:10px 16px 2px"><div class="okx-kv-label">总资产估值 👁</div><div style="font-size:28px;font-weight:900" class="tabular">0.00 <span style="font-size:14px">USD ▾</span></div><div class="okx-kv-label dotted">$0.00 今日收益 ⌄</div></div>';
+    html += '<div class="okx-circle-grid-5">';
     quick.forEach((q, i) => {
       const act = q[2] === "create" ? 'data-act="sheet" data-sheet="create"' : 'data-act="folder" data-id="' + q[2] + '"';
       html += '<button class="okx-circle-item" ' + act + ' style="background:none;border:none;cursor:pointer"><div class="okx-circle-icon' + (i === 0 ? " black" : "") + '">' + q[0] + "</div><span>" + q[1] + (q[1] === "智能组合" ? ' <span class="badge-lime">New</span>' : "") + "</span></button>";
     });
     html += "</div>";
-    html += '<div class="okx-chip-grid" style="padding:0 16px 8px"><span class="okx-chip-option selected">推荐</span><span class="okx-chip-option">我的策略 ▾</span><span class="okx-chip-option">我的跟单</span></div>';
-    html += '<div class="phone-body" id="phoneBody" style="padding-top:0"><div class="okx-border-card"><div style="font-weight:800">股票代币现货网格</div><div style="color:var(--okx-text-secondary);margin:4px 0 8px">锚定股票代币波动特性，网格自动捕捉每一次起落</div><span class="badge-soft">稳健型</span> <span style="color:var(--okx-text-secondary)">3,591 人已使用</span>';
-    cards.forEach((c) => {
-      html += '<div class="okx-kv-row"><div><b>' + c[0] + '</b><div class="price-up">' + c[1] + '</div><div class="okx-kv-label">' + c[2] + ' 人</div></div><button class="okx-black-pill-btn" style="width:auto;height:32px;padding:0 14px" data-act="pick-inst" data-folder="' + c[3] + '" data-id="' + c[4] + '">创建</button></div>';
-    });
+    html += '<div class="okx-chip-grid" style="padding:0 16px 8px">' +
+      ["推荐", "我的策略 (" + state.running.length + ") ▾", "我的跟单"].map((tab) => {
+        const key = tab.startsWith("我的策略") ? "我的策略" : tab;
+        return '<button class="okx-chip-option' + (state.hubSubTab === key ? " selected" : "") + '" data-act="hub-subtab" data-val="' + key + '">' + tab + "</button>";
+      }).join("") + "</div>";
+
+    html += '<div class="phone-body" id="phoneBody" style="padding-top:0">';
+    if (state.hubSubTab === "我的策略") {
+      state.running.forEach((b) => {
+        html += '<div class="okx-border-card" style="display:flex;justify-content:space-between;align-items:center">' +
+          '<div><b>' + esc(b.name) + '</b> <span class="badge-soft">' + esc(b.status) + '</span><div style="font-size:11.5px;color:var(--okx-text-secondary);margin-top:3px">Rust Interactor · 实时撮合中</div></div>' +
+          '<div style="text-align:right"><div class="' + (b.pnl >= 0 ? "price-up" : "price-down") + ' tabular" style="font-weight:800">' + (b.pnl >= 0 ? "+" : "") + fmt(b.pnl, 2) + " USDT</div></div></div>";
+      });
+    } else if (state.hubSubTab === "我的跟单") {
+      html += '<div class="okx-border-card"><b>分润跟单 (`SocialTradingSdk`)</b><div style="color:var(--okx-text-secondary);font-size:12px;margin-top:4px">当前暂无跟单持仓，前往「星球」或推荐列表一键复制带单员策略。</div></div>';
+    } else {
+      html += '<div class="okx-border-card"><div style="display:flex;justify-content:space-between"><b>股票代币现货网格</b><span class="badge-lime">xStock</span></div><div style="color:var(--okx-text-secondary);font-size:12px;margin:4px 0 8px">锚定股票代币波动特性，网格自动捕捉每一次起落</div><span class="badge-soft">|||| 稳健型</span> <span style="color:var(--okx-text-secondary);font-size:12px">3,591 人已使用</span>';
+      cards.forEach((c) => {
+        html += '<div class="okx-kv-row"><div><b>' + c[0] + '</b><div class="price-up" style="font-weight:800">' + c[1] + '</div><div class="okx-kv-label" style="font-size:11px">' + c[2] + ' 人已使用</div></div><button class="okx-black-pill-btn" style="width:auto;height:32px;padding:0 14px" data-act="pick-inst" data-folder="' + c[3] + '" data-id="' + c[4] + '">创建</button></div>';
+      });
+      html += "</div>";
+      html += '<div class="okx-border-card" data-act="folder" data-id="14_AI策略与AI组合_AI_Strategy"><b>BTC 生息单</b> · 欧易独家！网格套利 × 双币生息，让资金全天候生息</div>';
+      html += '<div class="okx-border-card" data-act="folder" data-id="03_智能组合_SmartPortfolio"><b>智能组合</b> · 选择交给自己，再平衡交给规则，陪你穿越周期</div>';
+    }
     html += "</div>";
-    html += '<div class="okx-border-card">欧易独家！网格套利 × 双币生息，让资金全天候生息</div>';
-    html += '<div class="okx-border-card">选择交给自己，再平衡交给规则。全球资产配置，智能组合陪你穿越周期</div>';
-    html += "</div>";
+    html += W.renderBottomAppTabBar(state.appTab);
     return html;
   }
 
   function renderPhone() {
+    const W = window.OkxWholeAppViews;
     const f = currentFolder();
     const mount = document.getElementById("phoneScreenMount");
     let html = "";
-    if (f.botType === "hub_common") html = renderHub();
+    if (state.appTab === "home") html = W.renderHomeView(M) + W.renderBottomAppTabBar(state.appTab);
+    else if (state.appTab === "explore") html = W.renderExploreView() + W.renderBottomAppTabBar(state.appTab);
+    else if (state.appTab === "planet") html = W.renderPlanetView() + W.renderBottomAppTabBar(state.appTab);
+    else if (state.appTab === "assets") html = W.renderAssetsView(state.running) + W.renderBottomAppTabBar(state.appTab);
+    else if (state.tradeTab !== "策略&跟单" && f.botType === "hub_common") {
+      html = W.renderNonBotTradeMode(state.tradeTab, activeInst(), M) + W.renderBottomAppTabBar(state.appTab);
+    } else if (f.botType === "hub_common") html = renderHub();
     else if (f.botType === "spot_grid") html = renderGridForm(false);
     else if (f.botType === "contract_grid") html = renderGridForm(true);
     else if (f.botType === "spot_dca" || f.botType === "contract_dca") html = renderDca();
@@ -664,8 +724,7 @@
     const p = params();
     let inner = '<div style="display:flex;justify-content:space-between;align-items:center"><h3>' + esc(sheetTitle(kind)) + '</h3><button class="okx-icon-btn" data-act="close-sheet">✕</button></div>';
     if (kind === "create") {
-      inner += chips("filterSheet", []);
-      inner += '<div class="okx-chip-grid">' + ["全部", "现货", "合约"].map((t) =>
+      inner += '<div class="okx-chip-grid" style="margin-bottom:10px">' + ["全部", "现货", "合约"].map((t) =>
         '<button class="okx-chip-option' + (state.filter === t ? " selected" : "") + '" data-act="filter" data-val="' + t + '">' + t + "</button>").join("") + "</div>";
       let group = "";
       CREATE_MENU.forEach((item) => {
@@ -673,17 +732,17 @@
         if (state.filter === "合约" && /现货网格|定投|抄底|智能组合|股票代币现货/.test(item.title)) return;
         if (item.group && item.group !== group) {
           group = item.group;
-          inner += '<div class="okx-field-header"><span>' + esc(group) + "</span></div>";
+          inner += '<div class="okx-field-header" style="margin-top:8px"><span>' + esc(group) + "</span></div>";
         }
         inner += '<button class="okx-border-card" data-act="menu" data-folder="' + esc(item.folder) + '" data-inst="' + esc(item.instId || "") + '" style="width:100%;text-align:left;cursor:pointer"><b>' + esc(item.title) + "</b> " +
           (item.badge ? '<span class="badge-lime">' + esc(item.badge) + "</span>" : "") +
-          '<div style="color:var(--okx-text-secondary)">' + esc(item.desc) + "</div></button>";
+          '<div style="color:var(--okx-text-secondary);font-size:12px">' + esc(item.desc) + "</div></button>";
       });
     } else if (kind === "lever") {
       const max = activeInst().maxLever || 100;
       const opts = [1, 2, 3, 5, 10, 20, 30, 50, 75, 100].filter((n) => n <= max);
       inner += chips("lever", opts.map((n) => [String(n), n + "x"]));
-      if (Number(p.lever) > 10) inner += '<div class="okx-error-text">超过 10x 杠杆会增加强制平仓风险</div>';
+      if (Number(p.lever) > 10) inner += '<div class="okx-error-text">⚠ 超过 10x 杠杆会显著增加强制平仓风险</div>';
       inner += '<button class="okx-green-pill-btn" data-act="close-sheet" style="margin-top:12px">确认</button>';
     } else if (kind === "slippage") {
       inner += toggle("滑点控制", "slippageOn");
@@ -691,23 +750,41 @@
       inner += chips("slippagePct", [["0.05", "0.05%"], ["0.2", "0.2%"], ["0.5", "0.5%"], ["1", "1%"], ["5", "5%"]]);
       inner += row("AI 推荐滑点", "0.0004%");
       inner += row("当前价格", fmt(activeInst().lastPx, 1) + " USDT");
-      inner += '<p style="color:var(--okx-text-secondary);margin:8px 0">滑点控制可让成交价更接近预期价格。若不设置，系统以最快速度执行。</p>';
+      inner += '<p style="color:var(--okx-text-secondary);margin:8px 0;font-size:12px">滑点控制可让成交价更接近预期价格。若不设置，系统以最快速度执行。</p>';
       inner += '<button class="okx-green-pill-btn" data-act="close-sheet">确认</button>';
+    } else if (kind === "customSignal") {
+      inner += field("信号名称 (≤50 字符)", "signalName", "", "例如 TV_BTC_Breakout");
+      inner += field("信号简介 (≤1500 字符)", "signalIntro", "", "TradingView 趋势突破策略");
+      inner += '<div class="okx-border-card" style="font-size:11.5px;font-family:var(--okx-mono);background:var(--okx-bg-elevated)">Webhook: https://www.okx.com/pap/algo/signal/webhook<br/>Alert JSON: {"action":"ENTER_LONG","instrument":"BTC-USDT-SWAP","signalToken":"okx_tv_v2"}</div>';
+      inner += '<button class="okx-black-pill-btn" data-act="close-sheet">创建并绑定信号</button>';
+    } else if (kind === "arbPreview") {
+      const calc = compute();
+      inner += row("左腿 (现货买入)", fmt(calc.spotAllocUsdt, 2) + " USDT");
+      inner += row("右腿 (永续做空保证金)", fmt(calc.swapMarginUsdt, 2) + " USDT");
+      inner += row("3日综合年化", '<span class="price-up">+' + fmt(calc.total3dApy, 2) + "%</span>");
+      inner += '<button class="okx-black-pill-btn" data-act="create" style="margin-top:10px">确认投入套利</button>';
+    } else if (kind === "dcdSub") {
+      const calc = compute();
+      inner += row("抄底目标价", fmt(calc.buyTargetPx, 0) + " USDT");
+      inner += row("参考年化收益率", '<span class="price-up">+' + fmt(calc.matchedApyPct, 2) + "%</span>");
+      inner += row("申购金额", fmt(p.investAmt, 2) + " USDT");
+      inner += '<button class="okx-black-pill-btn" data-act="create" style="margin-top:10px">确认申购</button>';
     } else if (kind === "rsi" || kind === "startCond") {
-      inner += field("RSI-14 低于", "rsiTrigger", "", "例如 30");
-      inner += '<p style="color:var(--okx-text-secondary)">也可改用价格触发、TradingView 信号或延迟开始。</p>';
-      inner += '<button class="okx-black-pill-btn" data-act="apply-cond" data-key="startCond" data-val="RSI-14">设为开始条件</button>';
+      inner += field("RSI-14 阈值 (3 分钟 / 低于触发)", "rsiTrigger", "", "例如 30");
+      inner += '<p style="color:var(--okx-text-secondary);font-size:12px;margin:6px 0">支持立即触发、价格触发、RSI 技术指标或 TradingView 信号触发。</p>';
+      inner += '<button class="okx-black-pill-btn" data-act="apply-cond" data-key="startCond" data-val="RSI-14 < 30">确认设为开始条件</button>';
     } else if (kind === "stopCond") {
-      inner += '<button class="okx-black-pill-btn" data-act="apply-cond" data-key="stopCond" data-val="价格触发">价格触发</button>';
+      inner += '<button class="okx-black-pill-btn" data-act="apply-cond" data-key="stopCond" data-val="价格触发">设为价格触发停止</button>';
     } else if (kind === "tp" || kind === "sl" || kind === "moveUp" || kind === "moveDown" || kind === "earnAlloc") {
-      inner += field(kind, kind === "earnAlloc" ? "earnAlloc" : kind, "", "输入后点确认");
+      inner += '<div class="okx-chip-grid" style="margin-bottom:8px"><span class="okx-chip-option selected">最新价</span><span class="okx-chip-option">价格区间</span><span class="okx-chip-option">止盈止损收益率</span></div>';
+      inner += field(sheetTitle(kind), kind, "", "输入数值后点确认");
       inner += '<button class="okx-black-pill-btn" data-act="close-sheet">确认</button>';
     } else if (kind === "stockRisk") {
-      inner += "<p>股票代币合约的波动、交易时段和流动性与加密永续不同。强平、资金费和节假日跳空都会计入风险。确认后才能创建。</p>";
-      inner += '<button class="okx-green-pill-btn" data-act="ack-risk">我已了解风险</button>';
-    } else if (kind === "marginHelp") {
-      inner += "<p>全仓：账户内保证金共享，一个仓位的亏损会占用其他仓位的保证金。</p><p style=\"margin-top:8px\">逐仓：每个仓位单独计算保证金，亏损不会自动占用其他仓位。</p><p style=\"margin-top:8px\">录屏中的官方说明共 9 页，核心就是这两条风控边界。</p>";
-      inner += '<button class="okx-black-pill-btn" data-act="close-sheet">知道了</button>';
+      inner += "<p style=\"font-size:12.5px;line-height:1.6\">股票代币合约锚定美股标的，请注意休市跳空、盘前盘后流动性变化、资金费率结算与强平风险。勾选确认后可进入网格参数配置。</p>";
+      inner += '<button class="okx-green-pill-btn" style="margin-top:12px" data-act="ack-risk">我已阅读并同意风险提示</button>';
+    } else if (kind === "marginHelp" || kind === "tutorial") {
+      inner += "<p style=\"font-size:12.5px\">1. 全仓模式：账户内所有可用保证金共享抗风险。<br/>2. 逐仓模式：单笔策略独立核算保证金与强平价。<br/>3. 策略交易支持闲置资金自动转入简单赚币复利生息。</p>";
+      inner += '<button class="okx-black-pill-btn" style="margin-top:10px" data-act="close-sheet">知道了</button>';
     }
     return '<div class="phone-sheet-mask" data-act="close-sheet"></div><div class="phone-sheet">' + inner + "</div>";
   }
@@ -717,16 +794,20 @@
       create: "创建策略",
       lever: "调整杠杆",
       slippage: "滑点控制设置",
-      rsi: "RSI-14 触发",
+      customSignal: "新增自定义 TradingView 信号",
+      arbPreview: "智能套利策略预览",
+      dcdSub: "申购 - 以低价抄底 BTC",
+      rsi: "RSI-14 触发条件设置",
       startCond: "预设开始条件",
       stopCond: "预设停止条件",
-      tp: "止盈",
-      sl: "止损",
+      tp: "止盈 / 止损设置",
+      sl: "止损设置",
       moveUp: "网格随价格上移",
       moveDown: "网格随价格下移",
-      earnAlloc: "简单赚币分配",
-      stockRisk: "股票合约风险须知",
-      marginHelp: "全仓 / 逐仓"
+      earnAlloc: "简单赚币分配阈值",
+      stockRisk: "股票合约风险提示",
+      marginHelp: "保证金模式说明 (1/9)",
+      tutorial: "策略交易图文教程"
     }[kind] || "设置";
   }
 
@@ -858,6 +939,8 @@
 
   function openFolder(id, instId) {
     state.folderId = id;
+    state.appTab = "trade";
+    state.tradeTab = "策略&跟单";
     state.sheet = null;
     const p = params();
     if (instId) p.instId = instId;
@@ -880,6 +963,7 @@
     if (/投资额输入校验|保证金校验/.test(label)) p.investAmt = 0;
     if (/AI推荐|AI 策略/.test(label)) p.modeTab = "ai";
     if (/手动/.test(label)) p.modeTab = "manual";
+    if (/套利下单|双腿/.test(label)) p.legMode = "dual";
     if (/做空|开空/.test(label)) p.direction = p.side = "short";
     if (/全仓/.test(label)) p.marginMode = "全仓";
     if (/逐仓/.test(label)) p.marginMode = "逐仓";
@@ -909,7 +993,44 @@
     const act = t.getAttribute("data-act");
     const p = params();
     if (act === "folder") openFolder(t.getAttribute("data-id"));
-    else if (act === "set") {
+    else if (act === "app-tab") {
+      state.appTab = t.getAttribute("data-tab");
+      renderPhone();
+    } else if (act === "trade-tab") {
+      state.appTab = "trade";
+      state.tradeTab = t.getAttribute("data-tab");
+      if (state.tradeTab === "策略&跟单" && currentFolder().botType !== "hub_common") {
+        state.folderId = "00_公共组件_创建策略与通用功能";
+      }
+      renderAll();
+    } else if (act === "hub-subtab") {
+      state.hubSubTab = t.getAttribute("data-val");
+      renderPhone();
+    } else if (act === "toggle-kline") {
+      state.klineExpanded = !state.klineExpanded;
+      renderPhone();
+    } else if (act === "kline-pd") {
+      state.klinePeriod = t.getAttribute("data-val");
+      renderPhone();
+    } else if (act === "kline-ind") {
+      state.klineIndicator = state.klineIndicator === "EMA" ? "MA" : "EMA";
+      renderPhone();
+    } else if (act === "toggle-adv") {
+      state.advExpanded = !state.advExpanded;
+      renderPhone();
+    } else if (act === "clear-grid") {
+      p.minPx = "";
+      p.maxPx = "";
+      p.gridNum = "";
+      renderAll();
+    } else if (act === "equal-weights") {
+      const n = (p.portfolioCoins || []).length || 1;
+      const base = Math.floor(100 / n);
+      p.portfolioCoins.forEach((c, i) => {
+        c.weight = i === 0 ? 100 - base * (n - 1) : base;
+      });
+      renderAll();
+    } else if (act === "set") {
       p[t.getAttribute("data-key")] = t.getAttribute("data-val");
       renderAll();
     } else if (act === "sheet") {

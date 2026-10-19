@@ -1,0 +1,279 @@
+{
+  "evidence_id": "ev_86dc5701c9beeef8161d5ebbff17777d78d4b000ed678d43658e71f5e75470ca",
+  "subject": {
+    "name": "android.apk",
+    "digest": {
+      "sha256": "2b3b4e670997890ebf759d92b5904556b349de2845cfc9835c4a24d7b8addb85"
+    },
+    "format": "apk",
+    "architecture": null,
+    "local_path": "/Users/aaron/Downloads/android.apk"
+  },
+  "provider": {
+    "id": "jadx",
+    "name": "JADX headless",
+    "version": "0.7.1"
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.analysis",
+  "operation": "inspect_android_class",
+  "parameters": {
+    "path": "/Users/aaron/Downloads/android.apk",
+    "class_name": "com.okinc.tradingbot.impl.botDetail.ui.OverviewRingChartViewModel"
+  },
+  "raw_result": {
+    "server": {
+      "name": "rea-jadx-bridge",
+      "version": "1"
+    },
+    "bridge_sha256": "5a5a4e32264fbe597a329d7ad4b06a6266b7b31243e86b0263dbddcecaf351a1",
+    "jar_sha256": "4506e93b5642c158aedaabbcc3e25c186f066cd9386028c549d54a447f402324",
+    "loaded": {
+      "state": "LOADED",
+      "apk_path": "/var/folders/gq/5z0rgh1902n8sks4y9lv6thw0000gn/T/rea-android-XAA5av/target.apk",
+      "class_count": 10267,
+      "resource_count": 85616,
+      "threads": 1,
+      "resources": "full"
+    },
+    "calls": [
+      {
+        "operation": "rea_jvm_status",
+        "input": {},
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"engine_reported_version\": \"0.7.1\", \"max_heap_bytes\": 4294967296, \"available_processors\": 8, \"java_version\": \"21.0.2\", \"metadata_scope\": \"parsed_members\"}"
+            }
+          ],
+          "isError": false
+        }
+      },
+      {
+        "operation": "load_apk",
+        "input": {
+          "path": "/var/folders/gq/5z0rgh1902n8sks4y9lv6thw0000gn/T/rea-android-XAA5av/target.apk",
+          "threads": 1,
+          "resources": "full"
+        },
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"state\": \"LOADED\", \"apk_path\": \"/var/folders/gq/5z0rgh1902n8sks4y9lv6thw0000gn/T/rea-android-XAA5av/target.apk\", \"class_count\": 10267, \"resource_count\": 85616, \"threads\": 1, \"resources\": \"full\"}"
+            }
+          ],
+          "isError": false
+        }
+      },
+      {
+        "operation": "get_class_summary",
+        "input": {
+          "class_name": "com.okinc.tradingbot.impl.botDetail.ui.OverviewRingChartViewModel"
+        },
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"full_name\": \"com.okinc.tradingbot.impl.botDetail.ui.OverviewRingChartViewModel\", \"name\": \"OverviewRingChartViewModel\", \"method_count\": 19, \"field_count\": 7, \"inner_class_count\": 3, \"methods\": [{\"name\": \"<clinit>\", \"signature\": \"static void <clinit>()\", \"is_constructor\": false, \"def_pos\": 0}, {\"name\": \"<init>\", \"signature\": \"public void <init>()\", \"is_constructor\": true, \"def_pos\": 1}, {\"name\": \"AEQbTJ\", \"signature\": \"public static synthetic kotlin.Unit AEQbTJ(o.abTt p0)\", \"is_constructor\": false, \"def_pos\": 2}, {\"name\": \"EZpvd\", \"signature\": \"private final java.lang.String EZpvd(java.lang.String p0)\", \"is_constructor\": false, \"def_pos\": 3}, {\"name\": \"KWHzl\", \"signature\": \"public static synthetic java.lang.String KWHzl(com.okinc.tradingbot.impl.botDetail.ui.OverviewRingChartViewModel p0, com.okinc.unify_trade.bot.data.TacticsData p1, java.lang.String p2)\", \"is_constructor\": false, \"def_pos\": 4}, {\"name\": \"KWHzl\", \"signature\": \"public static synthetic java.lang.String KWHzl(com.okinc.tradingbot.impl.botDetail.ui.OverviewRingChartViewModel p0, java.lang.String p1)\", \"is_constructor\": false, \"def_pos\": 5}, {\"name\": \"copydefault\", \"signature\": \"public static final java.lang.String copydefault(com.okinc.tradingbot.impl.botDetail.ui.OverviewRingChartViewModel p0, com.okinc.unify_trade.bot.data.TacticsData p1, java.lang.String p2)\", \"is_constructor\": false, \"def_pos\": 6}, {\"name\": \"copydefault\", \"signature\": \"public static final java.lang.String copydefault(com.okinc.tradingbot.impl.botDetail.ui.OverviewRingChartViewModel p0, java.lang.String p1)\", \"is_constructor\": false, \"def_pos\": 7}, {\"name\": \"copydefault\", \"signature\": \"public static final kotlin.Unit copydefault(o.abTt p0)\", \"is_constructor\": false, \"def_pos\": 8}, {\"name\": \"AEQbTJ\", \"signature\": \"public final kotlinx.coroutines.flow.StateFlow AEQbTJ()\", \"is_constructor\": false, \"def_pos\": 9}, {\"name\": \"EZpvd\", \"signature\": \"public final com.okinc.tradingbot.impl.botDetail.ui.OverviewRingChartViewModel$ActionBar EZpvd(java.lang.String p0, java.lang.String p1, java.lang.String p2, kotlin.jvm.functions.Function1 p3)\", \"is_constructor\": false, \"def_pos\": 10}, {\"name\": \"EZpvd\", \"signature\": \"public final java.lang.String EZpvd(com.okinc.unify_trade.bot.data.TacticsData p0, java.lang.String p1)\", \"is_constructor\": false, \"def_pos\": 11}, {\"name\": \"KWHzl\", \"signature\": \"public final com.okinc.unify_trade.bot.data.TacticsData KWHzl()\", \"is_constructor\": false, \"def_pos\": 12}, {\"name\": \"KWHzl\", \"signature\": \"public final void KWHzl(com.okinc.unify_trade.bot.data.TacticsData p0)\", \"is_constructor\": false, \"def_pos\": 13}, {\"name\": \"KWHzl\", \"signature\": \"public final void KWHzl(java.util.List p0)\", \"is_constructor\": false, \"def_pos\": 14}, {\"name\": \"OLrzqt\", \"signature\": \"public final com.okinc.tradingbot.impl.botDetail.ui.OverviewRingChartViewModel$ActionBar OLrzqt(com.okinc.unify_trade.bot.data.TacticsData p0)\", \"is_constructor\": false, \"def_pos\": 15}, {\"name\": \"OLrzqt\", \"signature\": \"public final kotlinx.coroutines.flow.StateFlow OLrzqt()\", \"is_constructor\": false, \"def_pos\": 16}, {\"name\": \"copydefault\", \"signature\": \"public final java.lang.String copydefault(java.lang.String p0)\", \"is_constructor\": false, \"def_pos\": 17}, {\"name\": \"copydefault\", \"signature\": \"public final void copydefault(com.okinc.unify_trade.biz.StrategyDetailsResponse p0, com.okinc.unify_trade.biz.StrategyConfigInfo p1)\", \"is_constructor\": false, \"def_pos\": 18}], \"fields\": [{\"name\": \"Companion\", \"type\": \"com.okinc.tradingbot.impl.botDetail.ui.OverviewRingChartViewModel$Application\", \"def_pos\": 0}, {\"name\": \"copydefault\", \"type\": \"int\", \"def_pos\": 1}, {\"name\": \"AEQbTJ\", \"type\": \"kotlinx.coroutines.flow.StateFlow\", \"def_pos\": 2}, {\"name\": \"EZpvd\", \"type\": \"kotlinx.coroutines.flow.MutableStateFlow\", \"def_pos\": 3}, {\"name\": \"KWHzl\", \"type\": \"kotlinx.coroutines.flow.MutableStateFlow\", \"def_pos\": 4}, {\"name\": \"OLrzqt\", \"type\": \"kotlinx.coroutines.flow.StateFlow\", \"def_pos\": 5}, {\"name\": \"djBIcL\", \"type\": \"com.okinc.unify_trade.bot.data.TacticsData\", \"def_pos\": 6}], \"inner_classes\": [\"com.okinc.tradingbot.impl.botDetail.ui.OverviewRingChartViewModel$ActionBar\", \"com.okinc.tradingbot.impl.botDetail.ui.OverviewRingChartViewModel$Application\", \"com.okinc.tradingbot.impl.botDetail.ui.OverviewRingChartViewModel$TaskDescription\"]}"
+            }
+          ],
+          "isError": false
+        }
+      }
+    ]
+  },
+  "normalized_result": {
+    "engine": {
+      "name": "jadx-headless-mcp",
+      "version": "0.7.1",
+      "artifact_sha256": "4506e93b5642c158aedaabbcc3e25c186f066cd9386028c549d54a447f402324",
+      "source_revision": null,
+      "worker_count": 1,
+      "heap_limit_mib": 4096
+    },
+    "class_name": "com.okinc.tradingbot.impl.botDetail.ui.OverviewRingChartViewModel",
+    "methods": [
+      {
+        "name": "<clinit>",
+        "reported_signature": "static void <clinit>()",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "<init>",
+        "reported_signature": "public void <init>()",
+        "overload_index": 0,
+        "is_constructor": true,
+        "dex_descriptor": null
+      },
+      {
+        "name": "AEQbTJ",
+        "reported_signature": "public static synthetic kotlin.Unit AEQbTJ(o.abTt p0)",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "EZpvd",
+        "reported_signature": "private final java.lang.String EZpvd(java.lang.String p0)",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "KWHzl",
+        "reported_signature": "public static synthetic java.lang.String KWHzl(com.okinc.tradingbot.impl.botDetail.ui.OverviewRingChartViewModel p0, com.okinc.unify_trade.bot.data.TacticsData p1, java.lang.String p2)",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "KWHzl",
+        "reported_signature": "public static synthetic java.lang.String KWHzl(com.okinc.tradingbot.impl.botDetail.ui.OverviewRingChartViewModel p0, java.lang.String p1)",
+        "overload_index": 1,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "copydefault",
+        "reported_signature": "public static final java.lang.String copydefault(com.okinc.tradingbot.impl.botDetail.ui.OverviewRingChartViewModel p0, com.okinc.unify_trade.bot.data.TacticsData p1, java.lang.String p2)",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "copydefault",
+        "reported_signature": "public static final java.lang.String copydefault(com.okinc.tradingbot.impl.botDetail.ui.OverviewRingChartViewModel p0, java.lang.String p1)",
+        "overload_index": 1,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "copydefault",
+        "reported_signature": "public static final kotlin.Unit copydefault(o.abTt p0)",
+        "overload_index": 2,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "AEQbTJ",
+        "reported_signature": "public final kotlinx.coroutines.flow.StateFlow AEQbTJ()",
+        "overload_index": 1,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "EZpvd",
+        "reported_signature": "public final com.okinc.tradingbot.impl.botDetail.ui.OverviewRingChartViewModel$ActionBar EZpvd(java.lang.String p0, java.lang.String p1, java.lang.String p2, kotlin.jvm.functions.Function1 p3)",
+        "overload_index": 1,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "EZpvd",
+        "reported_signature": "public final java.lang.String EZpvd(com.okinc.unify_trade.bot.data.TacticsData p0, java.lang.String p1)",
+        "overload_index": 2,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "KWHzl",
+        "reported_signature": "public final com.okinc.unify_trade.bot.data.TacticsData KWHzl()",
+        "overload_index": 2,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "KWHzl",
+        "reported_signature": "public final void KWHzl(com.okinc.unify_trade.bot.data.TacticsData p0)",
+        "overload_index": 3,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "KWHzl",
+        "reported_signature": "public final void KWHzl(java.util.List p0)",
+        "overload_index": 4,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "OLrzqt",
+        "reported_signature": "public final com.okinc.tradingbot.impl.botDetail.ui.OverviewRingChartViewModel$ActionBar OLrzqt(com.okinc.unify_trade.bot.data.TacticsData p0)",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "OLrzqt",
+        "reported_signature": "public final kotlinx.coroutines.flow.StateFlow OLrzqt()",
+        "overload_index": 1,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "copydefault",
+        "reported_signature": "public final java.lang.String copydefault(java.lang.String p0)",
+        "overload_index": 3,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "copydefault",
+        "reported_signature": "public final void copydefault(com.okinc.unify_trade.biz.StrategyDetailsResponse p0, com.okinc.unify_trade.biz.StrategyConfigInfo p1)",
+        "overload_index": 4,
+        "is_constructor": false,
+        "dex_descriptor": null
+      }
+    ],
+    "fields": [
+      {
+        "name": "Companion",
+        "reported_type": "com.okinc.tradingbot.impl.botDetail.ui.OverviewRingChartViewModel$Application"
+      },
+      {
+        "name": "copydefault",
+        "reported_type": "int"
+      },
+      {
+        "name": "AEQbTJ",
+        "reported_type": "kotlinx.coroutines.flow.StateFlow"
+      },
+      {
+        "name": "EZpvd",
+        "reported_type": "kotlinx.coroutines.flow.MutableStateFlow"
+      },
+      {
+        "name": "KWHzl",
+        "reported_type": "kotlinx.coroutines.flow.MutableStateFlow"
+      },
+      {
+        "name": "OLrzqt",
+        "reported_type": "kotlinx.coroutines.flow.StateFlow"
+      },
+      {
+        "name": "djBIcL",
+        "reported_type": "com.okinc.unify_trade.bot.data.TacticsData"
+      }
+    ],
+    "inner_classes": [
+      "com.okinc.tradingbot.impl.botDetail.ui.OverviewRingChartViewModel$ActionBar",
+      "com.okinc.tradingbot.impl.botDetail.ui.OverviewRingChartViewModel$Application",
+      "com.okinc.tradingbot.impl.botDetail.ui.OverviewRingChartViewModel$TaskDescription"
+    ]
+  },
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+    "Method signatures use provider display types; exact DEX descriptors and instruction offsets are unavailable. Overload indices are local to this engine and artifact.",
+    "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+    "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+  ],
+  "locations": [],
+  "evidence_links": []
+}

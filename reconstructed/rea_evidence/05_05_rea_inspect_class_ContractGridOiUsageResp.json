@@ -1,0 +1,332 @@
+{
+  "evidence_id": "ev_e365d6c7356706c2a6e3b0a70843486252e3a3228a15076630ffa8c2fb833750",
+  "subject": {
+    "name": "android.apk",
+    "digest": {
+      "sha256": "2b3b4e670997890ebf759d92b5904556b349de2845cfc9835c4a24d7b8addb85"
+    },
+    "format": "apk",
+    "architecture": null,
+    "local_path": "/Users/aaron/Downloads/android.apk"
+  },
+  "provider": {
+    "id": "jadx",
+    "name": "JADX headless",
+    "version": "0.7.1"
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.analysis",
+  "operation": "inspect_android_class",
+  "parameters": {
+    "path": "/Users/aaron/Downloads/android.apk",
+    "class_name": "com.okinc.tradingbot.impl.order.strategy.api.model.ContractGridOiUsageResp"
+  },
+  "raw_result": {
+    "server": {
+      "name": "rea-jadx-bridge",
+      "version": "1"
+    },
+    "bridge_sha256": "5a5a4e32264fbe597a329d7ad4b06a6266b7b31243e86b0263dbddcecaf351a1",
+    "jar_sha256": "4506e93b5642c158aedaabbcc3e25c186f066cd9386028c549d54a447f402324",
+    "loaded": {
+      "state": "LOADED",
+      "apk_path": "/var/folders/gq/5z0rgh1902n8sks4y9lv6thw0000gn/T/rea-android-OnQWN4/target.apk",
+      "class_count": 10267,
+      "resource_count": 85616,
+      "threads": 1,
+      "resources": "full"
+    },
+    "calls": [
+      {
+        "operation": "rea_jvm_status",
+        "input": {},
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"engine_reported_version\": \"0.7.1\", \"max_heap_bytes\": 4294967296, \"available_processors\": 8, \"java_version\": \"21.0.2\", \"metadata_scope\": \"parsed_members\"}"
+            }
+          ],
+          "isError": false
+        }
+      },
+      {
+        "operation": "load_apk",
+        "input": {
+          "path": "/var/folders/gq/5z0rgh1902n8sks4y9lv6thw0000gn/T/rea-android-OnQWN4/target.apk",
+          "threads": 1,
+          "resources": "full"
+        },
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"state\": \"LOADED\", \"apk_path\": \"/var/folders/gq/5z0rgh1902n8sks4y9lv6thw0000gn/T/rea-android-OnQWN4/target.apk\", \"class_count\": 10267, \"resource_count\": 85616, \"threads\": 1, \"resources\": \"full\"}"
+            }
+          ],
+          "isError": false
+        }
+      },
+      {
+        "operation": "get_class_summary",
+        "input": {
+          "class_name": "com.okinc.tradingbot.impl.order.strategy.api.model.ContractGridOiUsageResp"
+        },
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"full_name\": \"com.okinc.tradingbot.impl.order.strategy.api.model.ContractGridOiUsageResp\", \"name\": \"ContractGridOiUsageResp\", \"method_count\": 26, \"field_count\": 9, \"inner_class_count\": 0, \"methods\": [{\"name\": \"<clinit>\", \"signature\": \"static void <clinit>()\", \"is_constructor\": false, \"def_pos\": 0}, {\"name\": \"<init>\", \"signature\": \"public void <init>()\", \"is_constructor\": true, \"def_pos\": 1}, {\"name\": \"<init>\", \"signature\": \"public void <init>(java.lang.String p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, java.lang.String p4, java.lang.String p5, java.lang.String p6, java.lang.String p7)\", \"is_constructor\": true, \"def_pos\": 2}, {\"name\": \"<init>\", \"signature\": \"public synthetic void <init>(java.lang.String p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, java.lang.String p4, java.lang.String p5, java.lang.String p6, java.lang.String p7, int p8, kotlin.jvm.internal.DefaultConstructorMarker p9)\", \"is_constructor\": true, \"def_pos\": 3}, {\"name\": \"copy$default\", \"signature\": \"public static synthetic com.okinc.tradingbot.impl.order.strategy.api.model.ContractGridOiUsageResp copy$default(com.okinc.tradingbot.impl.order.strategy.api.model.ContractGridOiUsageResp p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, java.lang.String p4, java.lang.String p5, java.lang.String p6, java.lang.String p7, java.lang.String p8, int p9, java.lang.Object p10)\", \"is_constructor\": false, \"def_pos\": 4}, {\"name\": \"component1\", \"signature\": \"public final java.lang.String component1()\", \"is_constructor\": false, \"def_pos\": 5}, {\"name\": \"component2\", \"signature\": \"public final java.lang.String component2()\", \"is_constructor\": false, \"def_pos\": 6}, {\"name\": \"component3\", \"signature\": \"public final java.lang.String component3()\", \"is_constructor\": false, \"def_pos\": 7}, {\"name\": \"component4\", \"signature\": \"public final java.lang.String component4()\", \"is_constructor\": false, \"def_pos\": 8}, {\"name\": \"component5\", \"signature\": \"public final java.lang.String component5()\", \"is_constructor\": false, \"def_pos\": 9}, {\"name\": \"component6\", \"signature\": \"public final java.lang.String component6()\", \"is_constructor\": false, \"def_pos\": 10}, {\"name\": \"component7\", \"signature\": \"public final java.lang.String component7()\", \"is_constructor\": false, \"def_pos\": 11}, {\"name\": \"component8\", \"signature\": \"public final java.lang.String component8()\", \"is_constructor\": false, \"def_pos\": 12}, {\"name\": \"copy\", \"signature\": \"public final com.okinc.tradingbot.impl.order.strategy.api.model.ContractGridOiUsageResp copy(java.lang.String p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, java.lang.String p4, java.lang.String p5, java.lang.String p6, java.lang.String p7)\", \"is_constructor\": false, \"def_pos\": 13}, {\"name\": \"equals\", \"signature\": \"public boolean equals(java.lang.Object p0)\", \"is_constructor\": false, \"def_pos\": 14}, {\"name\": \"getAvailable\", \"signature\": \"public final java.lang.String getAvailable()\", \"is_constructor\": false, \"def_pos\": 15}, {\"name\": \"getCcy\", \"signature\": \"public final java.lang.String getCcy()\", \"is_constructor\": false, \"def_pos\": 16}, {\"name\": \"getDirection\", \"signature\": \"public final java.lang.String getDirection()\", \"is_constructor\": false, \"def_pos\": 17}, {\"name\": \"getInstRemain\", \"signature\": \"public final java.lang.String getInstRemain()\", \"is_constructor\": false, \"def_pos\": 18}, {\"name\": \"getInstTotal\", \"signature\": \"public final java.lang.String getInstTotal()\", \"is_constructor\": false, \"def_pos\": 19}, {\"name\": \"getUserRemain\", \"signature\": \"public final java.lang.String getUserRemain()\", \"is_constructor\": false, \"def_pos\": 20}, {\"name\": \"getUserTotal\", \"signature\": \"public final java.lang.String getUserTotal()\", \"is_constructor\": false, \"def_pos\": 21}, {\"name\": \"getUserUsed\", \"signature\": \"public final java.lang.String getUserUsed()\", \"is_constructor\": false, \"def_pos\": 22}, {\"name\": \"hashCode\", \"signature\": \"public int hashCode()\", \"is_constructor\": false, \"def_pos\": 23}, {\"name\": \"isBlocked\", \"signature\": \"public final boolean isBlocked()\", \"is_constructor\": false, \"def_pos\": 24}, {\"name\": \"toString\", \"signature\": \"public java.lang.String toString()\", \"is_constructor\": false, \"def_pos\": 25}], \"fields\": [{\"name\": \"$stable\", \"type\": \"int\", \"def_pos\": 0}, {\"name\": \"available\", \"type\": \"java.lang.String\", \"def_pos\": 1}, {\"name\": \"ccy\", \"type\": \"java.lang.String\", \"def_pos\": 2}, {\"name\": \"direction\", \"type\": \"java.lang.String\", \"def_pos\": 3}, {\"name\": \"instRemain\", \"type\": \"java.lang.String\", \"def_pos\": 4}, {\"name\": \"instTotal\", \"type\": \"java.lang.String\", \"def_pos\": 5}, {\"name\": \"userRemain\", \"type\": \"java.lang.String\", \"def_pos\": 6}, {\"name\": \"userTotal\", \"type\": \"java.lang.String\", \"def_pos\": 7}, {\"name\": \"userUsed\", \"type\": \"java.lang.String\", \"def_pos\": 8}], \"inner_classes\": []}"
+            }
+          ],
+          "isError": false
+        }
+      }
+    ]
+  },
+  "normalized_result": {
+    "engine": {
+      "name": "jadx-headless-mcp",
+      "version": "0.7.1",
+      "artifact_sha256": "4506e93b5642c158aedaabbcc3e25c186f066cd9386028c549d54a447f402324",
+      "source_revision": null,
+      "worker_count": 1,
+      "heap_limit_mib": 4096
+    },
+    "class_name": "com.okinc.tradingbot.impl.order.strategy.api.model.ContractGridOiUsageResp",
+    "methods": [
+      {
+        "name": "<clinit>",
+        "reported_signature": "static void <clinit>()",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "<init>",
+        "reported_signature": "public void <init>()",
+        "overload_index": 0,
+        "is_constructor": true,
+        "dex_descriptor": null
+      },
+      {
+        "name": "<init>",
+        "reported_signature": "public void <init>(java.lang.String p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, java.lang.String p4, java.lang.String p5, java.lang.String p6, java.lang.String p7)",
+        "overload_index": 1,
+        "is_constructor": true,
+        "dex_descriptor": null
+      },
+      {
+        "name": "<init>",
+        "reported_signature": "public synthetic void <init>(java.lang.String p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, java.lang.String p4, java.lang.String p5, java.lang.String p6, java.lang.String p7, int p8, kotlin.jvm.internal.DefaultConstructorMarker p9)",
+        "overload_index": 2,
+        "is_constructor": true,
+        "dex_descriptor": null
+      },
+      {
+        "name": "copy$default",
+        "reported_signature": "public static synthetic com.okinc.tradingbot.impl.order.strategy.api.model.ContractGridOiUsageResp copy$default(com.okinc.tradingbot.impl.order.strategy.api.model.ContractGridOiUsageResp p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, java.lang.String p4, java.lang.String p5, java.lang.String p6, java.lang.String p7, java.lang.String p8, int p9, java.lang.Object p10)",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "component1",
+        "reported_signature": "public final java.lang.String component1()",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "component2",
+        "reported_signature": "public final java.lang.String component2()",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "component3",
+        "reported_signature": "public final java.lang.String component3()",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "component4",
+        "reported_signature": "public final java.lang.String component4()",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "component5",
+        "reported_signature": "public final java.lang.String component5()",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "component6",
+        "reported_signature": "public final java.lang.String component6()",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "component7",
+        "reported_signature": "public final java.lang.String component7()",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "component8",
+        "reported_signature": "public final java.lang.String component8()",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "copy",
+        "reported_signature": "public final com.okinc.tradingbot.impl.order.strategy.api.model.ContractGridOiUsageResp copy(java.lang.String p0, java.lang.String p1, java.lang.String p2, java.lang.String p3, java.lang.String p4, java.lang.String p5, java.lang.String p6, java.lang.String p7)",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "equals",
+        "reported_signature": "public boolean equals(java.lang.Object p0)",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "getAvailable",
+        "reported_signature": "public final java.lang.String getAvailable()",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "getCcy",
+        "reported_signature": "public final java.lang.String getCcy()",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "getDirection",
+        "reported_signature": "public final java.lang.String getDirection()",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "getInstRemain",
+        "reported_signature": "public final java.lang.String getInstRemain()",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "getInstTotal",
+        "reported_signature": "public final java.lang.String getInstTotal()",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "getUserRemain",
+        "reported_signature": "public final java.lang.String getUserRemain()",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "getUserTotal",
+        "reported_signature": "public final java.lang.String getUserTotal()",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "getUserUsed",
+        "reported_signature": "public final java.lang.String getUserUsed()",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "hashCode",
+        "reported_signature": "public int hashCode()",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "isBlocked",
+        "reported_signature": "public final boolean isBlocked()",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "toString",
+        "reported_signature": "public java.lang.String toString()",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      }
+    ],
+    "fields": [
+      {
+        "name": "$stable",
+        "reported_type": "int"
+      },
+      {
+        "name": "available",
+        "reported_type": "java.lang.String"
+      },
+      {
+        "name": "ccy",
+        "reported_type": "java.lang.String"
+      },
+      {
+        "name": "direction",
+        "reported_type": "java.lang.String"
+      },
+      {
+        "name": "instRemain",
+        "reported_type": "java.lang.String"
+      },
+      {
+        "name": "instTotal",
+        "reported_type": "java.lang.String"
+      },
+      {
+        "name": "userRemain",
+        "reported_type": "java.lang.String"
+      },
+      {
+        "name": "userTotal",
+        "reported_type": "java.lang.String"
+      },
+      {
+        "name": "userUsed",
+        "reported_type": "java.lang.String"
+      }
+    ],
+    "inner_classes": []
+  },
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+    "Method signatures use provider display types; exact DEX descriptors and instruction offsets are unavailable. Overload indices are local to this engine and artifact.",
+    "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+    "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+  ],
+  "locations": [],
+  "evidence_links": []
+}

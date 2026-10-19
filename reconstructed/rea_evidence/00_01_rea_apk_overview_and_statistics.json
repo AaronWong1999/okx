@@ -1,0 +1,330 @@
+{
+  "schema": "rea.apk_overview.v1",
+  "artifacts": [
+    {
+      "architecture": null,
+      "digest": {
+        "sha256": "f485f4c88f3097adf22f5db5efb8ac523f02d14d2180ebdcb03b7b5460780e30"
+      },
+      "format": "directory"
+    }
+  ],
+  "providers": [
+    {
+      "id": "rea-analysis-view",
+      "name": "REA analysis view projection",
+      "version": "1"
+    },
+    {
+      "id": "rea-javascript-application",
+      "name": "REA JavaScript application analyzer",
+      "version": "1"
+    }
+  ],
+  "analysis_view": {
+    "evidence_id": "ev_341bd63d6aa198d1ffc0d1e7e11031ab4df40287aeb5650ee4facfda09b8e4fe",
+    "operation": "inspect_analysis_view",
+    "predicate_type": "rea.analysis-view",
+    "subject": {
+      "architecture": null,
+      "digest": {
+        "sha256": "f485f4c88f3097adf22f5db5efb8ac523f02d14d2180ebdcb03b7b5460780e30"
+      },
+      "format": "directory",
+      "local_path": "/Users/aaron/.gemini/antigravity/brain/55a4d47b-4c2a-4e95-a865-300431c4d9cd/scratch/okx_web_assets",
+      "name": "okx_web_assets"
+    },
+    "artifact": {
+      "path": "/Users/aaron/.gemini/antigravity/brain/55a4d47b-4c2a-4e95-a865-300431c4d9cd/scratch/okx_web_assets",
+      "sha256": "f485f4c88f3097adf22f5db5efb8ac523f02d14d2180ebdcb03b7b5460780e30"
+    },
+    "coverage": {
+      "examined": 1808,
+      "exhausted": true,
+      "next_offset": null,
+      "status": "complete-within-view",
+      "total": 4876
+    },
+    "summary": {
+      "coverage": {
+        "application": {
+          "limits": [
+            {
+              "name": "javascript_analysis_parent_result_budget_bytes",
+              "unit": "bytes",
+              "value": 1988390044
+            },
+            {
+              "name": "javascript_analysis_semantic_result_budget_bytes",
+              "unit": "bytes",
+              "value": 0
+            },
+            {
+              "name": "javascript_analysis_semantic_result_budget_bytes",
+              "unit": "bytes",
+              "value": 48665
+            },
+            {
+              "name": "javascript_analysis_semantic_result_budget_bytes",
+              "unit": "bytes",
+              "value": 62009
+            },
+            {
+              "name": "javascript_analysis_worker_heap_limit_bytes",
+              "unit": "bytes",
+              "value": 1098907648
+            },
+            {
+              "name": "javascript_analysis_worker_timeout_ms",
+              "unit": "milliseconds",
+              "value": 300000
+            }
+          ],
+          "omitted_count": null,
+          "status": "partial",
+          "truncated": false
+        },
+        "application_unknowns": 2987,
+        "semantic": {
+          "families": [
+            {
+              "family": "boundary",
+              "omitted_relations": null,
+              "retained_relations": 11,
+              "status": "partial",
+              "unknown_count": 1499
+            },
+            {
+              "family": "call-flow",
+              "omitted_relations": null,
+              "retained_relations": 2754,
+              "status": "partial",
+              "unknown_count": 4178
+            },
+            {
+              "family": "child-process",
+              "omitted_relations": null,
+              "retained_relations": 0,
+              "status": "partial",
+              "unknown_count": 1498
+            },
+            {
+              "family": "closure",
+              "omitted_relations": null,
+              "retained_relations": 2966,
+              "status": "partial",
+              "unknown_count": 1498
+            },
+            {
+              "family": "configuration",
+              "omitted_relations": null,
+              "retained_relations": 0,
+              "status": "partial",
+              "unknown_count": 1498
+            },
+            {
+              "family": "data-flow",
+              "omitted_relations": null,
+              "retained_relations": 31048,
+              "status": "partial",
+              "unknown_count": 5643
+            },
+            {
+              "family": "event",
+              "omitted_relations": null,
+              "retained_relations": 8,
+              "status": "partial",
+              "unknown_count": 1505
+            },
+            {
+              "family": "object-flow",
+              "omitted_relations": null,
+              "retained_relations": 2700,
+              "status": "partial",
+              "unknown_count": 8638
+            },
+            {
+              "family": "promise-ownership",
+              "omitted_relations": null,
+              "retained_relations": 9,
+              "status": "partial",
+              "unknown_count": 1500
+            },
+            {
+              "family": "request",
+              "omitted_relations": null,
+              "retained_relations": 0,
+              "status": "partial",
+              "unknown_count": 1498
+            },
+            {
+              "family": "resource-lifecycle",
+              "omitted_relations": null,
+              "retained_relations": 0,
+              "status": "partial",
+              "unknown_count": 1498
+            },
+            {
+              "family": "timer",
+              "omitted_relations": null,
+              "retained_relations": 6,
+              "status": "partial",
+              "unknown_count": 1504
+            }
+          ],
+          "limits": [
+            {
+              "name": "javascript_analysis_parent_result_budget_bytes",
+              "unit": "bytes",
+              "value": 1988390044
+            },
+            {
+              "name": "javascript_analysis_semantic_result_budget_bytes",
+              "unit": "bytes",
+              "value": 0
+            },
+            {
+              "name": "javascript_analysis_semantic_result_budget_bytes",
+              "unit": "bytes",
+              "value": 48665
+            },
+            {
+              "name": "javascript_analysis_semantic_result_budget_bytes",
+              "unit": "bytes",
+              "value": 62009
+            },
+            {
+              "name": "javascript_analysis_worker_heap_limit_bytes",
+              "unit": "bytes",
+              "value": 1098907648
+            },
+            {
+              "name": "javascript_analysis_worker_timeout_ms",
+              "unit": "milliseconds",
+              "value": 300000
+            },
+            {
+              "name": "semantic_graph_node_ceiling",
+              "unit": "items",
+              "value": 100000
+            }
+          ],
+          "omitted_nodes": null,
+          "omitted_relations": null,
+          "status": "partial",
+          "truncated": true
+        },
+        "semantic_unknowns": 31957
+      },
+      "electron": {
+        "browser_windows": 0,
+        "context_bridge_apis": 0,
+        "explicit_web_preferences": 0,
+        "exposed_api_members": 0,
+        "ipc": {
+          "ambiguous_renderer_transmissions": 0,
+          "dynamic_channel_operations": 0,
+          "literal_channels": 0,
+          "main_handlers": 0,
+          "operations": 0,
+          "paired_renderer_transmissions": 0,
+          "renderer_listeners": 0,
+          "renderer_transmissions": 0,
+          "unpaired_literal_renderer_transmissions": 0
+        },
+        "native_addon_bindings": 0,
+        "preload_entrypoints": 0,
+        "resolved_native_addon_bindings": 0,
+        "resolved_utility_entrypoints": 0,
+        "sender_validation_observations": 0,
+        "utility_processes": 0
+      },
+      "format": "directory",
+      "input_path": "/Users/aaron/.gemini/antigravity/brain/55a4d47b-4c2a-4e95-a865-300431c4d9cd/scratch/okx_web_assets",
+      "limitation_count": 2992,
+      "root_artifact_sha256": "f485f4c88f3097adf22f5db5efb8ac523f02d14d2180ebdcb03b7b5460780e30",
+      "statistics": {
+        "findings": 17143,
+        "invalid_utf8_files": 1,
+        "modules": 95483,
+        "nested_asar_containers": 0,
+        "parse_failures": 0,
+        "parsed_javascript_files": 1504,
+        "relevant_files": 1551,
+        "text_bytes_read": 18479896,
+        "visited_ast_nodes": 3950882
+      }
+    },
+    "view": {
+      "kind": "summary"
+    },
+    "view_digest": "8b1ca08ed3cfdd34442f9d6715407107aa38b3e25eb85a5e4a9c2e88a321d63a"
+  },
+  "package_analysis": {
+    "evidence_id": "ev_af90fd654f3ebc6bc30012fd965ef1322b63b6145dfdbf57636e7219dbdc6bcf",
+    "operation": "analyze_javascript_application",
+    "predicate_type": "rea.javascript-application-analysis",
+    "format": "directory",
+    "input_path": "/Users/aaron/.gemini/antigravity/brain/55a4d47b-4c2a-4e95-a865-300431c4d9cd/scratch/okx_web_assets",
+    "inventory_graph_sha256": "e8a400d256a696bd53689e26182022cafb7f45ced70df88795aec700c849e88e",
+    "inventory_manifest_id": "agm_7c3d479ca2693a24b532614168d2263bb2f43dd49dfd8b141c7535776f953eb8",
+    "root_artifact_sha256": "f485f4c88f3097adf22f5db5efb8ac523f02d14d2180ebdcb03b7b5460780e30",
+    "statistics": {
+      "findings": 17143,
+      "invalid_utf8_files": 1,
+      "modules": 95483,
+      "nested_asar_containers": 0,
+      "parse_failures": 0,
+      "parsed_javascript_files": 1504,
+      "relevant_files": 1551,
+      "text_bytes_read": 18479896,
+      "visited_ast_nodes": 3950882
+    },
+    "summary": {
+      "browser_windows": 0,
+      "context_bridge_apis": 0,
+      "explicit_web_preferences": 0,
+      "exposed_api_members": 0,
+      "ipc": {
+        "ambiguous_renderer_transmissions": 0,
+        "dynamic_channel_operations": 0,
+        "literal_channels": 0,
+        "main_handlers": 0,
+        "operations": 0,
+        "paired_renderer_transmissions": 0,
+        "renderer_listeners": 0,
+        "renderer_transmissions": 0,
+        "unpaired_literal_renderer_transmissions": 0
+      },
+      "native_addon_bindings": 0,
+      "preload_entrypoints": 0,
+      "resolved_native_addon_bindings": 0,
+      "resolved_utility_entrypoints": 0,
+      "sender_validation_observations": 0,
+      "utility_processes": 0
+    },
+    "graph_keys": [
+      "coverage",
+      "edges",
+      "graph_id",
+      "limitations",
+      "nodes",
+      "root_node_ids",
+      "schema"
+    ],
+    "semantic_graph_keys": [
+      "application_graph_id",
+      "coverage",
+      "evidence_contexts",
+      "fingerprints",
+      "graph_id",
+      "limitations",
+      "nodes",
+      "relations",
+      "root_artifact_sha256",
+      "root_node_ids",
+      "schema",
+      "unknowns"
+    ]
+  }
+}

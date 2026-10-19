@@ -169,6 +169,10 @@ fun StrategyBotWorkstationScreen() {
                     validationError = gridState.validationError
                 )
             }
+
+            item {
+                RenderSelectedBotComposeForm(selectedBot = selectedBot)
+            }
         }
     }
 }

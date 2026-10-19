@@ -133,41 +133,72 @@ def run_rea_cmd(args: list, env: dict, out_filename: str):
 def main():
     env = setup_bridge_env()
 
+    # Clean up any stale <100B files in EVIDENCE_DIR
+    for fname in os.listdir(EVIDENCE_DIR):
+        fpath = os.path.join(EVIDENCE_DIR, fname)
+        if os.path.isfile(fpath) and os.path.getsize(fpath) < 100:
+            os.remove(fpath)
+            print(f"[*] Removed stale file: {fname}")
+
+    # Remove old <clinit>/$values method dumps so we replace them with business logic method dumps
+    for fname in os.listdir(EVIDENCE_DIR):
+        if fname.startswith("06_") and (fname.endswith("_clinit.json") or fname.endswith("_$values.json")):
+            os.remove(os.path.join(EVIDENCE_DIR, fname))
+
     # 1. Inspect Apktool Client
-    run_rea_cmd(["inspect-apktool-client"], env, "01_rea_inspect_apktool_client.json")
+    if not os.path.exists(os.path.join(EVIDENCE_DIR, "01_rea_inspect_apktool_client.json")):
+        run_rea_cmd(["inspect-apktool-client"], env, "01_rea_inspect_apktool_client.json")
 
     # 2. Decode Android Resources via REA (default en + zh-rCN)
-    run_rea_cmd(
-        ["decode-android-resources", APK_PATH],
-        env,
-        "02_01_rea_decode_android_resources_en.json",
-    )
-    run_rea_cmd(
-        ["decode-android-resources", APK_PATH, "--locale", "zh-rCN"],
-        env,
-        "02_02_rea_decode_android_resources_zh_CN.json",
-    )
-
-    # 3. Inspect Android Package via REA
-    run_rea_cmd(
-        ["inspect-android-package", APK_PATH],
-        env,
-        "03_rea_inspect_android_package.json",
-    )
-
-    # 4. Search Android Classes for Strategy Bot families via REA
-    for idx, query in enumerate(
-        ["com.okinc.tradingbot", "SpotGrid", "ContractGrid", "SpotDCA", "ContractDCA", "SmartArb", "SignalBot", "Twap", "Iceberg"],
-        start=1,
-    ):
+    if not os.path.exists(os.path.join(EVIDENCE_DIR, "02_01_rea_decode_android_resources_en.json")):
         run_rea_cmd(
-            ["search-android-classes", APK_PATH, query],
+            ["decode-android-resources", APK_PATH],
             env,
-            f"04_{idx:02d}_rea_search_classes_{query.replace('.', '_')}.json",
+            "02_01_rea_decode_android_resources_en.json",
+        )
+    if not os.path.exists(os.path.join(EVIDENCE_DIR, "02_02_rea_decode_android_resources_zh_CN.json")):
+        run_rea_cmd(
+            ["decode-android-resources", APK_PATH, "--locale", "zh-rCN"],
+            env,
+            "02_02_rea_decode_android_resources_zh_CN.json",
         )
 
-    # 5. Inspect key Strategy Bot classes via REA
-    # Pick exact class names from our catalog
+    # 3. Inspect Android Package via REA
+    if not os.path.exists(os.path.join(EVIDENCE_DIR, "03_rea_inspect_android_package.json")):
+        run_rea_cmd(
+            ["inspect-android-package", APK_PATH],
+            env,
+            "03_rea_inspect_android_package.json",
+        )
+
+    # 4. Search Android Classes for all 15 Strategy Bot families via REA
+    search_queries = [
+        "com.okinc.tradingbot",
+        "SpotGrid",
+        "ContractGrid",
+        "SpotDca",
+        "ContractDca",
+        "SmartArb",
+        "SignalBot",
+        "Twap",
+        "Iceberg",
+        "Recurring",
+        "SmartPortfolio",
+        "Dcd",
+        "aiBot",
+        "Stock",
+        "botDetail",
+    ]
+    for idx, query in enumerate(search_queries, start=1):
+        out_name = f"04_{idx:02d}_rea_search_classes_{query.replace('.', '_')}.json"
+        if not os.path.exists(os.path.join(EVIDENCE_DIR, out_name)):
+            run_rea_cmd(
+                ["search-android-classes", APK_PATH, query],
+                env,
+                out_name,
+            )
+
+    # 5 & 6. Inspect key Strategy Bot classes and their primary business methods via REA
     with open("/Users/aaron/Desktop/aaron/okx/reconstructed/dex_decompiled/dex_bot_classes_catalog.json", "r", encoding="utf-8") as f:
         catalog = json.load(f)
     all_names = [c["readable_name"] for c in catalog["classes"]]
@@ -185,29 +216,64 @@ def main():
         "Iceberg",
         "Recurring",
         "SmartPortfolio",
+        "Dcd",
+        "aiBot",
+        "Stock",
     ]
     selected_classes = []
     for pat in wanted_patterns:
-        match = next((n for n in all_names if pat in n and "$" not in n), None)
+        match = next((n for n in all_names if pat.lower() in n.lower() and "$" not in n), None)
         if match and match not in selected_classes:
             selected_classes.append(match)
 
     for idx, cls_name in enumerate(selected_classes, start=1):
         short = cls_name.split(".")[-1]
-        res = run_rea_cmd(
-            ["inspect-android-class", APK_PATH, cls_name],
-            env,
-            f"05_{idx:02d}_rea_inspect_class_{short}.json",
-        )
-        # Also inspect first method of this class
-        if res and res.get("normalized_result", {}).get("methods"):
-            m0 = res["normalized_result"]["methods"][0]["name"]
-            run_rea_cmd(
-                ["inspect-android-method", APK_PATH, cls_name, m0, "--overload-index", "0"],
+        cls_out = f"05_{idx:02d}_rea_inspect_class_{short}.json"
+        cls_path = os.path.join(EVIDENCE_DIR, cls_out)
+        if os.path.exists(cls_path):
+            with open(cls_path, "r", encoding="utf-8") as f:
+                res = json.load(f)
+        else:
+            res = run_rea_cmd(
+                ["inspect-android-class", APK_PATH, cls_name],
                 env,
-                f"06_{idx:02d}_rea_inspect_method_{short}_{m0.strip('<>')}.json",
+                cls_out,
             )
+        if res and res.get("normalized_result", {}).get("methods"):
+            methods = res["normalized_result"]["methods"]
+            chosen_m = next(
+                (m["name"] for m in methods if m["name"] not in ("<clinit>", "<init>", "$values", "values", "valueOf")),
+                methods[0]["name"],
+            )
+            m_out = f"06_{idx:02d}_rea_inspect_method_{short}_{chosen_m.strip('<>')}.json"
+            if not os.path.exists(os.path.join(EVIDENCE_DIR, m_out)):
+                run_rea_cmd(
+                    ["inspect-android-method", APK_PATH, cls_name, chosen_m, "--overload-index", "0"],
+                    env,
+                    m_out,
+                )
+
+    # 7. Trace Android References for core Strategy Bot classes via REA
+    for idx, cls_name in enumerate(selected_classes[:5], start=1):
+        short = cls_name.split(".")[-1]
+        ref_out = f"07_{idx:02d}_rea_trace_references_{short}.json"
+        if not os.path.exists(os.path.join(EVIDENCE_DIR, ref_out)):
+            run_rea_cmd(
+                ["trace-android-references", APK_PATH, cls_name],
+                env,
+                ref_out,
+            )
+
+    # 8. Project Android Application Graph via REA
+    graph_out = "08_rea_project_android_application_graph.json"
+    if not os.path.exists(os.path.join(EVIDENCE_DIR, graph_out)):
+        run_rea_cmd(
+            ["project-android-application-graph", APK_PATH],
+            env,
+            graph_out,
+        )
 
 
 if __name__ == "__main__":
     main()
+

@@ -1,0 +1,149 @@
+{
+  "evidence_id": "ev_f2d2ac9fdf80adee4c8dae4661390ac8f1bc5d63455362b4d519a67602bdd959",
+  "subject": {
+    "name": "android.apk",
+    "digest": {
+      "sha256": "2b3b4e670997890ebf759d92b5904556b349de2845cfc9835c4a24d7b8addb85"
+    },
+    "format": "apk",
+    "architecture": null,
+    "local_path": "/Users/aaron/Downloads/android.apk"
+  },
+  "provider": {
+    "id": "jadx",
+    "name": "JADX headless",
+    "version": "0.7.1"
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.analysis",
+  "operation": "trace_android_references",
+  "parameters": {
+    "path": "/Users/aaron/Downloads/android.apk",
+    "class_name": "com.okinc.tradingbot.api.SpotDcaEasyEventType"
+  },
+  "raw_result": {
+    "server": {
+      "name": "rea-jadx-bridge",
+      "version": "1"
+    },
+    "bridge_sha256": "5a5a4e32264fbe597a329d7ad4b06a6266b7b31243e86b0263dbddcecaf351a1",
+    "jar_sha256": "4506e93b5642c158aedaabbcc3e25c186f066cd9386028c549d54a447f402324",
+    "loaded": {
+      "state": "LOADED",
+      "apk_path": "/var/folders/gq/5z0rgh1902n8sks4y9lv6thw0000gn/T/rea-android-e0911b/target.apk",
+      "class_count": 10267,
+      "resource_count": 85616,
+      "threads": 1,
+      "resources": "full"
+    },
+    "calls": [
+      {
+        "operation": "rea_jvm_status",
+        "input": {},
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"engine_reported_version\": \"0.7.1\", \"max_heap_bytes\": 4294967296, \"available_processors\": 8, \"java_version\": \"21.0.2\", \"metadata_scope\": \"parsed_members\"}"
+            }
+          ],
+          "isError": false
+        }
+      },
+      {
+        "operation": "load_apk",
+        "input": {
+          "path": "/var/folders/gq/5z0rgh1902n8sks4y9lv6thw0000gn/T/rea-android-e0911b/target.apk",
+          "threads": 1,
+          "resources": "full"
+        },
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"state\": \"LOADED\", \"apk_path\": \"/var/folders/gq/5z0rgh1902n8sks4y9lv6thw0000gn/T/rea-android-e0911b/target.apk\", \"class_count\": 10267, \"resource_count\": 85616, \"threads\": 1, \"resources\": \"full\"}"
+            }
+          ],
+          "isError": false
+        }
+      },
+      {
+        "operation": "get_class_summary",
+        "input": {
+          "class_name": "com.okinc.tradingbot.api.SpotDcaEasyEventType"
+        },
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"full_name\": \"com.okinc.tradingbot.api.SpotDcaEasyEventType\", \"name\": \"SpotDcaEasyEventType\", \"method_count\": 7, \"field_count\": 7, \"inner_class_count\": 0, \"methods\": [{\"name\": \"$values\", \"signature\": \"private static final synthetic com.okinc.tradingbot.api.SpotDcaEasyEventType[] $values()\", \"is_constructor\": false, \"def_pos\": 0}, {\"name\": \"<clinit>\", \"signature\": \"static void <clinit>()\", \"is_constructor\": false, \"def_pos\": 1}, {\"name\": \"<init>\", \"signature\": \"private void <init>(java.lang.String p0, int p1, int p2)\", \"is_constructor\": true, \"def_pos\": 2}, {\"name\": \"getEntries\", \"signature\": \"public static o.adcQ getEntries()\", \"is_constructor\": false, \"def_pos\": 3}, {\"name\": \"valueOf\", \"signature\": \"public static com.okinc.tradingbot.api.SpotDcaEasyEventType valueOf(java.lang.String p0)\", \"is_constructor\": false, \"def_pos\": 4}, {\"name\": \"values\", \"signature\": \"public static com.okinc.tradingbot.api.SpotDcaEasyEventType[] values()\", \"is_constructor\": false, \"def_pos\": 5}, {\"name\": \"getCode\", \"signature\": \"public final int getCode()\", \"is_constructor\": false, \"def_pos\": 6}], \"fields\": [{\"name\": \"$ENTRIES\", \"type\": \"o.adcQ\", \"def_pos\": 0}, {\"name\": \"$VALUES\", \"type\": \"com.okinc.tradingbot.api.SpotDcaEasyEventType[]\", \"def_pos\": 1}, {\"name\": \"BOT_CREATED\", \"type\": \"com.okinc.tradingbot.api.SpotDcaEasyEventType\", \"def_pos\": 2}, {\"name\": \"BOT_EDITED\", \"type\": \"com.okinc.tradingbot.api.SpotDcaEasyEventType\", \"def_pos\": 3}, {\"name\": \"BOT_PROFIT\", \"type\": \"com.okinc.tradingbot.api.SpotDcaEasyEventType\", \"def_pos\": 4}, {\"name\": \"BOT_STOPPED\", \"type\": \"com.okinc.tradingbot.api.SpotDcaEasyEventType\", \"def_pos\": 5}, {\"name\": \"code\", \"type\": \"int\", \"def_pos\": 6}], \"inner_classes\": []}"
+            }
+          ],
+          "isError": false
+        }
+      },
+      {
+        "operation": "get_xrefs_to_class",
+        "input": {
+          "class_name": "com.okinc.tradingbot.api.SpotDcaEasyEventType",
+          "limit": 2147483647,
+          "resolve_line": false
+        },
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"target\": \"com.okinc.tradingbot.api.SpotDcaEasyEventType\", \"total\": 2, \"count\": 2, \"resolve_line\": false, \"items\": [{\"kind\": \"method\", \"name\": \"SpotDcaEasyEventType\", \"full_name\": \"com.okinc.tradingbot.api.SpotDcaEasyEventType->reference(com.okinc.tradingbot.api.SpotDcaEasyEventType)\", \"containing_class\": \"com.okinc.tradingbot.api.SpotDcaEasyEventType\", \"top_class\": \"com.okinc.tradingbot.api.SpotDcaEasyEventType\", \"def_pos\": 0}, {\"kind\": \"method\", \"name\": \"SpotDcaEasyEventType\", \"full_name\": \"com.okinc.tradingbot.impl.TradingBotApiImpl->reference(com.okinc.tradingbot.api.SpotDcaEasyEventType)\", \"containing_class\": \"com.okinc.tradingbot.impl.TradingBotApiImpl\", \"top_class\": \"com.okinc.tradingbot.impl.TradingBotApiImpl\", \"def_pos\": 1}]}"
+            }
+          ],
+          "isError": false
+        }
+      }
+    ]
+  },
+  "normalized_result": {
+    "engine": {
+      "name": "jadx-headless-mcp",
+      "version": "0.7.1",
+      "artifact_sha256": "4506e93b5642c158aedaabbcc3e25c186f066cd9386028c549d54a447f402324",
+      "source_revision": null,
+      "worker_count": 1,
+      "heap_limit_mib": 4096
+    },
+    "class_name": "com.okinc.tradingbot.api.SpotDcaEasyEventType",
+    "method_name": null,
+    "total": 2,
+    "references": [
+      {
+        "kind": "method",
+        "name": "SpotDcaEasyEventType",
+        "reported_full_name": "com.okinc.tradingbot.api.SpotDcaEasyEventType->reference(com.okinc.tradingbot.api.SpotDcaEasyEventType)",
+        "containing_class": "com.okinc.tradingbot.api.SpotDcaEasyEventType",
+        "top_class": "com.okinc.tradingbot.api.SpotDcaEasyEventType",
+        "source_line": null,
+        "dex_offset": null
+      },
+      {
+        "kind": "method",
+        "name": "SpotDcaEasyEventType",
+        "reported_full_name": "com.okinc.tradingbot.impl.TradingBotApiImpl->reference(com.okinc.tradingbot.api.SpotDcaEasyEventType)",
+        "containing_class": "com.okinc.tradingbot.impl.TradingBotApiImpl",
+        "top_class": "com.okinc.tradingbot.impl.TradingBotApiImpl",
+        "source_line": null,
+        "dex_offset": null
+      }
+    ],
+    "coverage": "complete"
+  },
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+    "Method signatures use provider display types; exact DEX descriptors and instruction offsets are unavailable. Overload indices are local to this engine and artifact.",
+    "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+    "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+  ],
+  "locations": [],
+  "evidence_links": []
+}

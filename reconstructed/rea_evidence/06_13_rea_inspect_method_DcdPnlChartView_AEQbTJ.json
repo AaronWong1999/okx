@@ -1,0 +1,146 @@
+{
+  "evidence_id": "ev_133c83fc4a8e8d7b3428778aac79372f18a46f8c12d96d0fa71d78ca98a3dd1d",
+  "subject": {
+    "name": "android.apk",
+    "digest": {
+      "sha256": "2b3b4e670997890ebf759d92b5904556b349de2845cfc9835c4a24d7b8addb85"
+    },
+    "format": "apk",
+    "architecture": null,
+    "local_path": "/Users/aaron/Downloads/android.apk"
+  },
+  "provider": {
+    "id": "jadx",
+    "name": "JADX headless",
+    "version": "0.7.1"
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.analysis",
+  "operation": "inspect_android_method",
+  "parameters": {
+    "path": "/Users/aaron/Downloads/android.apk",
+    "class_name": "com.okinc.tradingbot.impl.order.strategy.dcd.view.DcdPnlChartView",
+    "method_name": "AEQbTJ",
+    "overload_index": 0
+  },
+  "raw_result": {
+    "server": {
+      "name": "rea-jadx-bridge",
+      "version": "1"
+    },
+    "bridge_sha256": "5a5a4e32264fbe597a329d7ad4b06a6266b7b31243e86b0263dbddcecaf351a1",
+    "jar_sha256": "4506e93b5642c158aedaabbcc3e25c186f066cd9386028c549d54a447f402324",
+    "loaded": {
+      "state": "LOADED",
+      "apk_path": "/var/folders/gq/5z0rgh1902n8sks4y9lv6thw0000gn/T/rea-android-bOBlo4/target.apk",
+      "class_count": 10267,
+      "resource_count": 85616,
+      "threads": 1,
+      "resources": "full"
+    },
+    "calls": [
+      {
+        "operation": "rea_jvm_status",
+        "input": {},
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"engine_reported_version\": \"0.7.1\", \"max_heap_bytes\": 4294967296, \"available_processors\": 8, \"java_version\": \"21.0.2\", \"metadata_scope\": \"parsed_members\"}"
+            }
+          ],
+          "isError": false
+        }
+      },
+      {
+        "operation": "load_apk",
+        "input": {
+          "path": "/var/folders/gq/5z0rgh1902n8sks4y9lv6thw0000gn/T/rea-android-bOBlo4/target.apk",
+          "threads": 1,
+          "resources": "full"
+        },
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"state\": \"LOADED\", \"apk_path\": \"/var/folders/gq/5z0rgh1902n8sks4y9lv6thw0000gn/T/rea-android-bOBlo4/target.apk\", \"class_count\": 10267, \"resource_count\": 85616, \"threads\": 1, \"resources\": \"full\"}"
+            }
+          ],
+          "isError": false
+        }
+      },
+      {
+        "operation": "get_class_summary",
+        "input": {
+          "class_name": "com.okinc.tradingbot.impl.order.strategy.dcd.view.DcdPnlChartView"
+        },
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"full_name\": \"com.okinc.tradingbot.impl.order.strategy.dcd.view.DcdPnlChartView\", \"name\": \"DcdPnlChartView\", \"method_count\": 35, \"field_count\": 3, \"inner_class_count\": 2, \"methods\": [{\"name\": \"<clinit>\", \"signature\": \"static void <clinit>()\", \"is_constructor\": false, \"def_pos\": 0}, {\"name\": \"<init>\", \"signature\": \"public void <init>(android.content.Context p0)\", \"is_constructor\": true, \"def_pos\": 1}, {\"name\": \"<init>\", \"signature\": \"public void <init>(android.content.Context p0, android.util.AttributeSet p1)\", \"is_constructor\": true, \"def_pos\": 2}, {\"name\": \"<init>\", \"signature\": \"public void <init>(android.content.Context p0, android.util.AttributeSet p1, int p2)\", \"is_constructor\": true, \"def_pos\": 3}, {\"name\": \"<init>\", \"signature\": \"public synthetic void <init>(android.content.Context p0, android.util.AttributeSet p1, int p2, int p3, kotlin.jvm.internal.DefaultConstructorMarker p4)\", \"is_constructor\": true, \"def_pos\": 4}, {\"name\": \"AEQbTJ\", \"signature\": \"public static final kotlin.Unit AEQbTJ(com.okinc.tradingbot.impl.order.strategy.dcd.view.DcdPnlChartView p0, java.lang.Exception p1)\", \"is_constructor\": false, \"def_pos\": 5}, {\"name\": \"AEQbTJ\", \"signature\": \"public static final synthetic void AEQbTJ(com.okinc.tradingbot.impl.order.strategy.dcd.view.DcdPnlChartView p0)\", \"is_constructor\": false, \"def_pos\": 6}, {\"name\": \"AuCTel\", \"signature\": \"private final void AuCTel()\", \"is_constructor\": false, \"def_pos\": 7}, {\"name\": \"EZpvd\", \"signature\": \"public static synthetic kotlin.Unit EZpvd(com.okinc.tradingbot.impl.order.strategy.dcd.view.DcdPnlChartView p0, java.lang.String p1)\", \"is_constructor\": false, \"def_pos\": 8}, {\"name\": \"KWHzl\", \"signature\": \"public static synthetic kotlin.Unit KWHzl(com.okinc.tradingbot.impl.order.strategy.dcd.view.DcdPnlChartView p0, java.lang.Exception p1)\", \"is_constructor\": false, \"def_pos\": 9}, {\"name\": \"KWHzl\", \"signature\": \"public static final kotlin.Unit KWHzl(com.okinc.tradingbot.impl.order.strategy.dcd.view.DcdPnlChartView p0, java.lang.String p1)\", \"is_constructor\": false, \"def_pos\": 10}, {\"name\": \"OLrzqt\", \"signature\": \"public static final synthetic o.absM OLrzqt(com.okinc.tradingbot.impl.order.strategy.dcd.view.DcdPnlChartView p0)\", \"is_constructor\": false, \"def_pos\": 11}, {\"name\": \"fARcdN\", \"signature\": \"private final void fARcdN()\", \"is_constructor\": false, \"def_pos\": 12}, {\"name\": \"fetchVPNInfo\", \"signature\": \"private final void fetchVPNInfo()\", \"is_constructor\": false, \"def_pos\": 13}, {\"name\": \"values\", \"signature\": \"private final void values()\", \"is_constructor\": false, \"def_pos\": 14}, {\"name\": \"AEQbTJ\", \"signature\": \"public final void AEQbTJ()\", \"is_constructor\": false, \"def_pos\": 15}, {\"name\": \"AEQbTJ\", \"signature\": \"public final void AEQbTJ(com.okinc.unify_trade.bot.data.DcdPnlChartData p0)\", \"is_constructor\": false, \"def_pos\": 16}, {\"name\": \"AEQbTJ\", \"signature\": \"public final void AEQbTJ(java.lang.String p0)\", \"is_constructor\": false, \"def_pos\": 17}, {\"name\": \"AYXKKw\", \"signature\": \"public final void AYXKKw()\", \"is_constructor\": false, \"def_pos\": 18}, {\"name\": \"AhwBna\", \"signature\": \"public final void AhwBna()\", \"is_constructor\": false, \"def_pos\": 19}, {\"name\": \"AkhnZx\", \"signature\": \"public final void AkhnZx()\", \"is_constructor\": false, \"def_pos\": 20}, {\"name\": \"DbNXlk\", \"signature\": \"public final void DbNXlk()\", \"is_constructor\": false, \"def_pos\": 21}, {\"name\": \"EZpvd\", \"signature\": \"public final void EZpvd()\", \"is_constructor\": false, \"def_pos\": 22}, {\"name\": \"KWHzl\", \"signature\": \"public final void KWHzl()\", \"is_constructor\": false, \"def_pos\": 23}, {\"name\": \"OLrzqt\", \"signature\": \"public final void OLrzqt()\", \"is_constructor\": false, \"def_pos\": 24}, {\"name\": \"OLrzqt\", \"signature\": \"public final void OLrzqt(java.lang.String p0)\", \"is_constructor\": false, \"def_pos\": 25}, {\"name\": \"copydefault\", \"signature\": \"public final void copydefault()\", \"is_constructor\": false, \"def_pos\": 26}, {\"name\": \"copydefault\", \"signature\": \"public final void copydefault(java.lang.String p0)\", \"is_constructor\": false, \"def_pos\": 27}, {\"name\": \"djBIcL\", \"signature\": \"public final void djBIcL()\", \"is_constructor\": false, \"def_pos\": 28}, {\"name\": \"gEmmrt\", \"signature\": \"public final void gEmmrt()\", \"is_constructor\": false, \"def_pos\": 29}, {\"name\": \"isConnected\", \"signature\": \"public final void isConnected()\", \"is_constructor\": false, \"def_pos\": 30}, {\"name\": \"onAttachedToWindow\", \"signature\": \"public void onAttachedToWindow()\", \"is_constructor\": false, \"def_pos\": 31}, {\"name\": \"onPause\", \"signature\": \"public void onPause(androidx.lifecycle.LifecycleOwner p0)\", \"is_constructor\": false, \"def_pos\": 32}, {\"name\": \"onResume\", \"signature\": \"public void onResume(androidx.lifecycle.LifecycleOwner p0)\", \"is_constructor\": false, \"def_pos\": 33}, {\"name\": \"valueOf\", \"signature\": \"public final void valueOf()\", \"is_constructor\": false, \"def_pos\": 34}], \"fields\": [{\"name\": \"KWHzl\", \"type\": \"int\", \"def_pos\": 0}, {\"name\": \"EZpvd\", \"type\": \"o.XNE\", \"def_pos\": 1}, {\"name\": \"copydefault\", \"type\": \"o.absM\", \"def_pos\": 2}], \"inner_classes\": [\"com.okinc.tradingbot.impl.order.strategy.dcd.view.DcdPnlChartView$Activity\", \"com.okinc.tradingbot.impl.order.strategy.dcd.view.DcdPnlChartView$StateListAnimator\"]}"
+            }
+          ],
+          "isError": false
+        }
+      },
+      {
+        "operation": "get_method_body",
+        "input": {
+          "class_name": "com.okinc.tradingbot.impl.order.strategy.dcd.view.DcdPnlChartView",
+          "method_name": "AEQbTJ",
+          "overload_index": 0,
+          "smali_fallback": true
+        },
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"class_name\": \"com.okinc.tradingbot.impl.order.strategy.dcd.view.DcdPnlChartView\", \"method_name\": \"AEQbTJ\", \"full_name\": \"com.okinc.tradingbot.impl.order.strategy.dcd.view.DcdPnlChartView.AEQbTJ\", \"overload_index\": 0, \"overload_count\": 5, \"mode\": \"java\", \"fell_back\": false, \"markers\": [], \"body\": \"    public static final kotlin.Unit AEQbTJ(com.okinc.tradingbot.impl.order.strategy.dcd.view.DcdPnlChartView p0, java.lang.Exception p1) {\\n        0x0000: const-string v0, \\\"\\\"\\n        0x0002: invoke-static kotlin.jvm.internal.Intrinsics.checkNotNullParameter(java.lang.Object, java.lang.String):void\\n        0x0005: invoke-virtual com.okinc.tradingbot.impl.order.strategy.dcd.view.DcdPnlChartView.AEQbTJ(java.lang.String):void\\n        0x0008: sget v1, kotlin.Unit.INSTANCE:kotlin.Unit\\n        0x000a: return-object v1\\n    }\"}"
+            }
+          ],
+          "isError": false
+        }
+      }
+    ]
+  },
+  "normalized_result": {
+    "engine": {
+      "name": "jadx-headless-mcp",
+      "version": "0.7.1",
+      "artifact_sha256": "4506e93b5642c158aedaabbcc3e25c186f066cd9386028c549d54a447f402324",
+      "source_revision": null,
+      "worker_count": 1,
+      "heap_limit_mib": 4096
+    },
+    "class_name": "com.okinc.tradingbot.impl.order.strategy.dcd.view.DcdPnlChartView",
+    "method": {
+      "name": "AEQbTJ",
+      "reported_signature": "public static final kotlin.Unit AEQbTJ(com.okinc.tradingbot.impl.order.strategy.dcd.view.DcdPnlChartView p0, java.lang.Exception p1)",
+      "overload_index": 0,
+      "is_constructor": false,
+      "dex_descriptor": null
+    },
+    "overload_count": 5,
+    "representation": "java",
+    "body_status": "available",
+    "fell_back": false,
+    "markers": [],
+    "source": {
+      "status": "complete",
+      "text": "    public static final kotlin.Unit AEQbTJ(com.okinc.tradingbot.impl.order.strategy.dcd.view.DcdPnlChartView p0, java.lang.Exception p1) {\n        0x0000: const-string v0, \"\"\n        0x0002: invoke-static kotlin.jvm.internal.Intrinsics.checkNotNullParameter(java.lang.Object, java.lang.String):void\n        0x0005: invoke-virtual com.okinc.tradingbot.impl.order.strategy.dcd.view.DcdPnlChartView.AEQbTJ(java.lang.String):void\n        0x0008: sget v1, kotlin.Unit.INSTANCE:kotlin.Unit\n        0x000a: return-object v1\n    }",
+      "reported_total_bytes": null
+    }
+  },
+  "confidence": "derived",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+    "Method signatures use provider display types; exact DEX descriptors and instruction offsets are unavailable. Overload indices are local to this engine and artifact.",
+    "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+    "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+  ],
+  "locations": [],
+  "evidence_links": []
+}

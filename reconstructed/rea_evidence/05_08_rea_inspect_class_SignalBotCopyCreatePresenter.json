@@ -1,0 +1,175 @@
+{
+  "evidence_id": "ev_5a5ced52262b74cd4a8cfe62b8858b20d1a25bfcda74bacdf0df7914dea5986e",
+  "subject": {
+    "name": "android.apk",
+    "digest": {
+      "sha256": "2b3b4e670997890ebf759d92b5904556b349de2845cfc9835c4a24d7b8addb85"
+    },
+    "format": "apk",
+    "architecture": null,
+    "local_path": "/Users/aaron/Downloads/android.apk"
+  },
+  "provider": {
+    "id": "jadx",
+    "name": "JADX headless",
+    "version": "0.7.1"
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.analysis",
+  "operation": "inspect_android_class",
+  "parameters": {
+    "path": "/Users/aaron/Downloads/android.apk",
+    "class_name": "com.okinc.tradingbot.impl.market_place.bot_copy.presenter.SignalBotCopyCreatePresenter"
+  },
+  "raw_result": {
+    "server": {
+      "name": "rea-jadx-bridge",
+      "version": "1"
+    },
+    "bridge_sha256": "5a5a4e32264fbe597a329d7ad4b06a6266b7b31243e86b0263dbddcecaf351a1",
+    "jar_sha256": "4506e93b5642c158aedaabbcc3e25c186f066cd9386028c549d54a447f402324",
+    "loaded": {
+      "state": "LOADED",
+      "apk_path": "/var/folders/gq/5z0rgh1902n8sks4y9lv6thw0000gn/T/rea-android-Im4ROA/target.apk",
+      "class_count": 10267,
+      "resource_count": 85616,
+      "threads": 1,
+      "resources": "full"
+    },
+    "calls": [
+      {
+        "operation": "rea_jvm_status",
+        "input": {},
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"engine_reported_version\": \"0.7.1\", \"max_heap_bytes\": 4294967296, \"available_processors\": 8, \"java_version\": \"21.0.2\", \"metadata_scope\": \"parsed_members\"}"
+            }
+          ],
+          "isError": false
+        }
+      },
+      {
+        "operation": "load_apk",
+        "input": {
+          "path": "/var/folders/gq/5z0rgh1902n8sks4y9lv6thw0000gn/T/rea-android-Im4ROA/target.apk",
+          "threads": 1,
+          "resources": "full"
+        },
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"state\": \"LOADED\", \"apk_path\": \"/var/folders/gq/5z0rgh1902n8sks4y9lv6thw0000gn/T/rea-android-Im4ROA/target.apk\", \"class_count\": 10267, \"resource_count\": 85616, \"threads\": 1, \"resources\": \"full\"}"
+            }
+          ],
+          "isError": false
+        }
+      },
+      {
+        "operation": "get_class_summary",
+        "input": {
+          "class_name": "com.okinc.tradingbot.impl.market_place.bot_copy.presenter.SignalBotCopyCreatePresenter"
+        },
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"full_name\": \"com.okinc.tradingbot.impl.market_place.bot_copy.presenter.SignalBotCopyCreatePresenter\", \"name\": \"SignalBotCopyCreatePresenter\", \"method_count\": 7, \"field_count\": 3, \"inner_class_count\": 0, \"methods\": [{\"name\": \"<clinit>\", \"signature\": \"static void <clinit>()\", \"is_constructor\": false, \"def_pos\": 0}, {\"name\": \"<init>\", \"signature\": \"public void <init>(android.app.Application p0, androidx.lifecycle.SavedStateHandle p1)\", \"is_constructor\": true, \"def_pos\": 1}, {\"name\": \"AEQbTJ\", \"signature\": \"public final androidx.lifecycle.TradeLiveData AEQbTJ()\", \"is_constructor\": false, \"def_pos\": 2}, {\"name\": \"EZpvd\", \"signature\": \"public final void EZpvd()\", \"is_constructor\": false, \"def_pos\": 3}, {\"name\": \"KWHzl\", \"signature\": \"public final java.util.List KWHzl(com.okinc.unify_trade.biz.SignalDetails p0, java.util.List p1)\", \"is_constructor\": false, \"def_pos\": 4}, {\"name\": \"OLrzqt\", \"signature\": \"public final boolean OLrzqt(com.okinc.unify_trade.biz.SignalDetails p0)\", \"is_constructor\": false, \"def_pos\": 5}, {\"name\": \"getUseCaseList\", \"signature\": \"public java.util.List getUseCaseList()\", \"is_constructor\": false, \"def_pos\": 6}], \"fields\": [{\"name\": \"KWHzl\", \"type\": \"int\", \"def_pos\": 0}, {\"name\": \"OLrzqt\", \"type\": \"androidx.lifecycle.TradeLiveData\", \"def_pos\": 1}, {\"name\": \"copydefault\", \"type\": \"o.abHW\", \"def_pos\": 2}], \"inner_classes\": []}"
+            }
+          ],
+          "isError": false
+        }
+      }
+    ]
+  },
+  "normalized_result": {
+    "engine": {
+      "name": "jadx-headless-mcp",
+      "version": "0.7.1",
+      "artifact_sha256": "4506e93b5642c158aedaabbcc3e25c186f066cd9386028c549d54a447f402324",
+      "source_revision": null,
+      "worker_count": 1,
+      "heap_limit_mib": 4096
+    },
+    "class_name": "com.okinc.tradingbot.impl.market_place.bot_copy.presenter.SignalBotCopyCreatePresenter",
+    "methods": [
+      {
+        "name": "<clinit>",
+        "reported_signature": "static void <clinit>()",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "<init>",
+        "reported_signature": "public void <init>(android.app.Application p0, androidx.lifecycle.SavedStateHandle p1)",
+        "overload_index": 0,
+        "is_constructor": true,
+        "dex_descriptor": null
+      },
+      {
+        "name": "AEQbTJ",
+        "reported_signature": "public final androidx.lifecycle.TradeLiveData AEQbTJ()",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "EZpvd",
+        "reported_signature": "public final void EZpvd()",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "KWHzl",
+        "reported_signature": "public final java.util.List KWHzl(com.okinc.unify_trade.biz.SignalDetails p0, java.util.List p1)",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "OLrzqt",
+        "reported_signature": "public final boolean OLrzqt(com.okinc.unify_trade.biz.SignalDetails p0)",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      },
+      {
+        "name": "getUseCaseList",
+        "reported_signature": "public java.util.List getUseCaseList()",
+        "overload_index": 0,
+        "is_constructor": false,
+        "dex_descriptor": null
+      }
+    ],
+    "fields": [
+      {
+        "name": "KWHzl",
+        "reported_type": "int"
+      },
+      {
+        "name": "OLrzqt",
+        "reported_type": "androidx.lifecycle.TradeLiveData"
+      },
+      {
+        "name": "copydefault",
+        "reported_type": "o.abHW"
+      }
+    ],
+    "inner_classes": []
+  },
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+    "Method signatures use provider display types; exact DEX descriptors and instruction offsets are unavailable. Overload indices are local to this engine and artifact.",
+    "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+    "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+  ],
+  "locations": [],
+  "evidence_links": []
+}

@@ -1,0 +1,3920 @@
+[
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeAdjustOrderStopTpSlTriggerItem;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeAdjustOrderStopTpSlTriggerItem",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeAdjustOrderStopTpSlTriggerParam;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeAdjustOrderStopTpSlTriggerParam",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeAiCardShape;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeAiCardShape",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeAiConversationInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeAiConversationInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeAiConversationState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeAiConversationState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeAiDcaAmountSplit;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeAiDcaAmountSplit",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeAiDcdInvestMethod;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeAiDcdInvestMethod",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeAiDcdInvestValidation;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeAiDcdInvestValidation",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeAiExplanationIndicator;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeAiExplanationIndicator",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeAiExplanationNode;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeAiExplanationNode",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeAiExplanationParam;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeAiExplanationParam",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeAiMinInvestmentParams;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeAiMinInvestmentParams",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeAiMinInvestmentSource;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeAiMinInvestmentSource",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeAiRecommendBundle;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeAiRecommendBundle",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeAiRecommendClass;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeAiRecommendClass",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeAiRecommendClassifyItem;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeAiRecommendClassifyItem",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeAiRecommendExplanation;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeAiRecommendExplanation",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeAiRecommendTier;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeAiRecommendTier",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeAiTrend;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeAiTrend",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeArbLegAvailRows;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeArbLegAvailRows",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeArbLegMarginInfo;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeArbLegMarginInfo",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeArbOrderButtonTitleKey;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeArbOrderButtonTitleKey",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeArbPreCheckKvTitleKey;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeArbPreCheckKvTitleKey",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeArbPriceSettingsField;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeArbPriceSettingsField",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeArbPriceTypeChoice;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeArbPriceTypeChoice",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeArbPriceTypeTitleKey;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeArbPriceTypeTitleKey",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeArbitrageCcyTypeOption;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeArbitrageCcyTypeOption",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeArbitrageFavouriteItem;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeArbitrageFavouriteItem",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeArbitrageFavouriteList;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeArbitrageFavouriteList",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeArbitrageFavouriteSettingInput;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeArbitrageFavouriteSettingInput",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeArbitrageFetchMinAmountInput;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeArbitrageFetchMinAmountInput",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeArbitragePlaceOrderEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeArbitragePlaceOrderEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeArbitragePlaceOrderInput;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeArbitragePlaceOrderInput",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeArbitragePlaceOrderInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeArbitragePlaceOrderInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeArbitragePlaceOrderLeg;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeArbitragePlaceOrderLeg",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeArbitragePlaceOrderResult;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeArbitragePlaceOrderResult",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeArbitragePlaceOrderState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeArbitragePlaceOrderState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeArbitrageSearchEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeArbitrageSearchEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeArbitrageSearchInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeArbitrageSearchInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeArbitrageSearchRow;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeArbitrageSearchRow",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeArbitrageSearchSegmentCounts;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeArbitrageSearchSegmentCounts",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeArbitrageSearchSortOrder;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeArbitrageSearchSortOrder",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeArbitrageSearchSortType;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeArbitrageSearchSortType",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeArbitrageSearchState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeArbitrageSearchState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeArbitrageSearchTab;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeArbitrageSearchTab",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeArbitrageSelectionPayload;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeArbitrageSelectionPayload",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeAutoEarnOverView;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeAutoEarnOverView",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeAutoEarnServiceHandle;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeAutoEarnServiceHandle",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeAutoEarnStakingProfitHistory;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeAutoEarnStakingProfitHistory",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeAutoTypeProfit;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeAutoTypeProfit",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeBotActionExecutor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeBotActionExecutor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeBotAttribution;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeBotAttribution",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeBotBannerRecommendation;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeBotBannerRecommendation",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeBotBannerRecommendationList;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeBotBannerRecommendationList",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeBotCoinTransferMeta;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeBotCoinTransferMeta",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeBotCommonInfo;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeBotCommonInfo",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeBotContractLotSizeValidation;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeBotContractLotSizeValidation",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeBotEventHistoryEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeBotEventHistoryEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeBotFilterSheetEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeBotFilterSheetEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeBotLeadExitPrecheckInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeBotLeadExitPrecheckInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeBotLeadExitPrecheckState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeBotLeadExitPrecheckState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeBulletChatInfo;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeBulletChatInfo",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeBulletChatType;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeBulletChatType",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeCategoryItem;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeCategoryItem",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeCategoryTag;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeCategoryTag",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeContentItem;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeContentItem",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeContractDcaAdjustMarginEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeContractDcaAdjustMarginEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeContractDcaAutoMarginSettingEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeContractDcaAutoMarginSettingEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeContractDcaDetailEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeContractDcaDetailEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeContractDcaEditParamsEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeContractDcaEditParamsEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeContractDcaEditParamsInput;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeContractDcaEditParamsInput",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeContractDcaEditParamsInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeContractDcaEditParamsInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeContractDcaEditParamsState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeContractDcaEditParamsState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeContractDcaMarginTransferRecordsEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeContractDcaMarginTransferRecordsEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeContractDcaPauseResumeEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeContractDcaPauseResumeEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeContractDcaPauseResumeInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeContractDcaPauseResumeInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeContractDcaPauseResumeState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeContractDcaPauseResumeState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeContractDcaPlaceOrderEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeContractDcaPlaceOrderEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeContractDcaPositionLiveEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeContractDcaPositionLiveEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeContractDcaPositionsEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeContractDcaPositionsEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeContractDcaReinvestEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeContractDcaReinvestEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeContractDcaSmartParams;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeContractDcaSmartParams",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeContractDcaTimelineEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeContractDcaTimelineEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeContractGridDetailEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeContractGridDetailEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeContractGridHistoryEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeContractGridHistoryEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeContractGridOrdersEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeContractGridOrdersEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeContractGridPlaceOrderEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeContractGridPlaceOrderEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeContractGridPositionHandlingPosition;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeContractGridPositionHandlingPosition",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeContractGridPositionLiveEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeContractGridPositionLiveEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeContractGridTypeData;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeContractGridTypeData",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeCreateSignEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeCreateSignEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcaEasyCycleProfitProjection;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcaEasyCycleProfitProjection",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcaEasyProfitPreview;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcaEasyProfitPreview",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcaPreviewOrder;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcaPreviewOrder",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcaTimelineStreamUseCase;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcaTimelineStreamUseCase",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcaTypeData;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcaTypeData",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcdCreateSuccessEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcdCreateSuccessEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcdDetailEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcdDetailEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcdIntentionsParamRecommendationInput;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcdIntentionsParamRecommendationInput",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcdMinimumStrikePrice;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcdMinimumStrikePrice",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcdMinimumStrikePriceInput;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcdMinimumStrikePriceInput",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcdParamRecommendation;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcdParamRecommendation",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcdPlaceOrderEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcdPlaceOrderEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcdPlaceOrderInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcdPlaceOrderInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcdPlaceOrderParamRecommendationInput;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcdPlaceOrderParamRecommendationInput",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcdPlaceOrderState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcdPlaceOrderState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcdPriceDropIntentionsEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcdPriceDropIntentionsEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcdPriceDropIntentionsInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcdPriceDropIntentionsInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcdPriceDropIntentionsState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcdPriceDropIntentionsState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcdProductDetailEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcdProductDetailEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcdProductDetailInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcdProductDetailInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcdProductDetailState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcdProductDetailState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcdProductListAdvanced;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcdProductListAdvanced",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcdProductListAdvancedInput;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcdProductListAdvancedInput",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcdProductListInput;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcdProductListInput",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcdQuotes;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcdQuotes",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcdQuotesInput;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcdQuotesInput",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcdTargetPriceIntentionsEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcdTargetPriceIntentionsEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcdTargetPriceIntentionsInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcdTargetPriceIntentionsInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDcdTargetPriceIntentionsState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDcdTargetPriceIntentionsState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeDetailArg;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeDetailArg",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeFundingRateArbitrage;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeFundingRateArbitrage",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeFundingRateArbitrageItem;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeFundingRateArbitrageItem",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeFundingRateEntry;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeFundingRateEntry",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeGridDetailEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeGridDetailEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeGridHistoryEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeGridHistoryEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeGridOrdersEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeGridOrdersEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeHistoryBotsListEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeHistoryBotsListEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeHistoryEvent;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeHistoryEvent",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeLatestInvestor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeLatestInvestor",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeLeveragePrincipalCoinConfig;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeLeveragePrincipalCoinConfig",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeLiquidatePrice;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeLiquidatePrice",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeLlmBotPlaceOrderInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeLlmBotPlaceOrderInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeMarginBalancePreview;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeMarginBalancePreview",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeMarketplaceInfoSourceModel;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeMarketplaceInfoSourceModel",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeMessage;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeMessage",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeMinInvestment;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeMinInvestment",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeMpCategory;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeMpCategory",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeMySignalsEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeMySignalsEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeNmpBotSquareUiEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeNmpBotSquareUiEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeOKTSAiRecommendService;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeOKTSAiRecommendService",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeOKTSArbitrageService;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeOKTSArbitrageService",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeOKTSBotCommonService;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeOKTSBotCommonService",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeOKTSContractDcaService;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeOKTSContractDcaService",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeOKTSContractGridService;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeOKTSContractGridService",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeOKTSNmpService;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeOKTSNmpService",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeOKTSPrivateCopyService;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeOKTSPrivateCopyService",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeOKTSRecurringBuyService;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeOKTSRecurringBuyService",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeOKTSSignalBotService;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeOKTSSignalBotService",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeOKTSSmartArbitrageService;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeOKTSSmartArbitrageService",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeOKTSSmartPortfolioService;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeOKTSSmartPortfolioService",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeOKTSSpotDcaService;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeOKTSSpotDcaService",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeOKTSSpotGridCopyCloneService;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeOKTSSpotGridCopyCloneService",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeOKTSSpotGridEasyService;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeOKTSSpotGridEasyService",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeOKTSSpotGridService;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeOKTSSpotGridService",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeOKTSTwapService;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeOKTSTwapService",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeOrderCategory;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeOrderCategory",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeOrderSignParamsModel;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeOrderSignParamsModel",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypePauseResult;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypePauseResult",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypePinBotEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypePinBotEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypePlaceDcdOrderInput;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypePlaceDcdOrderInput",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypePlaceOrderConditionParam;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypePlaceOrderConditionParam",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeRecurringAssetBacktestCategory;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeRecurringAssetBacktestCategory",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeRecurringBuyActionsEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeRecurringBuyActionsEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeRecurringBuyAiRecommendEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeRecurringBuyAiRecommendEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeRecurringBuyCycleType;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeRecurringBuyCycleType",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeRecurringBuyDetailEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeRecurringBuyDetailEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeRecurringBuyDetailsHistoryTabEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeRecurringBuyDetailsHistoryTabEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeRecurringBuyDetailsOverviewTabEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeRecurringBuyDetailsOverviewTabEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeRecurringBuyDetailsOverviewTabInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeRecurringBuyDetailsOverviewTabInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeRecurringBuyDetailsOverviewTabState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeRecurringBuyDetailsOverviewTabState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeRecurringBuyPlaceOrderEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeRecurringBuyPlaceOrderEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeRecurringCoinItem;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeRecurringCoinItem",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeRecurringOrderCoin;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeRecurringOrderCoin",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeRecurringPopularThemeBacktestCurve;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeRecurringPopularThemeBacktestCurve",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeReducePositionsEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeReducePositionsEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeRenameBotEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeRenameBotEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeResumeCheckResult;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeResumeCheckResult",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeRiskInfoConfig;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeRiskInfoConfig",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeRunningBotsListEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeRunningBotsListEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignSelectCreateInput;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignSelectCreateInput",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignSelectListInfo;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignSelectListInfo",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignSelectSheetEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignSelectSheetEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotActionsEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotActionsEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotAdjustMarginEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotAdjustMarginEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotAdjustMarginInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotAdjustMarginInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotAdjustMarginState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotAdjustMarginState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotDetailsEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotDetailsEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotDetailsHistoryTabEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotDetailsHistoryTabEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotDetailsOverviewTabEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotDetailsOverviewTabEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotDetailsOverviewTabState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotDetailsOverviewTabState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotEditLeverageEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotEditLeverageEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotHistoryPositionDisplay;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotHistoryPositionDisplay",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotInstIdModel;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotInstIdModel",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotLeadDashboardEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotLeadDashboardEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotLeadProfileTabEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotLeadProfileTabEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotLeadPublishedTabEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotLeadPublishedTabEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotLeadSettlementTabEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotLeadSettlementTabEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotLeadSettlementTabInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotLeadSettlementTabInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotLeadSettlementTabState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotLeadSettlementTabState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotManualMaxAvailable;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotManualMaxAvailable",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotManualOrderInput;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotManualOrderInput",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotManualPlaceOrderEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotManualPlaceOrderEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotManualPlaceOrderInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotManualPlaceOrderInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotManualPlaceOrderState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotManualPlaceOrderState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotManualSubmitResult;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotManualSubmitResult",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotOrdersFullDialogEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotOrdersFullDialogEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotOrdersFullDialogInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotOrdersFullDialogInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotOrdersFullDialogState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotOrdersFullDialogState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotOrdersTabEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotOrdersTabEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotPlaceOrderEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotPlaceOrderEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotPositionDisplay;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotPositionDisplay",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotPositionTabEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotPositionTabEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotPublishEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotPublishEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotRelatedOrderDisplay;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotRelatedOrderDisplay",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotSettlementRecord;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotSettlementRecord",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalBotStgyInfo;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalBotStgyInfo",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalCopyDetailEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalCopyDetailEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalProfitListEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalProfitListEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalProfitListInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalProfitListInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalProfitListState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalProfitListState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalSquareEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalSquareEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalTriggerListEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalTriggerListEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalTriggerListInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalTriggerListInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSignalTriggerListState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSignalTriggerListState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartArbCloseCondition;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartArbCloseCondition",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartArbDetailEventHistoryItem;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartArbDetailEventHistoryItem",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartArbDetailEventMessage;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartArbDetailEventMessage",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartArbPlaceOrderCondition;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartArbPlaceOrderCondition",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartArbPostWithdrawLiquidationPrice;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartArbPostWithdrawLiquidationPrice",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartArbStopType;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartArbStopType",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartArbWithdrawProfitResult;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartArbWithdrawProfitResult",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartArbitrageActionLifecycle;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartArbitrageActionLifecycle",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartArbitrageActionsEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartArbitrageActionsEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartArbitrageActionsInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartArbitrageActionsInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartArbitrageActionsState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartArbitrageActionsState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartArbitrageCoinPickerEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartArbitrageCoinPickerEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartArbitrageConditionModifyStrategy;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartArbitrageConditionModifyStrategy",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartArbitrageDetailJourneyEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartArbitrageDetailJourneyEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartArbitrageDetailsOverviewTabEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartArbitrageDetailsOverviewTabEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartArbitrageDetailsOverviewTabInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartArbitrageDetailsOverviewTabInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartArbitrageDetailsOverviewTabState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartArbitrageDetailsOverviewTabState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartArbitrageDetailsPositioningTabEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartArbitrageDetailsPositioningTabEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartArbitrageDetailsProfitTabEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartArbitrageDetailsProfitTabEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartArbitrageFundingRate;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartArbitrageFundingRate",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartArbitrageOrderPreviewEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartArbitrageOrderPreviewEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartArbitrageOrderPreviewInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartArbitrageOrderPreviewInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartArbitrageOrderPreviewState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartArbitrageOrderPreviewState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartArbitragePlaceOrderEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartArbitragePlaceOrderEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartArbitrageRecommendationsEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartArbitrageRecommendationsEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartArbitrageStopPreviewEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartArbitrageStopPreviewEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartEarnConfigInput;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartEarnConfigInput",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartEarnPreCheckResult;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartEarnPreCheckResult",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartEarnRange;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartEarnRange",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartIcebergAmountUnit;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartIcebergAmountUnit",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartIcebergDetailEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartIcebergDetailEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartIcebergDetailInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartIcebergDetailInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartIcebergDetailState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartIcebergDetailState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartIcebergEntrustType;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartIcebergEntrustType",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartIcebergFormError;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartIcebergFormError",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartIcebergFormInputField;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartIcebergFormInputField",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartIcebergHistoryEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartIcebergHistoryEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartIcebergHistoryInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartIcebergHistoryInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartIcebergHistoryState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartIcebergHistoryState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartIcebergOrdersLiveEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartIcebergOrdersLiveEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartIcebergOrdersLiveInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartIcebergOrdersLiveInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartIcebergOrdersLiveState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartIcebergOrdersLiveState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartIcebergPlaceOrderEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartIcebergPlaceOrderEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartIcebergPlaceOrderInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartIcebergPlaceOrderInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartIcebergPlaceOrderState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartIcebergPlaceOrderState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartIcebergPlatformIntentKind;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartIcebergPlatformIntentKind",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartIcebergPositionLiveEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartIcebergPositionLiveEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartIcebergPositionLiveInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartIcebergPositionLiveInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartIcebergPositionLiveState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartIcebergPositionLiveState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartIcebergStartTrigger;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartIcebergStartTrigger",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartIcebergStartTriggerIndicator;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartIcebergStartTriggerIndicator",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartIcebergStgyInfo;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartIcebergStgyInfo",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartPortfolioActionsEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartPortfolioActionsEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartPortfolioActionsInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartPortfolioActionsInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartPortfolioActionsState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartPortfolioActionsState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartPortfolioAiRecommendZonesEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartPortfolioAiRecommendZonesEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartPortfolioDetailEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartPortfolioDetailEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartPortfolioDetailInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartPortfolioDetailInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartPortfolioDetailRecordsTabEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartPortfolioDetailRecordsTabEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartPortfolioDetailRecordsTabInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartPortfolioDetailRecordsTabInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartPortfolioDetailRecordsTabState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartPortfolioDetailRecordsTabState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartPortfolioDetailState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartPortfolioDetailState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartPortfolioLeg;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartPortfolioLeg",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartPortfolioPlaceOrderEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartPortfolioPlaceOrderEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartPortfolioPlaceOrderInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartPortfolioPlaceOrderInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartPortfolioPlaceOrderParams;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartPortfolioPlaceOrderParams",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartPortfolioStrategyInfo;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartPortfolioStrategyInfo",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartPortfolioSubOrderDetailEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartPortfolioSubOrderDetailEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartPortfolioSubOrderDetailInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartPortfolioSubOrderDetailInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartPortfolioSubOrderDetailState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartPortfolioSubOrderDetailState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartPortfolioTradeRecord;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartPortfolioTradeRecord",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartPortfolioWeightItem;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartPortfolioWeightItem",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSmartPortfolioWsUpdate;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSmartPortfolioWsUpdate",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotDcaAddInvestmentState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotDcaAddInvestmentState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotDcaDetailEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotDcaDetailEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotDcaDeviationCheck;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotDcaDeviationCheck",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotDcaEditParamsEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotDcaEditParamsEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotDcaEditParamsInput;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotDcaEditParamsInput",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotDcaEditParamsInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotDcaEditParamsInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotDcaEditParamsState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotDcaEditParamsState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotDcaHistoryEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotDcaHistoryEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotDcaLifecycle;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotDcaLifecycle",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotDcaPlaceOrderEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotDcaPlaceOrderEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotDcaSmartParams;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotDcaSmartParams",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotDcaTimelineEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotDcaTimelineEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotDcaValidationError;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotDcaValidationError",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridBacktestDetailEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridBacktestDetailEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridCopyCloneEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridCopyCloneEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridEasyEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridEasyEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridEditParametersEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridEditParametersEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridLeadMinFollowInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridLeadMinFollowInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridLeadMinFollowPresentation;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridLeadMinFollowPresentation",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridLeadProfitShareUserPresentation;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridLeadProfitShareUserPresentation",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridPauseResumeEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridPauseResumeEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridPlaceOrderEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridPlaceOrderEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridRecreateEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridRecreateEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridRunningAxisLabel;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridRunningAxisLabel",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridRunningBotPresentation;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridRunningBotPresentation",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridRunningChartPoint;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridRunningChartPoint",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridRunningChartPresentation;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridRunningChartPresentation",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridRunningCurrencyInput;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridRunningCurrencyInput",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridRunningCurrencyOption;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridRunningCurrencyOption",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridRunningFieldPresentation;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridRunningFieldPresentation",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridRunningNavigation;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridRunningNavigation",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridRunningRawChartPoint;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridRunningRawChartPoint",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridRunningReminderKind;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridRunningReminderKind",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridRunningReminderPresentation;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridRunningReminderPresentation",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridRunningShareInput;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridRunningShareInput",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridRunningTagKind;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridRunningTagKind",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridRunningTagPresentation;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridRunningTagPresentation",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridRunningTone;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridRunningTone",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridSimpleEarnEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridSimpleEarnEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridStopConditionEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridStopConditionEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridStopJourneyEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridStopJourneyEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridTpSlJourneyEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridTpSlJourneyEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridTypeData;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridTypeData",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpotGridWithdrawProfitEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpotGridWithdrawProfitEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpreadArbitrage;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpreadArbitrage",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpreadArbitrageCategory;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpreadArbitrageCategory",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeSpreadArbitrageItem;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeSpreadArbitrageItem",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeStakingCoinConfig;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeStakingCoinConfig",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeStopBotEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeStopBotEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeStopConfirmationState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeStopConfirmationState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeStopStrategyRequestParam;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeStopStrategyRequestParam",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeStopStrategyResult;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeStopStrategyResult",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeStrategyOperationServiceHandle;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeStrategyOperationServiceHandle",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeStrategyRecommendation;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeStrategyRecommendation",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeStrategyTradeListItem;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeStrategyTradeListItem",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeTradingBotEarnType;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeTradingBotEarnType",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeTwapDetailEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeTwapDetailEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeTwapDetailInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeTwapDetailInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeTwapDetailJourneyEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeTwapDetailJourneyEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeTwapDetailState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeTwapDetailState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeTwapModifyOrderInput;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeTwapModifyOrderInput",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeTwapModifyResult;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeTwapModifyResult",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeTwapPlaceOrderEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeTwapPlaceOrderEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeTwapPlaceOrderInteractor;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeTwapPlaceOrderInteractor",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeTwapPlaceOrderJourneyEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeTwapPlaceOrderJourneyEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeTwapPlaceOrderResult;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeTwapPlaceOrderResult",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeTwapPlaceOrderState;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeTwapPlaceOrderState",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeWithdrawProfitEventStream;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeWithdrawProfitEventStream",
+    "super": "uniffi.BaseFfiConverterTypeLong",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 4
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/FfiConverterTypeWithdrawnProfitInfo;",
+    "readable_name": "uniffi.trading_bot.FfiConverterTypeWithdrawnProfitInfo",
+    "super": "java.lang.Object",
+    "interfaces": [
+      "uniffi.trading_bot.FfiConverterRustBuffer"
+    ],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/RecurringBuyCycleType;",
+    "readable_name": "uniffi.trading_bot.RecurringBuyCycleType",
+    "super": "java.lang.Enum",
+    "interfaces": [],
+    "fields_count": 6,
+    "methods_count": 6
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/ResumeCheckResult;",
+    "readable_name": "uniffi.trading_bot.ResumeCheckResult",
+    "super": "java.lang.Object",
+    "interfaces": [],
+    "fields_count": 4,
+    "methods_count": 16
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/SmartArbStopType;",
+    "readable_name": "uniffi.trading_bot.SmartArbStopType",
+    "super": "java.lang.Enum",
+    "interfaces": [],
+    "fields_count": 5,
+    "methods_count": 6
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/SmartArbitrageActionLifecycle;",
+    "readable_name": "uniffi.trading_bot.SmartArbitrageActionLifecycle",
+    "super": "java.lang.Enum",
+    "interfaces": [],
+    "fields_count": 5,
+    "methods_count": 6
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/SmartEarnPreCheckResult;",
+    "readable_name": "uniffi.trading_bot.SmartEarnPreCheckResult",
+    "super": "java.lang.Object",
+    "interfaces": [],
+    "fields_count": 1,
+    "methods_count": 3
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/SmartIcebergEntrustType;",
+    "readable_name": "uniffi.trading_bot.SmartIcebergEntrustType",
+    "super": "java.lang.Enum",
+    "interfaces": [],
+    "fields_count": 4,
+    "methods_count": 6
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/SmartIcebergFormInputField;",
+    "readable_name": "uniffi.trading_bot.SmartIcebergFormInputField",
+    "super": "java.lang.Enum",
+    "interfaces": [],
+    "fields_count": 5,
+    "methods_count": 6
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/SmartIcebergPlatformIntentKind;",
+    "readable_name": "uniffi.trading_bot.SmartIcebergPlatformIntentKind",
+    "super": "java.lang.Enum",
+    "interfaces": [],
+    "fields_count": 13,
+    "methods_count": 6
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/SmartIcebergStartTriggerIndicator;",
+    "readable_name": "uniffi.trading_bot.SmartIcebergStartTriggerIndicator",
+    "super": "java.lang.Enum",
+    "interfaces": [],
+    "fields_count": 6,
+    "methods_count": 6
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/SpotDcaLifecycle;",
+    "readable_name": "uniffi.trading_bot.SpotDcaLifecycle",
+    "super": "java.lang.Enum",
+    "interfaces": [],
+    "fields_count": 8,
+    "methods_count": 6
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/SpotDcaValidationError;",
+    "readable_name": "uniffi.trading_bot.SpotDcaValidationError",
+    "super": "java.lang.Enum",
+    "interfaces": [],
+    "fields_count": 8,
+    "methods_count": 6
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/SpotGridRunningReminderKind;",
+    "readable_name": "uniffi.trading_bot.SpotGridRunningReminderKind",
+    "super": "java.lang.Enum",
+    "interfaces": [],
+    "fields_count": 5,
+    "methods_count": 6
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/SpotGridRunningTagKind;",
+    "readable_name": "uniffi.trading_bot.SpotGridRunningTagKind",
+    "super": "java.lang.Enum",
+    "interfaces": [],
+    "fields_count": 5,
+    "methods_count": 6
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/SpotGridRunningTone;",
+    "readable_name": "uniffi.trading_bot.SpotGridRunningTone",
+    "super": "java.lang.Enum",
+    "interfaces": [],
+    "fields_count": 7,
+    "methods_count": 6
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/StopConfirmationState;",
+    "readable_name": "uniffi.trading_bot.StopConfirmationState",
+    "super": "java.lang.Enum",
+    "interfaces": [],
+    "fields_count": 5,
+    "methods_count": 6
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/TradingBotEarnType;",
+    "readable_name": "uniffi.trading_bot.TradingBotEarnType",
+    "super": "java.lang.Enum",
+    "interfaces": [],
+    "fields_count": 4,
+    "methods_count": 6
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/SmartEarnPreCheckResult$ActionBar;",
+    "readable_name": "uniffi.trading_bot.SmartEarnPreCheckResult$ActionBar",
+    "super": "uniffi.trading_bot.SmartEarnPreCheckResult",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 7
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/SmartEarnPreCheckResult$Activity;",
+    "readable_name": "uniffi.trading_bot.SmartEarnPreCheckResult$Activity",
+    "super": "uniffi.trading_bot.SmartEarnPreCheckResult",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 2
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/SmartEarnPreCheckResult$Application;",
+    "readable_name": "uniffi.trading_bot.SmartEarnPreCheckResult$Application",
+    "super": "uniffi.trading_bot.SmartEarnPreCheckResult",
+    "interfaces": [],
+    "fields_count": 3,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/SmartEarnPreCheckResult$Dialog;",
+    "readable_name": "uniffi.trading_bot.SmartEarnPreCheckResult$Dialog",
+    "super": "uniffi.trading_bot.SmartEarnPreCheckResult",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 2
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/SmartEarnPreCheckResult$FragmentManager;",
+    "readable_name": "uniffi.trading_bot.SmartEarnPreCheckResult$FragmentManager",
+    "super": "uniffi.trading_bot.SmartEarnPreCheckResult",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 2
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/SmartEarnPreCheckResult$StateListAnimator;",
+    "readable_name": "uniffi.trading_bot.SmartEarnPreCheckResult$StateListAnimator",
+    "super": "uniffi.trading_bot.SmartEarnPreCheckResult",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 8
+  },
+  {
+    "dex": "classes66.dex",
+    "descriptor": "Luniffi/trading_bot/SmartEarnPreCheckResult$TaskDescription;",
+    "readable_name": "uniffi.trading_bot.SmartEarnPreCheckResult$TaskDescription",
+    "super": "uniffi.trading_bot.SmartEarnPreCheckResult",
+    "interfaces": [],
+    "fields_count": 2,
+    "methods_count": 7
+  }
+]

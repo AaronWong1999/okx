@@ -947,3 +947,188 @@ body.dark-theme .kline-canvas-container {
   padding: 20px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 }
+
+/* ==========================================================================
+   1:1 Screenshot-Exact OKX Mobile Components (All 15 Folders / 239 Shots)
+   ========================================================================== */
+.okx-trade-top-tabs {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 14px 6px;
+  border-bottom: 1px solid var(--okx-border);
+  overflow-x: auto;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--okx-text-secondary);
+  background: var(--okx-bg-primary);
+}
+
+.okx-trade-top-tabs span {
+  white-space: nowrap;
+  cursor: pointer;
+  padding-bottom: 4px;
+}
+
+.okx-trade-top-tabs span.active {
+  color: var(--okx-text-primary);
+  font-weight: 800;
+  font-size: 16px;
+  border-bottom: 2.5px solid var(--okx-text-primary);
+}
+
+.okx-circle-grid-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  padding: 12px 10px 8px;
+}
+
+.okx-bottom-tabbar {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-top: 1px solid var(--okx-border);
+  background: var(--okx-bg-primary);
+  padding: 6px 4px 12px;
+  text-align: center;
+  font-size: 10.5px;
+  color: var(--okx-text-secondary);
+}
+
+.okx-bottom-tabbar .tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+}
+
+.okx-bottom-tabbar .tab-item.active {
+  color: var(--okx-text-primary);
+  font-weight: 800;
+}
+
+.okx-range-pair {
+  display: grid;
+  grid-template-columns: 1fr 16px 1fr;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.okx-range-dash {
+  text-align: center;
+  color: var(--okx-text-tertiary);
+  font-weight: 700;
+}
+
+.okx-dir-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: var(--okx-bg-input);
+  border-radius: 10px;
+  padding: 3px;
+  margin-bottom: 12px;
+  gap: 3px;
+}
+
+.okx-dir-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 7px 6px;
+  font-size: 13px;
+  font-weight: 700;
+  background: transparent;
+  color: var(--okx-text-secondary);
+  cursor: pointer;
+}
+
+.okx-dir-btn.active-long {
+  background: var(--okx-up-green-soft);
+  color: var(--okx-up-green);
+}
+
+.okx-dir-btn.active-short {
+  background: var(--okx-down-red-soft);
+  color: var(--okx-down-red);
+}
+
+.okx-dir-btn.active-neutral {
+  background: var(--okx-bg-primary);
+  color: var(--okx-text-primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.okx-invest-lever-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: stretch;
+  margin-bottom: 6px;
+}
+
+.okx-lever-box {
+  background: var(--okx-bg-input);
+  border-radius: 10px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 14px;
+  border: none;
+  color: var(--okx-text-primary);
+  cursor: pointer;
+}
+
+.okx-phone-kline-drawer {
+  background: var(--okx-bg-primary);
+  border-top: 1px solid var(--okx-border);
+  border-bottom: 1px solid var(--okx-border);
+  padding: 8px 12px;
+  margin-bottom: 8px;
+}
+
+.okx-orderbook-split {
+  display: grid;
+  grid-template-columns: 1.28fr 0.92fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.okx-mini-ob {
+  font-size: 11px;
+  font-family: var(--okx-mono);
+  background: var(--okx-bg-primary);
+}
+
+.okx-mini-ob-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 4px;
+  position: relative;
+}
+
+.okx-3x3-matrix {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.okx-matrix-cell {
+  border: 1px solid var(--okx-border-strong);
+  border-radius: 8px;
+  padding: 7px 6px;
+  text-align: center;
+  font-size: 11.5px;
+  background: var(--okx-bg-primary);
+  cursor: pointer;
+}
+
+.okx-matrix-cell.selected {
+  border-color: var(--okx-text-primary);
+  font-weight: 700;
+  background: var(--okx-bg-elevated);
+}
+

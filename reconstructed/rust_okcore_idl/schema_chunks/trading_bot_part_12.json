@@ -1,0 +1,256 @@
+[
+  {
+    "kind": "constructor",
+    "symbol": "UNIFFI_META_TRADING_BOT_CONSTRUCTOR_SIGNALBOTMANUALPLACEORDERINTERACTOR_CREATE",
+    "module": "trading_bot",
+    "interface": "SignalBotManualPlaceOrderInteractor",
+    "name": "create",
+    "is_async": false,
+    "args": [
+      {
+        "name": "inst_type",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "algo_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "leverage",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "Arc<SignalBotManualPlaceOrderInteractor>",
+    "doc": "Create the manual place-order interactor. Builds the service from the\nDI-backed facade. Seeds are passed by native from the facade router."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_TRADING_BOT_RECORD_BOTBANNERRECOMMENDATION",
+    "module": "trading_bot",
+    "name": "BotBannerRecommendation",
+    "fields": [
+      {
+        "name": "underlying_id",
+        "type": "String",
+        "default": null,
+        "doc": "Server-issued strategy id (timestamp-shaped string, e.g. \"20240924180438\")."
+      },
+      {
+        "name": "underlying_name",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "sector_name",
+        "type": "String",
+        "default": null,
+        "doc": "Sector copy keyed by server (e.g. \"Grid sniper bots\", \"Swing grid bots\")."
+      },
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "inst_type",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "backtested_arp",
+        "type": "String",
+        "default": null,
+        "doc": "Backtested annual percentage return, as a server-formatted string."
+      }
+    ],
+    "doc": "One entry in the marketplace bot-recommendation banner."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_TRADING_BOT_METHOD_SPOTGRIDTPSLJOURNEYINTERACTOR_SUBMIT",
+    "module": "trading_bot",
+    "interface": "SpotGridTpSlJourneyInteractor",
+    "name": "submit",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_TRADING_BOT_METHOD_CONTRACTDCATIMELINEINTERACTOR_STATE",
+    "module": "trading_bot",
+    "interface": "ContractDcaTimelineInteractor",
+    "name": "state",
+    "is_async": false,
+    "args": [],
+    "return_type": "ContractDcaTimelineState",
+    "doc": "Get the current state (UniFFI export).\n\nReturns the External type (UniFFI-compatible)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_TRADING_BOT_METHOD_GRIDORDERSINTERACTOR_UI_EVENT_STREAM",
+    "module": "trading_bot",
+    "interface": "GridOrdersInteractor",
+    "name": "ui_event_stream",
+    "is_async": false,
+    "args": [],
+    "return_type": "Arc<GridOrdersEventStream>",
+    "doc": "Opt-in async UI event stream (cycle-free). Single-subscriber."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_TRADING_BOT_ENUM_BOTFILTERCARDSTYLE",
+    "module": "trading_bot",
+    "name": "BotFilterCardStyle",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Detailed",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "NoImage",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "Mini",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      }
+    ],
+    "doc": "Card-style choice. Mirrors Kotlin `CardStyle` (`OKComponents/core/OKTradeCore/trade_core/\nsrc/main/java/com/okinc/unify_trade/bot/list/CardStyle.kt:9-12`) in declaration order.\n\nCrosses the FFI as an enum, not a string. The *persisted* form stays the Kotlin enum\n`name` — `SpStyleRepositoryImpl` writes `CardStyle.name` and seven native call sites read\nit back, so this type must not become the persistence format.\n\nLegacy also maps these to analytics vocabulary that differs from both spellings\n(`DETAILED → \"full\"`, `NO_IMAGE → \"compact\"`, `MINI → \"mini\"`). That mapping stays native\nand is already duplicated twice inside the sheet — do not add a third copy here."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_TRADING_BOT_ENUM_SMARTARBITRAGECOINPICKERSEGMENT",
+    "module": "trading_bot",
+    "name": "SmartArbitrageCoinPickerSegment",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "All",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "Crypto",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "TradFi",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      }
+    ],
+    "doc": "Mirrors legacy `SmartArbitrageSegment` (`SmartArbitrageAssetType.kt:17-27`)\n— the segment chip filter. `accepts()` has no Rust equivalent anywhere\nbefore this file (manifest Amendment II); ported additively, from\nscratch, without touching the Kotlin file."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_TRADING_BOT_RECORD_SIGNALBOTLEVERCONFIG",
+    "module": "trading_bot",
+    "name": "SignalBotLeverConfig",
+    "fields": [
+      {
+        "name": "min_lever",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "max_lever",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "percents",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": "The leverage-config triple the \"adjust leverage\" dialog renders.\n\n`percents` is a CSV string (native `leveragePercents` shape); the\nlever-interval source returns `Vec<String>` and is joined with `,` before\nreaching the merge."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_TRADING_BOT_METHOD_CONTRACTDCAADJUSTMARGININTERACTOR_SET_STATE_OBSERVER",
+    "module": "trading_bot",
+    "interface": "ContractDcaAdjustMarginInteractor",
+    "name": "set_state_observer",
+    "is_async": false,
+    "args": [
+      {
+        "name": "observer",
+        "type": "Arc<dyn InteractorStateChangeObserver>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Set a state observer (UniFFI export).\n\nDEPRECATED: callback-based observer. Use `state_stream()` —\nthe callback observer pins the foreign object in UniFFI's\nstatic handleMap and produces a cross-language retain cycle\n(Android GC + iOS ARC)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_TRADING_BOT_METHOD_CONTRACTDCADETAILINTERACTOR_RELEASE",
+    "module": "trading_bot",
+    "interface": "ContractDcaDetailInteractor",
+    "name": "release",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Stop-gap teardown (TEMPORARY — target state is the stream APIs,\nwhich need no teardown call).\n\nOne idempotent call at host lifecycle end that breaks the\nUniFFI handleMap cycle for any registered callback observers,\nends active streams, and stops effects. On Kotlin call BEFORE\n`destroy()`. Includes `stop()`."
+  },
+  {
+    "kind": "trait_method",
+    "symbol": "UNIFFI_META_TRADING_BOT_METHOD_PINBOTEVENTOBSERVER_ON_UI_EVENT",
+    "module": "trading_bot",
+    "interface": "PinBotEventObserver",
+    "index": 0,
+    "name": "on_ui_event",
+    "is_async": false,
+    "args": [
+      {
+        "name": "event",
+        "type": "PinBotEvent",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_TRADING_BOT_METHOD_SMARTICEBERGDETAILINTERACTOR_STATE_STREAM",
+    "module": "trading_bot",
+    "interface": "SmartIcebergDetailInteractor",
+    "name": "state_stream",
+    "is_async": false,
+    "args": [],
+    "return_type": "Arc<InteractorStateStream>",
+    "doc": "Opt-in async state-change stream (cycle-free, signal-only).\nSingle-subscriber, latest-wins. `changed()` resolves `true` on\nchange (pull `state()` for the snapshot), `false` when the\ninteractor is released or a newer subscription replaces this one."
+  }
+]

@@ -1,0 +1,355 @@
+{
+  "evidence_id": "ev_004311f018088cea9ac031de34d7749bcb5c5672db60c1f4e17ea5c3d6277b47",
+  "subject": {
+    "name": "android.apk",
+    "digest": {
+      "sha256": "2b3b4e670997890ebf759d92b5904556b349de2845cfc9835c4a24d7b8addb85"
+    },
+    "format": "apk",
+    "architecture": null,
+    "local_path": "/Users/aaron/Downloads/android.apk"
+  },
+  "provider": {
+    "id": "jadx",
+    "name": "JADX headless",
+    "version": "0.7.1"
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.analysis",
+  "operation": "search_android_classes",
+  "parameters": {
+    "path": "/Users/aaron/Downloads/android.apk",
+    "query": "SmartPortfolio"
+  },
+  "raw_result": {
+    "server": {
+      "name": "rea-jadx-bridge",
+      "version": "1"
+    },
+    "bridge_sha256": "5a5a4e32264fbe597a329d7ad4b06a6266b7b31243e86b0263dbddcecaf351a1",
+    "jar_sha256": "4506e93b5642c158aedaabbcc3e25c186f066cd9386028c549d54a447f402324",
+    "loaded": {
+      "state": "LOADED",
+      "apk_path": "/var/folders/gq/5z0rgh1902n8sks4y9lv6thw0000gn/T/rea-android-FPiiMJ/target.apk",
+      "class_count": 10267,
+      "resource_count": 85616,
+      "threads": 1,
+      "resources": "full"
+    },
+    "calls": [
+      {
+        "operation": "rea_jvm_status",
+        "input": {},
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"engine_reported_version\": \"0.7.1\", \"max_heap_bytes\": 4294967296, \"available_processors\": 8, \"java_version\": \"21.0.2\", \"metadata_scope\": \"parsed_members\"}"
+            }
+          ],
+          "isError": false
+        }
+      },
+      {
+        "operation": "load_apk",
+        "input": {
+          "path": "/var/folders/gq/5z0rgh1902n8sks4y9lv6thw0000gn/T/rea-android-FPiiMJ/target.apk",
+          "threads": 1,
+          "resources": "full"
+        },
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"state\": \"LOADED\", \"apk_path\": \"/var/folders/gq/5z0rgh1902n8sks4y9lv6thw0000gn/T/rea-android-FPiiMJ/target.apk\", \"class_count\": 10267, \"resource_count\": 85616, \"threads\": 1, \"resources\": \"full\"}"
+            }
+          ],
+          "isError": false
+        }
+      },
+      {
+        "operation": "list_classes",
+        "input": {
+          "offset": 0,
+          "limit": 4096
+        },
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"total\": 10267, \"offset\": 0, \"limit\": 4096, \"items\": [\"com.okinc.kline.features.botkline.v2.ui.BotKLineFullScreenFragmentV2\", \"com.okinc.kline.features.botkline.v2.ui.BotKLineFullScreenFragmentV2$initTimeTitleBar$2\", \"com.okinc.kline.features.botkline.v2.ui.BotKLineFullScreenFragmentV2$initView$2$1\", \"com.okinc.kline.features.botkline.v2.ui.BotKLineFullScreenFragmentV2$initView$2$1$1\", \"com.okinc.kline.features.botkline.v2.ui.BotKLineFullScreenFragmentV2$kickoffSubscription$1\", \"com.okinc.kline.features.botkline.v2.ui.BotKLineFullScreenFragmentV2$observeState$1\", \"com.okinc.kline.features.bot... [compacted; see normalized_result]",
+              "text_length": 416172
+            }
+          ],
+          "isError": false
+        }
+      },
+      {
+        "operation": "list_classes",
+        "input": {
+          "offset": 4096,
+          "limit": 4096
+        },
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"total\": 10267, \"offset\": 4096, \"limit\": 4096, \"items\": [\"com.okinc.tradingbot.impl.order.strategy.spotgrid.ui.dialog.SpotGridEasyModeEditBottomSheet$special$$inlined$viewModels$default$3\", \"com.okinc.tradingbot.impl.order.strategy.spotgrid.ui.dialog.SpotGridEasyModeEditBottomSheet$special$$inlined$viewModels$default$4\", \"com.okinc.tradingbot.impl.order.strategy.spotgrid.ui.dialog.SpotGridEasyModeEditBottomSheet$special$$inlined$viewModels$default$5\", \"com.okinc.tradingbot.impl.order.strategy.spotgrid.ui.dialog.SpotGridEasyModeEditBottomSheet$special$$inlined$viewModels$default$6\", \"com.okinc... [compacted; see normalized_result]",
+              "text_length": 328161
+            }
+          ],
+          "isError": false
+        }
+      },
+      {
+        "operation": "list_classes",
+        "input": {
+          "offset": 8192,
+          "limit": 4096
+        },
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"total\": 10267, \"offset\": 8192, \"limit\": 4096, \"items\": [\"uniffi.trading_bot.FfiConverterTypeSignalBotHistoryPositionTabPresentationV1\", \"uniffi.trading_bot.FfiConverterTypeSignalBotInfoIntentV1\", \"uniffi.trading_bot.FfiConverterTypeSignalBotInfoRowKindV1\", \"uniffi.trading_bot.FfiConverterTypeSignalBotInfoRowV1\", \"uniffi.trading_bot.FfiConverterTypeSignalBotInfoSeparatorV1\", \"uniffi.trading_bot.FfiConverterTypeSignalBotInfoTabInputV1\", \"uniffi.trading_bot.FfiConverterTypeSignalBotInfoTabPresentationV1\", \"uniffi.trading_bot.FfiConverterTypeSignalBotInfoValuePartV1\", \"uniffi.trading_bot.FfiConv... [compacted; see normalized_result]",
+              "text_length": 149010
+            }
+          ],
+          "isError": false
+        }
+      }
+    ]
+  },
+  "normalized_result": {
+    "engine": {
+      "name": "jadx-headless-mcp",
+      "version": "0.7.1",
+      "artifact_sha256": "4506e93b5642c158aedaabbcc3e25c186f066cd9386028c549d54a447f402324",
+      "source_revision": null,
+      "worker_count": 1,
+      "heap_limit_mib": 4096
+    },
+    "query": "SmartPortfolio",
+    "total_classes": 10267,
+    "matches": [
+      "com.okinc.tradingbot.impl.minimumInvest.domain.FetchMinimumInvestAmountUseCase$calculateSmartPortfolioMinInvest$1",
+      "com.okinc.tradingbot.impl.mln.OKTradingBotBridge$fetchSmartPortfolioMinInvestment$1",
+      "com.okinc.tradingbot.impl.mln.OKTradingBotBridge$placeSmartPortfolioOrder$2",
+      "com.okinc.tradingbot.impl.mln.OKTradingBotBridge$runSmartPortfolioJsonRequest$1",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioAiFragment",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioAiFragment$mAdapter$2$2$2",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioAiFragment$mAdapter$2$2$3",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioAiFragment$setListener$2",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioAiFragment$setListener$2$ActionBar",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioAiFragment$setListener$3",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioAiFragment$special$$inlined$activityViewModels$default$1",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioAiFragment$special$$inlined$activityViewModels$default$2",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioAiFragment$special$$inlined$activityViewModels$default$3",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioAiFragment$special$$inlined$viewModels$default$1",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioAiFragment$special$$inlined$viewModels$default$2",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioAiFragment$special$$inlined$viewModels$default$3",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioAiFragment$special$$inlined$viewModels$default$4",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioAiFragment$special$$inlined$viewModels$default$5",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioFragment",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioFragment$special$$inlined$viewModels$default$1",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioFragment$special$$inlined$viewModels$default$10",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioFragment$special$$inlined$viewModels$default$11",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioFragment$special$$inlined$viewModels$default$12",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioFragment$special$$inlined$viewModels$default$13",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioFragment$special$$inlined$viewModels$default$14",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioFragment$special$$inlined$viewModels$default$15",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioFragment$special$$inlined$viewModels$default$2",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioFragment$special$$inlined$viewModels$default$3",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioFragment$special$$inlined$viewModels$default$4",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioFragment$special$$inlined$viewModels$default$5",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioFragment$special$$inlined$viewModels$default$6",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioFragment$special$$inlined$viewModels$default$7",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioFragment$special$$inlined$viewModels$default$8",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioFragment$special$$inlined$viewModels$default$9",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioFragment$subscribeOnUIChange$1",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioFragment$subscribeOnUIChange$10",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioFragment$subscribeOnUIChange$2",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioFragment$subscribeOnUIChange$3",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioFragment$subscribeOnUIChange$4",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioFragment$subscribeOnUIChange$5",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioFragment$subscribeOnUIChange$6",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioFragment$subscribeOnUIChange$7",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioFragment$subscribeOnUIChange$8",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.SmartPortfolioFragment$subscribeOnUIChange$9",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.dialog.SmartPortfolioSelectCoinFragment",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.dialog.SmartPortfolioSelectCoinFragment$loadCategoryTabs$1",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.dialog.SmartPortfolioSelectCoinFragment$loadCategoryTabs$1$2",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.dialog.SmartPortfolioSelectCoinFragment$refreshTradeGroupList$1",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.dialog.SmartPortfolioSelectCoinFragment$render$filteredList$1$1",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.presenter.SmartPortfolioPresenter",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.viewmodel.SmartPortfolioViewModel",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.viewmodel.SmartPortfolioViewModel$scheduleFetchMaxCapital$1",
+      "com.okinc.tradingbot.impl.order.strategy.smartportfolio.viewmodel.SmartPortfolioViewModel$scheduleFetchPreInvestDetail$1",
+      "com.okinc.tradingbot.impl.planet.dto.SmartPortfolioBotDto",
+      "com.okinc.tradingbot.impl.planet.dto.SmartPortfolioBotDto$$serializer",
+      "com.okinc.tradingbot.impl.planet.dto.SmartPortfolioBotDto$Companion",
+      "com.okinc.tradingbot.impl.smartportfolio.SmartPortfolioRustRequestBridge",
+      "com.okinc.tradingbot.impl.smartportfolio.SmartPortfolioRustRequestBridge$fetchEventHistory$1",
+      "com.okinc.tradingbot.impl.smartportfolio.SmartPortfolioRustRequestBridge$fetchEventHistory$json$1",
+      "com.okinc.tradingbot.impl.smartportfolio.SmartPortfolioRustRequestBridge$fetchTradeGroupList$1",
+      "com.okinc.tradingbot.impl.smartportfolio.SmartPortfolioRustRequestBridge$fetchTradeGroupList$json$1",
+      "com.okinc.tradingbot.impl.smartportfolio.SmartPortfolioRustRequestBridge$withCancellationToken$1",
+      "com.okinc.tradingbot.impl.strategy.fragment.detail.SmartPortfolioHistoryFragment$special$$inlined$activityViewModels$default$1",
+      "com.okinc.tradingbot.impl.strategy.fragment.detail.SmartPortfolioHistoryFragment$special$$inlined$activityViewModels$default$2",
+      "com.okinc.tradingbot.impl.strategy.fragment.detail.SmartPortfolioHistoryFragment$special$$inlined$activityViewModels$default$3",
+      "com.okinc.tradingbot.impl.strategy.fragment.detail.SmartPortfolioParameterFragment$special$$inlined$activityViewModels$default$1",
+      "com.okinc.tradingbot.impl.strategy.fragment.detail.SmartPortfolioParameterFragment$special$$inlined$activityViewModels$default$2",
+      "com.okinc.tradingbot.impl.strategy.fragment.detail.SmartPortfolioParameterFragment$special$$inlined$activityViewModels$default$3",
+      "com.okinc.tradingbot.impl.strategy.fragment.detail.SmartPortfolioParameterFragment$special$$inlined$viewModels$default$1",
+      "com.okinc.tradingbot.impl.strategy.fragment.detail.SmartPortfolioParameterFragment$special$$inlined$viewModels$default$2",
+      "com.okinc.tradingbot.impl.strategy.fragment.detail.SmartPortfolioParameterFragment$special$$inlined$viewModels$default$3",
+      "com.okinc.tradingbot.impl.strategy.fragment.detail.SmartPortfolioParameterFragment$special$$inlined$viewModels$default$4",
+      "com.okinc.tradingbot.impl.strategy.fragment.detail.SmartPortfolioParameterFragment$special$$inlined$viewModels$default$5",
+      "com.okinc.tradingbot.impl.strategy.guide.presenter.BotGuideSmartPortfolioDetailPresenter",
+      "com.okinc.unify_trade.bot.presenter.SmartPortfolioHistoryPresenter",
+      "com.okinc.unify_trade.bot.presenter.SmartPortfolioHistoryPresenter$ActionBar",
+      "com.okinc.unify_trade.bot.presenter.SmartPortfolioHistoryPresenter$Application",
+      "uniffi.trading_bot.FfiConverterOptionalTypeSmartPortfolioActionsEvent",
+      "uniffi.trading_bot.FfiConverterOptionalTypeSmartPortfolioAiRecommendZonesEvent",
+      "uniffi.trading_bot.FfiConverterOptionalTypeSmartPortfolioConfig",
+      "uniffi.trading_bot.FfiConverterOptionalTypeSmartPortfolioDetailEvent",
+      "uniffi.trading_bot.FfiConverterOptionalTypeSmartPortfolioDetailRecordsTabEvent",
+      "uniffi.trading_bot.FfiConverterOptionalTypeSmartPortfolioPlaceOrderEvent",
+      "uniffi.trading_bot.FfiConverterOptionalTypeSmartPortfolioPreInvestDetail",
+      "uniffi.trading_bot.FfiConverterOptionalTypeSmartPortfolioStrategyInfo",
+      "uniffi.trading_bot.FfiConverterOptionalTypeSmartPortfolioSubOrderDetailEvent",
+      "uniffi.trading_bot.FfiConverterSequenceTypeSmartPortfolioAiRecommendInvestCcy",
+      "uniffi.trading_bot.FfiConverterSequenceTypeSmartPortfolioAiRecommendPeriodToggle",
+      "uniffi.trading_bot.FfiConverterSequenceTypeSmartPortfolioAiRecommendPortfolioItem",
+      "uniffi.trading_bot.FfiConverterSequenceTypeSmartPortfolioAiRecommendProfitHistoryPoint",
+      "uniffi.trading_bot.FfiConverterSequenceTypeSmartPortfolioAiRecommendTag",
+      "uniffi.trading_bot.FfiConverterSequenceTypeSmartPortfolioAiRecommendZone",
+      "uniffi.trading_bot.FfiConverterSequenceTypeSmartPortfolioCapitalLine",
+      "uniffi.trading_bot.FfiConverterSequenceTypeSmartPortfolioLeg",
+      "uniffi.trading_bot.FfiConverterSequenceTypeSmartPortfolioSelectedCoin",
+      "uniffi.trading_bot.FfiConverterSequenceTypeSmartPortfolioTradeRecord",
+      "uniffi.trading_bot.FfiConverterSequenceTypeSmartPortfolioValidationError",
+      "uniffi.trading_bot.FfiConverterSequenceTypeSmartPortfolioWeightItem",
+      "uniffi.trading_bot.FfiConverterTypeOKTSSmartPortfolioService",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioActionsEvent",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioActionsEventObserver",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioActionsEventStream",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioActionsInteractor",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioActionsState",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioAiRecommendDefaultBacktestYield",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioAiRecommendInvestCcy",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioAiRecommendPeriodToggle",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioAiRecommendPortfolioItem",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioAiRecommendProfitHistoryPoint",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioAiRecommendStrategyParams",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioAiRecommendTag",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioAiRecommendZone",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioAiRecommendZonesEvent",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioAiRecommendZonesEventObserver",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioAiRecommendZonesEventStream",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioAiRecommendZonesInteractor",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioAiRecommendZonesState",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioAllocationStatus",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioCapitalLine",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioConfig",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioDetailEvent",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioDetailEventObserver",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioDetailEventStream",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioDetailInteractor",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioDetailRecordsTabEvent",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioDetailRecordsTabEventObserver",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioDetailRecordsTabEventStream",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioDetailRecordsTabInteractor",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioDetailRecordsTabState",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioDetailState",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioInvestType",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioLeg",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioLoadingFlags",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioPlaceOrderEvent",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioPlaceOrderEventObserver",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioPlaceOrderEventStream",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioPlaceOrderInteractor",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioPlaceOrderParams",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioPlaceOrderState",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioPreInvestDetail",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioRadioStrategyType",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioSelectedCoin",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioStrategyInfo",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioSubOrderDetailEvent",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioSubOrderDetailEventObserver",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioSubOrderDetailEventStream",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioSubOrderDetailInteractor",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioSubOrderDetailState",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioTdMode",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioTradeRecord",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioValidationError",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioWeightItem",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioWeights",
+      "uniffi.trading_bot.FfiConverterTypeSmartPortfolioWsUpdate",
+      "uniffi.trading_bot.SmartPortfolioActionsEvent",
+      "uniffi.trading_bot.SmartPortfolioAiRecommendZonesEvent",
+      "uniffi.trading_bot.SmartPortfolioAllocationStatus",
+      "uniffi.trading_bot.SmartPortfolioDetailEvent",
+      "uniffi.trading_bot.SmartPortfolioDetailRecordsTabEvent",
+      "uniffi.trading_bot.SmartPortfolioInvestType",
+      "uniffi.trading_bot.SmartPortfolioPlaceOrderEvent",
+      "uniffi.trading_bot.SmartPortfolioRadioStrategyType",
+      "uniffi.trading_bot.SmartPortfolioSubOrderDetailEvent",
+      "uniffi.trading_bot.SmartPortfolioTdMode",
+      "uniffi.trading_bot.UniffiCallbackInterfaceSmartPortfolioActionsEventObserverMethod0",
+      "uniffi.trading_bot.UniffiCallbackInterfaceSmartPortfolioAiRecommendZonesEventObserverMethod0",
+      "uniffi.trading_bot.UniffiCallbackInterfaceSmartPortfolioDetailEventObserverMethod0",
+      "uniffi.trading_bot.UniffiCallbackInterfaceSmartPortfolioDetailRecordsTabEventObserverMethod0",
+      "uniffi.trading_bot.UniffiCallbackInterfaceSmartPortfolioPlaceOrderEventObserverMethod0",
+      "uniffi.trading_bot.UniffiCallbackInterfaceSmartPortfolioSubOrderDetailEventObserverMethod0",
+      "uniffi.trading_bot.UniffiVTableCallbackInterfaceSmartPortfolioActionsEventObserver",
+      "uniffi.trading_bot.UniffiVTableCallbackInterfaceSmartPortfolioActionsEventObserver$UniffiByValue",
+      "uniffi.trading_bot.UniffiVTableCallbackInterfaceSmartPortfolioAiRecommendZonesEventObserver",
+      "uniffi.trading_bot.UniffiVTableCallbackInterfaceSmartPortfolioAiRecommendZonesEventObserver$UniffiByValue",
+      "uniffi.trading_bot.UniffiVTableCallbackInterfaceSmartPortfolioDetailEventObserver",
+      "uniffi.trading_bot.UniffiVTableCallbackInterfaceSmartPortfolioDetailEventObserver$UniffiByValue",
+      "uniffi.trading_bot.UniffiVTableCallbackInterfaceSmartPortfolioDetailRecordsTabEventObserver",
+      "uniffi.trading_bot.UniffiVTableCallbackInterfaceSmartPortfolioDetailRecordsTabEventObserver$UniffiByValue",
+      "uniffi.trading_bot.UniffiVTableCallbackInterfaceSmartPortfolioPlaceOrderEventObserver",
+      "uniffi.trading_bot.UniffiVTableCallbackInterfaceSmartPortfolioPlaceOrderEventObserver$UniffiByValue",
+      "uniffi.trading_bot.UniffiVTableCallbackInterfaceSmartPortfolioSubOrderDetailEventObserver",
+      "uniffi.trading_bot.UniffiVTableCallbackInterfaceSmartPortfolioSubOrderDetailEventObserver$UniffiByValue",
+      "uniffi.trading_bot.uniffiCallbackInterfaceSmartPortfolioActionsEventObserver",
+      "uniffi.trading_bot.uniffiCallbackInterfaceSmartPortfolioActionsEventObserver$onUiEvent",
+      "uniffi.trading_bot.uniffiCallbackInterfaceSmartPortfolioActionsEventObserver$uniffiClone",
+      "uniffi.trading_bot.uniffiCallbackInterfaceSmartPortfolioActionsEventObserver$uniffiFree",
+      "uniffi.trading_bot.uniffiCallbackInterfaceSmartPortfolioAiRecommendZonesEventObserver",
+      "uniffi.trading_bot.uniffiCallbackInterfaceSmartPortfolioAiRecommendZonesEventObserver$onUiEvent",
+      "uniffi.trading_bot.uniffiCallbackInterfaceSmartPortfolioAiRecommendZonesEventObserver$uniffiClone",
+      "uniffi.trading_bot.uniffiCallbackInterfaceSmartPortfolioAiRecommendZonesEventObserver$uniffiFree",
+      "uniffi.trading_bot.uniffiCallbackInterfaceSmartPortfolioDetailEventObserver",
+      "uniffi.trading_bot.uniffiCallbackInterfaceSmartPortfolioDetailEventObserver$onUiEvent",
+      "uniffi.trading_bot.uniffiCallbackInterfaceSmartPortfolioDetailEventObserver$uniffiClone",
+      "uniffi.trading_bot.uniffiCallbackInterfaceSmartPortfolioDetailEventObserver$uniffiFree",
+      "uniffi.trading_bot.uniffiCallbackInterfaceSmartPortfolioDetailRecordsTabEventObserver",
+      "uniffi.trading_bot.uniffiCallbackInterfaceSmartPortfolioDetailRecordsTabEventObserver$onUiEvent",
+      "uniffi.trading_bot.uniffiCallbackInterfaceSmartPortfolioDetailRecordsTabEventObserver$uniffiClone",
+      "uniffi.trading_bot.uniffiCallbackInterfaceSmartPortfolioDetailRecordsTabEventObserver$uniffiFree",
+      "uniffi.trading_bot.uniffiCallbackInterfaceSmartPortfolioPlaceOrderEventObserver",
+      "uniffi.trading_bot.uniffiCallbackInterfaceSmartPortfolioPlaceOrderEventObserver$onUiEvent",
+      "uniffi.trading_bot.uniffiCallbackInterfaceSmartPortfolioPlaceOrderEventObserver$uniffiClone",
+      "uniffi.trading_bot.uniffiCallbackInterfaceSmartPortfolioPlaceOrderEventObserver$uniffiFree",
+      "uniffi.trading_bot.uniffiCallbackInterfaceSmartPortfolioSubOrderDetailEventObserver",
+      "uniffi.trading_bot.uniffiCallbackInterfaceSmartPortfolioSubOrderDetailEventObserver$onUiEvent",
+      "uniffi.trading_bot.uniffiCallbackInterfaceSmartPortfolioSubOrderDetailEventObserver$uniffiClone",
+      "uniffi.trading_bot.uniffiCallbackInterfaceSmartPortfolioSubOrderDetailEventObserver$uniffiFree"
+    ],
+    "coverage": "complete"
+  },
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+    "Method signatures use provider display types; exact DEX descriptors and instruction offsets are unavailable. Overload indices are local to this engine and artifact.",
+    "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+    "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+  ],
+  "locations": [],
+  "evidence_links": []
+}

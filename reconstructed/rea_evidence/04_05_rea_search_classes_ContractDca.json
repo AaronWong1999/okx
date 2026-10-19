@@ -1,0 +1,162 @@
+{
+  "evidence_id": "ev_5178574ceb6c930f43477956570c0acb1de24dddcb674f030e8f22471eef8d6b",
+  "subject": {
+    "name": "android.apk",
+    "digest": {
+      "sha256": "2b3b4e670997890ebf759d92b5904556b349de2845cfc9835c4a24d7b8addb85"
+    },
+    "format": "apk",
+    "architecture": null,
+    "local_path": "/Users/aaron/Downloads/android.apk"
+  },
+  "provider": {
+    "id": "jadx",
+    "name": "JADX headless",
+    "version": "0.7.1"
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.analysis",
+  "operation": "search_android_classes",
+  "parameters": {
+    "path": "/Users/aaron/Downloads/android.apk",
+    "query": "ContractDCA"
+  },
+  "raw_result": {
+    "server": {
+      "name": "rea-jadx-bridge",
+      "version": "1"
+    },
+    "bridge_sha256": "5a5a4e32264fbe597a329d7ad4b06a6266b7b31243e86b0263dbddcecaf351a1",
+    "jar_sha256": "e81d7f07c3b3bfa72da32814fc8026fd890aedccf9eafcfead45ff3b4d72efd7",
+    "loaded": {
+      "state": "LOADED",
+      "apk_path": "/var/folders/gq/5z0rgh1902n8sks4y9lv6thw0000gn/T/rea-android-4mModN/target.apk",
+      "class_count": 10267,
+      "resource_count": 85616,
+      "threads": 1,
+      "resources": "full"
+    },
+    "calls": [
+      {
+        "operation": "rea_jvm_status",
+        "input": {},
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"engine_reported_version\": \"0.7.1\", \"max_heap_bytes\": 4294967296, \"available_processors\": 8, \"java_version\": \"21.0.2\", \"metadata_scope\": \"parsed_members\"}"
+            }
+          ],
+          "isError": false
+        }
+      },
+      {
+        "operation": "load_apk",
+        "input": {
+          "path": "/var/folders/gq/5z0rgh1902n8sks4y9lv6thw0000gn/T/rea-android-4mModN/target.apk",
+          "threads": 1,
+          "resources": "full"
+        },
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"state\": \"LOADED\", \"apk_path\": \"/var/folders/gq/5z0rgh1902n8sks4y9lv6thw0000gn/T/rea-android-4mModN/target.apk\", \"class_count\": 10267, \"resource_count\": 85616, \"threads\": 1, \"resources\": \"full\"}"
+            }
+          ],
+          "isError": false
+        }
+      },
+      {
+        "operation": "list_classes",
+        "input": {
+          "offset": 0,
+          "limit": 4096
+        },
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"total\": 10267, \"offset\": 0, \"limit\": 4096, \"items\": [\"com.okinc.kline.features.botkline.v2.ui.BotKLineFullScreenFragmentV2\", \"com.okinc.kline.features.botkline.v2.ui.BotKLineFullScreenFragmentV2$initTimeTitleBar$2\", \"com.okinc.kline.features.botkline.v2.ui.BotKLineFullScreenFragmentV2$initView$2$1\", \"com.okinc.kline.features.botkline.v2.ui.BotKLineFullScreenFragmentV2$initView$2$1$1\", \"com.okinc.kline.features.botkline.v2.ui.BotKLineFullScreenFragmentV2$kickoffSubscription$1\", \"com.okinc.kline.features.botkline.v2.ui.BotKLineFullScreenFragmentV2$observeState$1\", \"com.okinc.kline.features.bot... [compacted; see normalized_result]",
+              "text_length": 416172
+            }
+          ],
+          "isError": false
+        }
+      },
+      {
+        "operation": "list_classes",
+        "input": {
+          "offset": 4096,
+          "limit": 4096
+        },
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"total\": 10267, \"offset\": 4096, \"limit\": 4096, \"items\": [\"com.okinc.tradingbot.impl.order.strategy.spotgrid.ui.dialog.SpotGridEasyModeEditBottomSheet$special$$inlined$viewModels$default$3\", \"com.okinc.tradingbot.impl.order.strategy.spotgrid.ui.dialog.SpotGridEasyModeEditBottomSheet$special$$inlined$viewModels$default$4\", \"com.okinc.tradingbot.impl.order.strategy.spotgrid.ui.dialog.SpotGridEasyModeEditBottomSheet$special$$inlined$viewModels$default$5\", \"com.okinc.tradingbot.impl.order.strategy.spotgrid.ui.dialog.SpotGridEasyModeEditBottomSheet$special$$inlined$viewModels$default$6\", \"com.okinc... [compacted; see normalized_result]",
+              "text_length": 328161
+            }
+          ],
+          "isError": false
+        }
+      },
+      {
+        "operation": "list_classes",
+        "input": {
+          "offset": 8192,
+          "limit": 4096
+        },
+        "response": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"total\": 10267, \"offset\": 8192, \"limit\": 4096, \"items\": [\"uniffi.trading_bot.FfiConverterTypeSignalBotHistoryPositionTabPresentationV1\", \"uniffi.trading_bot.FfiConverterTypeSignalBotInfoIntentV1\", \"uniffi.trading_bot.FfiConverterTypeSignalBotInfoRowKindV1\", \"uniffi.trading_bot.FfiConverterTypeSignalBotInfoRowV1\", \"uniffi.trading_bot.FfiConverterTypeSignalBotInfoSeparatorV1\", \"uniffi.trading_bot.FfiConverterTypeSignalBotInfoTabInputV1\", \"uniffi.trading_bot.FfiConverterTypeSignalBotInfoTabPresentationV1\", \"uniffi.trading_bot.FfiConverterTypeSignalBotInfoValuePartV1\", \"uniffi.trading_bot.FfiConv... [compacted; see normalized_result]",
+              "text_length": 149010
+            }
+          ],
+          "isError": false
+        }
+      }
+    ]
+  },
+  "normalized_result": {
+    "engine": {
+      "name": "jadx-headless-mcp",
+      "version": "0.7.1",
+      "artifact_sha256": "e81d7f07c3b3bfa72da32814fc8026fd890aedccf9eafcfead45ff3b4d72efd7",
+      "source_revision": null,
+      "worker_count": 1,
+      "heap_limit_mib": 4096
+    },
+    "query": "ContractDCA",
+    "total_classes": 10267,
+    "matches": [
+      "com.okinc.tradingbot.impl.strategy.dialog.ContractDCAReinvestmentDialog",
+      "com.okinc.tradingbot.impl.strategy.dialog.ContractDCAReinvestmentDialog$setupViewModel$1",
+      "com.okinc.tradingbot.impl.strategy.dialog.ContractDCAReinvestmentDialog$setupViewModel$1$1",
+      "com.okinc.tradingbot.impl.strategy.dialog.ContractDCAReinvestmentDialog$setupViewModel$1$1$1",
+      "com.okinc.tradingbot.impl.strategy.dialog.ContractDCAReinvestmentDialog$special$$inlined$viewModels$default$1",
+      "com.okinc.tradingbot.impl.strategy.dialog.ContractDCAReinvestmentDialog$special$$inlined$viewModels$default$2",
+      "com.okinc.tradingbot.impl.strategy.dialog.ContractDCAReinvestmentDialog$special$$inlined$viewModels$default$3",
+      "com.okinc.tradingbot.impl.strategy.dialog.ContractDCAReinvestmentDialog$special$$inlined$viewModels$default$4",
+      "com.okinc.tradingbot.impl.strategy.dialog.ContractDCAReinvestmentDialog$special$$inlined$viewModels$default$5",
+      "com.okinc.tradingbot.impl.strategy.viewmodel.ContractDCAViewModel",
+      "com.okinc.tradingbot.impl.strategy.viewmodel.ContractDCAViewModel$handleRustStateUpdate$1",
+      "com.okinc.tradingbot.impl.strategy.viewmodel.ContractDCAViewModel$handleRustStateUpdate$2",
+      "com.okinc.tradingbot.impl.strategy.viewmodel.ContractDCAViewModel$observer$1$1"
+    ],
+    "coverage": "complete"
+  },
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Static decompiler observations do not establish runtime behavior; the APK is never executed.",
+    "Method signatures use provider display types; exact DEX descriptors and instruction offsets are unavailable. Overload indices are local to this engine and artifact.",
+    "Class inventories use parsed metadata before code generation, including synthetic members that may be omitted from decompiled source. Source positions remain unknown.",
+    "Manifest summary fields are extracted by the upstream engine; decoded XML is retained for verification. APK signatures, split APKs, native libraries and Android runtime capture are not verified by this provider."
+  ],
+  "locations": [],
+  "evidence_links": []
+}

@@ -1,0 +1,4989 @@
+[
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_KLINEARBBOTTOMSTATE",
+    "module": "retail_kline",
+    "name": "KlineArbBottomState",
+    "fields": [
+      {
+        "name": "is_ready",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "is_loading",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "error",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "inst_type",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "first_icon",
+        "type": "ArbBottomIconPlan",
+        "default": null,
+        "doc": "SPOT quick-jump icon (first)."
+      },
+      {
+        "name": "second_icon",
+        "type": "ArbBottomIconPlan",
+        "default": null,
+        "doc": "MARGIN quick-jump icon (second)."
+      }
+    ],
+    "doc": ""
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_TRADINGINDICATORDATAPOINT",
+    "module": "retail_kline",
+    "name": "TradingIndicatorDataPoint",
+    "fields": [
+      {
+        "name": "timestamp",
+        "type": "i64",
+        "default": null,
+        "doc": "Timestamp in milliseconds (accepts both string and number from JSON)"
+      },
+      {
+        "name": "position_oi",
+        "type": "String",
+        "default": null,
+        "doc": "Open interest in the user-selected unit (only oi indicator has value)"
+      },
+      {
+        "name": "position_oi_usdt",
+        "type": "String",
+        "default": null,
+        "doc": "Open interest denominated in USDT, always populated alongside `position_oi`\nregardless of the user-selected unit. Native side displays this as the\nsecondary USDT value in the OI info popup."
+      },
+      {
+        "name": "elite_long_oi",
+        "type": "String",
+        "default": null,
+        "doc": "Elite long position (only eliteLSOIRatio indicator has value)"
+      },
+      {
+        "name": "elite_short_oi",
+        "type": "String",
+        "default": null,
+        "doc": "Elite short position (only eliteLSOIRatio indicator has value)"
+      },
+      {
+        "name": "elite_oi_ratio",
+        "type": "String",
+        "default": null,
+        "doc": "Elite position ratio (only eliteLSOIRatio indicator has value)"
+      },
+      {
+        "name": "elite_long_account",
+        "type": "String",
+        "default": null,
+        "doc": "Elite long account count (only eliteLSAccountRatio indicator has value)"
+      },
+      {
+        "name": "elite_short_account",
+        "type": "String",
+        "default": null,
+        "doc": "Elite short account count (only eliteLSAccountRatio indicator has value)"
+      },
+      {
+        "name": "elite_account_ratio",
+        "type": "String",
+        "default": null,
+        "doc": "Elite account ratio (only eliteLSAccountRatio indicator has value)"
+      },
+      {
+        "name": "long_account_ratio",
+        "type": "String",
+        "default": null,
+        "doc": "Long account percentage (only LSAccountRatio indicator has value)"
+      },
+      {
+        "name": "short_account_ratio",
+        "type": "String",
+        "default": null,
+        "doc": "Short account percentage (only LSAccountRatio indicator has value)"
+      },
+      {
+        "name": "ls_account_ratio",
+        "type": "String",
+        "default": null,
+        "doc": "Long/short account ratio value (only LSAccountRatio indicator has value)"
+      },
+      {
+        "name": "taker_buy_vol",
+        "type": "String",
+        "default": null,
+        "doc": "Taker buy volume (only takerBuySellVol indicator has value)"
+      },
+      {
+        "name": "taker_sell_vol",
+        "type": "String",
+        "default": null,
+        "doc": "Taker sell volume (only takerBuySellVol indicator has value)"
+      }
+    ],
+    "doc": "Trading indicator data point DTO (single data point - DTO)\n\nCorresponds to HTTP API response data structure\n\n# Data Format Description\nDifferent indicators have different data formats:\n- `oi`: [timestamp, positionOI]\n- `eliteLSOIRatio`: [timestamp, eliteLongOI, eliteShortOI, eliteOIRatio]\n- `eliteLSAccountRatio`: [timestamp, eliteLongAccount, eliteShortAccount, eliteAccountRatio]\n- `LSAccountRatio`: [timestamp, longAccountRatio, shortAccountRatio, lsAccountRatio]\n- `takerBuySellVol`: [timestamp, takerBuyVol, takerSellVol]\n\n# Performance Note\nThe `timestamp` field uses `i64` for optimal performance in merge operations.\n\n**Design:**\n- Uses `serde_with::PickFirst` to handle both string and number timestamps from backend\n- First tries to parse as `i64` directly (when backend sends number)\n- Falls back to `DisplayFromStr` (when backend sends string like `\"1640000000000\"`)\n- UniFFI supports `i64` natively for Swift/Kotlin FFI\n- Eliminates repeated `parse::<i64>()` calls in `merge_data_points()`\n\n**Example JSON (both supported):**\n```json\n[\"1640000000000\", \"12345.67\"]  // timestamp as string\n[1640000000000, \"12345.67\"]    // timestamp as number\n```\nAfter deserialization: `timestamp: 1640000000000_i64`"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_OKRUSTFUTUREARCNAVFAVORITEBRIDGEWITHOKFFIERROR_GET_RESULT_STATUS",
+    "module": "retail_kline",
+    "interface": "OKRustFutureArcNavFavoriteBridgeWithOKFFIError",
+    "name": "get_result_status",
+    "is_async": false,
+    "args": [],
+    "return_type": "OKRustFutureStatus",
+    "doc": "Get current task status.\n\n# Returns\n- `NotReady` if the task hasn't produced a result yet\n- `Success` if the task completed successfully\n- `Failed` if the task completed with an error (includes cancellation)"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINETRADEOVERLAYINTERACTOR_CALCULATE_HYPOTHETICAL_PNL",
+    "module": "retail_kline",
+    "interface": "KlineTradeOverlayInteractor",
+    "name": "calculate_hypothetical_pnl",
+    "is_async": false,
+    "args": [
+      {
+        "name": "target_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "hypothetical_price",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "**Deprecated** — use [`KlineTradeOverlayInteractor::compute_drag_pnl`]\n(pure-function entry on the impl block). Retained as a no-op to\npreserve the FFI ABI for older Native bindings."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_ENUM_RETAILKLINEPRICEALERTPERIODTYPE",
+    "module": "retail_kline",
+    "name": "RetailKLinePriceAlertPeriodType",
+    "shape": 0,
+    "discr_type": "u32",
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "None",
+        "discr": "0",
+        "fields": [],
+        "doc": "none"
+      },
+      {
+        "name": "Min5",
+        "discr": "1",
+        "fields": [],
+        "doc": "5 min"
+      },
+      {
+        "name": "Hour1",
+        "discr": "2",
+        "fields": [],
+        "doc": "1 hour"
+      },
+      {
+        "name": "Hour4",
+        "discr": "3",
+        "fields": [],
+        "doc": "4 hour"
+      },
+      {
+        "name": "Hour24",
+        "discr": "4",
+        "fields": [],
+        "doc": "24 hour"
+      }
+    ],
+    "doc": "ratio changed in a period"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_PRICEWINDOWLISTINTERACTOR_ADD_INSTRUMENT",
+    "module": "retail_kline",
+    "interface": "PriceWindowListInteractor",
+    "name": "add_instrument",
+    "is_async": false,
+    "args": [
+      {
+        "name": "item",
+        "type": "PriceWindowItemVo",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Add an instrument (deduped by inst_id + inst_type)."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_INTERFACE_OKRUSTFUTURETRADINGINDICATORRESULTWITHRETAILKLINEERROR",
+    "module": "retail_kline",
+    "name": "OKRustFutureTradingIndicatorResultWithRetailKlineError",
+    "trait_kind": 4,
+    "doc": "OKRustFuture wrapper generated for specific type (non-generic) with uniffi export"
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_ORDERSANDPOSITIONSRESULT",
+    "module": "retail_kline",
+    "name": "OrdersAndPositionsResult",
+    "fields": [
+      {
+        "name": "orders",
+        "type": "Vec<RetailKLineOrder>",
+        "default": null,
+        "doc": "Remaining orders not attached to any position"
+      },
+      {
+        "name": "positions",
+        "type": "Vec<RetailKLinePosition>",
+        "default": null,
+        "doc": "Positions with attached TP/SL orders"
+      }
+    ],
+    "doc": "Result of getting orders and positions together\n\nContains both orders and positions with order-position association applied.\nTP/SL orders are attached to their corresponding positions."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINECOMPAREINTERACTOR_UI_EVENT_STREAM",
+    "module": "retail_kline",
+    "interface": "KLineCompareInteractor",
+    "name": "ui_event_stream",
+    "is_async": false,
+    "args": [],
+    "return_type": "Arc<CompareIndicatorUiEventStream>",
+    "doc": "Opt-in async UI event stream (cycle-free). Single-subscriber."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_DRAWINGLINEINTERACTOR_UI_EVENT_STREAM",
+    "module": "retail_kline",
+    "interface": "DrawingLineInteractor",
+    "name": "ui_event_stream",
+    "is_async": false,
+    "args": [],
+    "return_type": "Arc<DrawingLineUiEventStream>",
+    "doc": "Opt-in async UI event stream (cycle-free). Single-subscriber."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_KLINEUNLOCKPROGRESSDATA",
+    "module": "retail_kline",
+    "name": "KlineUnlockProgressData",
+    "fields": [
+      {
+        "name": "ccy",
+        "type": "String",
+        "default": null,
+        "doc": "Currency symbol"
+      },
+      {
+        "name": "max_supply",
+        "type": "String",
+        "default": null,
+        "doc": "Maximum supply"
+      },
+      {
+        "name": "mcap",
+        "type": "String",
+        "default": null,
+        "doc": "Market cap"
+      },
+      {
+        "name": "unlocked",
+        "type": "String",
+        "default": null,
+        "doc": "Unlocked tokens"
+      },
+      {
+        "name": "locked",
+        "type": "String",
+        "default": null,
+        "doc": "Locked tokens"
+      },
+      {
+        "name": "untracked",
+        "type": "String",
+        "default": null,
+        "doc": "Untracked tokens"
+      },
+      {
+        "name": "perc_of_unlocked",
+        "type": "String",
+        "default": null,
+        "doc": "Percentage of unlocked tokens"
+      },
+      {
+        "name": "perc_of_locked",
+        "type": "String",
+        "default": null,
+        "doc": "Percentage of locked tokens"
+      },
+      {
+        "name": "perc_of_untracked",
+        "type": "String",
+        "default": null,
+        "doc": "Percentage of untracked tokens"
+      },
+      {
+        "name": "notes",
+        "type": "String",
+        "default": null,
+        "doc": "Vest info notes"
+      },
+      {
+        "name": "data_source_info",
+        "type": "String",
+        "default": null,
+        "doc": "Data source info"
+      }
+    ],
+    "doc": "Unlock progress data\n\nRepresents the token unlock progress information.\nCorresponds to OKMKLineTokenProgressModel in iOS."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEFAVORITEINTERACTOR_SUBSCRIBE_DEX",
+    "module": "retail_kline",
+    "interface": "KlineFavoriteInteractor",
+    "name": "subscribe_dex",
+    "is_async": false,
+    "args": [
+      {
+        "name": "chain_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "ca",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "token_symbol",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Bind to a DEX token keyed by `(chain_id, ca)` (token contract address).\n`token_symbol` is required by the favorite `setting` API on add (the\nserver rejects a DEX add without it); pass the page's current token\nsymbol. Re-entering (either subscribe) cancels the previous subscription."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_INTERFACE_KLINEHEADERINTERACTOR",
+    "module": "retail_kline",
+    "name": "KlineHeaderInteractor",
+    "trait_kind": 4,
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_EVENTPROBABILITYINTERACTOR_ON_CLEAR",
+    "module": "retail_kline",
+    "interface": "EventProbabilityInteractor",
+    "name": "on_clear",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Called when the owning ViewModel is cleared."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINETRADEOVERLAYINTERACTOR_MARK_NEW_ORDER_LINKAGE",
+    "module": "retail_kline",
+    "interface": "KlineTradeOverlayInteractor",
+    "name": "mark_new_order_linkage",
+    "is_async": false,
+    "args": [
+      {
+        "name": "ord_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "target_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "target_kind",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Tell the interactor that a newly submitted TP / SL order should be\npre-attached to the given target on its first appearance.\n`target_kind` carries V1's `orderStatusBean.isCost` semantics:\n`\"position\"` → attach to a position id; `\"order\"` → attach to a\nmain order id. Any other value is ignored."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINESWIPINGTITLEINTERACTOR_START",
+    "module": "retail_kline",
+    "interface": "KlineSwipingTitleInteractor",
+    "name": "start",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Start the interactor lifecycle.\n\nCalls the user's `InteractorLifecycle::start()` implementation.\nOverride that method to add custom startup behavior (e.g., initial data loads)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINESWIPINGTITLEINTERACTOR_STATE",
+    "module": "retail_kline",
+    "interface": "KlineSwipingTitleInteractor",
+    "name": "state",
+    "is_async": false,
+    "args": [],
+    "return_type": "KlineSwipingTitleState",
+    "doc": "Get the current state (UniFFI export).\n\nReturns the External type (UniFFI-compatible)."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_FUNDINGRATEDATA",
+    "module": "retail_kline",
+    "name": "FundingRateData",
+    "fields": [
+      {
+        "name": "funding_time",
+        "type": "String",
+        "default": null,
+        "doc": "Funding timestamp"
+      },
+      {
+        "name": "funding_rate",
+        "type": "String",
+        "default": null,
+        "doc": "Funding rate"
+      },
+      {
+        "name": "inst_type",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Instrument type (e.g. \"SWAP\")"
+      },
+      {
+        "name": "inst_id",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Instrument ID (e.g. \"BTC-USDT-SWAP\")"
+      },
+      {
+        "name": "realized_rate",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Realized rate"
+      },
+      {
+        "name": "method",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Funding rate calculation method"
+      },
+      {
+        "name": "formula_type",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Formula type"
+      }
+    ],
+    "doc": "Funding rate data"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEDEPTHINTERACTOR_SET_DEBUG",
+    "module": "retail_kline",
+    "interface": "KlineDepthInteractor",
+    "name": "set_debug",
+    "is_async": false,
+    "args": [
+      {
+        "name": "_enabled",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Enable or disable debug logging.\n\nIn release builds this is a no-op, but the symbol must exist\nso that UniFFI bindings generated in debug mode continue to\nlink successfully against the release library."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_COMPANYDIVIDENDINTERACTOR_SET_STATE_OBSERVER",
+    "module": "retail_kline",
+    "interface": "CompanyDividendInteractor",
+    "name": "set_state_observer",
+    "is_async": false,
+    "args": [
+      {
+        "name": "observer",
+        "type": "Arc<dyn InteractorStateChangeObserver>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Set a state observer (UniFFI export).\n\nDEPRECATED: callback-based observer. Use `state_stream()` —\nthe callback observer pins the foreign object in UniFFI's\nstatic handleMap and produces a cross-language retain cycle\n(Android GC + iOS ARC)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_BIZINSTRUMENTPROVIDERBRIDGE_GET_INST_ID",
+    "module": "retail_kline",
+    "interface": "BizInstrumentProviderBridge",
+    "name": "get_inst_id",
+    "is_async": false,
+    "args": [
+      {
+        "name": "biz_type",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "Option<String>",
+    "doc": "Get instrument ID for a specific business type\n\n# Parameters\n- `biz_type`: Business type (e.g., \"SPOT\", \"SWAP\", \"FUTURES\", \"OPTION\", \"MARGIN\")\n\n# Returns\n- `Some(String)`: The instrument ID for the given business type\n- `None`: Not loaded yet or no instrument for this type"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_OKRUSTFUTUREMARKETCAPV2RESULTWITHOKFFIERROR_START_WITH_CALLBACK",
+    "module": "retail_kline",
+    "interface": "OKRustFutureMarketCapV2ResultWithOKFFIError",
+    "name": "start_with_callback",
+    "is_async": false,
+    "args": [
+      {
+        "name": "callback",
+        "type": "Box<dyn OKRustFutureCallback>",
+        "default": null
+      }
+    ],
+    "return_type": "Result<(), OKFFIError>",
+    "doc": "Start async task with uniffi callback interface"
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_FUNC_GET_COMPANY_AVAILABILITY",
+    "module": "retail_kline",
+    "name": "get_company_availability",
+    "is_async": false,
+    "args": [
+      {
+        "name": "ticker",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "inst_type",
+        "type": "Option<String>",
+        "default": null
+      }
+    ],
+    "return_type": "Arc<OKRustFutureCompanyAvailabilityCategoriesWithOKFFIError>",
+    "doc": "Fetch the TradFi availability categories for one API `ticker`.\n\n`inst_type` is optional (e.g. \"SPOT\") and follows the other TradFi data\nendpoints' contract: appended to the request only when non-empty.\n\nA missing record resolves to an all-`false` projection; only transport /\nserver errors reject the future, and the caller degrades those to\nall-`false` too (silent, no on-screen error)."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_BIGDATAINSTMETAVO",
+    "module": "retail_kline",
+    "name": "BigDataInstMetaVo",
+    "fields": [
+      {
+        "name": "trade_symbol",
+        "type": "String",
+        "default": null,
+        "doc": "Inverse contracts may return settle_ccy."
+      },
+      {
+        "name": "display_trade_symbol",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "quote_symbol",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "display_quote_symbol",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "inst_family",
+        "type": "String",
+        "default": null,
+        "doc": "Empty when the biz cache had no entry."
+      },
+      {
+        "name": "is_positive_contract",
+        "type": "bool",
+        "default": null,
+        "doc": "Only meaningful for SWAP / FUTURES / OPTION."
+      },
+      {
+        "name": "price_digit",
+        "type": "i32",
+        "default": null,
+        "doc": "Chart price scale, or [`PRICE_DIGIT_UNKNOWN`]."
+      },
+      {
+        "name": "trade_unit",
+        "type": "String",
+        "default": null,
+        "doc": "`\"0\"` coin / `\"1\"` contract / else quote-denominated. The label stays\nnative — the contract case needs a localized string resource."
+      },
+      {
+        "name": "index_inst_id",
+        "type": "String",
+        "default": null,
+        "doc": "Futures-basis index instrument: the underlying for SWAP / FUTURES."
+      },
+      {
+        "name": "is_x_perps",
+        "type": "bool",
+        "default": null,
+        "doc": "Cross-asset perpetual. Already folded into `visible_charts`; exposed\nbecause the funding-rate chart also gates its fetch on it."
+      }
+    ],
+    "doc": "Instrument display metadata, resolved once per\n[`BigDataPageActions::configure`] so no sub-chart looks up the instrument."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_OKRUSTFUTURECOINDETAILRESULTWITHOKFFIERROR_START_WITH_CALLBACK",
+    "module": "retail_kline",
+    "interface": "OKRustFutureCoinDetailResultWithOKFFIError",
+    "name": "start_with_callback",
+    "is_async": false,
+    "args": [
+      {
+        "name": "callback",
+        "type": "Box<dyn OKRustFutureCallback>",
+        "default": null
+      }
+    ],
+    "return_type": "Result<(), OKFFIError>",
+    "doc": "Start async task with uniffi callback interface"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEHALFSCREENINTERACTOR_SET_CANDLE_CACHE_FULL",
+    "module": "retail_kline",
+    "interface": "KLineHalfScreenInteractor",
+    "name": "set_candle_cache_full",
+    "is_async": false,
+    "args": [
+      {
+        "name": "enabled",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Compatibility no-op. Half-screen always uses CandleStore as the single\nRust candle authority; retained temporarily for existing generated clients."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_INTERFACE_KLINEEXPLOREBOTSHALFSCREENINTERACTOR",
+    "module": "retail_kline",
+    "name": "KLineExploreBotsHalfScreenInteractor",
+    "trait_kind": 4,
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_COMPANYEXPERIENCEINTERACTOR_LOAD_DIVIDENDS",
+    "module": "retail_kline",
+    "interface": "CompanyExperienceInteractor",
+    "name": "load_dividends",
+    "is_async": false,
+    "args": [
+      {
+        "name": "force_refresh",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Load the dividends and stock-splits projection."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_INTERFACE_MARKETEVENTSINTERACTOR",
+    "module": "retail_kline",
+    "name": "MarketEventsInteractor",
+    "trait_kind": 4,
+    "doc": "Market events interactor"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_OKRUSTFUTUREBATCHTICKERSRESULTWITHOKFFIERROR_CANCEL",
+    "module": "retail_kline",
+    "interface": "OKRustFutureBatchTickersResultWithOKFFIError",
+    "name": "cancel",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Cancel running task"
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_FUNC_RETAIL_KLINE_DRAWING_STORE_UID",
+    "module": "retail_kline",
+    "name": "retail_kline_drawing_store_uid",
+    "is_async": false,
+    "args": [
+      {
+        "name": "is_cedefi",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": "String",
+    "doc": "Identity of the selected drawing-line store (CeFi uid; empty when logged\nout or for local-only stores). Platform migration owns the separate policy\nfor assigning legacy or guest data to an account."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEHEADERINTERACTOR_RELEASE",
+    "module": "retail_kline",
+    "interface": "KlineHeaderInteractor",
+    "name": "release",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Stop-gap teardown (TEMPORARY — target state is the stream APIs,\nwhich need no teardown call).\n\nOne idempotent call at host lifecycle end that breaks the\nUniFFI handleMap cycle for any registered callback observers,\nends active streams, and stops effects. On Kotlin call BEFORE\n`destroy()`. Includes `stop()`."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEBOTTOMINTERACTOR_SET_STATE_OBSERVER",
+    "module": "retail_kline",
+    "interface": "KlineBottomInteractor",
+    "name": "set_state_observer",
+    "is_async": false,
+    "args": [
+      {
+        "name": "observer",
+        "type": "Arc<dyn InteractorStateChangeObserver>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Set a state observer (UniFFI export).\n\nDEPRECATED: callback-based observer. Use `state_stream()` —\nthe callback observer pins the foreign object in UniFFI's\nstatic handleMap and produces a cross-language retain cycle\n(Android GC + iOS ARC)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_OKRUSTFUTUREKLINETIERITEMSWITHOKFFIERROR_START_WITH_CALLBACK",
+    "module": "retail_kline",
+    "interface": "OKRustFutureKLineTierItemsWithOKFFIError",
+    "name": "start_with_callback",
+    "is_async": false,
+    "args": [
+      {
+        "name": "callback",
+        "type": "Box<dyn OKRustFutureCallback>",
+        "default": null
+      }
+    ],
+    "return_type": "Result<(), OKFFIError>",
+    "doc": "Start async task with uniffi callback interface"
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_INTERFACE_COMPANYSHAREHOLDERSUIEVENTSTREAM",
+    "module": "retail_kline",
+    "name": "CompanyShareholdersUiEventStream",
+    "trait_kind": 4,
+    "doc": "Opt-in async event stream from `interactor.ui_event_stream()`.\nSingle-subscriber, latest-wins. `next()` resolves to `None` when the\ninteractor is dropped or a new subscription replaces this one."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_KLINEEARNINGSEVENTREQ",
+    "module": "retail_kline",
+    "name": "KlineEarningsEventReq",
+    "fields": [
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null,
+        "doc": "OKX instrument the chart is showing, e.g. `XTSLA-USDT`. BE resolves it to\nthe canonical stock identity through the authoritative mapping; an unknown\ninstrument is a parameter error, so never derive it by trimming a prefix."
+      },
+      {
+        "name": "inst_type",
+        "type": "String",
+        "default": null,
+        "doc": "Paired with [`Self::inst_id`]. Earnings currently covers `SPOT` / `SWAP`."
+      },
+      {
+        "name": "cache_expire_seconds",
+        "type": "u64",
+        "default": null,
+        "doc": "HTTP cache TTL in seconds; `0` bypasses the cache."
+      }
+    ],
+    "doc": "What native supplies for one instrument's K-line earnings request.\n\nDeliberately only the page-scoped facts. The request window and the UTC\noffset are **not** here: both are data rules, resolved Rust-side in\n[`crate::core::earnings_calendar`] so the two platforms cannot drift and so\nthe offset is read from one place (the user setting) rather than mirrored."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_COMPANYEXPERIENCEINTERACTOR_LOAD_FINANCIALS",
+    "module": "retail_kline",
+    "interface": "CompanyExperienceInteractor",
+    "name": "load_financials",
+    "is_async": false,
+    "args": [
+      {
+        "name": "force_refresh",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Load the partial-success earnings and quarterly statement projections."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_KLINECOINDATAINFORESULT",
+    "module": "retail_kline",
+    "name": "KlineCoinDataInfoResult",
+    "fields": [
+      {
+        "name": "data",
+        "type": "Option<KlineCoinDataInfoData>",
+        "default": null,
+        "doc": "Coin data info, None if not found"
+      }
+    ],
+    "doc": "Coin data info result\n\nThe response structure containing coin data information."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_EVENTINDEXPRICESTATE",
+    "module": "retail_kline",
+    "name": "EventIndexPriceState",
+    "fields": [
+      {
+        "name": "points",
+        "type": "Vec<IndexPricePoint>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "update_kind",
+        "type": "UpdateKind",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "is_loading",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "resolved_bar",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "error",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "settle_window_secs",
+        "type": "i32",
+        "default": null,
+        "doc": "Settlement-window duration in seconds, resolved from the event-contract\nindex config (IdxConfig.settlePeriodSec). 0 when absent/unparsable — the\nchart skips the settlement window then. Native renders the localized label."
+      },
+      {
+        "name": "hide_settle_price",
+        "type": "bool",
+        "default": null,
+        "doc": "Suppress the settlement price line: a settled (historical) contract whose\nsettlePeriodSec is explicitly \"0\" has no settlement-window concept."
+      }
+    ],
+    "doc": ""
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_INTERFACE_KLINEORDERPOSITIONASSETBRIDGE",
+    "module": "retail_kline",
+    "name": "KLineOrderPositionAssetBridge",
+    "trait_kind": 4,
+    "doc": "Unified bridge for order, position, and asset data sources.\n\nOC: Replaces `OKTLiveManualOrderDataSource`, `OKTPositionLiveManualDataSource`,\n`OKTAssetLiveDataSource`, and `OKKAssetPositionOrderManager`.\n\nA generation counter with [`LifecycleGuard`] ensures stale tasks from a previous\n`start()` cycle do not deliver callbacks after `stop()`."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINECEXSTOCKHOURSINTERACTOR_REMOVE_STATE_OBSERVER",
+    "module": "retail_kline",
+    "interface": "KlineCexStockHoursInteractor",
+    "name": "remove_state_observer",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Remove the state observer (UniFFI export).\n\nDEPRECATED: callback-based observation. Use `state_stream()` —\nit needs no removal call. Until migrated, every\n`set_state_observer` MUST be paired with this (or `release()`)\nat host lifecycle end, or the UniFFI handleMap pins the\nobserver and its host forever."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_KLINESTARTTIMEVO",
+    "module": "retail_kline",
+    "name": "KlineStartTimeVo",
+    "fields": [
+      {
+        "name": "bar",
+        "type": "String",
+        "default": null,
+        "doc": "Bar/timeframe (e.g., \"1m\", \"5m\", \"15m\", \"1H\", \"1D\")"
+      },
+      {
+        "name": "ts",
+        "type": "String",
+        "default": null,
+        "doc": "Timestamp in milliseconds - the initial time for this bar"
+      }
+    ],
+    "doc": "K-line start time data item\n\nRepresents the initial time for each bar/timeframe of a specific instrument"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEONDOSTOCKHOURSINTERACTOR_REMOVE_STATE_OBSERVER",
+    "module": "retail_kline",
+    "interface": "KlineOndoStockHoursInteractor",
+    "name": "remove_state_observer",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Remove the state observer (UniFFI export).\n\nDEPRECATED: callback-based observation. Use `state_stream()` —\nit needs no removal call. Until migrated, every\n`set_state_observer` MUST be paired with this (or `release()`)\nat host lifecycle end, or the UniFFI handleMap pins the\nobserver and its host forever."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINECRYPTOINFOSERVICE_CREATE_COIN_DATA_INFO_REQ",
+    "module": "retail_kline",
+    "interface": "KlineCryptoInfoService",
+    "name": "create_coin_data_info_req",
+    "is_async": false,
+    "args": [
+      {
+        "name": "project_name",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "cache_expire_seconds",
+        "type": "u64",
+        "default": null
+      }
+    ],
+    "return_type": "KlineCoinDataInfoReq",
+    "doc": "Creates a new `CoinDataInfoReq` with the specified parameters.\n\n# Parameters\n- `project_name`: Project name (e.g., \"BTC\", \"ETH\")\n- `cache_expire_seconds`: Cache expiration time in seconds (0 = no cache)\n\n# Returns\nA new `CoinDataInfoReq` instance"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_OKRUSTFUTUREPRICEALERTGROUPSWITHOKFFIERROR_CANCEL",
+    "module": "retail_kline",
+    "interface": "OKRustFuturePriceAlertGroupsWithOKFFIError",
+    "name": "cancel",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Cancel running task"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_COMPANYFINANCIALSINTERACTOR_LOAD",
+    "module": "retail_kline",
+    "interface": "CompanyFinancialsInteractor",
+    "name": "load",
+    "is_async": false,
+    "args": [
+      {
+        "name": "ticker",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "inst_type",
+        "type": "Option<String>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Start the initial parallel load of all four sections for `ticker`.\n\n`inst_type` is optional: when present it is forwarded to the API as the\n`instType` query param (on every section request), and passing `None`\npreserves the previous request shape."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_TRADINGINDICATORDATASOURCEBRIDGE_START",
+    "module": "retail_kline",
+    "interface": "TradingIndicatorDataSourceBridge",
+    "name": "start",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Start fetching data (fire-and-forget).\n\nInitiates data fetching in the background.\nAll data and errors are delivered via the callback interface:\n- `callback.on_success()` - Initial HTTP data\n- `callback.on_ws_message()` - Real-time WebSocket updates\n- `callback.on_error()` - Any errors during operation\n\n# Lifecycle\n\n- HTTP request executes first (Sequential strategy)\n- WebSocket subscribes after HTTP completes\n- Call `stop()` to terminate WebSocket when leaving page\n\n# Example\n\n```swift\ndataSource.start()\n\n// Data arrives via callback.onSuccess / callback.onWsMessage\n// Stop when done\ndataSource.stop()\n```"
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_MARKETEVENTREQ",
+    "module": "retail_kline",
+    "name": "MarketEventReq",
+    "fields": [
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null,
+        "doc": "Instrument ID (e.g., \"BTC-USDT\")"
+      },
+      {
+        "name": "cursor",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Cursor for pagination"
+      },
+      {
+        "name": "page_size",
+        "type": "Option<i32>",
+        "default": null,
+        "doc": "Page size"
+      },
+      {
+        "name": "unit",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Unit type"
+      },
+      {
+        "name": "display_inst_name",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Display instrument name"
+      },
+      {
+        "name": "is_ws_force_request",
+        "type": "bool",
+        "default": null,
+        "doc": "Whether this is a WebSocket force request\nWhen true, UseCase will filter events newer than `latest_timestamp`"
+      },
+      {
+        "name": "latest_timestamp",
+        "type": "Option<i64>",
+        "default": null,
+        "doc": "Latest event timestamp from current list (milliseconds)\nUsed with `is_ws_force_request = true` to filter new events"
+      },
+      {
+        "name": "use_new_temp",
+        "type": "i32",
+        "default": null,
+        "doc": "Use new template (default: 1)"
+      }
+    ],
+    "doc": "Request parameters for market events"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_OKRUSTFUTURECOMPARECANDLESRESPLISTWITHOKFFIERROR_CANCEL",
+    "module": "retail_kline",
+    "interface": "OKRustFutureCompareCandlesRespListWithOKFFIError",
+    "name": "cancel",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Cancel running task"
+  },
+  {
+    "kind": "trait_method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_DRAWINGLINEUIEVENTOBSERVER_ON_UI_EVENT",
+    "module": "retail_kline",
+    "interface": "DrawingLineUiEventObserver",
+    "index": 0,
+    "name": "on_ui_event",
+    "is_async": false,
+    "args": [
+      {
+        "name": "event",
+        "type": "DrawingLineUiEvent",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_COMPANYEXPERIENCEINTERACTOR_LOAD_STATEMENT",
+    "module": "retail_kline",
+    "interface": "CompanyExperienceInteractor",
+    "name": "load_statement",
+    "is_async": false,
+    "args": [
+      {
+        "name": "kind",
+        "type": "StatementKind",
+        "default": null
+      },
+      {
+        "name": "timeframe",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "range_kind",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "range_value",
+        "type": "Option<i32>",
+        "default": null
+      },
+      {
+        "name": "force_refresh",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Load or re-project one statement section and selected detail range."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_KLINEECONEVENTVO",
+    "module": "retail_kline",
+    "name": "KlineEconEventVo",
+    "fields": [
+      {
+        "name": "actual",
+        "type": "String",
+        "default": null,
+        "doc": "Actual value (if available)"
+      },
+      {
+        "name": "calendar_id",
+        "type": "String",
+        "default": null,
+        "doc": "Calendar event ID"
+      },
+      {
+        "name": "category",
+        "type": "String",
+        "default": null,
+        "doc": "Event category/type"
+      },
+      {
+        "name": "country",
+        "type": "String",
+        "default": null,
+        "doc": "Country code or name"
+      },
+      {
+        "name": "date",
+        "type": "String",
+        "default": null,
+        "doc": "Event date timestamp (in milliseconds)"
+      },
+      {
+        "name": "event",
+        "type": "String",
+        "default": null,
+        "doc": "Event name"
+      },
+      {
+        "name": "event_key",
+        "type": "String",
+        "default": null,
+        "doc": "Event key for localization"
+      },
+      {
+        "name": "event_name",
+        "type": "String",
+        "default": null,
+        "doc": "Event name/title"
+      },
+      {
+        "name": "forecast",
+        "type": "String",
+        "default": null,
+        "doc": "Forecast value (if available)"
+      },
+      {
+        "name": "importance",
+        "type": "String",
+        "default": null,
+        "doc": "Importance level (\"1\"=Low, \"2\"=Medium, \"3\"=High)"
+      },
+      {
+        "name": "previous",
+        "type": "String",
+        "default": null,
+        "doc": "Previous value (if available)"
+      }
+    ],
+    "doc": "Economic calendar event VO"
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_INTERFACE_KLINEBOTTOMINTERACTOR",
+    "module": "retail_kline",
+    "name": "KlineBottomInteractor",
+    "trait_kind": 4,
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_TRADINGINDICATORDATASOURCEBRIDGE_STOP",
+    "module": "retail_kline",
+    "interface": "TradingIndicatorDataSourceBridge",
+    "name": "stop",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Stop fetching data\n\nTerminates all active connections and resets internal state.\nCall this when leaving the page or when data is no longer needed.\n\n# Cleanup Actions\n1. Clears native callback (releases Swift/Kotlin reference)\n2. Stops internal implementation (closes WebSocket, clears state)"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_OKRUSTFUTURECOINDATAINFORESULTWITHOKFFIERROR_GET_SUCCESS_RESULT",
+    "module": "retail_kline",
+    "interface": "OKRustFutureCoinDataInfoResultWithOKFFIError",
+    "name": "get_success_result",
+    "is_async": false,
+    "args": [],
+    "return_type": "Option<KlineCoinDataInfoResult>",
+    "doc": "Get successful result (if any)"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_INDICATORSYNCINTERACTOR_SET_STATE_OBSERVER",
+    "module": "retail_kline",
+    "interface": "IndicatorSyncInteractor",
+    "name": "set_state_observer",
+    "is_async": false,
+    "args": [
+      {
+        "name": "observer",
+        "type": "Arc<dyn InteractorStateChangeObserver>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Set a state observer (UniFFI export).\n\nDEPRECATED: callback-based observer. Use `state_stream()` —\nthe callback observer pins the foreign object in UniFFI's\nstatic handleMap and produces a cross-language retain cycle\n(Android GC + iOS ARC)."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_INTERFACE_MARKETEVENTSUIEVENTOBSERVER",
+    "module": "retail_kline",
+    "name": "MarketEventsUiEventObserver",
+    "trait_kind": 13,
+    "doc": "Deprecated UniFFI callback interface for observing UI events. Prefer the cycle-free `MarketEventsUiEventStream` returned by `interactor.ui_event_stream()`."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEECOCALENDARINTERACTOR_SET_STATE_OBSERVER",
+    "module": "retail_kline",
+    "interface": "KlineEcoCalendarInteractor",
+    "name": "set_state_observer",
+    "is_async": false,
+    "args": [
+      {
+        "name": "observer",
+        "type": "Arc<dyn InteractorStateChangeObserver>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Set a state observer (UniFFI export).\n\nDEPRECATED: callback-based observer. Use `state_stream()` —\nthe callback observer pins the foreign object in UniFFI's\nstatic handleMap and produces a cross-language retain cycle\n(Android GC + iOS ARC)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEMCAPV2INTERACTOR_LOAD_FUTURE",
+    "module": "retail_kline",
+    "interface": "KlineMcapV2Interactor",
+    "name": "load_future",
+    "is_async": true,
+    "args": [
+      {
+        "name": "subscription_id",
+        "type": "u32",
+        "default": null
+      },
+      {
+        "name": "req",
+        "type": "MarketCapV2Req",
+        "default": null
+      },
+      {
+        "name": "cancel_token",
+        "type": "Arc<OKCancellationToken>",
+        "default": null
+      }
+    ],
+    "return_type": "Result<(), OKFFIError>",
+    "doc": ""
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_KLINETRADEOVERLAYSTATE",
+    "module": "retail_kline",
+    "name": "KlineTradeOverlayState",
+    "fields": [
+      {
+        "name": "open_orders_list",
+        "type": "Vec<RetailKLineOrder>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "positions_list",
+        "type": "Vec<RetailKLinePosition>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "spot_assets",
+        "type": "Vec<RetailKLineAsset>",
+        "default": null,
+        "doc": "Spot account positions / holdings — derived to \"spot average cost\"\noverlay on the chart by native side."
+      },
+      {
+        "name": "pending_pnl",
+        "type": "Option<PendingPnlVo>",
+        "default": null,
+        "doc": "**Deprecated** — kept for ABI compatibility. The new drag-time PnL\nflow returns [`KlineDragPnlVo`] directly from `compute_drag_pnl`\nwithout going through state, so this field is always `None`."
+      },
+      {
+        "name": "is_drag_paused",
+        "type": "bool",
+        "default": null,
+        "doc": "When true, manager callbacks keep raw orders / positions / assets fresh\nbut leave `view_state` frozen — used while the user is actively dragging\nan order line so the overlay does not jump."
+      },
+      {
+        "name": "is_loading",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "error",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "view_state",
+        "type": "KlineTradeOverlayViewState",
+        "default": null,
+        "doc": "Display-ready aggregate for the chart overlay."
+      },
+      {
+        "name": "price_mode",
+        "type": "KLinePriceMode",
+        "default": null,
+        "doc": "Active price source (last / mark / index)."
+      }
+    ],
+    "doc": ""
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_COMPANYETFCONSTITUENTCHANGEROWPRESENTATION",
+    "module": "retail_kline",
+    "name": "CompanyEtfConstituentChangeRowPresentation",
+    "fields": [
+      {
+        "name": "name",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "symbol",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "instrument_id",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "inst_type",
+        "type": "String",
+        "default": "Default::default()",
+        "doc": "Backend OKX instType of [`Self::instrument_id`] (e.g. `SWAP`); empty when unmatched."
+      },
+      {
+        "name": "is_clickable",
+        "type": "bool",
+        "default": null,
+        "doc": "Row clickable iff `is_tradable && !instrument_id.is_empty()`."
+      },
+      {
+        "name": "change_type",
+        "type": "String",
+        "default": null,
+        "doc": "`ADDED` / `REMOVED` / `INCREASED` / `DECREASED` (drives icon/label)."
+      },
+      {
+        "name": "change_shares_recipe",
+        "type": "KlineFormatRecipe",
+        "default": null,
+        "doc": "Signed share-change recipe (prepend_plus drives the `+` for increases)."
+      },
+      {
+        "name": "change_pct_recipe",
+        "type": "KlineFormatRecipe",
+        "default": null,
+        "doc": "Share change percent (empty for `ADDED`)."
+      },
+      {
+        "name": "change_sign",
+        "type": "String",
+        "default": null,
+        "doc": "`positive` (increased) / `negative` (decreased) / `neutral` for the color."
+      },
+      {
+        "name": "previous_shares_recipe",
+        "type": "KlineFormatRecipe",
+        "default": null,
+        "doc": "Detail-page prev→current shares."
+      },
+      {
+        "name": "current_shares_recipe",
+        "type": "KlineFormatRecipe",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "previous_weight_recipe",
+        "type": "KlineFormatRecipe",
+        "default": null,
+        "doc": "Detail-page prev→current weight percent + signed change."
+      },
+      {
+        "name": "current_weight_recipe",
+        "type": "KlineFormatRecipe",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "change_weight_recipe",
+        "type": "KlineFormatRecipe",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "previous_market_value_recipe",
+        "type": "KlineFormatRecipe",
+        "default": null,
+        "doc": "Detail-page prev→current market value (USD) + signed change."
+      },
+      {
+        "name": "current_market_value_recipe",
+        "type": "KlineFormatRecipe",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "change_market_value_recipe",
+        "type": "KlineFormatRecipe",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": "One constituent-change row. The preview card uses the lean columns\n(name/symbol + share change); the detail page additionally renders the\nprev→current shares / weight / market-value recipes. All numbers are\nRust-formatted recipes; native never computes."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINETOKENUNLOCKSERVICE_CREATE_UNLOCK_SCHEDULE_REQ",
+    "module": "retail_kline",
+    "interface": "KlineTokenUnlockService",
+    "name": "create_unlock_schedule_req",
+    "is_async": false,
+    "args": [
+      {
+        "name": "ccy",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "period",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "cache_expire_seconds",
+        "type": "u64",
+        "default": null
+      }
+    ],
+    "return_type": "KlineUnlockScheduleReq",
+    "doc": "Creates a new `UnlockScheduleReq` with the specified parameters.\n\n# Parameters\n- `ccy`: Currency symbol (e.g., \"ARB\", \"OP\")\n- `period`: Time period filter (\"year\" or \"all\")\n- `cache_expire_seconds`: Cache expiration time in seconds (0 = no cache)\n\n# Returns\nA new `UnlockScheduleReq` instance"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_OKRUSTFUTUREINTERESTANDTRADINGUNIONITEMLISTWITHOKFFIERROR_GET_SUCCESS_RESULT",
+    "module": "retail_kline",
+    "interface": "OKRustFutureInterestAndTradingUnionItemListWithOKFFIError",
+    "name": "get_success_result",
+    "is_async": false,
+    "args": [],
+    "return_type": "Option<Vec<InterestAndTradingUnionItem>>",
+    "doc": "Get successful result (if any)"
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_PRICEALERTBATCHDELETEGROUP",
+    "module": "retail_kline",
+    "name": "PriceAlertBatchDeleteGroup",
+    "fields": [
+      {
+        "name": "source_type",
+        "type": "RetailKLinePriceAlertSourceType",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "rule_ids",
+        "type": "Vec<u64>",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": "One sourceType's worth of rule IDs for a batch delete. The action takes a list\nof these so a mixed-type selection (CeFi + CeDeFi + indicators) is ONE effect —\nlooping `batch_delete_alerts` per type from native got all but the first call\nsilently dropped by `SpawnPolicy::SkipIfRunning`."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_OKRUSTFUTUREMARKPRICERESULTWITHOKFFIERROR_GET_ERROR",
+    "module": "retail_kline",
+    "interface": "OKRustFutureMarkPriceResultWithOKFFIError",
+    "name": "get_error",
+    "is_async": false,
+    "args": [],
+    "return_type": "Option<OKFFIError>",
+    "doc": "Get error information (if any)"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINECOMPAREINTERACTOR_REMOVE_STATE_OBSERVER",
+    "module": "retail_kline",
+    "interface": "KLineCompareInteractor",
+    "name": "remove_state_observer",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Remove the state observer (UniFFI export).\n\nDEPRECATED: callback-based observation. Use `state_stream()` —\nit needs no removal call. Until migrated, every\n`set_state_observer` MUST be paired with this (or `release()`)\nat host lifecycle end, or the UniFFI handleMap pins the\nobserver and its host forever."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_LATESTDEALINTERACTOR_SET_DEBUG",
+    "module": "retail_kline",
+    "interface": "LatestDealInteractor",
+    "name": "set_debug",
+    "is_async": false,
+    "args": [
+      {
+        "name": "_enabled",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Enable or disable debug logging.\n\nIn release builds this is a no-op, but the symbol must exist\nso that UniFFI bindings generated in debug mode continue to\nlink successfully against the release library."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_FUNC_KLINE_LOAD_CONTEXT_FUTURE",
+    "module": "retail_kline",
+    "name": "kline_load_context_future",
+    "is_async": false,
+    "args": [
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "biz_type",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "ds_type",
+        "type": "u64",
+        "default": null
+      }
+    ],
+    "return_type": "Arc<OKRustFutureboolWithOKFFIError>",
+    "doc": "Preflight validation (async variant, preferred for new code).\nOC: `[self.trade loadContextWithInstrument:dataSourceType:]`\n\n`ds_type` is kept for API compatibility but not used here."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEECOCALENDARINTERACTOR_START",
+    "module": "retail_kline",
+    "interface": "KlineEcoCalendarInteractor",
+    "name": "start",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Start the interactor lifecycle.\n\nCalls the user's `InteractorLifecycle::start()` implementation.\nOverride that method to add custom startup behavior (e.g., initial data loads)."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_INTERFACE_OKRUSTFUTURECOINNEWSRESULTWITHOKFFIERROR",
+    "module": "retail_kline",
+    "name": "OKRustFutureCoinNewsResultWithOKFFIError",
+    "trait_kind": 4,
+    "doc": "OKRustFuture wrapper generated for specific type (non-generic) with uniffi export"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_PRICEFLOATWINDOWINTERACTOR_ON_CLEAR",
+    "module": "retail_kline",
+    "interface": "PriceFloatWindowInteractor",
+    "name": "on_clear",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Called when the page / window is destroyed."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_COMPANYEXPERIENCEINTERACTOR_SET_STATE_OBSERVER",
+    "module": "retail_kline",
+    "interface": "CompanyExperienceInteractor",
+    "name": "set_state_observer",
+    "is_async": false,
+    "args": [
+      {
+        "name": "observer",
+        "type": "Arc<dyn InteractorStateChangeObserver>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Set a state observer (UniFFI export).\n\nDEPRECATED: callback-based observer. Use `state_stream()` —\nthe callback observer pins the foreign object in UniFFI's\nstatic handleMap and produces a cross-language retain cycle\n(Android GC + iOS ARC)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEDEPTHINTERACTOR_SET_TRADE_UNIT",
+    "module": "retail_kline",
+    "interface": "KlineDepthInteractor",
+    "name": "set_trade_unit",
+    "is_async": false,
+    "args": [
+      {
+        "name": "trade_unit",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Switch trade unit display: \"0\"=coin, \"1\"=contract, \"2\"=USDT."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEECOCALENDARINTERACTOR_STATE",
+    "module": "retail_kline",
+    "interface": "KlineEcoCalendarInteractor",
+    "name": "state",
+    "is_async": false,
+    "args": [],
+    "return_type": "KlineEcoCalendarState",
+    "doc": "Get the current state (UniFFI export).\n\nReturns the External type (UniFFI-compatible)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_OKRUSTFUTUREBATCHTICKERSRESULTWITHOKFFIERROR_IS_FINISHED",
+    "module": "retail_kline",
+    "interface": "OKRustFutureBatchTickersResultWithOKFFIError",
+    "name": "is_finished",
+    "is_async": false,
+    "args": [],
+    "return_type": "bool",
+    "doc": "Check whether the task has finished (success/failure/cancelled).\n"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_OKRUSTFUTURECONTRACTLONGSHORTRATIODATALISTWITHOKFFIERROR_START_WITH_CALLBACK",
+    "module": "retail_kline",
+    "interface": "OKRustFutureContractLongShortRatioDataListWithOKFFIError",
+    "name": "start_with_callback",
+    "is_async": false,
+    "args": [
+      {
+        "name": "callback",
+        "type": "Box<dyn OKRustFutureCallback>",
+        "default": null
+      }
+    ],
+    "return_type": "Result<(), OKFFIError>",
+    "doc": "Start async task with uniffi callback interface"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEARBBOTTOMINTERACTOR_STATE_STREAM",
+    "module": "retail_kline",
+    "interface": "KlineArbBottomInteractor",
+    "name": "state_stream",
+    "is_async": false,
+    "args": [],
+    "return_type": "Arc<InteractorStateStream>",
+    "doc": "Opt-in async state-change stream (cycle-free, signal-only).\nSingle-subscriber, latest-wins. `changed()` resolves `true` on\nchange (pull `state()` for the snapshot), `false` when the\ninteractor is released or a newer subscription replaces this one."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINESWIPINGTITLEINTERACTOR_ON_CLEAR",
+    "module": "retail_kline",
+    "interface": "KlineSwipingTitleInteractor",
+    "name": "on_clear",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": ""
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_KLINEINDICATORLINESCHEMAVO",
+    "module": "retail_kline",
+    "name": "KlineIndicatorLineSchemaVo",
+    "fields": [
+      {
+        "name": "line_id",
+        "type": "u16",
+        "default": null,
+        "doc": "Compact id used by the binary data-frame payload. Stable for one\n`params_version` and unique within the schema."
+      },
+      {
+        "name": "name",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "info_name",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "style",
+        "type": "IndicatorOutputStyle",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "color",
+        "type": "String",
+        "default": null,
+        "doc": "Rust-owned render configuration. Empty strings mean the chart theme\nfallback should be used."
+      },
+      {
+        "name": "color_block",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "line_width",
+        "type": "f64",
+        "default": null,
+        "doc": "Logical dp width; Native performs the density conversion."
+      },
+      {
+        "name": "alpha",
+        "type": "f64",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "is_visible",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "color_role",
+        "type": "IndicatorColorRole",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "info_color_role",
+        "type": "IndicatorColorRole",
+        "default": null,
+        "doc": "Legend color is independent from the primitive color. This is required\nby mixed outputs such as colored Net L/S bars with a neutral shared label."
+      },
+      {
+        "name": "include_in_info",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "value_format",
+        "type": "IndicatorValueFormat",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "info_unit",
+        "type": "IndicatorInfoUnit",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "zero_is_no_data",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": "Low-frequency metadata for one precomputed indicator line."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINECANDLESINTERACTOR_FETCH_INDICATOR_LINE_RANGES",
+    "module": "retail_kline",
+    "interface": "KlineCandlesInteractor",
+    "name": "fetch_indicator_line_ranges",
+    "is_async": true,
+    "args": [
+      {
+        "name": "subscription_id",
+        "type": "u32",
+        "default": null
+      },
+      {
+        "name": "expected_candle_revision",
+        "type": "u64",
+        "default": null
+      },
+      {
+        "name": "expected_params_version",
+        "type": "u64",
+        "default": null
+      },
+      {
+        "name": "ranges",
+        "type": "Vec<KlineIndicatorLineRangeVo>",
+        "default": null
+      }
+    ],
+    "return_type": "Result<KlineIndicatorDataFrameVo, OKFFIError>",
+    "doc": "Returns one OKID packet whose individual lines may use different\nabsolute windows. This is the prepend/fling path: Native decides which\ncached chunks are missing, while Rust remains the sole owner of values."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINECANDLESINTERACTOR_STATE_STREAM",
+    "module": "retail_kline",
+    "interface": "KlineCandlesInteractor",
+    "name": "state_stream",
+    "is_async": false,
+    "args": [],
+    "return_type": "Arc<InteractorStateStream>",
+    "doc": "Opt-in async state-change stream (cycle-free, signal-only).\nSingle-subscriber, latest-wins. `changed()` resolves `true` on\nchange (pull `state()` for the snapshot), `false` when the\ninteractor is released or a newer subscription replaces this one."
+  },
+  {
+    "kind": "constructor",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_CONSTRUCTOR_KLINEPIPINTERACTOR_CREATE_FROM_SESSION",
+    "module": "retail_kline",
+    "interface": "KLinePipInteractor",
+    "name": "create_from_session",
+    "is_async": false,
+    "args": [
+      {
+        "name": "handle",
+        "type": "Arc<TradeSessionHandle>",
+        "default": null
+      }
+    ],
+    "return_type": "Arc<KLinePipInteractor>",
+    "doc": "V2 session-driven constructor: builds the interactor and injects the trade\npage's session as a `Weak` (via the opaque [`TradeSessionHandle`] that\ncrossed FFI). Follow with `initialize_from_session`."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_COMPANYINSTITUTIONHOLDERPRESENTATION",
+    "module": "retail_kline",
+    "name": "CompanyInstitutionHolderPresentation",
+    "fields": [
+      {
+        "name": "name",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "owned_recipe",
+        "type": "KlineFormatRecipe",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "change_recipe",
+        "type": "KlineFormatRecipe",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "change_sign",
+        "type": "String",
+        "default": null,
+        "doc": "String-backed for forward compatibility: `positive`, `negative`, or `neutral`."
+      }
+    ],
+    "doc": "One row in the institution holdings table."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_MORETRADEINTERACTOR_SUBSCRIBE",
+    "module": "retail_kline",
+    "interface": "MoreTradeInteractor",
+    "name": "subscribe",
+    "is_async": false,
+    "args": [
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "biz_type",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "is_options_restricted",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINECOMPAREINTERACTOR_INITIALIZE",
+    "module": "retail_kline",
+    "interface": "KLineCompareInteractor",
+    "name": "initialize",
+    "is_async": false,
+    "args": [
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "biz_type",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Initialize with primary instrument. Triggers ensureInit → loadBiz → context start."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_COMPANYEXPERIENCEINTERACTOR_CLEAR_CACHE",
+    "module": "retail_kline",
+    "interface": "CompanyExperienceInteractor",
+    "name": "clear_cache",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Invalidate every section cache and outstanding response while preserving the subject."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_EVENTPROBABILITYINTERACTOR_SET_STATE_OBSERVER",
+    "module": "retail_kline",
+    "interface": "EventProbabilityInteractor",
+    "name": "set_state_observer",
+    "is_async": false,
+    "args": [
+      {
+        "name": "observer",
+        "type": "Arc<dyn InteractorStateChangeObserver>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Set a state observer (UniFFI export).\n\nDEPRECATED: callback-based observer. Use `state_stream()` —\nthe callback observer pins the foreign object in UniFFI's\nstatic handleMap and produces a cross-language retain cycle\n(Android GC + iOS ARC)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINESWIPINGTITLEINTERACTOR_STOP",
+    "module": "retail_kline",
+    "interface": "KlineSwipingTitleInteractor",
+    "name": "stop",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Stop the interactor and cancel all effects.\n\nCalls the user's `InteractorLifecycle::stop()` implementation first,\nthen cancels all effects as a framework guarantee."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_FUNC_CREATE_RETAIL_KLINE_COMPANY_FINANCIALS_INTERACTOR",
+    "module": "retail_kline",
+    "name": "create_retail_kline_company_financials_interactor",
+    "is_async": false,
+    "args": [],
+    "return_type": "Arc<CompanyFinancialsInteractor>",
+    "doc": "Factory exposed to native. Starts nothing — native calls `load(ticker)`."
+  },
+  {
+    "kind": "trait_method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_DEPTHSTREAMCALLBACK_ON_UPDATE_ERROR",
+    "module": "retail_kline",
+    "interface": "DepthStreamCallback",
+    "index": 1,
+    "name": "on_update_error",
+    "is_async": false,
+    "args": [
+      {
+        "name": "error",
+        "type": "OKFFIError",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Called when an error occurs during subscription"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_OKRUSTFUTUREPRICEALERTSWITHOKFFIERROR_GET_ERROR",
+    "module": "retail_kline",
+    "interface": "OKRustFuturePriceAlertsWithOKFFIError",
+    "name": "get_error",
+    "is_async": false,
+    "args": [],
+    "return_type": "Option<OKFFIError>",
+    "doc": "Get error information (if any)"
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_FUNC_KLINE_IS_PM_OR_TRADE_ACCOUNT",
+    "module": "retail_kline",
+    "name": "kline_is_pm_or_trade_account",
+    "is_async": false,
+    "args": [],
+    "return_type": "bool",
+    "doc": "Whether the current account is a PM (Portfolio Margin, lv4) or Trade (lv1) account.\n\nOC: `acctLv == OKTAccountLevelTypePMC || acctLv == OKTAccountLevelTypeTrade`\n(`is_pm_account` == iOS `isPMAccount`, `is_trade_account` == iOS `isTradeAccount`).\nUnloaded config → level defaults to lv1 → returns `true`."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_KLINECOMPARESTATE",
+    "module": "retail_kline",
+    "name": "KLineCompareState",
+    "fields": [
+      {
+        "name": "is_initialized",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "is_loading",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "init_error",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "biz_type",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "base_ccy",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "quote_ccy",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "tick_sz",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "ct_val",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "inst_title",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "amount_unit",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "quote_symbol",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "ticker_version",
+        "type": "u64",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "candle_version",
+        "type": "u64",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "indicator_subscription_id",
+        "type": "u32",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "candle_revision",
+        "type": "u64",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "candle_update_type",
+        "type": "CompareCandleUpdateType",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "candle_loading",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "candle_error",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "finished_first_candle_load",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "has_more_history",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "current_period",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "realtime_batch",
+        "type": "Vec<InstCandlesTail>",
+        "default": null,
+        "doc": "Per-inst tails accepted this WS merge window (cleared on History /\nMoreHistory / start_candle)."
+      },
+      {
+        "name": "realtime_seq",
+        "type": "u64",
+        "default": null,
+        "doc": "Bumps once per pushed realtime batch AND once per load_more\n(MoreHistory), so a coalesced MoreHistory forces the next realtime tick\ninto a full reload (seq gap). Reset to 0 on History / start_candle."
+      },
+      {
+        "name": "lean_history_push",
+        "type": "Vec<InstCandlesTail>",
+        "default": null,
+        "doc": "Legacy transport field retained for UniFFI compatibility. CandleStore is\nnow always authoritative, so this stays empty."
+      },
+      {
+        "name": "oldest_ts",
+        "type": "String",
+        "default": null,
+        "doc": "Earliest cached bar ts of the PRIMARY inst, retained as a diagnostic and\ncompatibility cursor. Pagination reads the primary CandleStore directly."
+      },
+      {
+        "name": "digit",
+        "type": "u32",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "trade_unit",
+        "type": "String",
+        "default": null,
+        "doc": "User trade-unit setting for the primary inst (\"0\" coin / \"1\" contract /\n\"2\" quote; empty for spot/margin). Same source as the main-K init\n(`resolve_trade_unit`); native derives the VOL-indicator unit + chart\ncoinVol from it so the selection popup needs no Kotlin trade biz."
+      },
+      {
+        "name": "data_source_type",
+        "type": "u64",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "is_simulator",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "is_option",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": ""
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_KLINEDEPTHDISPLAYITEM",
+    "module": "retail_kline",
+    "name": "KlineDepthDisplayItem",
+    "fields": [
+      {
+        "name": "price",
+        "type": "String",
+        "default": null,
+        "doc": "Raw decimal price (native applies thousands grouping)."
+      },
+      {
+        "name": "amount",
+        "type": "String",
+        "default": null,
+        "doc": "Raw decimal amount (native applies K/M/B/T compact)."
+      },
+      {
+        "name": "origin_price",
+        "type": "f64",
+        "default": null,
+        "doc": "Raw price for click-fill"
+      },
+      {
+        "name": "origin_amount",
+        "type": "f64",
+        "default": null,
+        "doc": "Raw amount for bar width calculation"
+      },
+      {
+        "name": "sum_amount",
+        "type": "f64",
+        "default": null,
+        "doc": "Cumulative amount up to and including this price level.\nUsed by the depth chart (MapDepthView) for the area-curve total."
+      },
+      {
+        "name": "ratio",
+        "type": "f64",
+        "default": null,
+        "doc": "Bar fill ratio 0.0..1.0"
+      },
+      {
+        "name": "amount_digit",
+        "type": "i32",
+        "default": null,
+        "doc": "Decimal precision for amount display.\nSPOT/MARGIN: amount<1000 -> max(2, min_size_scale); else 3\nDerivatives: from core-trading's get_depth_amt_digit"
+      }
+    ],
+    "doc": "A single formatted depth level for native UI rendering.\nMaps from core-trading's `OKTFormattedDepthItem`."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_FUNC_KLINE_INVERSE_PRICE_REVERSE",
+    "module": "retail_kline",
+    "name": "kline_inverse_price_reverse",
+    "is_async": false,
+    "args": [
+      {
+        "name": "price",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "biz_type",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "inst_family",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "String",
+    "doc": "Reverse of [`kline_inverse_price_format`]: converts an inverse-contract fiat\ndisplay price back to the raw USD quote (display ÷ glb exchange rate), then\nTRUNCATES to the USD-side priceDig.\n\nOC: `[chargeConvertor toBase:]` on `OKTNegativeChargeConvertor` = division +\n`toFixed:basePrecision` (NSRoundDown), where basePrecision = usdPrecision\n(`createNegativeChargeConvertorWithInstFamily`, config-miss default 8).\nThe truncation is load-bearing: the chart drag path writes an axis-precision\ndisplay value into the threshold — without this clamp the unrounded tail is\nuploaded verbatim (observed: `64743.255615234375` stored server-side; A-path\nis protected by the same clamp inside `toBase:`, TEPT-6424).\n\nContract: call ONLY for inverse (coin-margined) instruments — the caller gates\non `is_negative` (linear/spot display price IS the USD quote, identity).\nRate <= 0 (config not loaded) returns the truncated input — never divides by zero."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEPIPINTERACTOR_STATE_STREAM",
+    "module": "retail_kline",
+    "interface": "KLinePipInteractor",
+    "name": "state_stream",
+    "is_async": false,
+    "args": [],
+    "return_type": "Arc<InteractorStateStream>",
+    "doc": "Opt-in async state-change stream (cycle-free, signal-only).\nSingle-subscriber, latest-wins. `changed()` resolves `true` on\nchange (pull `state()` for the snapshot), `false` when the\ninteractor is released or a newer subscription replaces this one."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_KLINEHEADERSTATE",
+    "module": "retail_kline",
+    "name": "KlineHeaderState",
+    "fields": [
+      {
+        "name": "top_info",
+        "type": "Option<HeadInfoVo>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "multi_period_changes",
+        "type": "Option<MultiPeriodChangeVo>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "is_loading",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "error",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEHALFSCREENINTERACTOR_SET_INDICATOR_RENDER_CONTEXT",
+    "module": "retail_kline",
+    "interface": "KLineHalfScreenInteractor",
+    "name": "set_indicator_render_context",
+    "is_async": false,
+    "args": [
+      {
+        "name": "surface_active",
+        "type": "bool",
+        "default": null
+      },
+      {
+        "name": "main_enabled",
+        "type": "bool",
+        "default": null
+      },
+      {
+        "name": "sub_enabled",
+        "type": "bool",
+        "default": null
+      },
+      {
+        "name": "timeline_average_enabled",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Temporary availability for this half-screen surface. Persistent\nselection remains owned by candle-support settings."
+  },
+  {
+    "kind": "trait_method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_CANDLESSTREAMCALLBACK_ON_UPDATE_CANDLES",
+    "module": "retail_kline",
+    "interface": "CandlesStreamCallback",
+    "index": 0,
+    "name": "on_update_candles",
+    "is_async": false,
+    "args": [
+      {
+        "name": "candles",
+        "type": "Option<Vec<BizKLineData>>",
+        "default": null
+      },
+      {
+        "name": "is_from_http",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Called when candles data is updated (from HTTP or WebSocket)\n\n# Arguments\n* `candles` - List of candle data (None if no data available)\n* `is_from_http` - `true` if data is from HTTP initial request, `false` if from WebSocket"
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_COMPANYSTATEMENTPRESENTATION",
+    "module": "retail_kline",
+    "name": "CompanyStatementPresentation",
+    "fields": [
+      {
+        "name": "statement_kind",
+        "type": "String",
+        "default": null,
+        "doc": "Known values are `income`, `balance`, and `cashflow`."
+      },
+      {
+        "name": "timeframe",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "currency_code",
+        "type": "String",
+        "default": null,
+        "doc": "Currency reported by this statement endpoint. Empty means absent from the payload."
+      },
+      {
+        "name": "fallback_currency_code",
+        "type": "String",
+        "default": null,
+        "doc": "Compatibility currency used only when rendering monetary values."
+      },
+      {
+        "name": "has_double_bar",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "series",
+        "type": "Vec<CompanyStatementSeriesPresentation>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "detail",
+        "type": "CompanyStatementDetailPresentation",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": "Preview chart plus full-table projection for one statement endpoint."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_FUNC_KLINE_INST_SUPPORTS_MARGIN",
+    "module": "retail_kline",
+    "name": "kline_inst_supports_margin",
+    "is_async": false,
+    "args": [
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "bool",
+    "doc": "Whether `inst_id` is a SPOT instrument that supports margin trading.\n\nMirrors V1 `(trade.getBiz(SPOT) as? ISpotBiz)?.isSupportMargin(instId)`\n— `false` when biz isn't loaded or the inst isn't in the SPOT cache."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_COMPANYQUOTE",
+    "module": "retail_kline",
+    "name": "CompanyQuote",
+    "fields": [
+      {
+        "name": "symbol",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "market_cap",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "float_market_cap",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "shares_outstanding",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "float_shares",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "volume_shares",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Today's cumulative traded volume in shares."
+      },
+      {
+        "name": "turnover24h",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "turnover_rate",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "amplitude_pct",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "volume_ratio",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "high52w",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "low52w",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "pe_ttm",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "pb",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "ps_ttm",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "eps_ttm",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "roe_pct",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "roa_pct",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "div_yield",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "div_frequency",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "e.g. `Year` / `Quarter`."
+      },
+      {
+        "name": "last_dividend_amount",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "div_currency",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "e.g. `USD`."
+      },
+      {
+        "name": "dividend_ttm",
+        "type": "Option<String>",
+        "default": "None",
+        "doc": "Trailing-twelve-month dividend per share, declared in [`Self::div_currency`]\nlike [`Self::last_dividend_amount`]. Appended last with\n`#[uniffi(default = None)]` so existing native constructors of this Record\nstay source-compatible."
+      }
+    ],
+    "doc": "`GET /priapi/v5/rubik/public/tradfi/quote?ticker=`.\n\nAll numbers are raw values; percent/ratio fields are raw decimals\n(`0.0065` = 0.65%)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINECONTEXTBRIDGE_GET_QUOTE_PRECISION",
+    "module": "retail_kline",
+    "interface": "KLineContextBridge",
+    "name": "get_quote_precision",
+    "is_async": false,
+    "args": [],
+    "return_type": "u32",
+    "doc": "Quote currency display precision (e.g. `\"0.01\"` → `2`).\nReturns [`DEFAULT_PRECISION`] before `start()` or on lock contention."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_KLINEOPENINGINFOREQ",
+    "module": "retail_kline",
+    "name": "KlineOpeningInfoReq",
+    "fields": [
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null,
+        "doc": "Instrument ID"
+      },
+      {
+        "name": "cache_expire_seconds",
+        "type": "u64",
+        "default": null,
+        "doc": "Cache expiration time in seconds (0 = no cache)"
+      }
+    ],
+    "doc": "Request parameters for opening info API\n\nURL: /priapi/v5/public/trading-rules/list-info"
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_KLINECEXSTOCKHOURSSTATE",
+    "module": "retail_kline",
+    "name": "KlineCexStockHoursState",
+    "fields": [
+      {
+        "name": "subscription_id",
+        "type": "u32",
+        "default": null,
+        "doc": "Monotonic id of the latest subscribe; every async write drops itself if\nstale so a rapid re-subscribe can't be clobbered by an old fetch/tick."
+      },
+      {
+        "name": "is_stock",
+        "type": "bool",
+        "default": null,
+        "doc": "Whether the target renders as a stock. `false` hides the tag (fetch\nerror, non-stock instId, or empty schedule)."
+      },
+      {
+        "name": "vo",
+        "type": "Option<StockHoursVo>",
+        "default": null,
+        "doc": "Fully rendered sheet content; `None` until the first successful fetch."
+      },
+      {
+        "name": "is_loading",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "error",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": ""
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_KLINETVCANDLE",
+    "module": "retail_kline",
+    "name": "KLineTVCandle",
+    "fields": [
+      {
+        "name": "time",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "open",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "high",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "low",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "close",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "volume",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": "TradingView OHLCV candle after index-price conversion.\nAll numeric values are strings to preserve precision across FFI."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_COMPANYETFTOPHOLDINGSPRESENTATION",
+    "module": "retail_kline",
+    "name": "CompanyEtfTopHoldingsPresentation",
+    "fields": [
+      {
+        "name": "status",
+        "type": "String",
+        "default": null,
+        "doc": "`ok` / `stale` / `no_data` / `fetch_error` (normalized lower-snake)."
+      },
+      {
+        "name": "holding_date",
+        "type": "String",
+        "default": null,
+        "doc": "Raw disclosure date (native applies locale-aware `formatStandardDate`)."
+      },
+      {
+        "name": "top_weight_recipe",
+        "type": "KlineFormatRecipe",
+        "default": null,
+        "doc": "Sum of returned items' weight (no normalization); `no_data` → `\"0.00\"`."
+      },
+      {
+        "name": "total",
+        "type": "i64",
+        "default": null,
+        "doc": "Current-snapshot valid row count (backend `total`, may be ≫ rows.len())."
+      },
+      {
+        "name": "rows",
+        "type": "Vec<CompanyEtfTopHoldingRowPresentation>",
+        "default": null,
+        "doc": "Up to 8 rows, display order weightPct desc."
+      }
+    ],
+    "doc": "M1 Top-8 holdings card."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_TRADINGINDICATORINTERACTOR_REMOVE_UI_EVENT_OBSERVER",
+    "module": "retail_kline",
+    "interface": "TradingIndicatorInteractor",
+    "name": "remove_ui_event_observer",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "DEPRECATED. Use `ui_event_stream()`; drop the returned stream\nwrapper to unsubscribe."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_INTERFACE_OKRUSTFUTURELONGSHORTRATIODATALISTWITHOKFFIERROR",
+    "module": "retail_kline",
+    "name": "OKRustFutureLongShortRatioDataListWithOKFFIError",
+    "trait_kind": 4,
+    "doc": "OKRustFuture wrapper generated for specific type (non-generic) with uniffi export"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINETRADINGRULESSERVICE_CREATE_INDEX_TICKERS_REQ",
+    "module": "retail_kline",
+    "interface": "KlineTradingRulesService",
+    "name": "create_index_tickers_req",
+    "is_async": false,
+    "args": [
+      {
+        "name": "quote_ccy",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "cache_expire_seconds",
+        "type": "u64",
+        "default": null
+      }
+    ],
+    "return_type": "KlineIndexTickersReq",
+    "doc": "Creates a new `IndexTickersReq` with the specified parameters.\n\n# Parameters\n- `quote_ccy`: Quote currency (e.g., \"USD\", \"USDT\")\n- `inst_id`: Instrument ID (e.g., \"BTC-USD\")\n- `cache_expire_seconds`: Cache expiration time in seconds (0 = no cache)\n\n# Returns\nA new `IndexTickersReq` instance"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINECANDLESINTERACTOR_SET_KLINE_START_TIME",
+    "module": "retail_kline",
+    "interface": "KlineCandlesInteractor",
+    "name": "set_kline_start_time",
+    "is_async": false,
+    "args": [
+      {
+        "name": "ts",
+        "type": "i64",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Deprecated; prefetch fills the table automatically."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEHALFSCREENINTERACTOR_START_ORDER_POSITION_ASSET",
+    "module": "retail_kline",
+    "interface": "KLineHalfScreenInteractor",
+    "name": "start_order_position_asset",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Start order/position/asset subscriptions."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEBUYSELLPOINTSINTERACTOR_REMOVE_STATE_OBSERVER",
+    "module": "retail_kline",
+    "interface": "KlineBuySellPointsInteractor",
+    "name": "remove_state_observer",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Remove the state observer (UniFFI export).\n\nDEPRECATED: callback-based observation. Use `state_stream()` —\nit needs no removal call. Until migrated, every\n`set_state_observer` MUST be paired with this (or `release()`)\nat host lifecycle end, or the UniFFI handleMap pins the\nobserver and its host forever."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_FUNC_KLINE_PLAIN_TITLE",
+    "module": "retail_kline",
+    "name": "kline_plain_title",
+    "is_async": false,
+    "args": [
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "inst_type",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "CTTradeTitle",
+    "doc": "General title = V1 `getTitleByIdAndType(instId, instType)` with default\nargs. Used by new-coin / compare / market-events. SWAP appends the\nmanagement-label cdkey; everything else uses the default options (short swap\nsuffix, read only by the SWAP / X-Perps branches — FUTURES expiry ignores\nit)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_PRICEFLOATWINDOWINTERACTOR_REMOVE_STATE_OBSERVER",
+    "module": "retail_kline",
+    "interface": "PriceFloatWindowInteractor",
+    "name": "remove_state_observer",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Remove the state observer (UniFFI export).\n\nDEPRECATED: callback-based observation. Use `state_stream()` —\nit needs no removal call. Until migrated, every\n`set_state_observer` MUST be paired with this (or `release()`)\nat host lifecycle end, or the UniFFI handleMap pins the\nobserver and its host forever."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_ENUM_SECONDICONKIND",
+    "module": "retail_kline",
+    "name": "SecondIconKind",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Spot",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "Perp",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      }
+    ],
+    "doc": "Which drawable the bottom second icon shows: the spot entry or the perp entry."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_FUNC_KLINE_IS_PNL_LAST_PRICE",
+    "module": "retail_kline",
+    "name": "kline_is_pnl_last_price",
+    "is_async": false,
+    "args": [],
+    "return_type": "bool",
+    "doc": "Check if PnL display uses last price (vs mark price).\nOC: `tradeSetting.isLastPriceTypePositionPnl`\n\nSemantic complement of [`kline_is_pnl_mark_price`]; both are exposed\nbecause OC code reads either directly. core-trading provides\n`is_pnl_price_type_last()` on `trade_setting()`; both flags are\nindependent (a third price type can be active and make both `false`)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_COMPANYEXPERIENCEINTERACTOR_STOP",
+    "module": "retail_kline",
+    "interface": "CompanyExperienceInteractor",
+    "name": "stop",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Stop the interactor and cancel all effects.\n\nCalls the user's `InteractorLifecycle::stop()` implementation first,\nthen cancels all effects as a framework guarantee."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_COMPANYEXPERIENCEINTERACTOR_STATE_STREAM",
+    "module": "retail_kline",
+    "interface": "CompanyExperienceInteractor",
+    "name": "state_stream",
+    "is_async": false,
+    "args": [],
+    "return_type": "Arc<InteractorStateStream>",
+    "doc": "Opt-in async state-change stream (cycle-free, signal-only).\nSingle-subscriber, latest-wins. `changed()` resolves `true` on\nchange (pull `state()` for the snapshot), `false` when the\ninteractor is released or a newer subscription replaces this one."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_COMPANYFINANCIALSPRESENTATION",
+    "module": "retail_kline",
+    "name": "CompanyFinancialsPresentation",
+    "fields": [
+      {
+        "name": "estimate",
+        "type": "Option<CompanyEstimatePresentation>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "income",
+        "type": "Option<CompanyStatementPresentation>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "balance",
+        "type": "Option<CompanyStatementPresentation>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "cashflow",
+        "type": "Option<CompanyStatementPresentation>",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": "One partial-success initial financials load."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_FUNC_ALERT_PRICE_CHANGE_TYPE",
+    "module": "retail_kline",
+    "name": "alert_price_change_type",
+    "is_async": false,
+    "args": [
+      {
+        "name": "alert",
+        "type": "RetailKLinePriceAlert",
+        "default": null
+      }
+    ],
+    "return_type": "RetailKLinePriceAlertChangeType",
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_TRADINGINDICATORINTERACTOR_SET_UI_EVENT_OBSERVER",
+    "module": "retail_kline",
+    "interface": "TradingIndicatorInteractor",
+    "name": "set_ui_event_observer",
+    "is_async": false,
+    "args": [
+      {
+        "name": "observer",
+        "type": "Arc<dyn TradingIndicatorUiEventObserver>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "DEPRECATED: callback-based observer. Use `ui_event_stream()` —\nthe callback observer pins the foreign object in UniFFI's\nstatic handleMap and produces a cross-language retain cycle\n(Android GC + iOS ARC)."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_INTERFACE_KLINETRANSACTIONBRIDGE",
+    "module": "retail_kline",
+    "name": "KLineTransactionBridge",
+    "trait_kind": 4,
+    "doc": "Transaction (latest deal) data source bridge.\nOC: replaces `OKTTransactionDataSource`."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_INTERFACE_LATESTDEALINTERACTOR",
+    "module": "retail_kline",
+    "name": "LatestDealInteractor",
+    "trait_kind": 4,
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_PRICEALERTBRIDGE_DELETE_PRICE_ALERTS",
+    "module": "retail_kline",
+    "interface": "PriceAlertBridge",
+    "name": "delete_price_alerts",
+    "is_async": false,
+    "args": [
+      {
+        "name": "rule_ids_by_source_type",
+        "type": "HashMap<RetailKLinePriceAlertSourceType, Vec<u64>>",
+        "default": null
+      }
+    ],
+    "return_type": "Arc<OKRustFutureboolWithOKFFIError>",
+    "doc": ""
+  },
+  {
+    "kind": "constructor",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_CONSTRUCTOR_ORDERPOSITIONASSETBRIDGE_NEW",
+    "module": "retail_kline",
+    "interface": "OrderPositionAssetBridge",
+    "name": "new",
+    "is_async": false,
+    "args": [
+      {
+        "name": "inst_type",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "Arc<OrderPositionAssetBridge>",
+    "doc": "Create a new bridge\n\n# Arguments\n* `inst_type` - Instrument type (e.g., \"SPOT\", \"SWAP\", \"FUTURES\", \"MARGIN\")\n* `inst_id` - Instrument ID (e.g., \"BTC-USDT\", \"BTC-USDT-SWAP\")"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_CANDLEADJUSTMENTINTERACTOR_SET_DEBUG",
+    "module": "retail_kline",
+    "interface": "CandleAdjustmentInteractor",
+    "name": "set_debug",
+    "is_async": false,
+    "args": [
+      {
+        "name": "_enabled",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Enable or disable debug logging.\n\nIn release builds this is a no-op, but the symbol must exist\nso that UniFFI bindings generated in debug mode continue to\nlink successfully against the release library."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_OKRUSTFUTUREKLINESTARTTIMELISTWITHOKFFIERROR_GET_ERROR",
+    "module": "retail_kline",
+    "interface": "OKRustFutureKlineStartTimeListWithOKFFIError",
+    "name": "get_error",
+    "is_async": false,
+    "args": [],
+    "return_type": "Option<OKFFIError>",
+    "doc": "Get error information (if any)"
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_FINANCIALSDATA",
+    "module": "retail_kline",
+    "name": "FinancialsData",
+    "fields": [
+      {
+        "name": "estimate",
+        "type": "Option<EarningsEstimate>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "income",
+        "type": "Option<FinancialStatements>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "balance",
+        "type": "Option<FinancialStatements>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "cashflow",
+        "type": "Option<FinancialStatements>",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": "One initial load of the whole tab. Each section is optional — the page\nrenders whatever loaded (partial success)."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_STARTRESULT",
+    "module": "retail_kline",
+    "name": "StartResult",
+    "fields": [
+      {
+        "name": "success",
+        "type": "bool",
+        "default": null,
+        "doc": "Indicates if the operation was successful"
+      }
+    ],
+    "doc": "Result type for start operation"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_INDICATORSYNCUIEVENTSTREAM_NEXT",
+    "module": "retail_kline",
+    "interface": "IndicatorSyncUiEventStream",
+    "name": "next",
+    "is_async": true,
+    "args": [],
+    "return_type": "Option<IndicatorSyncUiEvent>",
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_COMPANYEXPERIENCEINTERACTOR_SHAREHOLDERS_REQUEST_GENERATION",
+    "module": "retail_kline",
+    "interface": "CompanyExperienceInteractor",
+    "name": "shareholders_request_generation",
+    "is_async": false,
+    "args": [],
+    "return_type": "u64",
+    "doc": "Current shareholder request epoch. Consumers use it to reject superseded events."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_TRADINGINDICATORINTERACTOR_GET_DATA",
+    "module": "retail_kline",
+    "interface": "TradingIndicatorInteractor",
+    "name": "get_data",
+    "is_async": false,
+    "args": [],
+    "return_type": "Option<TradingIndicatorResult>",
+    "doc": "Get cached trading indicator data. Call after `data_version` changes.\n\nReturns `None` if no data has been fetched yet."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEFORMATTER_FORMAT_TRAILING_CALLBACK_SPREAD",
+    "module": "retail_kline",
+    "interface": "KlineFormatter",
+    "name": "format_trailing_callback_spread",
+    "is_async": false,
+    "args": [
+      {
+        "name": "callback_spread",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "inst_type",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "side",
+        "type": "KLineOrderSide",
+        "default": null
+      }
+    ],
+    "return_type": "String",
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINENEWCOININTERACTOR_REMOVE_STATE_OBSERVER",
+    "module": "retail_kline",
+    "interface": "KlineNewCoinInteractor",
+    "name": "remove_state_observer",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Remove the state observer (UniFFI export).\n\nDEPRECATED: callback-based observation. Use `state_stream()` —\nit needs no removal call. Until migrated, every\n`set_state_observer` MUST be paired with this (or `release()`)\nat host lifecycle end, or the UniFFI handleMap pins the\nobserver and its host forever."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_KLINEFORMULASTATE",
+    "module": "retail_kline",
+    "name": "KLineFormulaState",
+    "fields": [
+      {
+        "name": "is_initialized",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "is_loading",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "init_error",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "formula",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "formula_coins",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "formula_title",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "candle_version",
+        "type": "u64",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "indicator_subscription_id",
+        "type": "u32",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "candle_revision",
+        "type": "u64",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "candle_update_type",
+        "type": "FormulaCandleUpdateType",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "candle_loading",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "candle_error",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "finished_first_candle_load",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "has_more_history",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "current_period",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "realtime_batch",
+        "type": "Vec<KlineQuoteCandleVo>",
+        "default": null,
+        "doc": "Bars accepted as tail-only this WS push (empty on forced-reload / History)."
+      },
+      {
+        "name": "realtime_seq",
+        "type": "u64",
+        "default": null,
+        "doc": "Bumps +1 on a tail-only realtime push, +1 on load_more (MoreHistory),\nand +2 on a non-tail-expressible push (forced full reload). Reset to 0\non History / start_candle."
+      },
+      {
+        "name": "candle_count",
+        "type": "u64",
+        "default": null,
+        "doc": "Total bars cached after the merge. Native reconciles its local count."
+      },
+      {
+        "name": "lean_history_push",
+        "type": "Vec<KlineQuoteCandleVo>",
+        "default": null,
+        "doc": "Legacy transport field retained for UniFFI compatibility. CandleStore is\nnow always authoritative, so this stays empty."
+      },
+      {
+        "name": "oldest_ts",
+        "type": "String",
+        "default": null,
+        "doc": "Earliest cached bar ts, retained as a diagnostic/compatibility cursor.\nPagination reads the CandleStore directly."
+      },
+      {
+        "name": "is_simulator",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEHALFSCREENINTERACTOR_REMOVE_STATE_OBSERVER",
+    "module": "retail_kline",
+    "interface": "KLineHalfScreenInteractor",
+    "name": "remove_state_observer",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Remove the state observer (UniFFI export).\n\nDEPRECATED: callback-based observation. Use `state_stream()` —\nit needs no removal call. Until migrated, every\n`set_state_observer` MUST be paired with this (or `release()`)\nat host lifecycle end, or the UniFFI handleMap pins the\nobserver and its host forever."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEBOTTOMINTERACTOR_ENSURE",
+    "module": "retail_kline",
+    "interface": "KlineBottomInteractor",
+    "name": "ensure",
+    "is_async": false,
+    "args": [
+      {
+        "name": "params",
+        "type": "KlineBottomParams",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Load all five biz lines for `params.inst_id` and publish the derived\nportrait decisions. Cancels any in-flight load on re-entry."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_PRICEALERTBRIDGE_PRICE_ALERT_MAXIMUM_COUNT",
+    "module": "retail_kline",
+    "interface": "PriceAlertBridge",
+    "name": "price_alert_maximum_count",
+    "is_async": false,
+    "args": [],
+    "return_type": "u32",
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINECONTEXTBRIDGE_GET_DELIVERY_TIMER",
+    "module": "retail_kline",
+    "interface": "KLineContextBridge",
+    "name": "get_delivery_timer",
+    "is_async": false,
+    "args": [],
+    "return_type": "Option<KLineDeliveryTimer>",
+    "doc": "Delivery/funding countdown timer for derivatives.\nOC: `context.deliveryTimer`"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEFORMULAINTERACTOR_SET_DEBUG",
+    "module": "retail_kline",
+    "interface": "KLineFormulaInteractor",
+    "name": "set_debug",
+    "is_async": false,
+    "args": [
+      {
+        "name": "_enabled",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Enable or disable debug logging.\n\nIn release builds this is a no-op, but the symbol must exist\nso that UniFFI bindings generated in debug mode continue to\nlink successfully against the release library."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_COMPANYPROFILEINTERACTOR_RELEASE",
+    "module": "retail_kline",
+    "interface": "CompanyProfileInteractor",
+    "name": "release",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Stop-gap teardown (TEMPORARY — target state is the stream APIs,\nwhich need no teardown call).\n\nOne idempotent call at host lifecycle end that breaks the\nUniFFI handleMap cycle for any registered callback observers,\nends active streams, and stops effects. On Kotlin call BEFORE\n`destroy()`. Includes `stop()`."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEECOCALENDARINTERACTOR_STOP",
+    "module": "retail_kline",
+    "interface": "KlineEcoCalendarInteractor",
+    "name": "stop",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Stop the interactor and cancel all effects.\n\nCalls the user's `InteractorLifecycle::stop()` implementation first,\nthen cancels all effects as a framework guarantee."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_MORETRADEINTERACTOR_REMOVE_STATE_OBSERVER",
+    "module": "retail_kline",
+    "interface": "MoreTradeInteractor",
+    "name": "remove_state_observer",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Remove the state observer (UniFFI export).\n\nDEPRECATED: callback-based observation. Use `state_stream()` —\nit needs no removal call. Until migrated, every\n`set_state_observer` MUST be paired with this (or `release()`)\nat host lifecycle end, or the UniFFI handleMap pins the\nobserver and its host forever."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_COMPANYEXPERIENCEINTERACTOR_FINANCIALS_REQUEST_GENERATION",
+    "module": "retail_kline",
+    "interface": "CompanyExperienceInteractor",
+    "name": "financials_request_generation",
+    "is_async": false,
+    "args": [],
+    "return_type": "u64",
+    "doc": ""
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_FUNC_CREATE_RETAIL_KLINE_PRICE_ALERT_INTERACTOR_FOR_CEFI",
+    "module": "retail_kline",
+    "name": "create_retail_kline_price_alert_interactor_for_cefi",
+    "is_async": false,
+    "args": [
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "biz_type",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "Arc<PriceAlertInteractor>",
+    "doc": "Create a PriceAlertInteractor for CeFi instruments"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_COMPANYSHAREHOLDERSINTERACTOR_REMOVE_UI_EVENT_OBSERVER",
+    "module": "retail_kline",
+    "interface": "CompanyShareholdersInteractor",
+    "name": "remove_ui_event_observer",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "DEPRECATED. Use `ui_event_stream()`; drop the returned stream\nwrapper to unsubscribe."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_KLINESOCIALMEDIAINFO",
+    "module": "retail_kline",
+    "name": "KlineSocialMediaInfo",
+    "fields": [
+      {
+        "name": "name",
+        "type": "String",
+        "default": null,
+        "doc": "Social media type (e.g., \"officialUrl\", \"whitePaper\", \"github\", \"twitter\")"
+      },
+      {
+        "name": "icon",
+        "type": "String",
+        "default": null,
+        "doc": "Icon URL for the social media platform"
+      },
+      {
+        "name": "url",
+        "type": "String",
+        "default": null,
+        "doc": "URL to the social media page"
+      },
+      {
+        "name": "title",
+        "type": "String",
+        "default": null,
+        "doc": "Display title for the social media link"
+      }
+    ],
+    "doc": "Social media information\n\nRepresents a social media link associated with the cryptocurrency."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_COMPANYEXPERIENCEINTERACTOR_ON_CLEAR",
+    "module": "retail_kline",
+    "interface": "CompanyExperienceInteractor",
+    "name": "on_clear",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Release all subject data, cancel effects, and detach observers."
+  },
+  {
+    "kind": "trait_method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINECONTEXTCALLBACK_ON_FUNDING_RATE_CHANGED",
+    "module": "retail_kline",
+    "interface": "KLineContextCallback",
+    "index": 7,
+    "name": "on_funding_rate_changed",
+    "is_async": false,
+    "args": [
+      {
+        "name": "funding_rate",
+        "type": "KLineFundingRate",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Funding rate changed (SWAP / perpetual contracts only)."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_KLINEACCOUNTCONFIG",
+    "module": "retail_kline",
+    "name": "KLineAccountConfig",
+    "fields": [
+      {
+        "name": "account_level",
+        "type": "String",
+        "default": null,
+        "doc": "Account level: `\"1\"` = Simple, `\"2\"` = SCC, `\"3\"` = MCC, `\"4\"` = PM.\nOC: `OKTAccountLevelType`."
+      },
+      {
+        "name": "position_mode",
+        "type": "String",
+        "default": null,
+        "doc": "Position mode: `\"long_short_mode\"` (hedge) or `\"net_mode\"` (one-way).\nOC: `OKTCangModeConfigCenter` / `tradeSetting.posMode`."
+      },
+      {
+        "name": "is_account_level_support_reverse",
+        "type": "bool",
+        "default": null,
+        "doc": "Whether the account supports reverse (close) positions.\n`false` during contract cooling period.\nOC: `OKTContractUserState.isDuringCoolingPeriod`."
+      },
+      {
+        "name": "is_last_price_type_position_pnl",
+        "type": "bool",
+        "default": null,
+        "doc": "Position P&L display mode: `true` = last price, `false` = mark price.\nOC: `tradeSetting.pnlPriceType`."
+      },
+      {
+        "name": "is_average_cost",
+        "type": "bool",
+        "default": null,
+        "doc": "Cost display mode: `true` = average cost, `false` = total cost.\nOC: `tradeSetting.spotAverageConfig`."
+      }
+    ],
+    "doc": "Account-level configuration snapshot for K-line display.\n\nOC: Replaces scattered property reads on `tradeSetting` / `accountConfig`."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_COMPANYFINANCIALSSTATE",
+    "module": "retail_kline",
+    "name": "CompanyFinancialsState",
+    "fields": [
+      {
+        "name": "is_loading",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": "Tiny state — the data flows through the UI events, so state only tracks the\ninitial load's in-flight status."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_FUNC_KLINE_INSTRUMENT_IS_ZERO_FEE",
+    "module": "retail_kline",
+    "name": "kline_instrument_is_zero_fee",
+    "is_async": false,
+    "args": [
+      {
+        "name": "biz_type",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "bool",
+    "doc": "Zero-fee badge flag (entity-level: maker & taker fees both \"0\").\nReturns `false` when the biz isn't loaded or the inst isn't found.\n\nOC: `instrument.zeroFee` (numeric-zero compare; the entity feed emits the\nliteral \"0\", so the canonical string compare matches cross-platform)."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_FUNC_KLINE_GET_CHARGE_CURRENCY_FOR_INST_FAMILY",
+    "module": "retail_kline",
+    "name": "kline_get_charge_currency_for_inst_family",
+    "is_async": false,
+    "args": [
+      {
+        "name": "biz_type",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "inst_family",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "Option<ChargeCurrencyRecord>",
+    "doc": "Get the charge currency config for a given inst-family.\n\nOC: `[biz getChargeCurrencyForInstFamily:instFamily]` — returns the\nquote/charge currency metadata (sign, display name, EEA display name,\netc.) used by K-line price labels.\n\nReturns `None` when:\n- `biz_type` is unknown or its biz is not initialised,\n- `inst_family` is empty or unknown.\n\nDelegates to `OkBizTrait::get_charge_currency_for_inst_family(Some(&inst_family))`\nand converts to the FFI-friendly [`ChargeCurrencyRecord`]."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINECOMPAREINTERACTOR_START",
+    "module": "retail_kline",
+    "interface": "KLineCompareInteractor",
+    "name": "start",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Start the interactor lifecycle.\n\nCalls the user's `InteractorLifecycle::start()` implementation.\nOverride that method to add custom startup behavior (e.g., initial data loads)."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_ETFALLOCATIONITEM",
+    "module": "retail_kline",
+    "name": "EtfAllocationItem",
+    "fields": [
+      {
+        "name": "code",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Stable code: ISO country (`US`), internal sector enum (`TECHNOLOGY`), or\nthe literal `OTHER` for the backend-aggregated remainder. Empty when a\nsector is unmappable (then `name` carries the raw vendor value)."
+      },
+      {
+        "name": "name",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Backend-localized (country) or enum-mapped (sector) display name; falls\nback to the raw FMP name on sector mapping failure."
+      },
+      {
+        "name": "weight_pct",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Raw weight (decimal); rendered as-is (the group sum may ≠ 100%)."
+      }
+    ],
+    "doc": "One allocation slice (country or sector). The backend has **already** sorted\nby `weightPct DESC`, capped to 6 (top-5 + one aggregated `OTHER`), and set\n`code == \"OTHER\"` for the aggregated slice — the client must not re-sort,\nre-cap, re-aggregate, or re-normalize."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINECOMPAREINTERACTOR_STATE",
+    "module": "retail_kline",
+    "interface": "KLineCompareInteractor",
+    "name": "state",
+    "is_async": false,
+    "args": [],
+    "return_type": "KLineCompareState",
+    "doc": "Get the current state (UniFFI export).\n\nReturns the External type (UniFFI-compatible)."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_INTERFACE_OKRUSTFUTUREFUTURESSPOTGAPDATAWITHOKFFIERROR",
+    "module": "retail_kline",
+    "name": "OKRustFutureFuturesSpotGapDataWithOKFFIError",
+    "trait_kind": 4,
+    "doc": "OKRustFuture wrapper generated for specific type (non-generic) with uniffi export"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEEXPLOREBOTSHALFSCREENINTERACTOR_INITIALIZE",
+    "module": "retail_kline",
+    "interface": "KLineExploreBotsHalfScreenInteractor",
+    "name": "initialize",
+    "is_async": false,
+    "args": [
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "biz_type",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "subscribe_ctx",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Initialize with instrument. Triggers ensureInit → loadBiz → context start."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_FUNC_CREATE_RETAIL_KLINE_TRADE_OVERLAY_INTERACTOR",
+    "module": "retail_kline",
+    "name": "create_retail_kline_trade_overlay_interactor",
+    "is_async": false,
+    "args": [],
+    "return_type": "Arc<KlineTradeOverlayInteractor>",
+    "doc": ""
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_INTERFACE_MORETRADEUIEVENTOBSERVER",
+    "module": "retail_kline",
+    "name": "MoreTradeUiEventObserver",
+    "trait_kind": 13,
+    "doc": "Deprecated UniFFI callback interface for observing UI events. Prefer the cycle-free `MoreTradeUiEventStream` returned by `interactor.ui_event_stream()`."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_COMPANYSTATEMENTSERIESPRESENTATION",
+    "module": "retail_kline",
+    "name": "CompanyStatementSeriesPresentation",
+    "fields": [
+      {
+        "name": "id",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "is_percent_bar",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "points",
+        "type": "Vec<CompanyStatementPointPresentation>",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": "One selectable statement chart series. `id` is stable and string-backed."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINENEWCOINUIEVENTSTREAM_NEXT",
+    "module": "retail_kline",
+    "interface": "KlineNewCoinUiEventStream",
+    "name": "next",
+    "is_async": true,
+    "args": [],
+    "return_type": "Option<KlineNewCoinUiEvent>",
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINENEWCOININTERACTOR_SET_DEBUG",
+    "module": "retail_kline",
+    "interface": "KlineNewCoinInteractor",
+    "name": "set_debug",
+    "is_async": false,
+    "args": [
+      {
+        "name": "_enabled",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Enable or disable debug logging.\n\nIn release builds this is a no-op, but the symbol must exist\nso that UniFFI bindings generated in debug mode continue to\nlink successfully against the release library."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_INTERFACE_PRICEALERTUIEVENTOBSERVER",
+    "module": "retail_kline",
+    "name": "PriceAlertUiEventObserver",
+    "trait_kind": 13,
+    "doc": "Deprecated UniFFI callback interface for observing UI events. Prefer the cycle-free `PriceAlertUiEventStream` returned by `interactor.ui_event_stream()`."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_INTERFACE_PRICEALERTUIEVENTSTREAM",
+    "module": "retail_kline",
+    "name": "PriceAlertUiEventStream",
+    "trait_kind": 4,
+    "doc": "Opt-in async event stream from `interactor.ui_event_stream()`.\nSingle-subscriber, latest-wins. `next()` resolves to `None` when the\ninteractor is dropped or a new subscription replaces this one."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_ENUM_INDICATORSYNCUIEVENT",
+    "module": "retail_kline",
+    "name": "IndicatorSyncUiEvent",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "SyncDownloadCompleted",
+        "discr": null,
+        "fields": [
+          {
+            "name": "synced_count",
+            "type": "u32",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "time_version",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "visible_states",
+            "type": "Vec<IndicatorVisibleState>",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": ""
+      },
+      {
+        "name": "SyncFailed",
+        "discr": null,
+        "fields": [
+          {
+            "name": "message",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": ""
+      }
+    ],
+    "doc": "Retained for source/ABI compatibility with clients built against the previous relay design.\nNew clients do not need to observe these events: the shared Repository updates render runtimes\ndirectly and atomically."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_ENUM_UPDATEKIND",
+    "module": "retail_kline",
+    "name": "UpdateKind",
+    "shape": 0,
+    "discr_type": "i32",
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Idle",
+        "discr": "0",
+        "fields": [],
+        "doc": "No update yet (fresh state)."
+      },
+      {
+        "name": "FullLoad",
+        "discr": "1",
+        "fields": [],
+        "doc": "Full list replaced (initial HTTP load or reload)."
+      },
+      {
+        "name": "NewPoint",
+        "discr": "2",
+        "fields": [],
+        "doc": "New confirmed point appended; UI may animate scroll."
+      },
+      {
+        "name": "ValueUpdate",
+        "discr": "3",
+        "fields": [],
+        "doc": "Last point value changed (unconfirmed push or same-ts replace)."
+      }
+    ],
+    "doc": "How the latest state update should be rendered.\n\nBest-effort: the state observer is signal-only, so UI may miss intermediate\ntransitions. Used as a hint for scroll/animation behavior."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_INTERFACE_CANDLEADJUSTMENTUIEVENTOBSERVER",
+    "module": "retail_kline",
+    "name": "CandleAdjustmentUiEventObserver",
+    "trait_kind": 13,
+    "doc": "Deprecated UniFFI callback interface for observing UI events. Prefer the cycle-free `CandleAdjustmentUiEventStream` returned by `interactor.ui_event_stream()`."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_INTERFACE_OKRUSTFUTURENEWSCAROUSELRESULTWITHOKFFIERROR",
+    "module": "retail_kline",
+    "name": "OKRustFutureNewsCarouselResultWithOKFFIError",
+    "trait_kind": 4,
+    "doc": "OKRustFuture wrapper generated for specific type (non-generic) with uniffi export"
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_FUTURESSPOTGAPDATA",
+    "module": "retail_kline",
+    "name": "FuturesSpotGapData",
+    "fields": [
+      {
+        "name": "dates",
+        "type": "Vec<String>",
+        "default": null,
+        "doc": "Timestamps"
+      },
+      {
+        "name": "futures_data",
+        "type": "Vec<String>",
+        "default": null,
+        "doc": "Futures close prices"
+      },
+      {
+        "name": "index_data",
+        "type": "Vec<String>",
+        "default": null,
+        "doc": "Index close prices"
+      }
+    ],
+    "doc": "Futures-Spot Gap data (combines futures and index candles)"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINECOMPAREINTERACTOR_SET_UI_EVENT_OBSERVER",
+    "module": "retail_kline",
+    "interface": "KLineCompareInteractor",
+    "name": "set_ui_event_observer",
+    "is_async": false,
+    "args": [
+      {
+        "name": "observer",
+        "type": "Arc<dyn CompareIndicatorUiEventObserver>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "DEPRECATED: callback-based observer. Use `ui_event_stream()` —\nthe callback observer pins the foreign object in UniFFI's\nstatic handleMap and produces a cross-language retain cycle\n(Android GC + iOS ARC)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_PRICEALERTBRIDGE_ACTIVATE_PRICE_ALERT",
+    "module": "retail_kline",
+    "interface": "PriceAlertBridge",
+    "name": "activate_price_alert",
+    "is_async": false,
+    "args": [
+      {
+        "name": "rule_id",
+        "type": "u64",
+        "default": null
+      },
+      {
+        "name": "source_type",
+        "type": "RetailKLinePriceAlertSourceType",
+        "default": null
+      },
+      {
+        "name": "active",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": "Arc<OKRustFutureboolWithOKFFIError>",
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_BIGDATACHARTINTERACTOR_START",
+    "module": "retail_kline",
+    "interface": "BigDataChartInteractor",
+    "name": "start",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Start the interactor lifecycle.\n\nCalls the user's `InteractorLifecycle::start()` implementation.\nOverride that method to add custom startup behavior (e.g., initial data loads)."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_KLINEUNLOCKPROGRESSREQ",
+    "module": "retail_kline",
+    "name": "KlineUnlockProgressReq",
+    "fields": [
+      {
+        "name": "ccy",
+        "type": "String",
+        "default": null,
+        "doc": "Currency symbol (e.g., \"BTC\", \"ETH\")"
+      },
+      {
+        "name": "cache_expire_seconds",
+        "type": "u64",
+        "default": null,
+        "doc": "HTTP cache expiration time in seconds (0 = no cache)"
+      }
+    ],
+    "doc": "Unlock progress request parameters\n\n# Fields\n\n- `ccy`: Currency symbol (e.g., \"BTC\", \"ETH\")\n- `cache_expire_seconds`: HTTP cache expiration time in seconds (0 = no cache)"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_OKRUSTFUTUREFUTURESSPOTGAPDATAWITHOKFFIERROR_START_WITH_CALLBACK",
+    "module": "retail_kline",
+    "interface": "OKRustFutureFuturesSpotGapDataWithOKFFIError",
+    "name": "start_with_callback",
+    "is_async": false,
+    "args": [
+      {
+        "name": "callback",
+        "type": "Box<dyn OKRustFutureCallback>",
+        "default": null
+      }
+    ],
+    "return_type": "Result<(), OKFFIError>",
+    "doc": "Start async task with uniffi callback interface"
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_INTERFACE_RETAILFORMULACANDLESBRIDGE",
+    "module": "retail_kline",
+    "name": "RetailFormulaCandlesBridge",
+    "trait_kind": 4,
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_OKRUSTFUTUREBUYSELLMARKERRESULTWITHOKFFIERROR_CANCEL",
+    "module": "retail_kline",
+    "interface": "OKRustFutureBuySellMarkerResultWithOKFFIError",
+    "name": "cancel",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Cancel running task"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_BIGDATACHARTINTERACTOR_STATE",
+    "module": "retail_kline",
+    "interface": "BigDataChartInteractor",
+    "name": "state",
+    "is_async": false,
+    "args": [],
+    "return_type": "BigDataChartState",
+    "doc": "Get the current state (UniFFI export).\n\nReturns the External type (UniFFI-compatible)."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_ENUM_KLINEUNLOCKPROGRESSSTATUS",
+    "module": "retail_kline",
+    "name": "KlineUnlockProgressStatus",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Unlocked",
+        "discr": "0",
+        "fields": [],
+        "doc": "Token is unlocked"
+      },
+      {
+        "name": "Locked",
+        "discr": "1",
+        "fields": [],
+        "doc": "Token is locked"
+      },
+      {
+        "name": "Untracked",
+        "discr": "2",
+        "fields": [],
+        "doc": "Token is untracked"
+      }
+    ],
+    "doc": "Unlock progress status\n\nRepresents the three possible states of token unlock progress.\nCorresponds to OKMKLineUnlockProgress in iOS."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEFORMATTER_FORMAT_POSITION_QUANTITY",
+    "module": "retail_kline",
+    "interface": "KlineFormatter",
+    "name": "format_position_quantity",
+    "is_async": false,
+    "args": [
+      {
+        "name": "pos",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "inst_type",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "price",
+        "type": "Option<String>",
+        "default": null
+      }
+    ],
+    "return_type": "String",
+    "doc": "Position cost-line quantity, aligned with V1\n`KlinePositionsUnitUtils.fmtAmt` / `fmtMarginPos`: rendered in the user's\nselected trade unit (contracts / coin / quote) via the instrument's\nunit-aware quantity formatter — NOT a hardcoded notional. `price` (live\nlast, falling back to avg) drives the unit conversions that need it (coin\ndisplay, inverse contracts); for the contracts unit it is ignored, so 5\ncontracts render as \"5\", matching V1."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEEXPLOREBOTSHALFSCREENINTERACTOR_SET_STATE_OBSERVER",
+    "module": "retail_kline",
+    "interface": "KLineExploreBotsHalfScreenInteractor",
+    "name": "set_state_observer",
+    "is_async": false,
+    "args": [
+      {
+        "name": "observer",
+        "type": "Arc<dyn InteractorStateChangeObserver>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Set a state observer (UniFFI export).\n\nDEPRECATED: callback-based observer. Use `state_stream()` —\nthe callback observer pins the foreign object in UniFFI's\nstatic handleMap and produces a cross-language retain cycle\n(Android GC + iOS ARC)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_PRICEFLOATWINDOWINTERACTOR_SET_DEBUG",
+    "module": "retail_kline",
+    "interface": "PriceFloatWindowInteractor",
+    "name": "set_debug",
+    "is_async": false,
+    "args": [
+      {
+        "name": "_enabled",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Enable or disable debug logging.\n\nIn release builds this is a no-op, but the symbol must exist\nso that UniFFI bindings generated in debug mode continue to\nlink successfully against the release library."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_INTERFACE_BIZINSTRUMENTPROVIDERBRIDGE",
+    "module": "retail_kline",
+    "name": "BizInstrumentProviderBridge",
+    "trait_kind": 4,
+    "doc": "Business Line Instrument Provider Bridge\n\nExposes UniFFI interface for loading instruments across all business lines\nand retrieving instruments by business type.\n\n# Example (Swift)\n```swift\n// Create bridge\nlet bridge = BizInstrumentProviderBridge.new(instId: \"BTC-USDT\", bizType: \"SPOT\")\n\n// Set callback (optional)\nbridge.setCallback(callback: myCallback)\n\n// Load all business lines\nlet future = bridge.load()\ntry await future.poll()\n\n// Get instrument ID for SWAP\nif let swapId = bridge.getInstId(bizType: \"SWAP\") {\nprint(\"SWAP: \\(swapId)\") // \"BTC-USDT-SWAP\"\n}\n\n// Get full instrument record\nif let record = bridge.getInstrumentRecord(bizType: \"SWAP\") {\nprint(\"inst_id: \\(record.instId)\")\nprint(\"tick_sz: \\(record.tickSz)\")\n}\n```"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_OKRUSTFUTURELEVERINTERVALRESULTWITHOKFFIERROR_GET_RESULT_STATUS",
+    "module": "retail_kline",
+    "interface": "OKRustFutureLeverIntervalResultWithOKFFIError",
+    "name": "get_result_status",
+    "is_async": false,
+    "args": [],
+    "return_type": "OKRustFutureStatus",
+    "doc": "Get current task status.\n\n# Returns\n- `NotReady` if the task hasn't produced a result yet\n- `Success` if the task completed successfully\n- `Failed` if the task completed with an error (includes cancellation)"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINESWIPINGTITLEINTERACTOR_SUBSCRIBE",
+    "module": "retail_kline",
+    "interface": "KlineSwipingTitleInteractor",
+    "name": "subscribe",
+    "is_async": false,
+    "args": [
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "inst_type",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "use_favorites",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Build the swiping-title list for `(inst_id, inst_type)`.\n\nWhen `use_favorites` is true and the page is not OPTION, the watchlist\nis consulted first; falls back to market-sort if fewer than 2 entries."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEDEPTHBRIDGE_START",
+    "module": "retail_kline",
+    "interface": "KLineDepthBridge",
+    "name": "start",
+    "is_async": false,
+    "args": [
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "grouping",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "callback",
+        "type": "Arc<dyn KLineDepthBridgeCallback>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Start depth subscription for an instrument.\n`grouping`: depth grouping level (e.g. `\"0.01\"`)."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_FUNC_KLINE_USD_TO_FIAT_AUTO",
+    "module": "retail_kline",
+    "name": "kline_usd_to_fiat_auto",
+    "is_async": false,
+    "args": [
+      {
+        "name": "usd_price",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "KLineFormattedPrice",
+    "doc": "Converts a USD price to local fiat with auto-determined precision.\nPrecision is chosen based on the converted value's magnitude.\n\nOC: `[[OKTUSDFiatChargeConvertor alloc] initWithUSDPrice:price]`\nUsed by: SpotProvider:70, SwapProvider:45, FuturesProvider:52, OptionProvider:93,\nLiteProvider:1227, IndexDataCenter:497\n\n# TRY-style premium rate\n\nOC's `OKTUSDFiatChargeConvertor` applies a per-currency premium rate when\nthe user's fiat is flagged premium (e.g. Turkish Lira's\n`usdToThisRatePremium`). core-trading's\n`USDToFiatAutoPrecisionConvertor::from_global_config` only reads\n`exchange_rate`, so this bridge constructs the convertor through\n[`super::lifecycle::build_usd_to_fiat_convertor`], which picks\n`usd_to_this_rate_premium` when `is_premium == true`. Output matches the\nOC path for premium currencies.\n\n# Known Limitations\n\n**`isOldExchangeRate`**: OC supports a legacy exchange rate fallback via\n`initWithUSDPrice:isOldExchangeRate:`. This is **not** supported in the\nRust convertor. Only the current exchange rate is used."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_BIGDATACHARTINTERACTOR_LOAD",
+    "module": "retail_kline",
+    "interface": "BigDataChartInteractor",
+    "name": "load",
+    "is_async": false,
+    "args": [
+      {
+        "name": "period",
+        "type": "Option<BigDataChartPeriod>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Unified load entry. Sets `current_period` (when a period is given) and\n`loading`, then dispatches on `chart_id` to the matching use case via the\n`Load` effect (`AlwaysCancel`, so a fresh load cancels the in-flight one).\n\n`period` is `None` for charts without a period selector (`FundingRate`);\nit must otherwise be one of [`BigDataChartState::periods`]. For the\nBuySellVolume chart, prefer [`BigDataChartActions::load_with_unit`] (this\nentry uses the default `Coin` unit)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_DRAWINGLINEINTERACTOR_STATE_STREAM",
+    "module": "retail_kline",
+    "interface": "DrawingLineInteractor",
+    "name": "state_stream",
+    "is_async": false,
+    "args": [],
+    "return_type": "Arc<InteractorStateStream>",
+    "doc": "Opt-in async state-change stream (cycle-free, signal-only).\nSingle-subscriber, latest-wins. `changed()` resolves `true` on\nchange (pull `state()` for the snapshot), `false` when the\ninteractor is released or a newer subscription replaces this one."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_INTERFACE_RETAILCANDLESBRIDGE",
+    "module": "retail_kline",
+    "name": "RetailCandlesBridge",
+    "trait_kind": 4,
+    "doc": ""
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_COMPANYETFALLOCATIONGROUPPRESENTATION",
+    "module": "retail_kline",
+    "name": "CompanyEtfAllocationGroupPresentation",
+    "fields": [
+      {
+        "name": "status",
+        "type": "String",
+        "default": null,
+        "doc": "`available` / `no_data`."
+      },
+      {
+        "name": "slices",
+        "type": "Vec<CompanyEtfAllocationSlicePresentation>",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": "One allocation group (donut + legend)."
+  },
+  {
+    "kind": "constructor",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_CONSTRUCTOR_FORMULACANDLESSIMPLIFIED_NEW",
+    "module": "retail_kline",
+    "interface": "FormulaCandlesSimplified",
+    "name": "new",
+    "is_async": false,
+    "args": [
+      {
+        "name": "calc_expression",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "inst_id_array",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "bar",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "is_demo_trading",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": "Arc<FormulaCandlesSimplified>",
+    "doc": "Create a new FormulaCandlesSimplified instance with individual parameters\n\nThis constructor builds the WebSocket URL internally, eliminating the need\nfor callers to construct the URL themselves.\n\n# Parameters\n* `calc_expression` - Calculation expression string (e.g., \"V0 + V1 - V2\")\n* `inst_id_array` - Instrument ID array as JSON string\n(e.g., `[[\"BTC-USDT\",\"SPOT\"],[\"ETH-USDT\",\"SPOT\"]]`)\n* `bar` - Bar/timeframe (e.g., \"1m\", \"5m\", \"15m\", \"1H\", \"1D\")\n* `is_demo_trading` - Whether the user is in demo trading mode"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINENEWCOININTROINTERACTOR_SET_DEBUG",
+    "module": "retail_kline",
+    "interface": "KlineNewCoinIntroInteractor",
+    "name": "set_debug",
+    "is_async": false,
+    "args": [
+      {
+        "name": "_enabled",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Enable or disable debug logging.\n\nIn release builds this is a no-op, but the symbol must exist\nso that UniFFI bindings generated in debug mode continue to\nlink successfully against the release library."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_DIVIDENDSPLITS",
+    "module": "retail_kline",
+    "name": "DividendSplits",
+    "fields": [
+      {
+        "name": "symbol",
+        "type": "Option<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "launch_date",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "Company launch / IPO date, e.g. `\"2010-06-29\"` — the wire key is `ipoDate`\non the dividend-splits response (the tab no longer borrows the profile\nendpoint). Kept as `launch_date` since the UI labels it \"Launch date\"."
+      },
+      {
+        "name": "dividends",
+        "type": "Option<DividendInfo>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "splits",
+        "type": "Vec<StockSplit>",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": "`GET /priapi/v5/rubik/public/tradfi/calendar/dividend-splits?ticker=`."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEEARNINGSEVENTINTERACTOR_STOP",
+    "module": "retail_kline",
+    "interface": "KlineEarningsEventInteractor",
+    "name": "stop",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Stop the interactor and cancel all effects.\n\nCalls the user's `InteractorLifecycle::stop()` implementation first,\nthen cancels all effects as a framework guarantee."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_OKRUSTFUTUREKLINEECONEVENTRESULTWITHOKFFIERROR_CANCEL",
+    "module": "retail_kline",
+    "interface": "OKRustFutureKlineEconEventResultWithOKFFIError",
+    "name": "cancel",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Cancel running task"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEECOCALENDARINTERACTOR_FETCH",
+    "module": "retail_kline",
+    "interface": "KlineEcoCalendarInteractor",
+    "name": "fetch",
+    "is_async": false,
+    "args": [
+      {
+        "name": "before_ms",
+        "type": "i64",
+        "default": null
+      },
+      {
+        "name": "after_ms",
+        "type": "i64",
+        "default": null
+      },
+      {
+        "name": "utc_zone",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "cache_expire_secs",
+        "type": "u64",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Fetch events covering `[before_ms, after_ms]` (Unix-ms). `utc_zone`\nis the user's offset (e.g. \"0\" / \"8\"). `cache_expire_secs = 0`\nbypasses the HTTP cache; pass `> 0` to reuse the cached response."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_FUNC_RESOLVE_RETAIL_KLINE_COMPANY_ENTRY_POLICY",
+    "module": "retail_kline",
+    "name": "resolve_retail_kline_company_entry_policy",
+    "is_async": false,
+    "args": [
+      {
+        "name": "subject",
+        "type": "CompanySubject",
+        "default": null
+      }
+    ],
+    "return_type": "CompanyEntryPolicy",
+    "doc": ""
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_INTERFACE_OKRUSTFUTUREKLINEECONEVENTRESULTWITHOKFFIERROR",
+    "module": "retail_kline",
+    "name": "OKRustFutureKlineEconEventResultWithOKFFIError",
+    "trait_kind": 4,
+    "doc": "OKRustFuture wrapper generated for specific type (non-generic) with uniffi export"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEHALFSCREENINTERACTOR_REMOVE_UI_EVENT_OBSERVER",
+    "module": "retail_kline",
+    "interface": "KLineHalfScreenInteractor",
+    "name": "remove_ui_event_observer",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "DEPRECATED. Use `ui_event_stream()`; drop the returned stream\nwrapper to unsubscribe."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_COMPANYEXPERIENCEINTERACTOR_ETF_HOLDINGS_REQUEST_GENERATION",
+    "module": "retail_kline",
+    "interface": "CompanyExperienceInteractor",
+    "name": "etf_holdings_request_generation",
+    "is_async": false,
+    "args": [],
+    "return_type": "u64",
+    "doc": ""
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_OKRUSTFUTUREUNLOCKPROGRESSRESULTWITHOKFFIERROR_GET_RESULT_STATUS",
+    "module": "retail_kline",
+    "interface": "OKRustFutureUnlockProgressResultWithOKFFIError",
+    "name": "get_result_status",
+    "is_async": false,
+    "args": [],
+    "return_type": "OKRustFutureStatus",
+    "doc": "Get current task status.\n\n# Returns\n- `NotReady` if the task hasn't produced a result yet\n- `Success` if the task completed successfully\n- `Failed` if the task completed with an error (includes cancellation)"
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_FUNC_KLINE_FORMAT_ORDER_PRICE",
+    "module": "retail_kline",
+    "name": "kline_format_order_price",
+    "is_async": false,
+    "args": [
+      {
+        "name": "price",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "side",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "KLineFormattedPrice",
+    "doc": "Format an order price with the instrument's tick_sz precision.\n\nOC: `[OKTradingConvertor convertPrice:order:]`.\n`side`: `\"buy\"` → rounds Down, `\"sell\"` → rounds Up (matches OC `priceRoundMode:`)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEPIPCONTEXTBRIDGE_STOP_WS",
+    "module": "retail_kline",
+    "interface": "KLinePipContextBridge",
+    "name": "stop_ws",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Stop WebSocket only, keeping cached ticker data for display.\nOC: replaces `[_pipContext stopWS]`."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEFORMATTER_FORMAT_SPOT_PNL_VALUE",
+    "module": "retail_kline",
+    "interface": "KlineFormatter",
+    "name": "format_spot_pnl_value",
+    "is_async": false,
+    "args": [
+      {
+        "name": "value",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "inst_type",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "String",
+    "doc": "Spot average-line PnL value. V1 (`formatCostPriceUSDValueToQuotePrice`)\nrenders it at the instrument's PRICE precision (e.g. 5 dp for DOGE), and\nthe chart adds the sign + thousands separator via `formatLocalized`. So\nemit a price-precision number with NO sign prefix here — a `+` would\ndouble up against the chart's own sign logic."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_MARKETCAPV2REQ",
+    "module": "retail_kline",
+    "name": "MarketCapV2Req",
+    "fields": [
+      {
+        "name": "inst_id",
+        "type": "String",
+        "default": null,
+        "doc": "Instrument id, e.g. `BTC-USDT`, `xTSLA-USDT`. Required, non-empty. Sent\nas the `instId` query parameter. Note this differs from v1, which sent a\nbare coin symbol (e.g. `BTC`)."
+      },
+      {
+        "name": "inst_type",
+        "type": "String",
+        "default": null,
+        "doc": "Instrument type. Required, non-empty. Sent as the `instType` query\nparameter."
+      },
+      {
+        "name": "from",
+        "type": "i64",
+        "default": null,
+        "doc": "Start time in milliseconds. `0` means unspecified — the parameter is\nomitted from the URL and the server applies its own window. `0` is a\nsentinel, not the year 1970.\n\nMeasured 2026-09-19 (BTC-USDT), as none of it is in a written contract: the\nomitted default is `to - 365d`, `from` is exclusive like `to`, and a window\nholding more than 1000 points is capped at 1000 with the OLD end truncated.\nA literal `from=0` on the wire hits that cap, which is why 0 must mean \"omit\"\nhere and never reach the URL."
+      },
+      {
+        "name": "to",
+        "type": "i64",
+        "default": null,
+        "doc": "End time in milliseconds. `0` means unspecified — the parameter is\nomitted from the URL and the server applies its default (now). `0` is a\nsentinel, not the year 1970."
+      },
+      {
+        "name": "cache_expire_seconds",
+        "type": "u64",
+        "default": null,
+        "doc": "HTTP cache expiration in seconds. `0` means no caching. Same meaning as\nv1; this is client-local and is not sent as an HTTP parameter."
+      }
+    ],
+    "doc": "Market cap v2 request parameters.\n\nOnly `inst_id`, `inst_type`, `from` and `to` are sent to the server;\n`cache_expire_seconds` is a client-local HTTP cache control (same meaning as\nv1), not an HTTP parameter. Granularity is intentionally not a field — v2\ndoes not send it (the server applies its default, currently `1D`)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_COMPANYDIVIDENDINTERACTOR_ON_CLEAR",
+    "module": "retail_kline",
+    "interface": "CompanyDividendInteractor",
+    "name": "on_clear",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Tear down: cancel the load and detach observers (native dealloc / leave)."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_KLINEBASECOININFOREQ",
+    "module": "retail_kline",
+    "name": "KlineBaseCoinInfoReq",
+    "fields": [
+      {
+        "name": "ccy",
+        "type": "String",
+        "default": null,
+        "doc": "Currency symbol (e.g., \"BTC\", \"ETH\")"
+      },
+      {
+        "name": "cache_expire_seconds",
+        "type": "u64",
+        "default": null,
+        "doc": "HTTP cache expiration time in seconds (0 = no cache)"
+      }
+    ],
+    "doc": "Base coin info request parameters\n\nThis struct represents the input parameters for fetching base coin information.\nURL: /priapi/v5/rubik/public/coin-info\n\n# Fields\n\n- `ccy`: Currency symbol (e.g., \"BTC\", \"ETH\")\n- `cache_expire_seconds`: HTTP cache expiration time in seconds (0 = no cache)"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_COMPANYSHAREHOLDERSINTERACTOR_START",
+    "module": "retail_kline",
+    "interface": "CompanyShareholdersInteractor",
+    "name": "start",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Start the interactor lifecycle.\n\nCalls the user's `InteractorLifecycle::start()` implementation.\nOverride that method to add custom startup behavior (e.g., initial data loads)."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_RECORD_KLINEBASECOININFODATA",
+    "module": "retail_kline",
+    "name": "KlineBaseCoinInfoData",
+    "fields": [
+      {
+        "name": "hot_rank",
+        "type": "String",
+        "default": null,
+        "doc": "Hot rank (popularity ranking)"
+      },
+      {
+        "name": "mar_cap_per",
+        "type": "String",
+        "default": null,
+        "doc": "Market cap percentage of total crypto market"
+      },
+      {
+        "name": "sel_num_per",
+        "type": "String",
+        "default": null,
+        "doc": "Percentage of users who favorited this coin"
+      },
+      {
+        "name": "market_cap_rank",
+        "type": "String",
+        "default": null,
+        "doc": "Market cap rank"
+      },
+      {
+        "name": "volume_market_cap_ratio",
+        "type": "String",
+        "default": null,
+        "doc": "Volume to market cap ratio"
+      },
+      {
+        "name": "his_high_price",
+        "type": "String",
+        "default": null,
+        "doc": "All-time high price"
+      },
+      {
+        "name": "his_high_price_ts",
+        "type": "String",
+        "default": null,
+        "doc": "Timestamp of all-time high price"
+      },
+      {
+        "name": "his_low_price",
+        "type": "String",
+        "default": null,
+        "doc": "All-time low price"
+      },
+      {
+        "name": "his_low_price_ts",
+        "type": "String",
+        "default": null,
+        "doc": "Timestamp of all-time low price"
+      },
+      {
+        "name": "pub_chain",
+        "type": "String",
+        "default": null,
+        "doc": "Public blockchain (may be empty if multiple or none)"
+      },
+      {
+        "name": "max_sup",
+        "type": "String",
+        "default": null,
+        "doc": "Maximum supply"
+      },
+      {
+        "name": "max_sup_mar",
+        "type": "String",
+        "default": null,
+        "doc": "Maximum supply market value"
+      },
+      {
+        "name": "support_token_unlock",
+        "type": "bool",
+        "default": null,
+        "doc": "Whether token unlock information is supported"
+      },
+      {
+        "name": "introduce",
+        "type": "String",
+        "default": null,
+        "doc": "Coin introduction/description"
+      },
+      {
+        "name": "icon",
+        "type": "String",
+        "default": null,
+        "doc": "Coin icon URL"
+      },
+      {
+        "name": "full_name",
+        "type": "String",
+        "default": null,
+        "doc": "Full name of the coin"
+      },
+      {
+        "name": "project",
+        "type": "String",
+        "default": null,
+        "doc": "Project symbol (e.g., \"BTC\")"
+      },
+      {
+        "name": "coin_allot",
+        "type": "Vec<KlineCoinAllotInfo>",
+        "default": null,
+        "doc": "Token allocation information"
+      },
+      {
+        "name": "selector",
+        "type": "Vec<String>",
+        "default": null,
+        "doc": "Sector/category tags"
+      },
+      {
+        "name": "agency",
+        "type": "Vec<KlineAgencyInfo>",
+        "default": null,
+        "doc": "Investment agencies/VCs"
+      },
+      {
+        "name": "social_media_list",
+        "type": "Vec<KlineSocialMediaInfo>",
+        "default": null,
+        "doc": "Social media links (official website, whitepaper, github, twitter, etc.)"
+      },
+      {
+        "name": "members",
+        "type": "Vec<KlineCoinMemberInfo>",
+        "default": null,
+        "doc": "Team members"
+      },
+      {
+        "name": "total_supply",
+        "type": "String",
+        "default": null,
+        "doc": "Total supply (new field from coin-info API, FR-1)"
+      },
+      {
+        "name": "fdv_coingecko",
+        "type": "String",
+        "default": null,
+        "doc": "Fully diluted valuation from CoinGecko (new field from coin-info API, FR-1)"
+      }
+    ],
+    "doc": "Base coin info data\n\nRepresents comprehensive information about a cryptocurrency.\nThis corresponds to OKKLineCoinBaseInfoModel in iOS."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_KLINEHALFSCREENINTERACTOR_FETCH_INDICATOR_VIEWPORT",
+    "module": "retail_kline",
+    "interface": "KLineHalfScreenInteractor",
+    "name": "fetch_indicator_viewport",
+    "is_async": true,
+    "args": [
+      {
+        "name": "subscription_id",
+        "type": "u32",
+        "default": null
+      },
+      {
+        "name": "expected_candle_revision",
+        "type": "u64",
+        "default": null
+      },
+      {
+        "name": "expected_params_version",
+        "type": "u64",
+        "default": null
+      },
+      {
+        "name": "start_index",
+        "type": "u64",
+        "default": null
+      },
+      {
+        "name": "end_index",
+        "type": "u64",
+        "default": null
+      }
+    ],
+    "return_type": "Result<KlineIndicatorDataFrameVo, OKFFIError>",
+    "doc": ""
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_INTERFACE_COMPANYDIVIDENDUIEVENTOBSERVER",
+    "module": "retail_kline",
+    "name": "CompanyDividendUiEventObserver",
+    "trait_kind": 13,
+    "doc": "Deprecated UniFFI callback interface for observing UI events. Prefer the cycle-free `CompanyDividendUiEventStream` returned by `interactor.ui_event_stream()`."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_PRICEALERTINTERACTOR_BATCH_DELETE_ALERTS",
+    "module": "retail_kline",
+    "interface": "PriceAlertInteractor",
+    "name": "batch_delete_alerts",
+    "is_async": false,
+    "args": [
+      {
+        "name": "source_type",
+        "type": "RetailKLinePriceAlertSourceType",
+        "default": null
+      },
+      {
+        "name": "rule_ids",
+        "type": "Vec<u64>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Delete multiple price alerts of a single source type.\n\nDeprecated: prefer [`Self::batch_delete_alert_groups`] — calling this repeatedly\nfor mixed source types loses batches (the MutateAlert effect is SkipIfRunning).\nKept with the original signature for UniFFI ABI compatibility."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_COMPANYSHAREHOLDERSINTERACTOR_STATE",
+    "module": "retail_kline",
+    "interface": "CompanyShareholdersInteractor",
+    "name": "state",
+    "is_async": false,
+    "args": [],
+    "return_type": "CompanyShareholdersState",
+    "doc": "Get the current state (UniFFI export).\n\nReturns the External type (UniFFI-compatible)."
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_OKRUSTFUTURECOMPANYAVAILABILITYCATEGORIESWITHOKFFIERROR_GET_RESULT_STATUS",
+    "module": "retail_kline",
+    "interface": "OKRustFutureCompanyAvailabilityCategoriesWithOKFFIError",
+    "name": "get_result_status",
+    "is_async": false,
+    "args": [],
+    "return_type": "OKRustFutureStatus",
+    "doc": "Get current task status.\n\n# Returns\n- `NotReady` if the task hasn't produced a result yet\n- `Success` if the task completed successfully\n- `Failed` if the task completed with an error (includes cancellation)"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_OKRUSTFUTURECOINNEWSRESULTWITHOKFFIERROR_GET_SUCCESS_RESULT",
+    "module": "retail_kline",
+    "interface": "OKRustFutureCoinNewsResultWithOKFFIError",
+    "name": "get_success_result",
+    "is_async": false,
+    "args": [],
+    "return_type": "Option<CoinNewsResult>",
+    "doc": "Get successful result (if any)"
+  },
+  {
+    "kind": "method",
+    "symbol": "UNIFFI_META_RETAIL_KLINE_METHOD_RETAILBIGDATABRIDGE_GET_ASSET_DISTRIBUTION",
+    "module": "retail_kline",
+    "interface": "RetailBigDataBridge",
+    "name": "get_asset_distribution",
+    "is_async": false,
+    "args": [
+      {
+        "name": "req",
+        "type": "AssetDistributionReq",
+        "default": null
+      }
+    ],
+    "return_type": "Arc<OKRustFutureAssetDistributionDataWithOKFFIError>",
+    "doc": "Get asset distribution data (Spot)\n\nFetches asset distribution data for spot trading, showing how different sizes\nof traders (extra large, large, mid, small) are buying and selling.\n\n# Parameters\n- `req`: Asset distribution request parameters (inst_id, period)\n\n# Returns\nA future that resolves to asset distribution data"
+  }
+]
