@@ -1,0 +1,812 @@
+/* ==========================================================================
+   OKX v6.194.0 100% UI Restoration Design System (OKDesign Dark Mode)
+   Extracted from resources.arsc & trading_bot_full_schema.rs
+   ========================================================================== */
+
+:root {
+  --okx-bg-primary: #0b0e11;
+  --okx-bg-secondary: #12151a;
+  --okx-bg-elevated: #171a21;
+  --okx-bg-card-hover: #1e222b;
+  --okx-bg-input: #1e222a;
+  --okx-bg-input-focus: #262b36;
+  --okx-text-primary: #f2f4f7;
+  --okx-text-secondary: #8e949e;
+  --okx-text-tertiary: #5d636e;
+  --okx-up-green: #00b865;
+  --okx-up-green-soft: rgba(0, 184, 101, 0.14);
+  --okx-down-red: #f5455c;
+  --okx-down-red-soft: rgba(245, 69, 92, 0.14);
+  --okx-accent-lime: #bcff2f;
+  --okx-accent-lime-soft: rgba(188, 255, 47, 0.14);
+  --okx-warning-amber: #ffb800;
+  --okx-warning-amber-soft: rgba(255, 184, 0, 0.14);
+  --okx-neutral-blue: #3b82f6;
+  --okx-neutral-blue-soft: rgba(59, 130, 246, 0.15);
+  --okx-border: #232730;
+  --okx-border-strong: #343a46;
+  --okx-radius-sm: 6px;
+  --okx-radius-md: 10px;
+  --okx-radius-lg: 14px;
+  --okx-font: -apple-system, BlinkMacSystemFont, "HarmonyOS Sans", "Inter", "PingFang SC", sans-serif;
+  --okx-mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--okx-bg-primary);
+  color: var(--okx-text-primary);
+  font-family: var(--okx-font);
+  font-size: 13px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+  font-family: var(--okx-mono);
+}
+
+/* Top Global App Header */
+.app-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 18px;
+  background: #07090b;
+  border-bottom: 1px solid var(--okx-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.brand-cluster {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.okx-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: #fff;
+  background: #000;
+  border: 1px solid var(--okx-border-strong);
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+
+.okx-logo span {
+  color: var(--okx-accent-lime);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.mode-switch-pills {
+  display: flex;
+  background: var(--okx-bg-input);
+  padding: 2px;
+  border-radius: 8px;
+  gap: 2px;
+}
+
+.mode-pill {
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: var(--okx-text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.mode-pill.active {
+  background: var(--okx-bg-elevated);
+  color: var(--okx-text-primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.evidence-badge {
+  background: var(--okx-accent-lime-soft);
+  color: var(--okx-accent-lime);
+  border: 1px solid rgba(188, 255, 47, 0.35);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Main App Container (Supports Split Workstation & Mobile Frame Modes) */
+.app-shell {
+  max-width: 1560px;
+  margin: 0 auto;
+  padding: 12px 16px 76px;
+}
+
+.app-shell.mobile-frame-mode {
+  max-width: 440px;
+  border-left: 1px solid var(--okx-border-strong);
+  border-right: 1px solid var(--okx-border-strong);
+  min-height: calc(100vh - 54px);
+  background: var(--okx-bg-primary);
+}
+
+/* UnifyTrade Header Bar */
+.unify-trade-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--okx-bg-secondary);
+  border: 1px solid var(--okx-border);
+  border-radius: var(--okx-radius-md);
+  padding: 10px 14px;
+  margin-bottom: 12px;
+}
+
+.pair-selector-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pair-select {
+  background: var(--okx-bg-input);
+  color: var(--okx-text-primary);
+  border: 1px solid var(--okx-border-strong);
+  padding: 7px 12px;
+  border-radius: var(--okx-radius-sm);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ticker-strip {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.last-px-large {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--okx-up-green);
+}
+
+.change-badge {
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.change-badge.up {
+  background: var(--okx-up-green-soft);
+  color: var(--okx-up-green);
+}
+
+.change-badge.down {
+  background: var(--okx-down-red-soft);
+  color: var(--okx-down-red);
+}
+
+.ticker-meta {
+  display: flex;
+  gap: 14px;
+  color: var(--okx-text-secondary);
+  font-size: 11px;
+}
+
+.ticker-meta strong {
+  color: var(--okx-text-primary);
+}
+
+/* 14-Bot Category & Strategy Selector Bar */
+.bot-category-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.category-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--okx-border);
+  padding-bottom: 8px;
+}
+
+.cat-tab {
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--okx-text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cat-tab.active {
+  background: var(--okx-bg-elevated);
+  color: var(--okx-text-primary);
+  border-color: var(--okx-border-strong);
+}
+
+.bot-pills-scroll {
+  display: flex;
+  gap: 7px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.bot-pill-btn {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 13px;
+  background: var(--okx-bg-secondary);
+  border: 1px solid var(--okx-border);
+  border-radius: var(--okx-radius-sm);
+  color: var(--okx-text-secondary);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.bot-pill-btn:hover {
+  background: var(--okx-bg-card-hover);
+  color: var(--okx-text-primary);
+}
+
+.bot-pill-btn.active {
+  background: var(--okx-bg-input-focus);
+  color: var(--okx-text-primary);
+  border-color: var(--okx-accent-lime);
+  box-shadow: 0 0 0 1px rgba(188, 255, 47, 0.25);
+}
+
+.bot-pill-btn .bot-tag {
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: var(--okx-bg-primary);
+  color: var(--okx-accent-lime);
+}
+
+/* Primary Workstation Grid (Left Form + Right Kline & Orderbook/Preview) */
+.workstation-grid {
+  display: grid;
+  grid-template-columns: 430px 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.app-shell.mobile-frame-mode .workstation-grid {
+  grid-template-columns: 1fr;
+}
+
+.panel-card {
+  background: var(--okx-bg-secondary);
+  border: 1px solid var(--okx-border);
+  border-radius: var(--okx-radius-md);
+  padding: 14px;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--okx-border);
+}
+
+.panel-title {
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Sub-Mode Tabs (AI Strategy vs Manual vs Easy vs Marketplace) */
+.submode-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: var(--okx-bg-input);
+  padding: 3px;
+  border-radius: var(--okx-radius-sm);
+  margin-bottom: 12px;
+}
+
+.submode-tab {
+  padding: 7px 6px;
+  text-align: center;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  color: var(--okx-text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.submode-tab.active {
+  background: var(--okx-bg-elevated);
+  color: var(--okx-text-primary);
+}
+
+/* Direction Selector (Long / Short / Neutral) */
+.direction-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.dir-btn {
+  padding: 8px 6px;
+  border-radius: var(--okx-radius-sm);
+  border: 1px solid var(--okx-border);
+  background: var(--okx-bg-input);
+  color: var(--okx-text-secondary);
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.dir-btn.active-long {
+  background: var(--okx-up-green);
+  border-color: var(--okx-up-green);
+  color: #fff;
+}
+
+.dir-btn.active-short {
+  background: var(--okx-down-red);
+  border-color: var(--okx-down-red);
+  color: #fff;
+}
+
+.dir-btn.active-neutral {
+  background: var(--okx-neutral-blue);
+  border-color: var(--okx-neutral-blue);
+  color: #fff;
+}
+
+/* Form Controls */
+.form-section {
+  margin-bottom: 12px;
+}
+
+.form-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--okx-text-secondary);
+  margin-bottom: 6px;
+}
+
+.form-row-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  background: var(--okx-bg-input);
+  border: 1px solid var(--okx-border);
+  border-radius: var(--okx-radius-sm);
+  padding: 0 10px;
+  height: 38px;
+  transition: border-color 0.15s;
+}
+
+.input-box:focus-within {
+  border-color: #fff;
+  background: var(--okx-bg-input-focus);
+}
+
+.input-box input,
+.input-box select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--okx-text-primary);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--okx-mono);
+}
+
+.input-suffix {
+  color: var(--okx-text-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  margin-left: 6px;
+  white-space: nowrap;
+}
+
+/* Percentage Slider Pills (25% / 50% / 75% / 100%) */
+.pct-Quick-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  margin-top: 6px;
+}
+
+.pct-chip {
+  padding: 4px 0;
+  border-radius: 4px;
+  border: 1px solid var(--okx-border);
+  background: var(--okx-bg-input);
+  color: var(--okx-text-secondary);
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.pct-chip:hover {
+  border-color: var(--okx-text-primary);
+  color: var(--okx-text-primary);
+}
+
+/* AI Tier Cards */
+.ai-tier-card {
+  background: var(--okx-bg-elevated);
+  border: 1px solid var(--okx-border);
+  border-radius: var(--okx-radius-sm);
+  padding: 11px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.ai-tier-card:hover,
+.ai-tier-card.selected {
+  border-color: var(--okx-accent-lime);
+  background: var(--okx-bg-card-hover);
+}
+
+.ai-tier-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.ai-apy {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--okx-up-green);
+}
+
+/* Summary Key-Value Card */
+.calc-summary-card {
+  background: var(--okx-bg-elevated);
+  border: 1px solid var(--okx-border);
+  border-radius: var(--okx-radius-sm);
+  padding: 10px 12px;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+}
+
+.summary-row .label {
+  color: var(--okx-text-secondary);
+}
+
+.summary-row .val {
+  font-weight: 600;
+  font-family: var(--okx-mono);
+}
+
+.alert-banner {
+  padding: 8px 10px;
+  border-radius: var(--okx-radius-sm);
+  font-size: 11.5px;
+  margin-bottom: 10px;
+}
+
+.alert-banner.error {
+  background: var(--okx-down-red-soft);
+  color: var(--okx-down-red);
+  border: 1px solid rgba(245, 69, 92, 0.35);
+}
+
+.alert-banner.warning {
+  background: var(--okx-warning-amber-soft);
+  color: var(--okx-warning-amber);
+  border: 1px solid rgba(255, 184, 0, 0.35);
+}
+
+.primary-submit-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--okx-radius-sm);
+  border: none;
+  background: var(--okx-up-green);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.primary-submit-btn.short-mode {
+  background: var(--okx-down-red);
+}
+
+.primary-submit-btn:hover {
+  opacity: 0.92;
+}
+
+/* K-Line Canvas & Overlay Legend */
+.kline-canvas-wrap {
+  position: relative;
+  background: #080a0d;
+  border: 1px solid var(--okx-border);
+  border-radius: var(--okx-radius-sm);
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+#botKlineCanvas {
+  display: block;
+  width: 100%;
+  height: 340px;
+}
+
+.kline-overlay-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 8px 12px;
+  background: var(--okx-bg-elevated);
+  border-top: 1px solid var(--okx-border);
+  font-size: 11px;
+  color: var(--okx-text-secondary);
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+/* Tables (DCA Ladder, Running Bots, Sub-Orders) */
+.data-table-wrap {
+  overflow-x: auto;
+}
+
+.okx-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.okx-table th {
+  text-align: left;
+  padding: 8px 10px;
+  color: var(--okx-text-secondary);
+  font-weight: 600;
+  border-bottom: 1px solid var(--okx-border);
+  white-space: nowrap;
+}
+
+.okx-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--okx-border);
+  font-family: var(--okx-mono);
+  white-space: nowrap;
+}
+
+/* Running Bot Cards */
+.running-bots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.bot-card {
+  background: var(--okx-bg-elevated);
+  border: 1px solid var(--okx-border);
+  border-radius: var(--okx-radius-md);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bot-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.bot-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 4px;
+}
+
+.chip-tag {
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--okx-bg-input);
+  color: var(--okx-text-secondary);
+}
+
+.chip-tag.long {
+  background: var(--okx-up-green-soft);
+  color: var(--okx-up-green);
+}
+
+.chip-tag.short {
+  background: var(--okx-down-red-soft);
+  color: var(--okx-down-red);
+}
+
+.chip-tag.voucher {
+  background: var(--okx-warning-amber-soft);
+  color: var(--okx-warning-amber);
+}
+
+.bot-metrics-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 8px 0;
+  border-top: 1px solid var(--okx-border);
+  border-bottom: 1px solid var(--okx-border);
+}
+
+.metric-cell .m-label {
+  font-size: 11px;
+  color: var(--okx-text-secondary);
+}
+
+.metric-cell .m-val {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: var(--okx-mono);
+  margin-top: 2px;
+}
+
+.bot-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.action-btn {
+  flex: 1 1 auto;
+  padding: 6px 10px;
+  border-radius: var(--okx-radius-sm);
+  border: 1px solid var(--okx-border-strong);
+  background: var(--okx-bg-input);
+  color: var(--okx-text-primary);
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.action-btn:hover {
+  border-color: var(--okx-accent-lime);
+}
+
+.action-btn.danger {
+  color: var(--okx-down-red);
+  border-color: rgba(245, 69, 92, 0.4);
+}
+
+/* Modal / Bottom Sheet Overlay */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 16px;
+}
+
+.modal-backdrop.open {
+  display: flex;
+}
+
+.modal-sheet {
+  background: var(--okx-bg-secondary);
+  border: 1px solid var(--okx-border-strong);
+  border-radius: var(--okx-radius-lg);
+  width: 100%;
+  max-width: 780px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 18px;
+}
+
+/* Bottom Navigation Bar (5 Tabs matching OKX MainActivity) */
+.bottom-navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 58px;
+  background: #080a0d;
+  border-top: 1px solid var(--okx-border);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 120;
+}
+
+.nav-tab {
+  background: transparent;
+  border: none;
+  color: var(--okx-text-secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.nav-tab.active {
+  color: var(--okx-text-primary);
+}
+
+.nav-tab.active .nav-dot {
+  background: var(--okx-accent-lime);
+}
+
+.nav-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: transparent;
+}
