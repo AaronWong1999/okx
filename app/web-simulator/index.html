@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OKX v6.194.0 — 策略交易 (Strategy Bots) 100% 界面与逻辑逆向还原工作台</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Global Workstation Top Bar -->
+  <header class="workstation-topbar">
+    <div class="brand-cluster">
+      <div class="okx-logo">
+        OKX 策略BOT全集 <span>v6.194.0 · 15目录 / 239实机截图 1:1 还原</span>
+      </div>
+      <span style="font-size: 12px; color: #a0a0a0;">
+        REA Binary Evidence + Rust <code>libOKCore.so</code> (4,962 Symbols) + 67 DEX (10,290 Classes)
+      </span>
+    </div>
+    <div class="topbar-actions">
+      <button class="top-action-btn" id="openCreateStrategyDrawerBtn">➕ 弹出「创建策略」总入口抽屉</button>
+      <button class="top-action-btn" id="toggleGalleryBtn">📸 隐藏/显示 239 张实机截图对照栏</button>
+      <button class="top-action-btn" id="toggleThemeBtn">🌗 切换浅色(截图同款)/深色主题</button>
+    </div>
+  </header>
+
+  <!-- 15 Screenshot Folders Navigation Bar (00 to 14) -->
+  <nav class="folder-nav-strip">
+    <div class="folder-pills-scroll" id="folderNavContainer"></div>
+  </nav>
+
+  <!-- Main 3-Column Comparison & Simulation Workspace -->
+  <main class="main-workspace" id="mainWorkspace">
+    <!-- Column 1: 1:1 OKX Mobile App Interactive Simulator -->
+    <section class="phone-simulator-frame" id="phoneFrame">
+      <!-- iOS/Android Recording Status Bar + Dynamic Island -->
+      <div class="phone-statusbar">
+        <span id="phoneClock">22:56</span>
+        <div class="dynamic-island">
+          <div class="recording-dot"></div>
+        </div>
+        <span style="font-size: 12px;">📶 5G 🔋100</span>
+      </div>
+
+      <!-- Dynamic Phone Screen Content (Header + Scrollable Body + Sticky Bottom CTA) -->
+      <div id="phoneScreenMount" style="display: flex; flex-direction: column; flex: 1;"></div>
+    </section>
+
+    <!-- Column 2: Interactive K-Line (EMA/MA + Bot Overlay), Math Engine & Rust/DEX Architecture Inspector -->
+    <section style="display: flex; flex-direction: column;">
+      <!-- Strategy K-Line Card -->
+      <div class="ws-card">
+        <div class="ws-card-header">
+          <div class="ws-card-title">
+            <span>📈 策略 K 线图 (`EMA / MA` 指标与网格/加仓/拆单可视化图层)</span>
+          </div>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <button class="okx-chip-option" style="padding: 4px 10px; font-size: 11.5px;" id="simPriceDropBtn">📉 模拟价格下跌 -1.5%</button>
+            <button class="okx-chip-option" style="padding: 4px 10px; font-size: 11.5px;" id="simPriceRiseBtn">📈 模拟价格上涨 +1.5%</button>
+            <button class="okx-chip-option" style="padding: 4px 10px; font-size: 11.5px;" id="simPriceResetBtn">🔄 还原录屏价格</button>
+          </div>
+        </div>
+        <div class="kline-canvas-container">
+          <canvas id="botKlineCanvas" width="760" height="290"></canvas>
+        </div>
+        <div id="klineMetaStrip" style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 10px; font-size: 12px; color: var(--okx-text-secondary);"></div>
+      </div>
+
+      <!-- Real-Time Mathematical & Risk Control Output Card -->
+      <div class="ws-card">
+        <div class="ws-card-header">
+          <div class="ws-card-title">
+            <span>🧮 实时数学模型、参数校验与风控引擎计算详情</span>
+          </div>
+          <span class="badge-lime" id="activeRustSymbolBadge">SpotGridInteractor</span>
+        </div>
+        <div id="mathInspectorBody"></div>
+      </div>
+
+      <!-- Active Running Bots Simulation Dock -->
+      <div class="ws-card">
+        <div class="ws-card-header">
+          <div class="ws-card-title">
+            <span>🤖 我的策略 · 实时运行与撮合模拟 (`我的策略 / 我的跟单`)</span>
+            <span class="badge-lime" id="runningBotsCount">4 运行中</span>
+          </div>
+          <button class="okx-chip-option" style="padding: 4px 10px; font-size: 11.5px;" id="stepSimulationBtn">⚡ 推进一轮行情撮合</button>
+        </div>
+        <div id="runningBotsList"></div>
+      </div>
+    </section>
+
+    <!-- Column 3: Native 1180x2556 Screenshot Reference Gallery from `/策略BOT截图/` -->
+    <aside class="ws-card" id="screenshotGalleryAside">
+      <div class="ws-card-header">
+        <div class="ws-card-title">
+          <span>📸 实机录屏截图对照 (<span id="galleryFolderTitle">01_现货网格</span>)</span>
+        </div>
+        <span class="badge-soft" id="galleryCountBadge">16 张</span>
+      </div>
+      <p style="font-size: 12px; color: var(--okx-text-secondary); margin-bottom: 10px;" id="galleryFolderDesc">
+        点击任意截图可放大查看 `1180×2556` 原生分辨率细节，或一键将截图中的实测参数同步到左侧模拟器。
+      </p>
+      <div class="screenshot-gallery-grid" id="screenshotGalleryGrid"></div>
+    </aside>
+  </main>
+
+  <!-- Interactive Modal / Bottom Sheet Backdrop -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal-sheet" id="modalSheetContent"></div>
+  </div>
+
+  <script src="screenshots_manifest.js"></script>
+  <script src="bot_catalog_data.js"></script>
+  <script src="bot_math_engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

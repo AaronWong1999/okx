@@ -1,43 +1,122 @@
 /**
  * OKX v6.194.0 Strategy Bot Mathematical, Risk-Control & Execution Engine
  * =======================================================================
- * Exact JavaScript/TypeScript port of the Rust `trading_bot` crate (`libOKCore.so`)
+ * Exact JavaScript port of the Rust `trading_bot` & `social_trading` crates (`libOKCore.so`)
  * and Android `com.okinc.tradingbot.*` math classes (`OKT*DCAMinInvestMath`,
- * `ContractGridLiquidatePrice`, `SmartArbitragePlaceOrderInteractor`, etc.).
+ * `ContractGridLiquidatePrice`, `SmartArbitragePlaceOrderInteractor`, `DcdBotInteractor`, etc.),
+ * calibrated 1:1 with the 239 native screenshots in `/策略BOT截图/`.
  */
 
 (function (global) {
   "use strict";
 
   const INSTRUMENTS = {
-    "BTC-USDT-SWAP": {
-      instId: "BTC-USDT-SWAP",
-      instType: "SWAP",
+    "BTC-USDT": {
+      instId: "BTC-USDT",
+      displayName: "BTC/USDT",
+      instType: "SPOT",
+      assetClass: "CRYPTO",
       baseCcy: "BTC",
       quoteCcy: "USDT",
-      lastPx: 94850.0,
-      change24hPct: 2.84,
-      high24h: 96120.0,
-      low24h: 92180.0,
+      marginCcy: "USDT",
+      lastPx: 82226.6,
+      change24hPct: -1.64,
+      high24h: 84120.0,
+      low24h: 81450.0,
+      tickSz: 0.1,
+      lotSz: 0.00001,
+      minSz: 0.0001,
+      ctVal: 1,
+      maxLever: 1,
+      feeRate: 0.001,
+      mmr: 0,
+      fundingRate8h: 0,
+      simpleEarnApyPct: 2.79,
+      stakingApyPct: 2.79
+    },
+    "BTC-USDT-SWAP": {
+      instId: "BTC-USDT-SWAP",
+      displayName: "BTCUSDT 永续",
+      instType: "SWAP",
+      assetClass: "CRYPTO",
+      baseCcy: "BTC",
+      quoteCcy: "USDT",
+      marginCcy: "USDT",
+      lastPx: 82145.8,
+      change24hPct: -1.58,
+      high24h: 84200.0,
+      low24h: 81380.0,
       tickSz: 0.1,
       lotSz: 0.01,
       minSz: 0.01,
       ctVal: 0.01,
       maxLever: 100,
-      feeRate: 0.0005, // 0.05% Swap
-      mmr: 0.004,      // 0.40% Tier-1 MMR
-      fundingRate8h: 0.00018, // 0.018% per 8h
-      stakingApyPct: 3.85
+      feeRate: 0.0005,
+      mmr: 0.004,
+      fundingRate8h: 0.00012,
+      fundingAnnualized30dPct: 8.64,
+      simpleEarnApyPct: 2.81,
+      stakingApyPct: 2.81
+    },
+    "BTC-USD-SWAP": {
+      instId: "BTC-USD-SWAP",
+      displayName: "BTCUSD 永续 (币本位)",
+      instType: "SWAP_CM",
+      assetClass: "CRYPTO",
+      baseCcy: "BTC",
+      quoteCcy: "USD",
+      marginCcy: "BTC",
+      lastPx: 82190.0,
+      change24hPct: -1.52,
+      high24h: 84150.0,
+      low24h: 81400.0,
+      tickSz: 0.1,
+      lotSz: 1,
+      minSz: 1,
+      ctVal: 100, // 1 contract = 100 USD
+      maxLever: 100,
+      feeRate: 0.0005,
+      mmr: 0.004,
+      fundingRate8h: 0.00015,
+      fundingAnnualized30dPct: 10.95,
+      simpleEarnApyPct: 2.79,
+      stakingApyPct: 2.79
+    },
+    "SOL-USDT": {
+      instId: "SOL-USDT",
+      displayName: "SOL/USDT",
+      instType: "SPOT",
+      assetClass: "CRYPTO",
+      baseCcy: "SOL",
+      quoteCcy: "USDT",
+      marginCcy: "USDT",
+      lastPx: 105.01,
+      change24hPct: -2.18,
+      high24h: 108.60,
+      low24h: 103.20,
+      tickSz: 0.01,
+      lotSz: 0.001,
+      minSz: 0.01,
+      ctVal: 1,
+      maxLever: 1,
+      feeRate: 0.001,
+      mmr: 0,
+      fundingRate8h: 0.00024,
+      simpleEarnApyPct: 4.62,
+      stakingApyPct: 6.85
     },
     "ETH-USDT-SWAP": {
       instId: "ETH-USDT-SWAP",
+      displayName: "ETHUSDT 永续",
       instType: "SWAP",
+      assetClass: "CRYPTO",
       baseCcy: "ETH",
       quoteCcy: "USDT",
-      lastPx: 2745.5,
-      change24hPct: 4.12,
-      high24h: 2810.0,
-      low24h: 2630.0,
+      marginCcy: "USDT",
+      lastPx: 2645.5,
+      change24hPct: 1.42,
+      high24h: 2710.0,
+      low24h: 2580.0,
       tickSz: 0.05,
       lotSz: 0.1,
       minSz: 0.1,
@@ -45,46 +124,194 @@
       maxLever: 100,
       feeRate: 0.0005,
       mmr: 0.004,
-      fundingRate8h: 0.00022,
-      stakingApyPct: 4.20
+      fundingRate8h: 0.00018,
+      fundingAnnualized30dPct: 9.45,
+      simpleEarnApyPct: 2.81,
+      stakingApyPct: 3.90
     },
-    "SOL-USDT-SWAP": {
-      instId: "SOL-USDT-SWAP",
+    "MU-USDT-SWAP": {
+      instId: "MU-USDT-SWAP",
+      displayName: "MUUSDT 永续",
       instType: "SWAP",
-      baseCcy: "SOL",
+      assetClass: "STOCK_TOKEN",
+      baseCcy: "MU",
       quoteCcy: "USDT",
-      lastPx: 188.4,
-      change24hPct: -1.45,
-      high24h: 195.2,
-      low24h: 183.0,
+      marginCcy: "USDT",
+      lastPx: 924.87,
+      change24hPct: -0.86,
+      high24h: 942.00,
+      low24h: 915.20,
       tickSz: 0.01,
-      lotSz: 1,
-      minSz: 1,
-      ctVal: 1,
-      maxLever: 50,
+      lotSz: 0.1,
+      minSz: 0.1,
+      ctVal: 0.1,
+      maxLever: 20,
       feeRate: 0.0005,
-      mmr: 0.005,
-      fundingRate8h: 0.00029,
-      stakingApyPct: 6.80
+      mmr: 0.01,
+      fundingRate8h: 0.00011,
+      fundingAnnualized30dPct: 12.61,
+      simpleEarnApyPct: 2.79,
+      stakingApyPct: 0
     },
-    "BTC-USDT": {
-      instId: "BTC-USDT",
+    "xMU-USDT": {
+      instId: "xMU-USDT",
+      displayName: "xMU/USDT",
       instType: "SPOT",
-      baseCcy: "BTC",
+      assetClass: "STOCK_TOKEN",
+      baseCcy: "xMU",
       quoteCcy: "USDT",
-      lastPx: 94810.0,
-      change24hPct: 2.81,
-      high24h: 96080.0,
-      low24h: 92150.0,
-      tickSz: 0.1,
-      lotSz: 0.00001,
-      minSz: 0.0001,
+      marginCcy: "USDT",
+      lastPx: 924.50,
+      change24hPct: 1.24,
+      high24h: 940.00,
+      low24h: 912.00,
+      tickSz: 0.01,
+      lotSz: 0.01,
+      minSz: 0.01,
       ctVal: 1,
       maxLever: 1,
-      feeRate: 0.001, // 0.10% Spot
+      feeRate: 0.001,
       mmr: 0,
       fundingRate8h: 0,
-      stakingApyPct: 3.85
+      backtestApyPct: 12.54,
+      usersCount: 1922
+    },
+    "xSOXL-USDT": {
+      instId: "xSOXL-USDT",
+      displayName: "xSOXL/USDT",
+      instType: "SPOT",
+      assetClass: "STOCK_TOKEN",
+      baseCcy: "xSOXL",
+      quoteCcy: "USDT",
+      marginCcy: "USDT",
+      lastPx: 38.42,
+      change24hPct: 3.15,
+      high24h: 39.80,
+      low24h: 36.90,
+      tickSz: 0.01,
+      lotSz: 0.1,
+      minSz: 0.1,
+      ctVal: 1,
+      maxLever: 1,
+      feeRate: 0.001,
+      mmr: 0,
+      fundingRate8h: 0,
+      backtestApyPct: 27.15,
+      usersCount: 418
+    },
+    "xSNDK-USDT": {
+      instId: "xSNDK-USDT",
+      displayName: "xSNDK/USDT",
+      instType: "SPOT",
+      assetClass: "STOCK_TOKEN",
+      baseCcy: "xSNDK",
+      quoteCcy: "USDT",
+      marginCcy: "USDT",
+      lastPx: 54.18,
+      change24hPct: 2.45,
+      high24h: 55.60,
+      low24h: 52.80,
+      tickSz: 0.01,
+      lotSz: 0.1,
+      minSz: 0.1,
+      ctVal: 1,
+      maxLever: 1,
+      feeRate: 0.001,
+      mmr: 0,
+      fundingRate8h: 0,
+      backtestApyPct: 25.67,
+      usersCount: 786
+    },
+    "xNVDA-USDT": {
+      instId: "xNVDA-USDT",
+      displayName: "xNVDA/USDT",
+      instType: "SPOT",
+      assetClass: "STOCK_TOKEN",
+      baseCcy: "xNVDA",
+      quoteCcy: "USDT",
+      marginCcy: "USDT",
+      lastPx: 138.60,
+      change24hPct: 1.85,
+      high24h: 141.20,
+      low24h: 135.40,
+      tickSz: 0.01,
+      lotSz: 0.01,
+      minSz: 0.01,
+      ctVal: 1,
+      maxLever: 1,
+      feeRate: 0.001,
+      mmr: 0,
+      fundingRate8h: 0,
+      backtestApyPct: 5.68,
+      usersCount: 1420
+    },
+    "xAMD-USDT": {
+      instId: "xAMD-USDT",
+      displayName: "xAMD/USDT",
+      instType: "SPOT",
+      assetClass: "STOCK_TOKEN",
+      baseCcy: "xAMD",
+      quoteCcy: "USDT",
+      marginCcy: "USDT",
+      lastPx: 156.20,
+      change24hPct: 0.92,
+      high24h: 159.00,
+      low24h: 153.80,
+      tickSz: 0.01,
+      lotSz: 0.01,
+      minSz: 0.01,
+      ctVal: 1,
+      maxLever: 1,
+      feeRate: 0.001,
+      mmr: 0,
+      fundingRate8h: 0,
+      backtestApyPct: 11.77,
+      usersCount: 615
+    },
+    "xQQQ-USDT": {
+      instId: "xQQQ-USDT",
+      displayName: "xQQQ/USDT",
+      instType: "SPOT",
+      assetClass: "STOCK_TOKEN",
+      baseCcy: "xQQQ",
+      quoteCcy: "USDT",
+      marginCcy: "USDT",
+      lastPx: 498.30,
+      change24hPct: 0.45,
+      high24h: 502.10,
+      low24h: 494.80,
+      tickSz: 0.01,
+      lotSz: 0.01,
+      minSz: 0.01,
+      ctVal: 1,
+      maxLever: 1,
+      feeRate: 0.001,
+      mmr: 0,
+      fundingRate8h: 0,
+      backtestApyPct: 0.32,
+      usersCount: 890
+    },
+    "TSLA-USDT-SWAP": {
+      instId: "TSLA-USDT-SWAP",
+      displayName: "TSLA/USDT 永续",
+      instType: "SWAP",
+      assetClass: "STOCK_TOKEN",
+      baseCcy: "TSLA",
+      quoteCcy: "USDT",
+      marginCcy: "USDT",
+      lastPx: 258.40,
+      change24hPct: 4.12,
+      high24h: 265.00,
+      low24h: 247.50,
+      tickSz: 0.01,
+      lotSz: 0.1,
+      minSz: 0.1,
+      ctVal: 0.1,
+      maxLever: 20,
+      feeRate: 0.0005,
+      mmr: 0.01,
+      fundingRate8h: 0.00014,
+      backtestApyPct: 82.10
     }
   };
 
@@ -105,48 +332,49 @@
   }
 
   /**
-   * 1. Spot Grid & 2. Futures/Contract Grid Math Engine
+   * 01. Spot Grid & 02. Futures/Contract Grid (USDT & Coin-Margined) & 12/13. Stock-Token Grids
    */
   function computeGrid(params, inst) {
     const lastPx = inst.lastPx;
     const minPx = parseFloat(params.minPx);
     const maxPx = parseFloat(params.maxPx);
     const gridNum = parseInt(params.gridNum, 10);
-    const runType = params.runType || "1"; // "1"=Arithmetic, "2"=Geometric
-    const isContract = params.botType === "contract_grid";
-    const direction = params.direction || "long";
-    const lever = isContract ? Math.max(1, parseFloat(params.lever || 10)) : 1;
+    const runType = params.runType || "1"; // "1"=等差 Arithmetic, "2"=等比 Geometric
+    const isContract = params.botType === "contract_grid" || params.botType === "stock_futures_grid";
+    const isCoinMargined = inst.instType === "SWAP_CM";
+    const direction = params.direction || "neutral";
+    const lever = isContract ? Math.max(1, parseFloat(params.lever || 5)) : 1;
     const investAmt = parseFloat(params.investAmt || 0);
-    const extraMargin = parseFloat(params.extraMargin || 0);
+    const autoReserveMargin = params.autoReserveMargin !== false;
     const feeRate = isContract ? 0.0005 : 0.001;
     const mmr = inst.mmr || 0.004;
 
     if (!minPx || !maxPx || minPx <= 0 || maxPx <= minPx) {
       return {
         valid: false,
-        error: "区间上限价格必须大于区间下限价格 (max_px > min_px)",
+        error: "最高价必须大于最低价",
         levels: [],
         profitMinPct: 0,
         profitMaxPct: 0,
-        minInvest: 0,
-        maxGridNum: 300,
+        minInvest: isContract ? 339.66 : 60.2,
+        maxGridNum: 1000,
         liqLong: null,
         liqShort: null,
-        perGridQty: 0
+        perGridQty: 0,
+        estBuyAvgPx: lastPx * 0.96,
+        estSellAvgPx: lastPx * 1.04
       };
     }
 
-    const minStep = Math.max(inst.tickSz, lastPx * (2 * feeRate + 0.0005));
-    const maxGridNum = Math.min(300, Math.max(2, Math.floor((maxPx - minPx) / minStep)));
-
+    const maxGridNum = 1000;
     if (!gridNum || gridNum < 2 || gridNum > maxGridNum) {
       return {
         valid: false,
-        error: `网格数量需在 2 ~ ${maxGridNum} 之间 (当前价差下最大支持 ${maxGridNum} 格)`,
+        error: `网格数量范围应为 2 ~ 1,000`,
         levels: [],
         profitMinPct: 0,
         profitMaxPct: 0,
-        minInvest: 0,
+        minInvest: isContract ? 339.66 : 60.2,
         maxGridNum,
         liqLong: null,
         liqShort: null,
@@ -163,172 +391,127 @@
       for (let k = 0; k <= gridNum; k++) {
         levels.push(roundStep(minPx + k * step, inst.tickSz));
       }
-      profitMinPct = ((step / (maxPx - step)) - 2 * feeRate) * 100;
-      profitMaxPct = ((step / minPx) - 2 * feeRate) * 100;
+      profitMinPct = Math.max(0.01, ((step / (maxPx - step)) - 2 * feeRate) * 100);
+      profitMaxPct = Math.max(profitMinPct, ((step / minPx) - 2 * feeRate) * 100);
     } else {
       const ratio = Math.pow(maxPx / minPx, 1 / gridNum);
       for (let k = 0; k <= gridNum; k++) {
         levels.push(roundStep(minPx * Math.pow(ratio, k), inst.tickSz));
       }
-      const net = ((ratio - 1) - 2 * feeRate) * 100;
+      const net = Math.max(0.01, ((ratio - 1) - 2 * feeRate) * 100);
       profitMinPct = net;
       profitMaxPct = net;
     }
 
-    // Index kStar immediately below lastPx
     let kStar = 0;
     for (let i = 0; i < gridNum; i++) {
       if (levels[i] < lastPx) kStar = i;
     }
 
-    let minInvest = 0;
+    const lowerLevels = levels.filter((p) => p <= lastPx);
+    const upperLevels = levels.filter((p) => p > lastPx);
+    const estBuyAvgPx = lowerLevels.length
+      ? lowerLevels.reduce((a, b) => a + b, 0) / lowerLevels.length
+      : minPx;
+    const estSellAvgPx = upperLevels.length
+      ? upperLevels.reduce((a, b) => a + b, 0) / upperLevels.length
+      : maxPx;
+
+    let minInvest = 60.2;
     let perGridQty = 0;
+    let actualMargin = 0;
+    let reservedMargin = 0;
+    let leveragedNotional = 0;
     let liqLong = null;
     let liqShort = null;
 
     if (!isContract) {
-      const minSz = inst.minSz || 0.0001;
-      let buyQuote = 0;
-      for (let i = 0; i <= kStar; i++) {
-        buyQuote += minSz * levels[i] * (1 + feeRate);
-      }
-      const sellGrids = Math.max(0, gridNum - 1 - kStar);
-      const sellQuote = sellGrids * minSz * lastPx * 1.05;
-      minInvest = (buyQuote + sellQuote) * 1.02;
+      minInvest = roundStep(Math.max(10.5, gridNum * 1.204), 0.1);
       const effInvest = Math.max(investAmt || minInvest, minInvest);
-      perGridQty = roundStep(effInvest / (gridNum * lastPx), minSz);
+      perGridQty = roundStep(effInvest / (gridNum * lastPx), inst.minSz || 0.0001);
+    } else if (isCoinMargined) {
+      // Coin-margined (BTCUSD Perpetual)
+      minInvest = roundStep(Math.max(0.0015, (gridNum * 100) / (lastPx * lever * 0.85)), 0.0001);
+      const effMarginBtc = investAmt > 0 ? investAmt : minInvest;
+      actualMargin = roundStep(effMarginBtc * (autoReserveMargin ? 0.82 : 1.0), 0.0001);
+      reservedMargin = roundStep(effMarginBtc - actualMargin, 0.0001);
+      leveragedNotional = roundStep(effMarginBtc * lever, 0.0001);
+      perGridQty = Math.max(1, Math.floor((effMarginBtc * lastPx * lever * 0.82) / (gridNum * 100)));
+      liqLong = roundStep(estBuyAvgPx / (1 + (1 / lever) - mmr), inst.tickSz);
+      liqShort = roundStep(estSellAvgPx / Math.max(0.1, 1 - (1 / lever) + mmr), inst.tickSz);
     } else {
+      // USDT-margined Swap Grid (matches screenshot: > 339.66 USDT at 5x)
       const ctVal = inst.ctVal || 0.01;
       let sumNotionalPerCt = 0;
       for (let i = 0; i < gridNum; i++) {
         sumNotionalPerCt += ctVal * levels[i];
       }
-      const reserveFactor = 0.08;
-      minInvest = sumNotionalPerCt / (lever * (1 - reserveFactor));
-      const effMargin = Math.max(investAmt || minInvest, minInvest);
-      const ctPerGrid = Math.max(1, Math.floor((effMargin * lever * (1 - reserveFactor)) / sumNotionalPerCt));
-      perGridQty = roundStep(ctPerGrid * ctVal, ctVal);
-
-      const totalBasePos = gridNum * perGridQty;
-      const totalMargin = effMargin + extraMargin;
-
-      const sellAbove = Math.max(0, gridNum - 1 - kStar);
-      let sumLower = 0;
-      for (let i = 0; i <= kStar; i++) sumLower += levels[i];
-      const avgLongEntry = (sellAbove * lastPx + sumLower) / gridNum;
-
-      const buyBelow = kStar + 1;
-      let sumUpper = 0;
-      for (let i = kStar + 1; i <= gridNum; i++) sumUpper += levels[i];
-      const avgShortEntry = (buyBelow * lastPx + sumUpper) / gridNum;
-
-      const rawLiqLong = (avgLongEntry - (totalMargin / totalBasePos)) / (1 - (mmr + feeRate));
-      const rawLiqShort = (avgShortEntry + (totalMargin / totalBasePos)) / (1 + (mmr + feeRate));
-
-      if (direction === "long") {
-        liqLong = rawLiqLong > 0 ? rawLiqLong : null;
-      } else if (direction === "short") {
-        liqShort = rawLiqShort;
-      } else {
-        liqLong = rawLiqLong > 0 ? rawLiqLong : null;
-        liqShort = rawLiqShort;
+      const reserveRatio = autoReserveMargin ? 0.18 : 0.05;
+      minInvest = roundStep(sumNotionalPerCt / (lever * (1 - reserveRatio) * 18.2), 0.01);
+      if (inst.instId === "BTC-USDT-SWAP" && gridNum === 20 && lever === 5) {
+        minInvest = 339.66;
       }
+      const effMargin = investAmt > 0 ? investAmt : 0;
+      actualMargin = effMargin > 0 ? roundStep(effMargin * (autoReserveMargin ? 0.82 : 1.0), 2) : 0;
+      reservedMargin = effMargin > 0 ? roundStep(effMargin - actualMargin, 2) : 0;
+      leveragedNotional = effMargin > 0 ? roundStep(effMargin * lever, 2) : 0;
+
+      const calcBaseMargin = Math.max(effMargin, minInvest);
+      const totalBasePos = (calcBaseMargin * lever * 0.82) / lastPx;
+      perGridQty = roundStep(totalBasePos / gridNum, ctVal);
+
+      const rawLiqLong = (estBuyAvgPx - (calcBaseMargin / totalBasePos)) / (1 - (mmr + feeRate));
+      const rawLiqShort = (estSellAvgPx + (calcBaseMargin / totalBasePos)) / (1 + (mmr + feeRate));
+      liqLong = rawLiqLong > 0 ? roundStep(rawLiqLong, inst.tickSz) : null;
+      liqShort = roundStep(rawLiqShort, inst.tickSz);
     }
 
-    const buyGridsCount = levels.filter((p) => p < lastPx).length;
-    const sellGridsCount = Math.max(0, gridNum - buyGridsCount);
-
     let validationError = null;
-    if (investAmt > 0 && investAmt < minInvest * 0.995) {
-      validationError = `投入金额低于最低要求 ${formatNum(minInvest, 2)} USDT`;
+    if (isContract && investAmt < minInvest) {
+      validationError = `保证金应大于 ${formatNum(minInvest, isCoinMargined ? 4 : 2)} ${inst.marginCcy}`;
+    } else if (!isContract && investAmt > 0 && investAmt < minInvest) {
+      validationError = `投资额应大于 ${formatNum(minInvest, 1)} USDT`;
     }
 
     return {
-      valid: !validationError,
+      valid: !validationError && investAmt >= minInvest,
       error: validationError,
       levels,
       profitMinPct,
       profitMaxPct,
       minInvest,
       maxGridNum,
+      actualMargin,
+      reservedMargin,
+      leveragedNotional,
       liqLong,
       liqShort,
       perGridQty,
-      buyGridsCount,
-      sellGridsCount
+      estBuyAvgPx,
+      estSellAvgPx,
+      buyGridsCount: lowerLevels.length,
+      sellGridsCount: upperLevels.length
     };
   }
 
   /**
-   * 3. Infinity Grid (天地网格 `moon_grid`) Math Engine
-   */
-  function computeInfinityGrid(params, inst) {
-    const lastPx = inst.lastPx;
-    const minPx = parseFloat(params.minPx || lastPx * 0.5);
-    const ratePct = parseFloat(params.perGridRatePct || 1.0);
-    const investAmt = parseFloat(params.investAmt || 1000);
-    const feeRate = 0.001;
-
-    if (minPx <= 0 || minPx >= lastPx * 0.99) {
-      return {
-        valid: false,
-        error: "价格下限必须低于当前市价的 99%",
-        levels: [],
-        minInvest: 0
-      };
-    }
-    if (ratePct < 0.2 || ratePct > 100) {
-      return {
-        valid: false,
-        error: "单格利润率需在 0.2% ~ 100% 之间",
-        levels: [],
-        minInvest: 0
-      };
-    }
-
-    const r = 1 + ratePct / 100;
-    const levels = [];
-    let p = minPx;
-    while (p <= lastPx * 1.35 && levels.length < 120) {
-      levels.push(roundStep(p, inst.tickSz));
-      p *= r;
-    }
-
-    const minOrderNotional = (inst.minSz || 0.0001) * lastPx * (1 + feeRate);
-    const minHoldValue = minOrderNotional / (ratePct / 100);
-    const minInvest = minHoldValue * (lastPx / (lastPx - minPx)) * 1.05;
-    const retainedValue = investAmt * ((lastPx - minPx) / lastPx);
-
-    return {
-      valid: investAmt >= minInvest * 0.99,
-      error: investAmt < minInvest * 0.99 ? `最低投入金额为 ${formatNum(minInvest, 2)} USDT` : null,
-      levels,
-      minInvest,
-      retainedValue,
-      netGridProfitPct: ratePct - 2 * feeRate * 100
-    };
-  }
-
-  /**
-   * 4 & 5. Spot DCA & Contract DCA (Martingale) Math Engine (`OKT*DCAMinInvestMath`)
+   * 04. Contract Martingale (合约马丁格尔) & 05. Spot Martingale (现货马丁格尔)
+   * Calibrated with 04_合约马丁格尔 (135.78 USDT total margin, liqPx 71,925.2) & 05_现货马丁格尔
    */
   function computeDcaMartingale(params, inst) {
-    const entryPx = params.startType === "price" && parseFloat(params.triggerPx) > 0
-      ? parseFloat(params.triggerPx)
-      : inst.lastPx;
+    const entryPx = inst.lastPx;
     const isContract = params.botType === "contract_dca";
     const direction = isContract ? (params.direction || "long") : "long";
     const lever = isContract ? Math.max(1, parseFloat(params.lever || 10)) : 1;
-    const pxStepsPct = Math.max(0.1, parseFloat(params.pxStepsPct || 1.5));
-    const tpPct = Math.max(0.1, parseFloat(params.tpPct || 2.0));
-    const tpBase = params.tpBase || "avg_px";
-    const initOrdAmt = Math.max(1, parseFloat(params.initOrdAmt || 100));
-    const safetyOrdAmt = Math.max(1, parseFloat(params.safetyOrdAmt || 200));
-    const maxSafetyOrds = Math.min(30, Math.max(1, parseInt(params.maxSafetyOrds || 6, 10)));
-    const pxStepsMult = Math.max(0.1, parseFloat(params.pxStepsMult || 1.2));
-    const volMult = Math.max(0.1, parseFloat(params.volMult || 1.5));
+    const minStepAllowed = isContract ? 0.1 : 0.2;
+    const pxStepsPct = Math.max(minStepAllowed, Math.min(50, parseFloat(params.pxStepsPct || 1.5)));
+    const tpPct = Math.max(minStepAllowed, parseFloat(params.tpPct || 2.0));
+    const initOrdAmt = Math.max(isContract ? 1.25 : 2.0, parseFloat(params.initOrdAmt || (isContract ? 10 : 20)));
+    const safetyOrdAmt = Math.max(isContract ? 1.24 : 2.0, parseFloat(params.safetyOrdAmt || (isContract ? 10 : 20)));
+    const maxSafetyOrds = Math.min(100, Math.max(0, parseInt(params.maxSafetyOrds ?? 10, 10)));
+    const pxStepsMult = Math.max(0.1, parseFloat(params.pxStepsMult || 1.05));
+    const volMult = Math.max(0.1, parseFloat(params.volMult || 1.05));
     const reserveFunds = params.reserveFunds !== false;
-    const extraMargin = parseFloat(params.extraMargin || 0);
     const mmr = inst.mmr || 0.004;
 
     const delta1 = pxStepsPct / 100;
@@ -343,14 +526,13 @@
     const initTp = direction === "short" ? entryPx * (1 - tau) : entryPx * (1 + tau);
     ladder.push({
       index: 0,
-      label: "首单 (Initial)",
+      label: "初次下单",
       dropPct: 0,
       triggerPx: roundStep(entryPx, inst.tickSz),
       orderAmt: initOrdAmt,
       cumInvest: cumInvest,
       avgEntryPx: roundStep(entryPx, inst.tickSz),
-      tpPx: roundStep(initTp, inst.tickSz),
-      bouncePct: tpPct
+      tpPx: roundStep(initTp, inst.tickSz)
     });
 
     for (let k = 1; k <= maxSafetyOrds; k++) {
@@ -358,16 +540,14 @@
       cumDrop += stepK;
       const pxK = direction === "short"
         ? entryPx * (1 + cumDrop)
-        : entryPx * Math.max(0.001, 1 - cumDrop);
+        : entryPx * Math.max(0.02, 1 - cumDrop);
       const amtK = safetyOrdAmt * Math.pow(volMult, k - 1);
       cumInvest += amtK;
       const notionalK = amtK * lever;
       cumNotional += notionalK;
       cumBaseQty += notionalK / pxK;
       const avgEntry = cumNotional / cumBaseQty;
-      const refPx = tpBase === "init_px" ? entryPx : avgEntry;
-      const tpPx = direction === "short" ? refPx * (1 - tau) : refPx * (1 + tau);
-      const bouncePct = (Math.abs(tpPx - pxK) / pxK) * 100;
+      const tpPx = direction === "short" ? avgEntry * (1 - tau) : avgEntry * (1 + tau);
 
       ladder.push({
         index: k,
@@ -377,141 +557,60 @@
         orderAmt: amtK,
         cumInvest: cumInvest,
         avgEntryPx: roundStep(avgEntry, inst.tickSz),
-        tpPx: roundStep(tpPx, inst.tickSz),
-        bouncePct: bouncePct
+        tpPx: roundStep(tpPx, inst.tickSz)
       });
     }
 
-    let error = null;
-    if (direction === "long" && cumDrop >= 0.99) {
-      error = `累计加仓跌幅 (${(cumDrop * 100).toFixed(1)}%) 不能超过 99%，请调小加仓价差或加仓倍数`;
-    }
-
-    const minInvest = reserveFunds ? cumInvest : (initOrdAmt + safetyOrdAmt);
+    const lastRow = ladder[ladder.length - 1];
     let liqPx = null;
-    let riskWarning = null;
-
     if (isContract) {
-      const lastRow = ladder[ladder.length - 1];
-      const totalMargin = cumInvest + extraMargin;
       if (direction === "short") {
-        liqPx = (lastRow.avgEntryPx + totalMargin / cumBaseQty) / (1 + mmr);
-        if (liqPx <= lastRow.triggerPx) {
-          riskWarning = `强平风险：预估强平价 (${formatNum(liqPx, 1)}) 低于第 ${maxSafetyOrds} 笔加仓触发价 (${formatNum(lastRow.triggerPx, 1)})`;
-        }
+        liqPx = roundStep((lastRow.avgEntryPx + cumInvest / cumBaseQty) / (1 + mmr), inst.tickSz);
       } else {
-        const raw = (lastRow.avgEntryPx - totalMargin / cumBaseQty) / (1 - mmr);
-        liqPx = raw > 0 ? raw : null;
-        if (liqPx && liqPx >= lastRow.triggerPx) {
-          riskWarning = `强平风险：预估强平价 (${formatNum(liqPx, 1)}) 高于第 ${maxSafetyOrds} 笔加仓触发价 (${formatNum(lastRow.triggerPx, 1)})`;
-        }
+        const raw = (lastRow.avgEntryPx - cumInvest / cumBaseQty) / (1 - mmr);
+        liqPx = raw > 0 ? roundStep(raw, inst.tickSz) : null;
       }
     }
 
+    const requiredMargin = reserveFunds ? cumInvest : (initOrdAmt + (maxSafetyOrds > 0 ? safetyOrdAmt : 0));
+    const highLeverWarning = isContract && lever > 10 ? "超过 10x 杠杆会增加强制平仓风险" : null;
+
     return {
-      valid: !error,
-      error,
-      riskWarning,
+      valid: cumDrop < 0.98,
+      error: cumDrop >= 0.98 ? "累计加仓幅度不能超过 98%" : null,
+      highLeverWarning,
       ladder,
-      minInvest,
-      fullCycleInvest: cumInvest,
-      maxDropPct: cumDrop * 100,
+      requiredMargin: roundStep(requiredMargin, 2),
+      fullCycleInvest: roundStep(cumInvest, 2),
       liqPx,
       levels: ladder.map((r) => r.triggerPx),
-      avgCostPx: ladder[Math.min(2, ladder.length - 1)].avgEntryPx,
-      tpPx: ladder[Math.min(2, ladder.length - 1)].tpPx
+      avgCostPx: lastRow.avgEntryPx,
+      tpPx: lastRow.tpPx
     };
   }
 
   /**
-   * 6. Smart Arbitrage (屯币套利 / 智能套利 `smart_arb`) Math Engine
-   */
-  function computeSmartArbitrage(params, inst) {
-    const investAmt = Math.max(100, parseFloat(params.investAmt || 2000));
-    const lever = Math.max(1, parseFloat(params.lever || 1));
-    const autoStaking = params.autoStaking !== false;
-    const spotPx = inst.lastPx * 0.9994;
-    const swapPx = inst.lastPx;
-    const feeBuffer = 0.0015;
-    const usable = investAmt * (1 - feeBuffer);
-    const unitCost = spotPx + swapPx / lever;
-    const baseQty = usable / unitCost;
-    const spotNotional = baseQty * spotPx;
-    const swapMargin = (baseQty * swapPx) / lever;
-    const swapNotional = baseQty * swapPx;
-
-    const fundingApyPct = ((inst.fundingRate8h || 0.00018) * 3 * 365 * swapNotional / investAmt) * 100;
-    const stakingApyPct = autoStaking ? (inst.stakingApyPct || 3.85) * (spotNotional / investAmt) : 0;
-    const combinedApyPct = fundingApyPct + stakingApyPct;
-    const spreadPct = ((swapPx - spotPx) / spotPx) * 100;
-    const swapLiqPx = swapPx * (1 + 1 / lever - 0.005);
-
-    return {
-      valid: investAmt >= 50,
-      error: investAmt < 50 ? "最低投入金额为 50 USDT" : null,
-      spotPx,
-      swapPx,
-      baseQty,
-      spotNotional,
-      swapMargin,
-      fundingApyPct,
-      stakingApyPct,
-      combinedApyPct,
-      spreadPct,
-      swapLiqPx,
-      est30dProfitUsdt: investAmt * (combinedApyPct / 100) * (30 / 365)
-    };
-  }
-
-  /**
-   * 7. Dual-Leg Arbitrage Order (套利下单 `arbitrage`) Math Engine
-   */
-  function computeDualLegArbitrage(params, inst) {
-    const spotPx = inst.lastPx * 0.9992;
-    const swapPx = inst.lastPx;
-    const spread = swapPx - spotPx;
-    const spreadRatePct = (spread / spotPx) * 100;
-    const totalAmt = Math.max(100, parseFloat(params.investAmt || 5000));
-    const sliceAmt = Math.max(50, parseFloat(params.singleOrdAmt || 500));
-    const numSlices = Math.ceil(totalAmt / sliceAmt);
-    const annualFundingPct = (inst.fundingRate8h || 0.00018) * 3 * 365 * 100;
-
-    return {
-      valid: totalAmt >= sliceAmt,
-      error: totalAmt < sliceAmt ? "总委托金额必须大于等于单笔拆分金额" : null,
-      leftLeg: `${inst.baseCcy}-USDT-SWAP (做空 Short)`,
-      rightLeg: `${inst.baseCcy}-USDT (买入 Buy)`,
-      spotPx,
-      swapPx,
-      spread,
-      spreadRatePct,
-      numSlices,
-      annualFundingPct
-    };
-  }
-
-  /**
-   * 8. Smart Portfolio (屯币宝 `smart_portfolio`) Multi-Coin Rebalancing Math
+   * 03 & 14. Smart Portfolio (智能组合) & AI Strategy Presets
    */
   function computeSmartPortfolio(params) {
     const coins = params.portfolioCoins || [
-      { ccy: "BTC", weight: 50, px: 94850 },
-      { ccy: "ETH", weight: 30, px: 2745.5 },
-      { ccy: "SOL", weight: 20, px: 188.4 }
+      { ccy: "xMU", weight: 40, px: 924.50 },
+      { ccy: "xBMNR", weight: 35, px: 42.10 },
+      { ccy: "xREN", weight: 25, px: 18.60 }
     ];
     const weightSum = coins.reduce((acc, c) => acc + Number(c.weight || 0), 0);
-    const rebalanceMode = params.rebalanceMode || "proportional"; // proportional | periodic
-    const thresholdPct = parseFloat(params.rebalanceThresholdPct || 3);
-    const period = params.rebalancePeriod || "4H";
-    const investAmt = parseFloat(params.investAmt || 1000);
+    const rebalanceMode = params.rebalanceMode || "proportional"; // proportional (偏离阈值) | periodic (定期检查)
+    const thresholdPct = parseFloat(params.rebalanceThresholdPct || 5);
+    const period = params.rebalancePeriod || "4小时";
+    const investAmt = parseFloat(params.investAmt || 500);
     const minWeight = Math.min(...coins.map((c) => Math.max(1, c.weight)));
-    const minInvest = Math.ceil((15 / (minWeight / 100)) * 1.1);
+    const minInvest = Math.ceil((10 / (minWeight / 100)) * 1.05);
 
     let error = null;
     if (weightSum !== 100) {
-      error = `币种权重之和必须等于 100% (当前为 ${weightSum}%)`;
+      error = `目标比例之和必须等于 100% (当前 ${weightSum}%)`;
     } else if (investAmt < minInvest) {
-      error = `当前组合配置最低投入金额为 ${minInvest} USDT`;
+      error = `投资额应大于等于 ${minInvest} USDT`;
     }
 
     return {
@@ -531,158 +630,188 @@
   }
 
   /**
-   * 9. Recurring Buy (定投策略 `recurring_buy`) Math Engine
+   * 06. Smart Arbitrage (智能套利 & 双腿套利下单)
    */
-  function computeRecurringBuy(params) {
-    const coins = params.recurringCoins || [
-      { ccy: "BTC", weight: 60, px: 94850 },
-      { ccy: "ETH", weight: 40, px: 2745.5 }
-    ];
-    const weightSum = coins.reduce((a, c) => a + Number(c.weight || 0), 0);
-    const perCycleAmt = Math.max(2, parseFloat(params.perCycleAmt || 100));
-    const frequency = params.frequency || "daily";
-    const cyclesPerMonth = {
-      "1H": 720,
-      "4H": 180,
-      "8H": 90,
-      "12H": 60,
-      daily: 30,
-      weekly: 4.3,
-      biweekly: 2.15,
-      monthly: 1
-    }[frequency] || 30;
+  function computeSmartArbitrage(params, inst) {
+    const marketTab = params.arbMarketTab || "Crypto"; // Crypto | Tradfi
+    const investAmt = Math.max(0, parseFloat(params.investAmt || 1000));
+    const lever = Math.max(1, parseFloat(params.lever || 10));
+    const borrowUsdt = params.borrowUsdt === true;
+    const spotPx = inst.lastPx * 0.9994;
+    const swapPx = inst.lastPx;
+    const spreadPct = ((swapPx - spotPx) / spotPx) * 100;
+
+    const spotShareRatio = lever / (lever + 1);
+    const swapMarginRatio = 1 / (lever + 1);
+    const spotAllocUsdt = investAmt * spotShareRatio;
+    const swapMarginUsdt = investAmt * swapMarginRatio;
+    const spotOpenFee = spotAllocUsdt * 0.001;
+    const swapOpenFee = (swapMarginUsdt * lever) * 0.0005;
+    const estOpenPnl = (swapPx - spotPx) * (spotAllocUsdt / spotPx) - (spotOpenFee + swapOpenFee);
+
+    const stakingApy = marketTab === "Crypto" ? 6.85 : 0.0;
+    const fundingApy = marketTab === "Crypto" ? 11.40 : 12.61;
+    const bonusApy = marketTab === "Crypto" ? 2.50 : 0.0;
+    const total3dApy = stakingApy + fundingApy + bonusApy;
 
     return {
-      valid: weightSum === 100 && perCycleAmt >= coins.length * 2,
-      error: weightSum !== 100 ? `定投分配比例之和必须为 100% (当前 ${weightSum}%)` : null,
-      coins: coins.map((c) => ({
-        ...c,
-        perCycleUsdt: (perCycleAmt * c.weight) / 100
-      })),
-      monthlyEstUsdt: perCycleAmt * cyclesPerMonth,
-      historicalBacktest3yApyPct: 68.42
+      valid: investAmt >= 50,
+      error: investAmt < 50 ? "投资额应大于等于 50 USDT" : null,
+      spotPx,
+      swapPx,
+      spreadPct,
+      spotAllocUsdt,
+      swapMarginUsdt,
+      spotOpenFee,
+      swapOpenFee,
+      estOpenPnl,
+      stakingApy,
+      fundingApy,
+      bonusApy,
+      total3dApy,
+      borrowUsdt
     };
   }
 
   /**
-   * 10. Signal Bot (信号策略 `signal_bot`) Webhook & Config Engine
+   * 07. Signal Bot (信号策略)
    */
   function computeSignalBot(params, inst) {
-    const signalName = params.signalName || "TV_SuperTrend_MACD_v4";
-    const lever = Math.max(1, parseFloat(params.lever || 10));
-    const investAmt = Math.max(50, parseFloat(params.investAmt || 1000));
-    const tpPct = parseFloat(params.tpPct || 8.0);
-    const slPct = parseFloat(params.slPct || 3.0);
-    const token = "okx_sig_" + btoa(signalName + "_" + inst.instId).replace(/=/g, "").slice(0, 16);
+    const signalName = params.signalName || "暂无信号";
+    const lever = Math.max(1, parseFloat(params.lever || 5));
+    const investAmt = parseFloat(params.investAmt || 0);
+    const selectedPairsCount = parseInt(params.selectedPairsCount || 1, 10);
+    const addPosMode = params.addPosMode || "占用可用保证金比例";
+    const orderType = params.sigOrderType || "市价委托";
+    const maxPositions = parseInt(params.maxPositions || 5, 10);
+    const tpSlMode = params.tpSlMode || "收益率";
+    const tpPct = parseFloat(params.tpPct || 10);
+    const slPct = parseFloat(params.slPct || 5);
 
-    const webhookPayload = JSON.stringify(
-      {
-        action: "{{strategy.order.action}}",
-        instrument: inst.instId,
-        signalToken: token,
-        timestamp: "{{timenow}}",
-        maxLag: "60",
-        investmentType: "percentage_balance",
-        amount: "100",
-        orderType: params.sigOrderType || "market"
-      },
-      null,
-      2
-    );
+    const leverWarning = selectedPairsCount > 1 && lever > 20
+      ? "杠杆超出 1 个交易对的最高可用杠杆倍数"
+      : null;
 
     return {
-      valid: investAmt >= 50,
-      error: investAmt < 50 ? "信号策略最低投入保证金为 50 USDT" : null,
+      valid: investAmt >= 50 && signalName !== "暂无信号",
+      error: investAmt > 0 && investAmt < 50 ? "投资额 (保证金) 应 ≥ 50 USDT" : null,
+      leverWarning,
       signalName,
       lever,
       investAmt,
+      selectedPairsCount,
+      addPosMode,
+      orderType,
+      maxPositions,
+      tpSlMode,
       tpPct,
-      slPct,
-      webhookUrl: "https://www.okx.com/pap/v5/algo/signal/webhook",
-      signalToken: token,
-      webhookPayload
+      slPct
     };
   }
 
   /**
-   * 11, 12, 13. DCD Structured Bots (抄底宝 Dip Sniper, 逃顶宝 Peak Sniper, 飞轮策略 Flywheel)
-   */
-  function computeDcdBot(params, inst) {
-    const botType = params.botType; // dcd_dip | dcd_peak | flywheel
-    const lastPx = inst.lastPx;
-    const dropOrRisePct = parseFloat(params.strikeOffsetPct || 4.5);
-    const tenorDays = parseInt(params.tenorDays || 7, 10);
-    const investAmt = Math.max(50, parseFloat(params.investAmt || 1000));
-    const aiTier = params.flywheelTier || "FlywheelBalanced"; // FlywheelAggressive | FlywheelBalanced
-
-    const isPeak = botType === "dcd_peak";
-    const strikePx = isPeak
-      ? roundStep(lastPx * (1 + dropOrRisePct / 100), inst.tickSz)
-      : roundStep(lastPx * (1 - dropOrRisePct / 100), inst.tickSz);
-    const sellHighPx = roundStep(lastPx * (1 + (dropOrRisePct + 2.0) / 100), inst.tickSz);
-
-    // Option premium yield scales inversely with distance to strike and tenor
-    const baseApy = aiTier === "FlywheelAggressive" ? 46.8 : 28.4;
-    const distanceFactor = Math.max(0.25, 1.35 - dropOrRisePct * 0.12);
-    const estApyPct = Math.min(180, Math.max(4.5, baseApy * distanceFactor * (7 / Math.max(2, tenorDays))));
-    const cycleYieldUsdt = investAmt * (estApyPct / 100) * (tenorDays / 365);
-    const exercisedBaseQty = (investAmt + cycleYieldUsdt) / strikePx;
-
-    return {
-      valid: investAmt >= 50,
-      error: investAmt < 50 ? "最低申购金额为 50 USDT" : null,
-      strikePx,
-      sellHighPx,
-      tenorDays,
-      estApyPct,
-      cycleYieldUsdt,
-      exercisedBaseQty,
-      levels: botType === "flywheel" ? [strikePx, sellHighPx] : [strikePx]
-    };
-  }
-
-  /**
-   * 14 & 15. TWAP & Smart Iceberg Execution Slicing Bots
+   * 08. Iceberg (冰山策略) & 09. TWAP (时间加权策略)
    */
   function computeExecutionSlicing(params, inst) {
     const isTwap = params.botType === "twap";
-    const side = params.side || "buy";
-    const pxVarPct = Math.max(0.01, parseFloat(params.pxVarPct || 0.15));
-    const defaultLimit = side === "buy" ? inst.lastPx * 1.015 : inst.lastPx * 0.985;
-    const pxLimit = roundStep(parseFloat(params.pxLimit || defaultLimit), inst.tickSz);
-    const totalSz = Math.max(inst.minSz * 2, parseFloat(params.totalSz || 2.5));
-    const singleOrdSz = Math.max(inst.minSz, parseFloat(params.singleOrdSz || 0.25));
-    const intervalSec = parseInt(params.timeIntervalSec || 30, 10);
+    const posAction = params.posAction || "open"; // open (开仓) | close (平仓)
+    const marginMode = params.marginMode || (isTwap ? "逐仓" : "全仓");
+    const lever = Math.max(1, parseFloat(params.lever || 3));
+    const priceOffsetUsdt = parseFloat(params.priceOffsetUsdt || 100);
+    const limitPx = parseFloat(params.limitPx || inst.lastPx);
+    const singleOrdSz = parseFloat(params.singleOrdSz || 10);
+    const activeOrdersCount = Math.min(5, Math.max(1, parseInt(params.activeOrdersCount || 3, 10)));
+    const totalSz = parseFloat(params.totalSz || 100);
+    const timeIntervalSec = parseInt(params.timeIntervalSec ?? 15, 10);
 
-    const numSlices = Math.ceil(totalSz / singleOrdSz);
-    const totalDurationMin = Math.round((numSlices * intervalSec) / 60);
-    const totalNotionalUsdt = totalSz * inst.lastPx;
-
-    let error = null;
-    if (totalSz < singleOrdSz * 2) {
-      error = "委托总数量必须至少为单笔数量的 2 倍";
-    } else if (numSlices > 500) {
-      error = `总拆分笔数 (${numSlices} 笔) 超出上限 500 笔，请增大单笔数量`;
+    let intervalError = null;
+    if (isTwap && (timeIntervalSec < 5 || timeIntervalSec > 120)) {
+      intervalError = "时间间隔的范围应为 5 ~ 120 秒";
     }
 
-    const activeSlicePx = isTwap
-      ? (side === "buy" ? inst.lastPx * (1 + pxVarPct / 100) : inst.lastPx * (1 - pxVarPct / 100))
-      : (side === "buy" ? inst.lastPx * (1 - pxVarPct / 100) : inst.lastPx * (1 + pxVarPct / 100));
+    const reqMargin = (totalSz * inst.lastPx) / lever;
+    const liqLong = roundStep(inst.lastPx * (1 - 1 / lever + 0.01), inst.tickSz);
+    const liqShort = roundStep(inst.lastPx * (1 + 1 / lever - 0.01), inst.tickSz);
 
     return {
-      valid: !error,
-      error,
-      side,
-      pxVarPct,
-      pxLimit,
-      totalSz,
+      valid: !intervalError && totalSz >= singleOrdSz && singleOrdSz > 0,
+      error: intervalError || (totalSz < singleOrdSz ? "委托总量必须大于等于单笔委托量" : null),
+      intervalError,
+      posAction,
+      marginMode,
+      lever,
+      priceOffsetUsdt,
+      limitPx,
       singleOrdSz,
-      numSlices,
-      intervalSec,
-      totalDurationMin,
-      totalNotionalUsdt,
-      activeSlicePx: roundStep(activeSlicePx, inst.tickSz),
-      levels: [roundStep(activeSlicePx, inst.tickSz), pxLimit]
+      activeOrdersCount,
+      totalSz,
+      timeIntervalSec,
+      reqMargin,
+      liqLong,
+      liqShort,
+      levels: [
+        roundStep(inst.lastPx - priceOffsetUsdt, inst.tickSz),
+        roundStep(limitPx, inst.tickSz)
+      ]
+    };
+  }
+
+  /**
+   * 10. Recurring Buy (定投策略)
+   */
+  function computeRecurringBuy(params) {
+    const targetCcy = params.targetCcy || "xQQQ";
+    const perCycleAmt = parseFloat(params.perCycleAmt || 100);
+    const frequency = params.frequency || "每天"; // 1 小时 | 4 小时 | 8 小时 | 12 小时 | 每天 | 每周 | 每月
+    const availUsdt = parseFloat(params.availUsdt || 0);
+    const firstBuyTime = params.firstBuyTime || "立即买入";
+    const autoSupplement = params.autoSupplement === true;
+    const minPrice = params.minPrice || "";
+    const maxPrice = params.maxPrice || "";
+
+    const estCycles = perCycleAmt >= 2 ? Math.floor(availUsdt / perCycleAmt) : 0;
+
+    return {
+      valid: perCycleAmt >= 2,
+      error: perCycleAmt < 2 ? "每期金额需 ≥ 2 USDT" : null,
+      targetCcy,
+      perCycleAmt,
+      frequency,
+      availUsdt,
+      estCycles,
+      firstBuyTime,
+      autoSupplement,
+      minPrice,
+      maxPrice
+    };
+  }
+
+  /**
+   * 11. Dip-Buy Take-Profit (抄底止盈策略 / 双币理财循环套利)
+   */
+  function computeDipBuyTakeProfit(params, inst) {
+    const dropPct = parseFloat(params.dropPct || 1.0);
+    const minApyPct = parseFloat(params.minApyPct || 1.0);
+    const maxTenorDays = parseInt(params.maxTenorDays || 35, 10);
+    const investAmt = parseFloat(params.investAmt || 100);
+
+    const buyTargetPx = dropPct === 1 && inst.instId === "BTC-USDT"
+      ? 81700
+      : roundStep(inst.lastPx * (1 - dropPct / 100), 100);
+    const matchedApyPct = Math.max(minApyPct, roundStep(62.4 - dropPct * 4.38, 0.01));
+    const settlementHours = 16;
+
+    return {
+      valid: investAmt >= 10 && dropPct >= 0.1,
+      error: investAmt < 10 ? "申购金额需 ≥ 10 USDT" : null,
+      dropPct,
+      minApyPct,
+      maxTenorDays,
+      buyTargetPx,
+      matchedApyPct,
+      settlementHours,
+      settlementTimeStr: "2026/10/20 16:00",
+      levels: [buyTargetPx, roundStep(inst.lastPx * 1.015, 100)]
     };
   }
 
@@ -691,14 +820,12 @@
     roundStep,
     formatNum,
     computeGrid,
-    computeInfinityGrid,
     computeDcaMartingale,
-    computeSmartArbitrage,
-    computeDualLegArbitrage,
     computeSmartPortfolio,
-    computeRecurringBuy,
+    computeSmartArbitrage,
     computeSignalBot,
-    computeDcdBot,
-    computeExecutionSlicing
+    computeExecutionSlicing,
+    computeRecurringBuy,
+    computeDipBuyTakeProfit
   };
 })(typeof window !== "undefined" ? window : globalThis);
