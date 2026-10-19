@@ -1,0 +1,38 @@
+<!-- Layout Resource ID: 0x7f0d0949 | APK Entry: aqE -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" attr_0x010100d9="16dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="24dp" android:paddingEnd="24dp">
+  <TextView attr_0x01010034="@style/Label_2_Bold" android:textColor="@color/ContentPrimary" attr_0x010100d7="12dp" attr_0x010100d9="12dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pr_exos_download_history_dropdown_instrument_type">
+  </TextView>
+  <LinearLayout android:orientation="0" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x01010126="false">
+    <TextView android:id="@id/AccountAuthcode" android:text="@string/pr_exos_tab_dropdown_all" style="@style/ExosFilterChip">
+    </TextView>
+    <TextView android:id="@id/AccountAuthcode" android:layout_marginStart="8dp" style="@style/ExosFilterChip">
+    </TextView>
+    <TextView android:id="@id/AccountAuthcode" android:layout_marginStart="8dp" style="@style/ExosFilterChip">
+    </TextView>
+  </LinearLayout>
+  <LinearLayout android:orientation="0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" attr_0x01010126="false">
+    <TextView android:id="@id/AccountAuthcode" style="@style/ExosFilterChip">
+    </TextView>
+    <Space android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="2" android:layout_marginStart="8dp">
+    </Space>
+  </LinearLayout>
+  <TextView attr_0x01010034="@style/Label_2_Bold" android:textColor="@color/ContentPrimary" attr_0x010100d7="12dp" attr_0x010100d9="12dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="@string/pr_exos_orderhistory_order_type">
+  </TextView>
+  <LinearLayout android:orientation="0" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x01010126="false">
+    <TextView android:id="@id/AccountAuthcode" android:text="@string/pr_exos_tab_dropdown_all" style="@style/ExosFilterChip">
+    </TextView>
+    <TextView android:id="@id/AccountAuthcode" android:text="@string/pr_exos_tab_limit_market" android:layout_marginStart="8dp" style="@style/ExosFilterChip">
+    </TextView>
+    <TextView android:id="@id/AccountAuthcode" android:text="@string/pr_exos_function_tag_trigger" android:layout_marginStart="8dp" style="@style/ExosFilterChip">
+    </TextView>
+  </LinearLayout>
+  <LinearLayout android:orientation="0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" attr_0x01010126="false">
+    <TextView android:id="@id/AccountAuthcode" android:text="@string/pr_exos_futures_checkbox_tp_sl" style="@style/ExosFilterChip">
+    </TextView>
+    <Space android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="2" android:layout_marginStart="8dp">
+    </Space>
+  </LinearLayout>
+  <o.aaXx android:gravity="0x11" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:text="@string/pr_exos_dialog_btn_confirm" app:okds_button_size="44" app:okds_button_type="0x50">
+  </o.aaXx>
+</LinearLayout>

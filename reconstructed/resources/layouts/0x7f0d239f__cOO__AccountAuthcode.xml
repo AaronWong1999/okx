@@ -1,0 +1,12 @@
+<!-- Layout Resource ID: 0x7f0d239f | APK Entry: cOO -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" attr_0x010100d1="layout/view_smart_iceberg_input_panel_0" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <o.abhv android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" attr_0x01010585="500" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0" app:okds_helpLabelType="0" app:okds_hyperLabelColor="@color/okTradeG900" app:okds_hyperLabelSize="@dimen/text_size_14sp" app:okds_hyperLabelText="@string/pr_tradeiceberg_placeorder_title_basic_info">
+  </o.abhv>
+  <o.WQp android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:oktInputLabel="@string/pr_tradeiceberg_placeorder_input_amt_per_order" style="@style/OKTInputLayoutStyle_Bot">
+  </o.WQp>
+  <o.WQp android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:oktInputLabel="@string/pr_tradeiceberg_placeorder_input_order_num_per_time" style="@style/OKTInputLayoutStyle_Bot">
+  </o.WQp>
+  <o.WQp android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:oktInputLabel="@string/pr_tradeiceberg_placeorder_input_total_amount" style="@style/OKTInputLayoutStyle_Bot">
+  </o.WQp>
+</androidx.constraintlayout.widget.ConstraintLayout>

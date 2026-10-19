@@ -1,0 +1,38 @@
+<!-- Layout Resource ID: 0x7f0d20db | APK Entry: cBE -->
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/AccountAuthcode" attr_0x010100d1="layout/trade_ui_view_smart_arbitrage_cal_staking_apy_0" android:layout_width="match_parent" android:layout_height="wrap_content" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0">
+    <o.abhv android:gravity="0x800013" attr_0x010100b3="0x10" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:maxLines="2" android:layout_marginEnd="@dimen/ok_dp_16" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintEnd_toStartOf="@id/AccountAuthcode" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0" app:okds_helpLabelType="0" app:okds_hyperLabelColor="@color/ContentPrimary" app:okds_hyperLabelSize="14sp" app:okds_hyperLabelText="@string/pr_smartarb_orderdetails_title_estimated_apy" app:okds_hyperLabelWeight="500">
+    </o.abhv>
+    <o.abcb android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintEnd_toEndOf="0" app:layout_constraintTop_toTopOf="0">
+    </o.abcb>
+  </androidx.constraintlayout.widget.ConstraintLayout>
+  <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/AccountAuthcode" attr_0x010100d1="layout/trade_ui_view_smart_arbitrage_cal_staking_apy_1" android:background="@0x7f080337" attr_0x010100d9="@dimen/padding_12dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_8dp" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/AccountAuthcode" attr_0x010100d6="@dimen/padding_12dp" attr_0x010100d8="@dimen/padding_12dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp" attr_0x0101053d="@dimen/padding_12dp" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0">
+      <TextView attr_0x01010034="@style/TextAppearance.Text.12SP.Regular" android:textColor="@color/ContentContrast" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pr_smartarb_placeorder_header_est_total_apy" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0">
+      </TextView>
+      <TextView attr_0x01010034="@style/TextAppearance.Text.Bold.16SP" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0.08%" app:layout_constraintEnd_toEndOf="0" app:layout_constraintTop_toTopOf="0">
+      </TextView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View android:id="@id/AccountAuthcode" android:background="@color/okTradeG100" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginLeft="@dimen/padding_12dp" android:layout_marginTop="@dimen/margin_12dp" android:layout_marginRight="@dimen/padding_12dp" attr_0x0101053b="@dimen/padding_12dp" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+    </View>
+    <androidx.appcompat.widget.LinearLayoutCompat android:gravity="0x800003" android:orientation="1" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp" app:layout_constraintEnd_toStartOf="@id/AccountAuthcode" app:layout_constraintStart_toEndOf="@id/AccountAuthcode" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:layout_constraintWidth_percent="0.3">
+      <TextView attr_0x01010034="@style/TextAppearance.Text.12SP.Regular" android:textColor="@color/ContentContrast" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pr_smartarb_placeorder_header_arbitrage_apy">
+      </TextView>
+      <TextView attr_0x01010034="@style/TextAppearance.Text.14SP.Medium" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_4">
+      </TextView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    <androidx.appcompat.widget.LinearLayoutCompat android:gravity="0x800003" android:orientation="1" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp" android:layout_marginStart="@dimen/margin_12dp" app:layout_constraintEnd_toStartOf="@id/AccountAuthcode" app:layout_constraintHorizontal_chainStyle="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:layout_constraintWidth_percent="0.35">
+      <o.abhv android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" app:okds_helpLabelType="2" app:okds_hyperLabelColor="@color/ContentContrast" app:okds_hyperLabelSize="12sp" app:okds_hyperLabelText="@string/pr_smartarb_placeorder_header_staking_apy" app:okds_hyperLabelWeight="500">
+      </o.abhv>
+      <TextView attr_0x01010034="@style/TextAppearance.Text.14SP.Medium" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_4" android:text="--">
+      </TextView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    <androidx.appcompat.widget.LinearLayoutCompat android:gravity="0x800005" android:orientation="1" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp" android:layout_marginEnd="@dimen/margin_12dp" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toEndOf="@id/AccountAuthcode" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:layout_constraintWidth_percent="0.25">
+      <o.abhv android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" app:okds_helpLabelType="1" app:okds_hyperLabelColor="@color/ContentContrast" app:okds_hyperLabelSize="12sp" app:okds_hyperLabelText="@string/pr_smartarb_botdetails_title_borrowing_interest_rate" app:okds_hyperLabelWeight="500">
+      </o.abhv>
+      <TextView attr_0x01010034="@style/TextAppearance.Text.14SP.Medium" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_4">
+      </TextView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</merge>

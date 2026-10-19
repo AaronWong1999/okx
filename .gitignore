@@ -1,0 +1,16 @@
+# ── 录屏源文件：体积过大（约 1 GB，单文件超 GitHub 100MB 限制），不入库 ──
+*.MP4
+*.mp4
+*.MOV
+*.mov
+
+# ── 本地工作产物 ──
+tools/.venv/
+tools/ocr
+tools/__pycache__/
+__pycache__/
+*.pyc
+.DS_Store
+
+# ── REA 证据包（158MB 单文件，分析中间产物） ──
+reconstructed/rea_evidence/

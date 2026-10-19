@@ -1,0 +1,14 @@
+<!-- Layout Resource ID: 0x7f0d21b0 | APK Entry: cFw -->
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:gravity="0x10" android:orientation="0" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <o.YuJ android:id="@id/AccountAuthcode" attr_0x010100d1="layout/view_bot_trade_header_0" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1">
+  </o.YuJ>
+  <LinearLayout android:gravity="0x10" android:orientation="0" android:id="@id/AccountAuthcode" attr_0x010100d1="layout/view_bot_trade_header_1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="10dp">
+    <com.okinc.tradingbot.impl.order.strategy.view.TickerView android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="@dimen/margin_16dp">
+    </com.okinc.tradingbot.impl.order.strategy.view.TickerView>
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@0x7f080655">
+    </androidx.appcompat.widget.AppCompatImageView>
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/AccountAuthcode" android:layout_width="24dp" android:layout_height="24dp" android:src="@0x7f081575" android:layout_marginStart="@dimen/margin_6dp">
+    </androidx.appcompat.widget.AppCompatImageView>
+  </LinearLayout>
+</merge>

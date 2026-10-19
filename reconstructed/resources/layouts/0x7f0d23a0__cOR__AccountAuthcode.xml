@@ -1,0 +1,30 @@
+<!-- Layout Resource ID: 0x7f0d23a0 | APK Entry: cOR -->
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <o.aaXx android:gravity="0x11" android:id="@id/AccountAuthcode" attr_0x010100d1="layout/view_smart_iceberg_trade_footer_0" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/pr_trade_btn_login" app:layout_constraintTop_toTopOf="0" app:okds_button_size="44" app:okds_button_type="0x103">
+  </o.aaXx>
+  <o.aaXx android:gravity="0x11" android:id="@id/AccountAuthcode" attr_0x010100d1="layout/view_smart_iceberg_trade_footer_1" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/pr_demotrade_btn_upgrade_for_trading" app:layout_constraintTop_toTopOf="0" app:okds_button_size="44" app:okds_button_type="0x103">
+  </o.aaXx>
+  <o.aaXx android:gravity="0x11" android:id="@id/AccountAuthcode" attr_0x010100d1="layout/view_smart_iceberg_trade_footer_2" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="0" app:okds_button_size="44" app:okds_button_type="0x103">
+  </o.aaXx>
+  <o.ZXc android:id="@id/AccountAuthcode" attr_0x010100d1="layout/view_smart_iceberg_trade_footer_3" attr_0x010100dc="2" android:layout_width="0dp" android:layout_height="wrap_content" app:footerAvaShowTransfer="false" app:footerAvaTitle="@string/pr_trade_order_section_label_position_avi" app:layout_constraintEnd_toEndOf="@id/AccountAuthcode" app:layout_constraintStart_toStartOf="@id/AccountAuthcode" app:layout_constraintTop_toTopOf="0">
+  </o.ZXc>
+  <o.ZXc android:id="@id/AccountAuthcode" attr_0x010100d1="layout/view_smart_iceberg_trade_footer_4" attr_0x010100dc="2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_4" app:footerAvaShowTransfer="false" app:footerAvaTitle="@string/pr_trade_mid_text_available" app:layout_constraintEnd_toEndOf="@id/AccountAuthcode" app:layout_constraintStart_toStartOf="@id/AccountAuthcode" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+  </o.ZXc>
+  <o.ZXc android:id="@id/AccountAuthcode" attr_0x010100d1="layout/view_smart_iceberg_trade_footer_5" attr_0x010100dc="2" android:layout_width="0dp" android:layout_height="wrap_content" app:footerAvaShowTransfer="false" app:footerAvaTitle="@string/pr_trade_order_section_label_available_close" app:layout_constraintEnd_toEndOf="@id/AccountAuthcode" app:layout_constraintStart_toStartOf="@id/AccountAuthcode" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+  </o.ZXc>
+  <androidx.constraintlayout.widget.Barrier android:id="@id/AccountAuthcode" attr_0x010100d1="layout/view_smart_iceberg_trade_footer_6" android:layout_width="wrap_content" android:layout_height="wrap_content" app:barrierDirection="3" app:constraint_referenced_ids="avail_close_short,maxBuy">
+  </androidx.constraintlayout.widget.Barrier>
+  <o.aaXx android:id="@id/AccountAuthcode" attr_0x010100d1="layout/view_smart_iceberg_trade_footer_7" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_16dp" android:layout_marginEnd="@dimen/margin_6dp" app:layout_constraintEnd_toStartOf="@id/AccountAuthcode" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:layout_goneMarginEnd="0dp" app:okds_button_size="44" app:okds_button_type="0x105">
+  </o.aaXx>
+  <o.ZXc android:id="@id/AccountAuthcode" attr_0x010100d1="layout/view_smart_iceberg_trade_footer_8" attr_0x010100dc="2" android:layout_width="0dp" android:layout_height="wrap_content" app:footerAvaShowTransfer="false" app:footerAvaTitle="@string/pr_trade_order_section_label_available_close" app:layout_constraintEnd_toEndOf="@id/AccountAuthcode" app:layout_constraintStart_toStartOf="@id/AccountAuthcode" app:layout_constraintTop_toTopOf="0">
+  </o.ZXc>
+  <o.ZXc android:id="@id/AccountAuthcode" attr_0x010100d1="layout/view_smart_iceberg_trade_footer_9" attr_0x010100dc="2" android:layout_width="0dp" android:layout_height="wrap_content" app:footerAvaShowTransfer="false" app:footerAvaTitle="@string/pr_trade_order_section_label_position_avi" app:layout_constraintEnd_toEndOf="@id/AccountAuthcode" app:layout_constraintStart_toStartOf="@id/AccountAuthcode" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+  </o.ZXc>
+  <o.ZXc android:id="@id/AccountAuthcode" attr_0x010100d1="layout/view_smart_iceberg_trade_footer_10" attr_0x010100dc="2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_4" android:layout_marginStart="@dimen/margin_1dp" app:footerAvaShowTransfer="false" app:footerAvaTitle="@string/pr_trade_mid_text_available" app:layout_constraintEnd_toEndOf="@id/AccountAuthcode" app:layout_constraintStart_toStartOf="@id/AccountAuthcode" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+  </o.ZXc>
+  <androidx.constraintlayout.widget.Barrier android:id="@id/AccountAuthcode" attr_0x010100d1="layout/view_smart_iceberg_trade_footer_11" android:layout_width="wrap_content" android:layout_height="wrap_content" app:barrierDirection="3" app:constraint_referenced_ids="posLong,avail_close_long">
+  </androidx.constraintlayout.widget.Barrier>
+  <o.aaXx android:id="@id/AccountAuthcode" attr_0x010100d1="layout/view_smart_iceberg_trade_footer_12" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_16dp" android:layout_marginStart="@dimen/margin_6dp" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toEndOf="@id/AccountAuthcode" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:layout_goneMarginStart="0dp" app:okds_button_size="44" app:okds_button_type="0x106">
+  </o.aaXx>
+</merge>

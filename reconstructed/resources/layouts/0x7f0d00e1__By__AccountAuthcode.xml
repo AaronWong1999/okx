@@ -1,0 +1,48 @@
+<!-- Layout Resource ID: 0x7f0d00e1 | APK Entry: By -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" attr_0x010100d1="layout/activity_bot_detail_v2_0" android:layout_width="match_parent" android:layout_height="match_parent" app:backgroundColor="@color/BasePrimary">
+  <o.aaMY android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="match_parent">
+  </o.aaMY>
+  <o.uJD android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" app:appBarTitle="@string/pr_trade_history_header_detail" app:backImageResId="@0x7f08069c" app:doImageVisible="false">
+    <ImageView android:gravity="0x11" attr_0x010100b3="0x800005" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="24dp" android:layout_height="44dp" android:src="@0x7f081595" attr_0x01010273="@0x00000000" android:layout_marginEnd="16dp" app:tint="@color/ContentPrimary">
+    </ImageView>
+  </o.uJD>
+  <View android:id="@id/AccountAuthcode" style="@style/WidgetDivisionLine">
+  </View>
+  <com.okinc.uilab.reminder.OKReminder android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_default" android:layout_marginRight="@dimen/margin_default" attr_0x0101053b="@dimen/margin_default">
+  </com.okinc.uilab.reminder.OKReminder>
+  <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/AccountAuthcode" android:background="@color/BasePrimary" attr_0x010100d6="@dimen/margin_default" attr_0x010100d7="@dimen/padding_16dp" attr_0x010100d8="@dimen/margin_default" attr_0x010100d9="@dimen/padding_16dp" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x0101053d="@dimen/margin_default" attr_0x0101053e="@dimen/padding_16dp">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginEnd="@dimen/margin_16dp" app:layout_constraintEnd_toStartOf="@id/AccountAuthcode" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0">
+      <TextView attr_0x010100ab="3" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:maxLines="2" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintEnd_toStartOf="@id/AccountAuthcode" app:layout_constraintHorizontal_bias="0" app:layout_constraintHorizontal_chainStyle="2" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0" app:layout_constraintWidth_default="1" style="@style/TextAppearance.Title.16SP.Medium">
+      </TextView>
+      <ImageView android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="20dp" android:layout_height="20dp" android:src="@0x7f080ab1" android:layout_marginStart="4dp" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toEndOf="@id/AccountAuthcode" app:layout_constraintTop_toTopOf="0" app:tint="@color/ContentPrimary">
+      </ImageView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <o.abiK android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_4dp" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:layout_constraintWidth_percent="0.7" app:ok_flowHorizontalSpacing="6dp" app:ok_flowVerticalSpacing="4dp">
+    </o.abiK>
+    <TextView android:gravity="0x800005" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" attr_0x01010273="botStatus" app:layout_constraintEnd_toEndOf="0" app:layout_constraintTop_toTopOf="0" app:layout_constraintWidth_percent="0.3" style="@style/TextAppearance.Title.14SP">
+    </TextView>
+    <TextView android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_4" app:layout_constraintStart_toStartOf="@id/AccountAuthcode" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" style="@style/TextAppearance.Text.12SP">
+    </TextView>
+  </androidx.constraintlayout.widget.ConstraintLayout>
+  <View android:id="@id/AccountAuthcode" android:background="@color/okTradeG50" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="8dp">
+  </View>
+  <FrameLayout android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="50dp">
+    <o.abhs android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" app:okds_indicator="true" app:okds_tabGravity="0" app:okds_tabSize="44">
+    </o.abhs>
+    <View attr_0x010100b3="0x800015" android:id="@id/AccountAuthcode" android:background="@0x7f0815a5" android:layout_width="50dp" android:layout_height="match_parent">
+    </View>
+  </FrameLayout>
+  <androidx.viewpager2.widget.ViewPager2 android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" attr_0x010102c1="2">
+  </androidx.viewpager2.widget.ViewPager2>
+  <LinearLayout android:gravity="0x10" android:orientation="0" android:id="@id/AccountAuthcode" attr_0x010100d7="@dimen/margin_12dp" attr_0x010100d9="@dimen/margin_24dp" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_default" android:layout_marginRight="@dimen/margin_default" attr_0x0101053b="@dimen/margin_default">
+    <o.aaXx android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" app:okds_button_size="36" app:okds_button_type="0x104" app:okds_pill="match_parent">
+    </o.aaXx>
+    <o.aaXx android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="@dimen/margin_8dp" app:okds_button_size="36" app:okds_button_type="0x104" app:okds_pill="match_parent">
+    </o.aaXx>
+    <o.aaXx android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="@dimen/margin_8dp" app:okds_button_size="36" app:okds_button_type="0x104" app:okds_pill="match_parent">
+    </o.aaXx>
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/AccountAuthcode" android:background="@0x7f080285" android:layout_width="36dp" android:layout_height="36dp" attr_0x0101011d="5" attr_0x01010273="@string/pr_trade_strategy_header_view_more" android:layout_marginStart="@dimen/margin_8dp" app:srcCompat="@0x7f081071" app:tint="@color/ContentPrimary">
+    </androidx.appcompat.widget.AppCompatImageView>
+  </LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

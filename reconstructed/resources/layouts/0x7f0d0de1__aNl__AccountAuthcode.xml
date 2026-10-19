@@ -1,0 +1,68 @@
+<!-- Layout Resource ID: 0x7f0d0de1 | APK Entry: aNl -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" attr_0x010100d1="layout/fragment_smart_arbi_preview_position_0" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <LinearLayout android:orientation="1" attr_0x010100d9="@dimen/padding_24dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_20dp">
+    <o.ZAW android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content">
+    </o.ZAW>
+    <TextView attr_0x01010034="@style/TextAppearance.Text.16SP.Medium" android:textColor="@color/ContentPrimary" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_18dp" android:text="@string/pr_smartarb_placeorder_dialog_estimated_allocation">
+    </TextView>
+    <TextView attr_0x01010034="@style/TextAppearance.Text.12SP.Regular" android:textColor="@color/ContentTertiary" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_8dp" android:text="@string/pr_smartarb_placeorder_dialog_example_based_on_invest">
+    </TextView>
+    <androidx.appcompat.widget.LinearLayoutCompat android:orientation="1" android:id="@id/AccountAuthcode" android:background="@0x7f080337" attr_0x010100d6="@dimen/padding_12dp" attr_0x010100d7="@dimen/ok_dp_16" attr_0x010100d8="@dimen/padding_12dp" attr_0x010100d9="@dimen/ok_dp_16" attr_0x010100dc="0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp" attr_0x0101046b="@color/color_surface_structural_layer_2" attr_0x0101053d="@dimen/padding_12dp" attr_0x0101053e="@dimen/ok_dp_16">
+      <androidx.appcompat.widget.LinearLayoutCompat android:gravity="0x10" android:orientation="0" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView attr_0x01010034="@style/TextAppearance.Text.12SP" android:textColor="@color/ContentContrast" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/pr_trade_list_colheader_margin" android:layout_weight="1" android:layout_marginEnd="@dimen/ok_dp_16">
+        </TextView>
+        <TextView attr_0x01010034="@style/TextAppearance.Text.12SP.Medium" android:textColor="@color/ContentSecondary" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1000 USDT">
+        </TextView>
+      </androidx.appcompat.widget.LinearLayoutCompat>
+      <androidx.appcompat.widget.LinearLayoutCompat android:gravity="0x10" android:orientation="0" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp">
+        <TextView attr_0x01010034="@style/TextAppearance.Text.12SP" android:textColor="@color/ContentContrast" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/pr_smartarb_placeorder_dialog_tips_boosted_investment" android:layout_weight="1" android:layout_marginEnd="@dimen/ok_dp_16">
+        </TextView>
+        <TextView attr_0x01010034="@style/TextAppearance.Text.12SP.Medium" android:textColor="@color/ContentSecondary" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="5000 USDT">
+        </TextView>
+      </androidx.appcompat.widget.LinearLayoutCompat>
+      <androidx.appcompat.widget.LinearLayoutCompat android:gravity="0x10" android:orientation="0" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp">
+        <TextView attr_0x01010034="@style/TextAppearance.Text.12SP" android:textColor="@color/ContentContrast" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/pr_smartarb_placeorder_dialog_tips_estimated_borrowing_amount" android:layout_weight="1" android:layout_marginEnd="@dimen/ok_dp_16">
+        </TextView>
+        <TextView attr_0x01010034="@style/TextAppearance.Text.12SP.Medium" android:textColor="@color/ContentSecondary" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="4000 USDT">
+        </TextView>
+      </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    <androidx.appcompat.widget.LinearLayoutCompat android:orientation="1" android:id="@id/AccountAuthcode" android:background="@0x7f080337" attr_0x010100d5="@dimen/ok_dp_16" attr_0x010100dc="0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_16dp" attr_0x0101046b="@color/color_surface_structural_layer_2">
+      <androidx.appcompat.widget.LinearLayoutCompat android:gravity="0x10" android:orientation="0" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView attr_0x01010034="@style/TextAppearance.Text.12SP" android:textColor="@color/ContentContrast" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/pr_smartarb_placeorder_dialog_tips_spot_investment" attr_0x01010171="2dp" android:layout_weight="1" android:layout_marginEnd="@dimen/ok_dp_16" app:drawableStartCompat="@0x7f080874">
+        </TextView>
+        <TextView attr_0x01010034="@style/TextAppearance.Text.12SP.Medium" android:textColor="@color/ContentSecondary" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="4318 USDT">
+        </TextView>
+      </androidx.appcompat.widget.LinearLayoutCompat>
+      <androidx.appcompat.widget.LinearLayoutCompat android:gravity="0x10" android:orientation="0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp">
+        <TextView attr_0x01010034="@style/TextAppearance.Text.12SP" android:textColor="@color/ContentContrast" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/pr_smartarb_placeorder_dialog_tips_reserved_margin_for_futures" attr_0x01010171="2dp" android:layout_weight="1" android:layout_marginEnd="@dimen/ok_dp_16" app:drawableStartCompat="@0x7f080874">
+        </TextView>
+        <TextView attr_0x01010034="@style/TextAppearance.Text.12SP.Medium" android:textColor="@color/ContentSecondary" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="432 USDT">
+        </TextView>
+      </androidx.appcompat.widget.LinearLayoutCompat>
+      <o.aaTk android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="6dp" android:layout_marginTop="20dp">
+      </o.aaTk>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    <androidx.appcompat.widget.LinearLayoutCompat android:orientation="1" android:id="@id/AccountAuthcode" android:background="@0x7f080337" attr_0x010100d5="@dimen/ok_dp_16" attr_0x010100dc="0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_16dp" attr_0x0101046b="@color/color_surface_structural_layer_2">
+      <androidx.appcompat.widget.LinearLayoutCompat android:gravity="0x10" android:orientation="0" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp">
+        <TextView attr_0x01010034="@style/TextAppearance.Text.14SP.Regular" android:textColor="@color/ContentContrast" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/pr_smartarb_placeorder_dialog_tips_estimated_staking_crypto" android:layout_weight="1" android:layout_marginEnd="@dimen/ok_dp_16">
+        </TextView>
+        <TextView attr_0x01010034="@style/TextAppearance.Text.14SP.Regular" android:textColor="@color/ContentSecondary" android:gravity="0x800005" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="29.68 SOL">
+        </TextView>
+      </androidx.appcompat.widget.LinearLayoutCompat>
+      <androidx.appcompat.widget.LinearLayoutCompat android:gravity="0x10" android:orientation="0" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp">
+        <TextView attr_0x01010034="@style/TextAppearance.Text.14SP.Regular" android:textColor="@color/ContentContrast" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/pr_smartarb_placeorder_dialog_tips_estimated_next_rewards" android:layout_weight="1" android:layout_marginEnd="@dimen/ok_dp_16">
+        </TextView>
+        <TextView attr_0x01010034="@style/TextAppearance.Text.14SP.Regular" android:textColor="@color/ContentSecondary" android:gravity="0x800005" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+0.018283292 OKSOL">
+        </TextView>
+      </androidx.appcompat.widget.LinearLayoutCompat>
+      <View android:id="@id/AccountAuthcode" android:background="@color/okTradeG100" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginTop="@dimen/dp_10">
+      </View>
+      <TextView attr_0x01010034="@style/TextAppearance.Text.12SP.Regular" android:textColor="@color/ContentContrast" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_10" android:text="@string/pr_smartarb_placeorder_dialog_remind_auto_stake_earn">
+      </TextView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    <TextView attr_0x01010034="@style/TextAppearance.Text.14SP.Regular" android:textColor="@color/ContentContrast" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_16dp" android:text="@string/pr_smartarb_placeorder_dialog_tips_for_reference_only">
+    </TextView>
+  </LinearLayout>
+</androidx.core.widget.NestedScrollView>

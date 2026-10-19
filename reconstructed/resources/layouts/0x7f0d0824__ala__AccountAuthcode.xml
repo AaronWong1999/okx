@@ -1,0 +1,4 @@
+<!-- Layout Resource ID: 0x7f0d0824 | APK Entry: ala -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@id/AccountAuthcode" attr_0x010100d1="layout/dfragment_signal_bot_create_instids_0" attr_0x010100d9="20dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10dp" android:layout_marginRight="@dimen/margin_10dp" attr_0x010102c1="2" attr_0x0101053b="@dimen/margin_10dp">
+</androidx.recyclerview.widget.RecyclerView>

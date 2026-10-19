@@ -1,0 +1,36 @@
+<!-- Layout Resource ID: 0x7f0d1b2a | APK Entry: bZM -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@id/AccountAuthcode" attr_0x010100d1="layout/payment_item_change_payment_account_0" attr_0x010100d7="@dimen/padding_20dp" attr_0x010100d9="@dimen/padding_20dp" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x0101053e="@dimen/padding_20dp">
+  <RadioButton android:id="@id/AccountAuthcode" android:background="@color/bg_recurring_buy_transparent" attr_0x010100dc="2" attr_0x010100e5="false" android:layout_width="wrap_content" android:layout_height="wrap_content" attr_0x01010107="@0x7f0813ae" android:layout_marginEnd="@dimen/margin_16dp" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintEnd_toStartOf="@id/AccountAuthcode" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0">
+  </RadioButton>
+  <ImageView android:id="@id/AccountAuthcode" android:layout_width="@dimen/dp24" android:layout_height="@dimen/dp24" android:layout_marginEnd="@dimen/margin_16dp" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintEnd_toStartOf="@id/AccountAuthcode" app:layout_constraintStart_toEndOf="@id/AccountAuthcode" app:layout_constraintTop_toTopOf="0">
+  </ImageView>
+  <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" app:layout_constraintBottom_toTopOf="@id/AccountAuthcode" app:layout_constraintEnd_toStartOf="@id/AccountAuthcode" app:layout_constraintStart_toEndOf="@id/AccountAuthcode" app:layout_constraintTop_toTopOf="0">
+    <TextView attr_0x01010034="@style/Label_1_Bold" android:textColor="@color/grey_g900" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0">
+    </TextView>
+    <TextView attr_0x01010034="@style/Label_1_Bold" android:textColor="@color/grey_g900" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintEnd_toStartOf="@id/AccountAuthcode" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0">
+    </TextView>
+    <TextView attr_0x01010034="@style/Body_2" android:textColor="@color/ContentPrimary" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="@dimen/margin_8dp" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toEndOf="@id/AccountAuthcode" app:layout_constraintTop_toTopOf="0">
+    </TextView>
+    <o.abhx android:gravity="0x10" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="@dimen/margin_8dp" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintStart_toStartOf="@id/AccountAuthcode" app:layout_constraintTop_toTopOf="0" app:okds_size="-4" app:okds_tag_style="6">
+    </o.abhx>
+    <androidx.constraintlayout.widget.Guideline android:orientation="1" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintGuide_percent="0.7">
+    </androidx.constraintlayout.widget.Guideline>
+  </androidx.constraintlayout.widget.ConstraintLayout>
+  <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintEnd_toStartOf="@id/AccountAuthcode" app:layout_constraintStart_toStartOf="@id/AccountAuthcode" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+    <TextView android:textColor="@color/ContentTertiary" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="0dp" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0" style="@style/Body_4">
+    </TextView>
+    <TextView attr_0x01010034="@style/Body_2" android:textColor="@color/ContentPrimary" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="0dp" android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0">
+    </TextView>
+  </androidx.constraintlayout.widget.ConstraintLayout>
+  <TextView attr_0x01010034="@style/Label_3_Regular" android:textColor="@color/ContentTertiary" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="0dp" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintEnd_toStartOf="@id/AccountAuthcode" app:layout_constraintStart_toStartOf="@id/AccountAuthcode" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+  </TextView>
+  <androidx.compose.ui.platform.ComposeView android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="0dp" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintEnd_toStartOf="@id/AccountAuthcode" app:layout_constraintStart_toStartOf="@id/AccountAuthcode" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+  </androidx.compose.ui.platform.ComposeView>
+  <androidx.constraintlayout.widget.Guideline android:orientation="1" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintGuide_end="@dimen/margin_34dp">
+  </androidx.constraintlayout.widget.Guideline>
+  <ImageView android:id="@id/AccountAuthcode" android:layout_width="@dimen/dp24" android:layout_height="@dimen/dp24" android:src="@0x7f0815eb" android:layout_marginStart="@dimen/margin_16dp" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintEnd_toEndOf="0" app:layout_constraintTop_toTopOf="0" app:tint="@color/RubyRed500">
+  </ImageView>
+  <ImageView android:id="@id/AccountAuthcode" android:layout_width="@dimen/dp24" android:layout_height="@dimen/dp24" android:src="@0x7f0806a1" android:layout_marginStart="@dimen/margin_16dp" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintEnd_toEndOf="0" app:layout_constraintTop_toTopOf="0">
+  </ImageView>
+</androidx.constraintlayout.widget.ConstraintLayout>

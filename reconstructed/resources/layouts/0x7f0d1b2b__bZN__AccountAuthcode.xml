@@ -1,0 +1,24 @@
+<!-- Layout Resource ID: 0x7f0d1b2b | APK Entry: bZN -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" android:id="@id/AccountAuthcode" attr_0x010100d1="layout/payment_item_fiat_channel_0" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <androidx.constraintlayout.widget.ConstraintLayout attr_0x010100d7="@dimen/padding_16dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout android:orientation="1" android:layout_width="0dp" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintEnd_toEndOf="0" app:layout_constraintEnd_toStartOf="@id/AccountAuthcode" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0">
+      <LinearLayout android:orientation="0" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageView attr_0x010100b3="0x10" android:id="@id/AccountAuthcode" android:layout_width="@dimen/ok_dp_16" android:layout_height="@dimen/ok_dp_16" android:src="@0x7f08117d" attr_0x0101011d="3">
+        </ImageView>
+        <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+          <TextView android:textSize="@dimen/text_size_16sp" android:textColor="@color/LiteGray900" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" attr_0x010103ac="@font/harmony_sans_medium" android:layout_marginStart="@dimen/margin_10dp" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0">
+          </TextView>
+          <TextView android:textSize="@dimen/text_size_10sp" android:textColor="@color/white" android:id="@id/AccountAuthcode" android:background="@0x7f081362" attr_0x010100d6="@dimen/padding_4dp" attr_0x010100d7="@dimen/padding_1dp" attr_0x010100d8="@dimen/padding_4dp" attr_0x010100d9="@dimen/padding_1dp" attr_0x010100dc="2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/lt_unipay_badge_bestprice" attr_0x010103ac="@font/harmony_sans_medium" android:layout_marginStart="@dimen/margin_8dp" app:layout_constraintBaseline_toBaselineOf="@id/AccountAuthcode" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toEndOf="@id/AccountAuthcode">
+          </TextView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+      </LinearLayout>
+    </LinearLayout>
+    <RadioButton android:id="@id/AccountAuthcode" android:background="@color/bg_recurring_buy_transparent" attr_0x010100dc="2" android:layout_width="wrap_content" android:layout_height="wrap_content" attr_0x01010107="@0x7f0813ae" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintEnd_toEndOf="0" app:layout_constraintTop_toTopOf="0">
+    </RadioButton>
+  </androidx.constraintlayout.widget.ConstraintLayout>
+  <include android:id="@id/AccountAuthcode" attr_0x010100dc="1" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_16dp" layout="@0x7f0d1b7e">
+  </include>
+  <View android:id="@id/AccountAuthcode" android:background="@color/LiteGray200" android:layout_width="match_parent" android:layout_height="@dimen/padding_1dp" android:layout_marginTop="@dimen/margin_16dp">
+  </View>
+</LinearLayout>

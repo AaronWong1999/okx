@@ -1,0 +1,20 @@
+<!-- Layout Resource ID: 0x7f0d1964 | APK Entry: bRd -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" attr_0x010100d1="layout/market_place_smart_portfolio_amt_view_0" attr_0x010100d7="@dimen/margin_20dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <o.YKT android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/dp_10">
+  </o.YKT>
+  <o.WQp android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" app:oktInputLabel="@string/pr_trade_recurbot_detail_tunbibao_input_amount" app:oktInputSeekBarVisible="true" app:oktInputUnit="USDT" style="@style/OKTInputLayoutStyle_Bot">
+  </o.WQp>
+  <o.WSc android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:contentTextAppearance="@style/text_appearance_12sp_color_content_primary" app:titleTextAppearance="@style/text_appearance_12sp_color_content_contrast">
+  </o.WSc>
+  <o.ZXc android:id="@id/AccountAuthcode" attr_0x010100dc="0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:footerAvaShowTransfer="true" app:footerAvaTitle="@string/pr_trade_recurbot_detail_tunbibao_avail">
+  </o.ZXc>
+  <TextView attr_0x01010034="@style/TextAppearance.Text.12SP" android:textColor="@color/RubyRed500" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_6dp" android:text="@string/pr_dcabot_placeorder_fieldalert_exceed_available">
+  </TextView>
+  <o.aapy android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp">
+  </o.aapy>
+  <o.YSm android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp">
+  </o.YSm>
+  <o.YSm android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp">
+  </o.YSm>
+</LinearLayout>

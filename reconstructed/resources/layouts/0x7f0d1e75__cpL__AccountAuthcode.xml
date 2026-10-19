@@ -1,0 +1,22 @@
+<!-- Layout Resource ID: 0x7f0d1e75 | APK Entry: cpL -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" attr_0x010100d1="layout/trade_impl_activity_bot_guide_spot_grid_0" android:background="@color/BasePrimary" attr_0x010100dd="true" android:layout_width="match_parent" android:layout_height="match_parent">
+  <androidx.appcompat.widget.AppCompatImageView android:id="@id/AccountAuthcode" android:background="?attr/selectableItemBackgroundBorderless" android:layout_width="@dimen/width_24dp" android:layout_height="@dimen/height_24dp" android:src="@0x7f0816f8" android:layout_marginStart="@dimen/margin_24dp" app:layout_constraintBottom_toBottomOf="@id/AccountAuthcode" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="@id/AccountAuthcode" app:tint="@color/grey_g900_white_w900">
+  </androidx.appcompat.widget.AppCompatImageView>
+  <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="44dp" android:layout_marginLeft="60dp" android:layout_marginRight="60dp" attr_0x0101031f="0" attr_0x0101053b="60dp" app:layout_constraintTop_toTopOf="0">
+    <ImageView android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="@dimen/width_24dp" android:layout_height="@dimen/height_24dp" android:layout_marginEnd="@dimen/margin_4dp" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintEnd_toStartOf="@id/AccountAuthcode" app:layout_constraintHorizontal_chainStyle="2" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0">
+    </ImageView>
+    <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Bold" android:textSize="@dimen/text_size_18sp" android:textColor="@color/grey_g900" attr_0x010100ab="3" android:gravity="0x11" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" attr_0x01010154="1" app:layout_constrainedWidth="true" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toEndOf="@id/AccountAuthcode" app:layout_constraintTop_toTopOf="0">
+    </androidx.appcompat.widget.AppCompatTextView>
+  </androidx.constraintlayout.widget.ConstraintLayout>
+  <androidx.core.widget.NestedScrollView android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="0dp" attr_0x010102c1="2" app:layout_constraintBottom_toTopOf="@id/AccountAuthcode" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+    <androidx.fragment.app.FragmentContainerView android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="@dimen/margin_24dp" android:layout_marginRight="@dimen/margin_24dp" attr_0x0101053b="@dimen/margin_24dp">
+    </androidx.fragment.app.FragmentContainerView>
+  </androidx.core.widget.NestedScrollView>
+  <o.aaXx android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_24dp" android:layout_marginTop="@dimen/margin_16dp" android:layout_marginRight="@dimen/margin_24dp" android:layout_marginBottom="@dimen/margin_24dp" android:text="@string/pr_trade_btn_create" attr_0x0101053b="@dimen/margin_24dp" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:okds_button_size="52" app:okds_button_type="0x101">
+  </o.aaXx>
+  <androidx.constraintlayout.widget.Group android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" app:constraint_referenced_ids="guide_nest_scroll_view,create">
+  </androidx.constraintlayout.widget.Group>
+  <o.abeF android:id="@id/AccountAuthcode" android:background="@color/BasePrimary" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" app:empty_type="8" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:text="@string/pr_common_error_btn_reload" app:title="@string/pr_trade_empty_title_error">
+  </o.abeF>
+</androidx.constraintlayout.widget.ConstraintLayout>

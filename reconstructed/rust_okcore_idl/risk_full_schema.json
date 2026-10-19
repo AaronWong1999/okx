@@ -1,0 +1,3344 @@
+[
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_SET_CACHED_DEVICE_INFO",
+    "module": "risk",
+    "name": "set_cached_device_info",
+    "is_async": false,
+    "args": [
+      {
+        "name": "device_info_json",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Set cached device info JSON.\nCalled when device info is collected to store for SecToken generation.\nMatches C++ set_device_info_cache()."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_RISK_ERROR_RISKERROR",
+    "module": "risk",
+    "name": "RiskError",
+    "shape": 1,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "NetworkError",
+        "discr": null,
+        "fields": [
+          {
+            "name": "http_status",
+            "type": "i32",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "business_code",
+            "type": "i32",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "error_message",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          },
+          {
+            "name": "origin_response",
+            "type": "Option<Response>",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": ""
+      },
+      {
+        "name": "Cancelled",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "InternalError",
+        "discr": null,
+        "fields": [
+          {
+            "name": "error_message",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": ""
+      }
+    ],
+    "doc": ""
+  },
+  {
+    "kind": "trait_method",
+    "symbol": "UNIFFI_META_RISK_METHOD_FOREIGNRISKMANAGER_PROFILE",
+    "module": "risk",
+    "interface": "ForeignRiskManager",
+    "index": 1,
+    "name": "profile",
+    "is_async": true,
+    "args": [
+      {
+        "name": "source",
+        "type": "RiskLibrarySource",
+        "default": null
+      },
+      {
+        "name": "risk_id",
+        "type": "Option<String>",
+        "default": null
+      }
+    ],
+    "return_type": "ProfileStatusDTO",
+    "doc": "Opens the risk profile."
+  },
+  {
+    "kind": "trait_method",
+    "symbol": "UNIFFI_META_RISK_METHOD_CALLMONITORCONTROLLER_STOP",
+    "module": "risk",
+    "interface": "CallMonitorController",
+    "index": 1,
+    "name": "stop",
+    "is_async": false,
+    "args": [],
+    "return_type": "Result<(), CallMonitorError>",
+    "doc": ""
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_COLLECT_MODULES",
+    "module": "risk",
+    "name": "collect_modules",
+    "is_async": false,
+    "args": [
+      {
+        "name": "self_apk_path",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "ModuleScanResult",
+    "doc": ""
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_RISK_ON_CALL_STARTED",
+    "module": "risk",
+    "name": "risk_on_call_started",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Rising-edge hook (non-call -> call): increments the per-run call count.\nCalled by the Kotlin/Swift `CallStateMonitor` state machine."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_CONFIGURATION_QUERY_SHALL_PULL",
+    "module": "risk",
+    "name": "configuration_query_shall_pull",
+    "is_async": false,
+    "args": [],
+    "return_type": "bool",
+    "doc": "Query shallPull from cached RSD config. Call set_cached_rsd_config when RSD is decrypted. For checkShallPullJNI migration."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_RISK_FILE_STAT",
+    "module": "risk",
+    "name": "risk_file_stat",
+    "is_async": false,
+    "args": [
+      {
+        "name": "path",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "String",
+    "doc": "Get file stat info via raw syscall (fstatat). For UdRisk.stat() Lua bridge.\nReturns JSON string with file metadata or error details."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_SET_TARGET_APP_INFO_API_SUCCESS",
+    "module": "risk",
+    "name": "set_target_app_info_api_success",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Set that target app info API has been successfully called. For markTargetAppInfoApiSuccessJNI migration."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_BRIDGE_GET_CONFIG_VALUE",
+    "module": "risk",
+    "name": "bridge_get_config_value",
+    "is_async": false,
+    "args": [
+      {
+        "name": "files_dir",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "client_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "key_path",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "Option<String>",
+    "doc": "Complete getConfigValue flow: read file + decrypt + query key path\nMatches C++ getConfigValueJNI\n\n@param files_dir Android app's internal files directory path\n@param client_id Device identifier\n@param key_path JSON key path to query (e.g. \"app_list_collection\")"
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_RISK_GET_CURRENT_CALL_STATE",
+    "module": "risk",
+    "name": "risk_get_current_call_state",
+    "is_async": false,
+    "args": [],
+    "return_type": "i32",
+    "doc": "Pull: read the current device call state (0 none / 1 ringing / 2 carrier /\n3 VoIP / -1 unknown). Synchronous; switch-independent; zero permission.\n\nSide effect: asynchronously reports {call_state, timestamp} to the backend\nover the RSD channel (type=4, fire-and-forget, rate-limited). This report is\nhooked at the export layer — SDK-internal reads of the internal\n`get_current_call_state()` deliberately do NOT trigger a report."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_RISK_REGISTER_MANAGER",
+    "module": "risk",
+    "name": "risk_register_manager",
+    "is_async": false,
+    "args": [
+      {
+        "name": "manager",
+        "type": "Arc<dyn ForeignRiskManager>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Registers the foreign (Kotlin/Swift) implementation.\n\nCalled once during app startup."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_DATA_STORAGE_DECRYPT_FROM_STORAGE",
+    "module": "risk",
+    "name": "data_storage_decrypt_from_storage",
+    "is_async": false,
+    "args": [
+      {
+        "name": "stored_json",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "client_id",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "Result<String, DataStorageExportError>",
+    "doc": "Decrypt stored config from JSON file content. Caller reads file and passes content."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_RISK_ERROR_SECTOKENEXPORTERROR",
+    "module": "risk",
+    "name": "SecTokenExportError",
+    "shape": 2,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Message",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      }
+    ],
+    "doc": ""
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_GET_SELF_APK_COLLECTION_CONFIG",
+    "module": "risk",
+    "name": "get_self_apk_collection_config",
+    "is_async": false,
+    "args": [],
+    "return_type": "SelfApkCollectionConfig",
+    "doc": ""
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_APP_FILTER_BUILD_PATHS_AND_MD5_JSON",
+    "module": "risk",
+    "name": "app_filter_build_paths_and_md5_json",
+    "is_async": false,
+    "args": [
+      {
+        "name": "items_json",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "Result<String, AppFilterExportError>",
+    "doc": "Build {\"app_list\": [{\"index\", \"path\", \"md5\"}, ...]} from items JSON array. For getPathsAndMd5JNI."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_BRIDGE_EXECUTE_RSD_FLOW",
+    "module": "risk",
+    "name": "bridge_execute_rsd_flow",
+    "is_async": false,
+    "args": [
+      {
+        "name": "timestamp",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "session_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "encrypted_payload",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "pv",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "rid",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "sv",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "scene",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "max_retry",
+        "type": "u32",
+        "default": null
+      },
+      {
+        "name": "risk_session_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "session_status",
+        "type": "i32",
+        "default": null
+      }
+    ],
+    "return_type": "RsdFlowResult",
+    "doc": "Executes the full RSD flow in Rust.\n\nSteps:\n1. Build request body (CommonBody with pm=1, matches Kotlin)\n2. POST /priapi/v1/dis/rsd via OKXHttpClient with exponential backoff retry\n3. On success, if scene==\"APP_START\" && isFileUploadEnabled():\na. Decrypt RSD config via bridge_get_config_value_rsd\nb. Parse OSS config via parse_rsd_oss_config\nc. Determine network policy via isFileUploadEnforced experiment flag\n4. Return RsdFlowResult { success, et, oss_config?, network_policy? }\n\nOSS processing errors do NOT affect the et return value (matches Kotlin try-catch).\n\nrisk_session_id / session_status are the tmx session values from OKRiskProvider —\npassed directly to avoid a global write/read race under concurrent invocations.\nThis function blocks the calling thread; invoke from Dispatchers.IO."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_GET_CACHED_EMULATOR",
+    "module": "risk",
+    "name": "get_cached_emulator",
+    "is_async": false,
+    "args": [],
+    "return_type": "i32",
+    "doc": "Get cached emulator detection result (for SecToken generation).\nReturns raw value where bit N = case N detected emulator.\nMatches C++ EmulatorDetection::get_cached_is_emulator()."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_CONFIGURATION_BUILD_RSD_RESULT_FROM_JSON",
+    "module": "risk",
+    "name": "configuration_build_rsd_result_from_json",
+    "is_async": false,
+    "args": [
+      {
+        "name": "decrypted_json",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "app_list_json",
+        "type": "Option<String>",
+        "default": null
+      }
+    ],
+    "return_type": "Option<String>",
+    "doc": "Build RSD result JSON from decrypted config + optional app_list. For getConfigValueRsd dual-path."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_RISK_ERROR_KEYEXCHANGEEXPORTERROR",
+    "module": "risk",
+    "name": "KeyExchangeExportError",
+    "shape": 2,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Message",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      }
+    ],
+    "doc": ""
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_SET_CACHED_EMULATOR",
+    "module": "risk",
+    "name": "set_cached_emulator",
+    "is_async": false,
+    "args": [
+      {
+        "name": "value",
+        "type": "i32",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Set cached emulator detection result.\nCalled after emulator detection runs to store result for SecToken generation.\nMatches C++ EmulatorDetection::set_cached_is_emulator()."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_RISK_ZIP_CONTAINS",
+    "module": "risk",
+    "name": "risk_zip_contains",
+    "is_async": false,
+    "args": [
+      {
+        "name": "zip_path",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "targets_json",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "String",
+    "doc": "Atomic scan: check if a ZIP/APK contains any of the target filenames.\nReturns JSON array of matched names, or error JSON."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_BRIDGE_EXECUTE_MODULES_RSD",
+    "module": "risk",
+    "name": "bridge_execute_modules_rsd",
+    "is_async": false,
+    "args": [
+      {
+        "name": "module_json",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "transaction_id",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "RsdFlowResult",
+    "doc": "Encrypt a pre-collected module JSON payload and POST it to /priapi/v1/dis/rsd.\n\nThis is the correct entry point for periodic module collection.  It does NOT\nrun app scanning (no collect_and_filter call) — that separates module collection\nfrom the app-launch app-scan that lives in bridge_execute_app_collection_rsd.\n\nCall hierarchy:\nAndroid: OKRiskManager.scheduleModulesCollection → here (replaces NativeBridge.collectFilterAndProcess)\niOS:     OKModulesCollector.collect              → here (replaces bridgeCollectFilterAndProcess)"
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RISK_RECORD_PROFILESTATUSDTO",
+    "module": "risk",
+    "name": "ProfileStatusDTO",
+    "fields": [
+      {
+        "name": "risk_id",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "An ID refreshed every time requesting profile (transaction ID)"
+      },
+      {
+        "name": "risk_token",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "A unified token (for KYC, this is ali faceguard id / eDeviceToken)"
+      },
+      {
+        "name": "code",
+        "type": "ProfileStatus",
+        "default": null,
+        "doc": "Status code of the profile operation"
+      },
+      {
+        "name": "ali_code",
+        "type": "Option<i32>",
+        "default": null,
+        "doc": "Ali-specific code (optional)"
+      }
+    ],
+    "doc": "Result of a profile operation.\n\nMaps to `ProfileStatusDTO` in Kotlin."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RISK_RECORD_MODULESCANRESULT",
+    "module": "risk",
+    "name": "ModuleScanResult",
+    "fields": [
+      {
+        "name": "modules",
+        "type": "Vec<ModuleInfo>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "self_apk_files",
+        "type": "Option<Vec<SelfApkFileInfo>>",
+        "default": null,
+        "doc": "None when self_apk_collection disabled (field omitted from report).\nSome([]) when enabled but no entries pass the blacklist filter."
+      },
+      {
+        "name": "anonymous_count",
+        "type": "Option<String>",
+        "default": null,
+        "doc": "None when anonymous_modules disabled (field omitted from report).\nSome(\"N\") with the segment count. (\"-1\" is only reachable in unwind\n(debug/test) builds if counting panics; release uses panic=\"abort\".)"
+      }
+    ],
+    "doc": ""
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_RISK_SET_ABTEST_VALUE",
+    "module": "risk",
+    "name": "risk_set_abtest_value",
+    "is_async": false,
+    "args": [
+      {
+        "name": "key",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "value",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Set a risk-specific ABTest flag value, bypassing the global ABTest factory.\n\nCalled by iOS/Android native at startup with values read directly from Skylab.\nNeeded on iOS because OKLauncher's `OKCoreABTestBridge` occupies the global\nABTest factory (experiment crate `OnceLock`) before OKRiskLibrary initialises,\nand that factory may not return values for risk-specific flags.\n\n`RsdExperimentFlags` checks these overrides before falling back to the global factory."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_BRIDGE_EXECUTE_APP_COLLECTION_RSD",
+    "module": "risk",
+    "name": "bridge_execute_app_collection_rsd",
+    "is_async": false,
+    "args": [
+      {
+        "name": "transaction_id",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "RsdFlowResult",
+    "doc": ""
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_BRIDGE_PROCESS_BIOMETRIC_DATA",
+    "module": "risk",
+    "name": "bridge_process_biometric_data",
+    "is_async": false,
+    "args": [
+      {
+        "name": "sensor_data",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "client_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "timestamp",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "type_",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "version",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "sdk_version",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "ts",
+        "type": "Vec<u8>",
+        "default": null
+      }
+    ],
+    "return_type": "Result<String, KeyExchangeExportError>",
+    "doc": "Complete processBiometricData flow: merge + decode + encrypt + Base64\nMatches C++ processBiometricDataJNI"
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RISK_RECORD_SELFAPKCOLLECTIONCONFIG",
+    "module": "risk",
+    "name": "SelfApkCollectionConfig",
+    "fields": [
+      {
+        "name": "enabled",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "max_cnt",
+        "type": "u64",
+        "default": null,
+        "doc": "Maximum number of matching APK entries to collect per scan. 0 = no limit."
+      },
+      {
+        "name": "path_blacklist",
+        "type": "Vec<String>",
+        "default": null,
+        "doc": "Regex patterns matched against APK entry names (e.g. \"^classes\\\\d*\\\\.dex$\").\nOnly entries whose names match AT LEAST ONE pattern are reported.\nEmpty list → nothing reported."
+      }
+    ],
+    "doc": "Separate GCC config for self-APK entry collection (key: \"self_apk_collection\").\nDecoupled from modules_collection so it can be toggled independently."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_DATA_MERGE_GET_HEALTH_MESSAGE_BYTE_V2",
+    "module": "risk",
+    "name": "data_merge_get_health_message_byte_v2",
+    "is_async": false,
+    "args": [
+      {
+        "name": "cg_bytes",
+        "type": "Vec<u8>",
+        "default": null
+      },
+      {
+        "name": "index",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "random_b0",
+        "type": "u8",
+        "default": null
+      }
+    ],
+    "return_type": "Result<Vec<u8>, DatamergeExportError>",
+    "doc": "Build health message byte v2 (body2 only). Params: cg_bytes + index (decode config), random_b0."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RISK_INTERFACE_CLASSLOADERCHAINCOLLECTOR",
+    "module": "risk",
+    "name": "ClassLoaderChainCollector",
+    "trait_kind": 13,
+    "doc": "**Deprecated, retired (round-7 finding #24/#27).** This is the ORIGINAL\nv1 collector trait that used to back hook sn=24 (`ClassLoaderChainCollectorImpl`\non the Kotlin side, since deleted). It has no relationship to sn=24's\ncurrent, real dispatch — see `ClassLoaderChainV2Collector` below and\n`hook_detection/android.rs::collect_cl_loaders_v2` for that. Nothing in\nthis crate ever reads a collector registered here.\n\nThis trait and its registration function are kept ONLY so a stale OKRisk\nbinary — built against an older OKCore that still calls\n`riskRegisterClassloaderCollector` — doesn't fail to link against a newer\nOKCore artifact (partial rollback, stale dependency cache, a hotfix\nbranched before the retirement). This follows the same\ndeprecate-don't-remove policy already applied to the sn=24 wire field\nitself; see `docs/best-practice-in-component-development.md` §1."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_RISK_ERROR_MODULESCOLLECTIONEXPORTERROR",
+    "module": "risk",
+    "name": "ModulesCollectionExportError",
+    "shape": 2,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Message",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      }
+    ],
+    "doc": ""
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_GENERATE_SEC_TOKEN",
+    "module": "risk",
+    "name": "generate_sec_token",
+    "is_async": false,
+    "args": [
+      {
+        "name": "other_data_json",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "timestamp",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "raw_data",
+        "type": "Vec<u8>",
+        "default": null
+      },
+      {
+        "name": "ali_token_threshold",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "ali_device_token",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "session_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "message_id",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "Result<String, SecTokenExportError>",
+    "doc": "Generate sec token part2: build JSON from internal caches, zlib compress, AES whitebox GCM, Base64.\nDirectly reads cached detection results from internal storage - no need to pass them as parameters."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_SET_CACHED_ROOT",
+    "module": "risk",
+    "name": "set_cached_root",
+    "is_async": false,
+    "args": [
+      {
+        "name": "value",
+        "type": "i32",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Set cached root detection result.\nCalled after root detection runs to store result for SecToken generation.\nMatches C++ RootDetection::set_cached_is_root()."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_RECORD_COLLECTED_DEVICE_INTEGRITY_STATUS",
+    "module": "risk",
+    "name": "record_collected_device_integrity_status",
+    "is_async": false,
+    "args": [
+      {
+        "name": "rooted_or_jailbroken",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "developer_mode",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "emulator",
+        "type": "i32",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Record already-collected platform conclusions in the process-local store.\nThis is an internal SDK bridge: it validates tri-states, never invokes detection,\nnever persists data, and each dimension retains its first valid result."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RISK_RECORD_RSDFLOWRESULT",
+    "module": "risk",
+    "name": "RsdFlowResult",
+    "fields": [
+      {
+        "name": "success",
+        "type": "bool",
+        "default": null,
+        "doc": "Whether the RSD HTTP request succeeded."
+      },
+      {
+        "name": "et",
+        "type": "String",
+        "default": null,
+        "doc": "Response et value (encrypted config). Always returned if HTTP succeeded,\nregardless of OSS processing result (matches Kotlin try-catch behavior)."
+      },
+      {
+        "name": "oss_config",
+        "type": "Option<RsdOssConfig>",
+        "default": null,
+        "doc": "Parsed OSS config (when all 3 conditions met and parse succeeded), else None."
+      },
+      {
+        "name": "network_policy",
+        "type": "Option<NetworkUploadPolicy>",
+        "default": null,
+        "doc": "Network upload policy (determined by experiment flag), else None."
+      },
+      {
+        "name": "gate_ts_save_failed",
+        "type": "bool",
+        "default": null,
+        "doc": "Fix A (WMS-239): true when the 24h-gate timestamp save failed during this flow.\nConsumed by Kotlin OKAppCollector to emit the `save_scan_timestamp_failed` metric."
+      }
+    ],
+    "doc": "Full result of RSD flow execution."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RISK_INTERFACE_CALLMONITORCONTROLLER",
+    "module": "risk",
+    "name": "CallMonitorController",
+    "trait_kind": 13,
+    "doc": "Platform monitor lifecycle, implemented by the Android/iOS side. `start()`\nregisters the system audio/telephony monitor; `stop()` unregisters it. The\nregistry drives these on the 0<->1 subscriber transitions.\n\nReturns `Result` for the same reason as `CallStateListener`: a foreign impl\nthrowing (e.g. Android `PhoneStateListener` registration without\n`READ_PHONE_STATE` → `SecurityException`) must not abort the host process.\nThe add/remove-listener call sites downgrade `Err` to a warn log."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RISK_RECORD_RSDOSSCONFIG",
+    "module": "risk",
+    "name": "RsdOssConfig",
+    "fields": [
+      {
+        "name": "need_upload_files",
+        "type": "Vec<i32>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "oss_config",
+        "type": "RsdOssUploadConfig",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "app_list",
+        "type": "Vec<RsdAppSample>",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": "Parsed RSD OSS config — returned to Kotlin for file upload."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_CONFIGURATION_DECRYPT_CONFIG",
+    "module": "risk",
+    "name": "configuration_decrypt_config",
+    "is_async": false,
+    "args": [
+      {
+        "name": "encrypted_b64",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "Option<String>",
+    "doc": "Decrypt Base64-encoded config with cached ChaCha20 key. For getConfigValueRsd dual-path."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RISK_RECORD_RSDOSSUPLOADCONFIG",
+    "module": "risk",
+    "name": "RsdOssUploadConfig",
+    "fields": [
+      {
+        "name": "access_key_id",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "access_key_secret",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "security_token",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "bucket",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "endpoint",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "expiration",
+        "type": "i64",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "path_prefix",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": "OSS credential and upload target config."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_MESSAGE_ID_CLEAR_CACHE",
+    "module": "risk",
+    "name": "message_id_clear_cache",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Clear cached message_id (for new session or testing)."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_BRIDGE_DECRYPT_CONFIG",
+    "module": "risk",
+    "name": "bridge_decrypt_config",
+    "is_async": false,
+    "args": [
+      {
+        "name": "files_dir",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "client_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "encrypted_config",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "source_type",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "bool",
+    "doc": "Complete decryptConfig flow: read file + decrypt + save to cache\nMatches C++ decryptConfigJNI\n\n@param files_dir Android app's internal files directory path (e.g. \"/data/data/com.app/files\")\n@param client_id Device identifier\n@param encrypted_config Encrypted config from backend (empty means read from file)\n@param source_type Config source type (\"gcc\" or \"rsd\")\nMatches C++ decryptConfigJNI: decrypt config, cache in memory, save gcc to disk."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_APP_FILTER_FILTER_MALICIOUS_APPS",
+    "module": "risk",
+    "name": "app_filter_filter_malicious_apps",
+    "is_async": false,
+    "args": [
+      {
+        "name": "app_list_json",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "collection_config_json",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "last_scan_timestamp",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "full_scan",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": "Result<String, AppFilterExportError>",
+    "doc": "Filter app list by app_list_collection rules. For processAppDataJNI filter step."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RISK_RECORD_AESENCRYPTRESULT",
+    "module": "risk",
+    "name": "AesEncryptResult",
+    "fields": [
+      {
+        "name": "ciphertext",
+        "type": "Vec<u8>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "iv",
+        "type": "Vec<u8>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "tag",
+        "type": "Vec<u8>",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": "Result type for AES operations"
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RISK_INTERFACE_FOREIGNRISKMANAGER",
+    "module": "risk",
+    "name": "ForeignRiskManager",
+    "trait_kind": 13,
+    "doc": "Foreign Risk Manager Interface (implemented by Kotlin/Swift).\n\nThis is the UniFFI bridge - Kotlin/Swift implement this trait.\nThe Android/iOS RiskManager implementations wrap this."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_RISK_ERROR_DEVICEINTEGRITYREADERROR",
+    "module": "risk",
+    "name": "DeviceIntegrityReadError",
+    "shape": 1,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Unavailable",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      }
+    ],
+    "doc": "Read errors are exposed as a throwing binding so native wrappers can fail closed."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RISK_RECORD_RSDAPPSAMPLE",
+    "module": "risk",
+    "name": "RsdAppSample",
+    "fields": [
+      {
+        "name": "path",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "md5",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "index",
+        "type": "i32",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": "Single app entry that needs to be uploaded to OSS."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_KEY_EXCHANGE_GET_GCC_BYTE",
+    "module": "risk",
+    "name": "key_exchange_get_gcc_byte",
+    "is_async": false,
+    "args": [
+      {
+        "name": "client_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "timestamp",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "type_",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "version",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "sdk_version",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "message_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "raw_data",
+        "type": "Vec<u8>",
+        "default": null
+      }
+    ],
+    "return_type": "Result<String, KeyExchangeExportError>",
+    "doc": "GCC key exchange: build JSON (key hex from cache), AES whitebox encrypt, Base64. Params match gccByteFromJNI."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_BRIDGE_PROCESS_APP_DATA",
+    "module": "risk",
+    "name": "bridge_process_app_data",
+    "is_async": false,
+    "args": [
+      {
+        "name": "files_dir",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "client_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "app_data",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "timestamp",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "type_",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "version",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "sdk_version",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "ts",
+        "type": "Vec<u8>",
+        "default": null
+      },
+      {
+        "name": "last_scan_timestamp",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "full_scan",
+        "type": "bool",
+        "default": null
+      }
+    ],
+    "return_type": "Option<String>",
+    "doc": "Complete processAppData flow: read file + decrypt config + filter + encrypt\nMatches C++ processAppDataJNI"
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_RISK_PROFILE",
+    "module": "risk",
+    "name": "risk_profile",
+    "is_async": true,
+    "args": [
+      {
+        "name": "cancel_token",
+        "type": "Arc<OKCancellationToken>",
+        "default": null
+      },
+      {
+        "name": "source",
+        "type": "RiskLibrarySource",
+        "default": null
+      },
+      {
+        "name": "risk_id",
+        "type": "Option<String>",
+        "default": null
+      }
+    ],
+    "return_type": "Result<Option<ProfileStatusDTO>, RiskError>",
+    "doc": "Opens the risk profile.\n\nAutomatically uses the correct platform implementation.\n\n# Example\n```rust,ignore\nlet result = risk_manager::profile(RiskLibrarySource::UserLogin, None).await;\n```"
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_RISK_ENUM_PROFILESTATUS",
+    "module": "risk",
+    "name": "ProfileStatus",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Success",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "Failure",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "Timeout",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "AliTokenFetchFailed",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      }
+    ],
+    "doc": "Status of a profile operation.\n\nMaps to `ProfileStatus` in Kotlin."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_MESSAGE_ID_GET_OR_GENERATE",
+    "module": "risk",
+    "name": "message_id_get_or_generate",
+    "is_async": false,
+    "args": [],
+    "return_type": "String",
+    "doc": "Get or generate cached message_id (24-char hex). Matches C++ MessageIdManager."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_BRIDGE_UPLOAD_DATA_MESSAGE",
+    "module": "risk",
+    "name": "bridge_upload_data_message",
+    "is_async": false,
+    "args": [
+      {
+        "name": "user_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "client_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "channel",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "device_info",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "dex_id",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "cg",
+        "type": "Vec<u8>",
+        "default": null
+      },
+      {
+        "name": "index",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "timestamp",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "ts",
+        "type": "Vec<u8>",
+        "default": null
+      }
+    ],
+    "return_type": "Result<String, DatamergeExportError>",
+    "doc": "Complete uploadDataMessage flow: plaintext + encrypt + Base64\nMatches C++ uploadDataMessageNative"
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_BRIDGE_COLLECT_FILTER_AND_PROCESS",
+    "module": "risk",
+    "name": "bridge_collect_filter_and_process",
+    "is_async": false,
+    "args": [
+      {
+        "name": "client_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "timestamp",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "type_",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "version",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "sdk_version",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "ts",
+        "type": "Vec<u8>",
+        "default": null
+      },
+      {
+        "name": "chunk_size",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "module_json",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "Option<String>",
+    "doc": "Complete collect + filter + encrypt flow matching C++ collectFilterAndProcessJNI.\nUses AppIteratorBridge (JNI) to stream app collection, filters in chunks, encrypts result.\nOptionally merges serialized ModuleScanResult JSON into the payload before encryption.\n\n@param client_id Device identifier\n@param timestamp Current processing timestamp (millis)\n@param type_ Data type\n@param version Version string\n@param sdk_version SDK version\n@param ts Raw data bytes for encryption\n@param chunk_size Apps per chunk before filtering (default 32)\n@param module_json Serialized ModuleScanResult JSON — merged alongside app_list before encryption.\nPass empty string when module collection is disabled or not yet run."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_RISK_ENUM_NETWORKUPLOADPOLICY",
+    "module": "risk",
+    "name": "NetworkUploadPolicy",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "WifiOnly",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "WifiOrMobile",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      }
+    ],
+    "doc": "Network upload policy — determined by Rust experiment flag, passed to Kotlin."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_RISK_REMOVE_CALL_STATE_LISTENER",
+    "module": "risk",
+    "name": "risk_remove_call_state_listener",
+    "is_async": false,
+    "args": [
+      {
+        "name": "token",
+        "type": "u64",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Push unsubscribe by token. The 1->0 transition stops the platform monitor."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_RISK_REGISTER_CLASSLOADER_V2_COLLECTOR",
+    "module": "risk",
+    "name": "risk_register_classloader_v2_collector",
+    "is_async": false,
+    "args": [
+      {
+        "name": "collector",
+        "type": "Arc<dyn ClassLoaderChainV2Collector>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Register the cl_loaders_v2 collector (once, at OKRisk init). A duplicate\nregistration is ignored with a warn — mirrors `risk_register_tee_attest_collector`."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RISK_INTERFACE_TEEATTESTCOLLECTOR",
+    "module": "risk",
+    "name": "TeeAttestCollector",
+    "trait_kind": 13,
+    "doc": "Foreign trait implemented by OKRisk: perform a hardware AndroidKeyStore\nkey-attestation and parse the cert extension into the 4 raw values (empty per\nmissing slot). Kotlin converts expected platform failures into a classified\nall-empty row; the `Result` protects the generated callback boundary if an\nunexpected exception escapes Kotlin."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_RISK_REGISTER_CLASSLOADER_COLLECTOR",
+    "module": "risk",
+    "name": "risk_register_classloader_collector",
+    "is_async": false,
+    "args": [
+      {
+        "name": "collector",
+        "type": "Arc<dyn ClassLoaderChainCollector>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "**Deprecated, retired.** Registering a collector here has no effect on\nanything — no code path in this crate ever consults it, including sn=24's\nreal dispatch (which goes through `ClassLoaderChainV2Collector` instead) —\nthis function exists only to keep the UniFFI symbol linkable for a stale\ncaller. New code must not call this."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_RSD_REGISTER_PLATFORM_PARAMS",
+    "module": "risk",
+    "name": "rsd_register_platform_params",
+    "is_async": false,
+    "args": [
+      {
+        "name": "files_dir",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "base_url",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "device_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "tmx_session_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "tmx_session_status",
+        "type": "i32",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Register platform params for Rust RSD flow (called once at app start).\n`base_url` is accepted for API compatibility but not stored — OKXHttpClient handles base URL."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_RISK_REGISTER_CAMERA2_COMPACT_COLLECTOR",
+    "module": "risk",
+    "name": "risk_register_camera2_compact_collector",
+    "is_async": false,
+    "args": [
+      {
+        "name": "collector",
+        "type": "Arc<dyn Camera2CompactCollector>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Register the Camera2 compact-capability collector (once, at OKRisk init). A\nduplicate registration is ignored with a warn — mirrors the sibling\n`risk_register_tee_attest_collector` register-once discipline (the already\nregistered instance is never replaced, so a second init cannot make the\nsnapshot drift)."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_COLLECT_MEM_SCANNED_DYLIB_LIST",
+    "module": "risk",
+    "name": "collect_mem_scanned_dylib_list",
+    "is_async": false,
+    "args": [],
+    "return_type": "String",
+    "doc": "Competitor memScannedDylibs: memory-scanned dylib enumeration (VM scan + Mach-O LC_ID_DYLIB, bypasses dyld hook).\nReturns \"|\"-joined install_name list (iOS-only; other platforms return empty string)."
+  },
+  {
+    "kind": "trait_method",
+    "symbol": "UNIFFI_META_RISK_METHOD_FOREIGNRISKMANAGER_INITIALIZE",
+    "module": "risk",
+    "interface": "ForeignRiskManager",
+    "index": 0,
+    "name": "initialize",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Initializes the risk module."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_MERGE_BIOMETRIC_DATA",
+    "module": "risk",
+    "name": "merge_biometric_data",
+    "is_async": false,
+    "args": [
+      {
+        "name": "sensor_data_json",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "Result<String, BiometricMergeExportError>",
+    "doc": "Merge biometric sensor JSON to compact format (C++ mergeBiometricData). For processBiometricData dual-path."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_RISK_ERROR_CALLMONITORERROR",
+    "module": "risk",
+    "name": "CallMonitorError",
+    "shape": 1,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "CallbackFailed",
+        "discr": null,
+        "fields": [
+          {
+            "name": "reason",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": "The foreign (Kotlin/Swift) side raised an error or panic; `reason` is\nthe reason string surfaced by UniFFI.\n\nThe field is named `reason` (not `message`) on purpose: the generated\nKotlin binding renders a `uniffi::Error` variant as an `Exception`\nsubclass whose fields become constructor `val`s AND drive an\n`override val message` getter. A field literally named `message` then\nself-collides with `kotlin.Throwable.message` (\"'message' hides member\nof supertype 'Throwable'\"), which fails Kotlin compilation. Swift has no\nsuch member so the iOS binding compiles either way. Keep this field\nnamed `reason` (mirrors the RiskError bindings that use `errorMessage`)."
+      }
+    ],
+    "doc": "Error returned by the call-state foreign traits (`CallStateListener`,\n`CallMonitorController`).\n\nWraps `UnexpectedUniFFICallbackError` so a Kotlin/Swift implementation that\nthrows an undeclared exception surfaces as a `CallMonitorError` the Rust\ncaller can log-and-drop, rather than an `UnexpectedUniFFICallbackError` that\nUniFFI turns into a panic — and, under this crate's `panic = \"abort\"`, a\nwhole-process abort. Mirrors the sibling `IosDetectionError`\n(`platform/ios_detection_provider.rs`). The single variant carries the\nunderlying reason string for diagnostics."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_AES_WHITEBOX_ENCRYPT_GCM_WITH_IV_UNIFFI",
+    "module": "risk",
+    "name": "aes_whitebox_encrypt_gcm_with_iv_uniffi",
+    "is_async": false,
+    "args": [
+      {
+        "name": "tables_bytes",
+        "type": "Vec<u8>",
+        "default": null
+      },
+      {
+        "name": "plaintext",
+        "type": "Vec<u8>",
+        "default": null
+      },
+      {
+        "name": "timestamp",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "iv",
+        "type": "Vec<u8>",
+        "default": null
+      }
+    ],
+    "return_type": "Result<AesEncryptResult, AesError>",
+    "doc": ""
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_RISK_ERROR_APPFILTEREXPORTERROR",
+    "module": "risk",
+    "name": "AppFilterExportError",
+    "shape": 2,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Message",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      }
+    ],
+    "doc": ""
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_SET_FG_V2_ALLOW_LIST",
+    "module": "risk",
+    "name": "set_fg_v2_allow_list",
+    "is_async": false,
+    "args": [
+      {
+        "name": "spec",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Called from Kotlin via UniFFI to update the allow-list spec.\nKotlin calls: `uniffi.risk.setFgV2AllowList(spec)`\n"
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_NOTIFY_SCREENSHOT_STATUS",
+    "module": "risk",
+    "name": "notify_screenshot_status",
+    "is_async": false,
+    "args": [
+      {
+        "name": "status",
+        "type": "i32",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Called from Kotlin via UniFFI to report screenshot detection status.\nKotlin calls: `uniffi.risk.notifyScreenshotStatus(status)`\n\nStatus codes:\n-  1: Screenshot detected this cycle\n- -1: Observer active, no screenshot\n- -2: Detection unavailable (API < 24 or API >= 33)\n- -3: Permission denied (READ_EXTERNAL_STORAGE not granted)"
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_COLLECT_FILTER_AND_ENCRYPT_APP_DATA",
+    "module": "risk",
+    "name": "collect_filter_and_encrypt_app_data",
+    "is_async": false,
+    "args": [
+      {
+        "name": "client_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "timestamp",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "type_",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "version",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "sdk_version",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "message_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "app_data_json",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "collection_config_json",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "last_scan_timestamp",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "full_scan",
+        "type": "bool",
+        "default": null
+      },
+      {
+        "name": "ts_bytes",
+        "type": "Vec<u8>",
+        "default": null
+      }
+    ],
+    "return_type": "Result<String, KeyExchangeExportError>",
+    "doc": "Stage 5: Orchestration for collectFilterAndProcess / processAppData — filter + raw_data decode + encrypt.\nCaller (Kotlin) is responsible for timestamp read/write (e.g. readAppDataTimestamp / saveAppDataTimestamp)."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_BRIDGE_EXECUTE_GCC_INVOKE_WITH_DECRYPTION",
+    "module": "risk",
+    "name": "bridge_execute_gcc_invoke_with_decryption",
+    "is_async": false,
+    "args": [
+      {
+        "name": "files_dir",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "client_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "timestamp",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "session_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "sv",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "pv",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "rid",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "ts",
+        "type": "Vec<u8>",
+        "default": null
+      },
+      {
+        "name": "risk_session_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "risk_session_status",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "max_retry",
+        "type": "u32",
+        "default": null
+      }
+    ],
+    "return_type": "GccInvokeResult",
+    "doc": "Executes the full GCC invoke + config decryption flow.\n\nSteps:\n1. Read config version from disk (bridge_get_config_value)\n2. Generate GCC byte payload (bridge_gcc_byte) — caches ChaCha20 key for step 4\n3. POST /priapi/v1/dis/gcc via OKXHttpClient\n→ NativeHttpEngine (Android): OkHttp, visible in Charles, Android TLS trust store\n4. Decrypt config (bridge_decrypt_config) — uses ChaCha20 key from step 2\n\nSteps 2 and 4 MUST run in the same process in this order (ChaCha20 key cached in memory).\n\nrisk_session_id / risk_session_status are the tmx session values from OKRiskProvider —\npassed directly to avoid a global write/read race under concurrent invocations.\nThis function blocks the calling thread; invoke from Dispatchers.IO."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_BRIDGE_EXECUTE_BIOMETRIC_RSD",
+    "module": "risk",
+    "name": "bridge_execute_biometric_rsd",
+    "is_async": false,
+    "args": [
+      {
+        "name": "sensor_data",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "touch_data",
+        "type": "Option<String>",
+        "default": null
+      },
+      {
+        "name": "keyboard_data",
+        "type": "Option<String>",
+        "default": null
+      },
+      {
+        "name": "transaction_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "scene",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "type_",
+        "type": "i32",
+        "default": null
+      }
+    ],
+    "return_type": "RsdFlowResult",
+    "doc": "Full biometric / Lua report + RSD orchestration (Phase 2).\n\nReplaces the Kotlin dispatchBiometric → processBiometricData → rsdInvoke chain.\nInternally: merge biometric input → encrypt → POST /priapi/v1/dis/rsd → parse OSS config.\n\n# Parameters\n- `sensor_data`: Serialized biometric sensor payload.\n- `touch_data`: Optional touch event data.\n- `keyboard_data`: Optional keyboard event data.\n- `transaction_id`: Unique transaction identifier for the RSD request.\n- `scene`: Risk scene identifier forwarded to the RSD endpoint.\n- `type_`: `1` = standard biometric (sensor merge applied), `3` = Lua report (raw JSON, no merge).\n\n# Returns\n`RsdFlowResult` with `success = true` and populated `et`/`oss_config`/`network_policy`\non HTTP success; `success = false` with empty fields if platform state is missing or\nthe request fails."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_BRIDGE_GCC_BYTE",
+    "module": "risk",
+    "name": "bridge_gcc_byte",
+    "is_async": false,
+    "args": [
+      {
+        "name": "client_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "timestamp",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "type_",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "version",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "sdk_version",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "ts",
+        "type": "Vec<u8>",
+        "default": null
+      }
+    ],
+    "return_type": "Result<String, KeyExchangeExportError>",
+    "doc": "Complete gccByte flow: decode raw_data + build JSON + encrypt + Base64\nMatches C++ gccByteNative"
+  },
+  {
+    "kind": "trait_method",
+    "symbol": "UNIFFI_META_RISK_METHOD_TEEATTESTCOLLECTOR_COLLECT",
+    "module": "risk",
+    "interface": "TeeAttestCollector",
+    "index": 0,
+    "name": "collect",
+    "is_async": false,
+    "args": [],
+    "return_type": "Result<TeeAttestRaw, CollectorError>",
+    "doc": ""
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_BRIDGE_UPLOAD_DATA_MESSAGE_METRICS",
+    "module": "risk",
+    "name": "bridge_upload_data_message_metrics",
+    "is_async": false,
+    "args": [
+      {
+        "name": "user_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "client_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "channel",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "device_info",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "dex_id",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "cg",
+        "type": "Vec<u8>",
+        "default": null
+      },
+      {
+        "name": "index",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "timestamp",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "ts",
+        "type": "Vec<u8>",
+        "default": null
+      },
+      {
+        "name": "health_data",
+        "type": "Vec<u8>",
+        "default": null
+      },
+      {
+        "name": "health_array_cnt",
+        "type": "i32",
+        "default": null
+      }
+    ],
+    "return_type": "Result<String, DatamergeExportError>",
+    "doc": "Complete uploadDataMessageMetrics flow: plaintext + encrypt + Base64\nMatches C++ uploadDataMessageMetricsNative"
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_CONFIGURATION_QUERY_JSON_KEY_PATH",
+    "module": "risk",
+    "name": "configuration_query_json_key_path",
+    "is_async": false,
+    "args": [
+      {
+        "name": "json_str",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "key_path",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "Option<String>",
+    "doc": "Query JSON by dot-separated key path (e.g. \"version\", \"ossConfig.bucket\"). For getConfigValueJNI after decrypt."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_RISK_REGISTER_TEE_ATTEST_COLLECTOR",
+    "module": "risk",
+    "name": "risk_register_tee_attest_collector",
+    "is_async": false,
+    "args": [
+      {
+        "name": "collector",
+        "type": "Arc<dyn TeeAttestCollector>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Register the TEE-attestation collector (once, at OKRisk init)."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_RISK_ADD_CALL_STATE_LISTENER",
+    "module": "risk",
+    "name": "risk_add_call_state_listener",
+    "is_async": false,
+    "args": [
+      {
+        "name": "listener",
+        "type": "Arc<dyn CallStateListener>",
+        "default": null
+      }
+    ],
+    "return_type": "u64",
+    "doc": "Push subscribe: register a listener, returns a unique token. The 0->1\ntransition starts the platform monitor via the registered controller."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_RSD_UPDATE_CRYPTO_PARAMS",
+    "module": "risk",
+    "name": "rsd_update_crypto_params",
+    "is_async": false,
+    "args": [
+      {
+        "name": "pv",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "rid",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "ts",
+        "type": "Vec<u8>",
+        "default": null
+      },
+      {
+        "name": "sv",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "max_retry",
+        "type": "u32",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Update crypto params (called after DID request returns with fresh pv/rid/ts)."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_RISK_ERROR_BIOMETRICMERGEEXPORTERROR",
+    "module": "risk",
+    "name": "BiometricMergeExportError",
+    "shape": 2,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Message",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      }
+    ],
+    "doc": ""
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_RISK_ENUM_RISKLIBRARYSOURCE",
+    "module": "risk",
+    "name": "RiskLibrarySource",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "AppLaunch",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "AccountSignup",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "AccountSignin",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "UserLogin",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "PaymentInput",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "AppEnterForeground",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "BscScreen",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "AppInstall",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "StateRefresh",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "KycLiveness",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "KycIdc",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "ExtBoost",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "WalletSend",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "WalletReceive",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "WalletManage",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "Unknown",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "Mfa",
+        "discr": null,
+        "fields": [],
+        "doc": "MUST remain the LAST variant: UniFFI assigns wire tags by declaration\nposition, and shipped Kotlin/Swift bindings depend on existing variant\npositions staying stable — a middle insertion renumbers them.\nMaps to the same dispatch category as AppLaunch (index=0, wire type `env`)\non the Kotlin/native side (OKRiskLibrary `OKRiskPayloadManager.getPayloadEvent`)."
+      }
+    ],
+    "doc": "Source of the risk profiling request.\n\nMaps to `OKRiskLibrarySource` in Kotlin."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RISK_INTERFACE_CALLSTATELISTENER",
+    "module": "risk",
+    "name": "CallStateListener",
+    "trait_kind": 13,
+    "doc": "Consumer-implemented push callback. Rust fans out call-state changes to\nevery registered listener (after dedup).\n\nReturns `Result` so a foreign impl throwing an undeclared exception surfaces\nas `CallMonitorError` (not a `panic = \"abort\"` process abort); the fan-out\ndowngrades `Err` to a warn log and keeps notifying the other listeners."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_GET_CACHED_DEVICE_INFO",
+    "module": "risk",
+    "name": "get_cached_device_info",
+    "is_async": false,
+    "args": [],
+    "return_type": "String",
+    "doc": "Get cached device info JSON (for SecToken generation).\nReturns JSON object string with keys: m2, m1, d1, m3, d0, d3, etc., or \"{}\" if empty.\nMatches C++ get_device_info_cache()."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RISK_RECORD_SELFAPKFILEINFO",
+    "module": "risk",
+    "name": "SelfApkFileInfo",
+    "fields": [
+      {
+        "name": "index",
+        "type": "u32",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "path",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "size",
+        "type": "u64",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "crc32",
+        "type": "u32",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "ts",
+        "type": "u64",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": ""
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_RISK_NOTIFY_CALL_STATE_CHANGED",
+    "module": "risk",
+    "name": "risk_notify_call_state_changed",
+    "is_async": false,
+    "args": [
+      {
+        "name": "state",
+        "type": "i32",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Platform monitor -> Rust: report a call-state change. Rust dedups a repeat of\nthe last state, then fans out to every subscriber."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_SET_CACHED_RSD_CONFIG",
+    "module": "risk",
+    "name": "set_cached_rsd_config",
+    "is_async": false,
+    "args": [
+      {
+        "name": "decrypted_rsd_json",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Set cached decrypted RSD config so checkShallPull can read it. Call after decrypting RSD."
+  },
+  {
+    "kind": "trait_method",
+    "symbol": "UNIFFI_META_RISK_METHOD_CLASSLOADERCHAINV2COLLECTOR_COLLECT",
+    "module": "risk",
+    "interface": "ClassLoaderChainV2Collector",
+    "index": 0,
+    "name": "collect",
+    "is_async": false,
+    "args": [],
+    "return_type": "Result<String, CollectorError>",
+    "doc": ""
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_BRIDGE_GET_CONFIG_VALUE_RSD",
+    "module": "risk",
+    "name": "bridge_get_config_value_rsd",
+    "is_async": false,
+    "args": [
+      {
+        "name": "encrypted_config",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "_paths_and_md5_json",
+        "type": "Option<String>",
+        "default": null
+      }
+    ],
+    "return_type": "Option<String>",
+    "doc": "Complete getConfigValueRsd flow: decrypt + extract needUploadFiles + query Rust cache for path/md5.\nMatches C++ getConfigValueRsdJNI: decrypts config, reads needUploadFiles indices,\nfetches path+md5 from Rust-side cache (populated during filterMaliciousApps), builds result."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RISK_RECORD_MODULESCOLLECTIONCONFIG",
+    "module": "risk",
+    "name": "ModulesCollectionConfig",
+    "fields": [
+      {
+        "name": "enabled",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "anonymous_modules",
+        "type": "bool",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "interval",
+        "type": "u64",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "max_cnt",
+        "type": "u64",
+        "default": null,
+        "doc": "Maximum number of flagged modules to collect per scan. 0 = no limit."
+      },
+      {
+        "name": "rules",
+        "type": "ModulesRules",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": ""
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_SET_CACHED_GPS_SPOOFING_APPS",
+    "module": "risk",
+    "name": "set_cached_gps_spoofing_apps",
+    "is_async": false,
+    "args": [
+      {
+        "name": "apps_json",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Set cached GPS spoofing apps JSON.\nCalled after app filtering to store risk apps for SecToken generation.\nMatches C++ AppFilter::setCachedGpsSpoofingApps()."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_RAW_DATA_DECODE",
+    "module": "risk",
+    "name": "raw_data_decode",
+    "is_async": false,
+    "args": [
+      {
+        "name": "ts",
+        "type": "Vec<u8>",
+        "default": null
+      }
+    ],
+    "return_type": "Result<Vec<u8>, KeyExchangeExportError>",
+    "doc": "Decode ts byte array to raw_data (XOR inverse + gzip + CRC16). For GCC/encryption whitebox tables."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_DATA_MERGE_GET_MESSAGE_BYTE_V2",
+    "module": "risk",
+    "name": "data_merge_get_message_byte_v2",
+    "is_async": false,
+    "args": [
+      {
+        "name": "user_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "client_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "channel",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "payload",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "dex_id",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "cg_bytes",
+        "type": "Vec<u8>",
+        "default": null
+      },
+      {
+        "name": "index",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "random_b0",
+        "type": "u8",
+        "default": null
+      }
+    ],
+    "return_type": "Result<Vec<u8>, DatamergeExportError>",
+    "doc": "Build data message byte v2 (plain, no AES). Params match JNI uploadDataMessageNative.\nReturns raw bytes; caller may encrypt and encode."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_DATA_MERGE_GET_MESSAGE_BYTE_V3",
+    "module": "risk",
+    "name": "data_merge_get_message_byte_v3",
+    "is_async": false,
+    "args": [
+      {
+        "name": "user_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "client_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "channel",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "payload",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "dex_id",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "cg_bytes",
+        "type": "Vec<u8>",
+        "default": null
+      },
+      {
+        "name": "index",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "random_b0",
+        "type": "u8",
+        "default": null
+      },
+      {
+        "name": "health_data",
+        "type": "Vec<u8>",
+        "default": null
+      },
+      {
+        "name": "health_array_cnt",
+        "type": "i32",
+        "default": null
+      }
+    ],
+    "return_type": "Result<Vec<u8>, DatamergeExportError>",
+    "doc": "Build data message byte v3 (with health). Params match JNI uploadDataMessageMetricsNative."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RISK_RECORD_MODULESRULES",
+    "module": "risk",
+    "name": "ModulesRules",
+    "fields": [
+      {
+        "name": "path_deny_first",
+        "type": "Vec<String>",
+        "default": null,
+        "doc": "Deny rules evaluated BEFORE the whitelist (R1). Additive + serde(default):\nabsent/empty behaves exactly as before, so config and client roll back\nindependently. GCC config COPIES roothide markers here while keeping them\nin path_blacklist (copy-not-move keeps lagging clients protected)."
+      },
+      {
+        "name": "path_whitelist",
+        "type": "Vec<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "path_blacklist",
+        "type": "Vec<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "symbols_pattern",
+        "type": "Vec<String>",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "memory_features",
+        "type": "Vec<String>",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": ""
+  },
+  {
+    "kind": "trait_method",
+    "symbol": "UNIFFI_META_RISK_METHOD_CLASSLOADERCHAINCOLLECTOR_COLLECT",
+    "module": "risk",
+    "interface": "ClassLoaderChainCollector",
+    "index": 0,
+    "name": "collect",
+    "is_async": false,
+    "args": [],
+    "return_type": "Result<Vec<String>, CollectorError>",
+    "doc": ""
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_DATA_MERGE_GET_ENCRYPTED_MESSAGE_V2",
+    "module": "risk",
+    "name": "data_merge_get_encrypted_message_v2",
+    "is_async": false,
+    "args": [
+      {
+        "name": "user_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "client_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "channel",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "payload",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "dex_id",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "cg_bytes",
+        "type": "Vec<u8>",
+        "default": null
+      },
+      {
+        "name": "index",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "random_b0",
+        "type": "u8",
+        "default": null
+      },
+      {
+        "name": "timestamp",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "raw_data",
+        "type": "Vec<u8>",
+        "default": null
+      }
+    ],
+    "return_type": "Result<String, DatamergeExportError>",
+    "doc": "Build encrypted data message v2: plaintext generation + AES-GCM encryption + Base64 encoding.\nMatches C++ uploadDataMessageNative complete flow. Returns Base64-encoded encrypted string."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_DATA_MERGE_GET_ENCRYPTED_MESSAGE_V3",
+    "module": "risk",
+    "name": "data_merge_get_encrypted_message_v3",
+    "is_async": false,
+    "args": [
+      {
+        "name": "user_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "client_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "channel",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "payload",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "dex_id",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "cg_bytes",
+        "type": "Vec<u8>",
+        "default": null
+      },
+      {
+        "name": "index",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "random_b0",
+        "type": "u8",
+        "default": null
+      },
+      {
+        "name": "timestamp",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "raw_data",
+        "type": "Vec<u8>",
+        "default": null
+      },
+      {
+        "name": "health_data",
+        "type": "Vec<u8>",
+        "default": null
+      },
+      {
+        "name": "health_array_cnt",
+        "type": "i32",
+        "default": null
+      }
+    ],
+    "return_type": "Result<String, DatamergeExportError>",
+    "doc": "Build encrypted data message v3 (with health): plaintext + AES-GCM + Base64.\nMatches C++ uploadDataMessageMetricsNative complete flow."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_GET_MODULES_BY_INDICES",
+    "module": "risk",
+    "name": "get_modules_by_indices",
+    "is_async": false,
+    "args": [
+      {
+        "name": "indices",
+        "type": "Vec<i32>",
+        "default": null
+      }
+    ],
+    "return_type": "String",
+    "doc": ""
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_RISK_ZIP_OPEN",
+    "module": "risk",
+    "name": "risk_zip_open",
+    "is_async": false,
+    "args": [
+      {
+        "name": "path",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "i64",
+    "doc": "Open a ZIP/APK file for entry enumeration. Returns handle >= 0, or -1 on error.\n\n**Callers must call `risk_zip_close` on the returned handle when done.** Forgetting\nto close leaks an OS file descriptor. The handle table is capped at 16 concurrent\nopens; archives exceeding 100 000 entries are also refused (-1)."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_DATA_STORAGE_ENCRYPT_FOR_STORAGE",
+    "module": "risk",
+    "name": "data_storage_encrypt_for_storage",
+    "is_async": false,
+    "args": [
+      {
+        "name": "plaintext",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "client_id",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "Result<String, DataStorageExportError>",
+    "doc": "Encrypt plaintext and return JSON string to save to file. Caller writes to storage."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RISK_RECORD_DEVICEINTEGRITYSTATUS",
+    "module": "risk",
+    "name": "DeviceIntegrityStatus",
+    "fields": [
+      {
+        "name": "rooted_or_jailbroken",
+        "type": "i32",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "developer_mode",
+        "type": "i32",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "emulator",
+        "type": "i32",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": "Independent local states: -1 = unknown, 0 = no, 1 = yes.\nA process result is not a substitute for server-side risk decisions."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RISK_RECORD_MODULEINFO",
+    "module": "risk",
+    "name": "ModuleInfo",
+    "fields": [
+      {
+        "name": "index",
+        "type": "u32",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "path",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "md5",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "size",
+        "type": "u64",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "timestamp",
+        "type": "u64",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": ""
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_RISK_ZIP_ENUM",
+    "module": "risk",
+    "name": "risk_zip_enum",
+    "is_async": false,
+    "args": [
+      {
+        "name": "handle",
+        "type": "i64",
+        "default": null
+      }
+    ],
+    "return_type": "String",
+    "doc": "Get next entry from an open ZIP handle. Returns JSON `{\"name\",\"size\",\"crc\",\"is_dir\"}`\nor empty string when exhausted."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_GET_UPLOAD_FILES_BY_INDICES",
+    "module": "risk",
+    "name": "get_upload_files_by_indices",
+    "is_async": false,
+    "args": [
+      {
+        "name": "indices",
+        "type": "Vec<i32>",
+        "default": null
+      }
+    ],
+    "return_type": "String",
+    "doc": ""
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_RISK_ENUM_TEEATTESTFAILURE",
+    "module": "risk",
+    "name": "TeeAttestFailure",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Unknown",
+        "discr": null,
+        "fields": [],
+        "doc": "No classification supplied (treated as Permanent — conservative)."
+      },
+      {
+        "name": "Transient",
+        "discr": null,
+        "fields": [],
+        "doc": "Temporary outage (RKP/keymaster/generic exception) — short 1-day backoff."
+      },
+      {
+        "name": "Permanent",
+        "discr": null,
+        "fields": [],
+        "doc": "Structural (device lacks attestation / no extension) — long 7-day backoff."
+      }
+    ],
+    "doc": "Typed failure classification carried across the FFI boundary so Rust can apply\nthe tiered backoff (transient 1 day / permanent 7 days). Only meaningful when\nthe raw fetch produced no usable segment; ignored when any segment is present."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_RISK_ZIP_CLOSE",
+    "module": "risk",
+    "name": "risk_zip_close",
+    "is_async": false,
+    "args": [
+      {
+        "name": "handle",
+        "type": "i64",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Close a ZIP handle and free all resources."
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RISK_INTERFACE_CLASSLOADERCHAINV2COLLECTOR",
+    "module": "risk",
+    "name": "ClassLoaderChainV2Collector",
+    "trait_kind": 13,
+    "doc": "Foreign trait implemented by OKRisk: assemble the cl_loaders_v2 field (Java\nparent-chain P, plus Stage-B ART strong-root S when supported) into the\nfinal `#`-joined string. Rust does not walk anything — Kotlin owns the whole\nbusiness shape (P/S merge, caps, format). Empty string signals collection\nfailure or no-collector, exactly mirroring `TeeAttestCollector`."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_GET_MODULES_COLLECTION_CONFIG",
+    "module": "risk",
+    "name": "get_modules_collection_config",
+    "is_async": false,
+    "args": [],
+    "return_type": "ModulesCollectionConfig",
+    "doc": ""
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_RISK_ENUM_GCCINVOKERESULT",
+    "module": "risk",
+    "name": "GccInvokeResult",
+    "shape": 0,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Success",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "GccByteFailure",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      },
+      {
+        "name": "NetworkFailure",
+        "discr": null,
+        "fields": [],
+        "doc": "Transport-level failure (timeout, connection error, HTTP error code).\nRetry was already exhausted by the time this is returned."
+      },
+      {
+        "name": "ServerError",
+        "discr": null,
+        "fields": [],
+        "doc": "Server returned a successful response (code 0) but with an empty or\nabsent `et` field. Not a retry candidate — retrying will not change\nthe server response."
+      },
+      {
+        "name": "DecryptFailure",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      }
+    ],
+    "doc": "Result of the full GCC invoke + config decryption flow."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_BRIDGE_PRODUCE_TOKEN_SIGNED",
+    "module": "risk",
+    "name": "bridge_produce_token_signed",
+    "is_async": false,
+    "args": [
+      {
+        "name": "other_data",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "timestamp",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "ts",
+        "type": "Vec<u8>",
+        "default": null
+      },
+      {
+        "name": "ali_token_threshold",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "ali_device_token",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "session_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "method",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "url",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "query_params",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "body_params",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "Option<SecTokenParts>",
+    "doc": "Complete signed produceToken flow: `part2` via the existing `generate_sec_token`\npath + `part3` via `generate_request_sign`.\n\nAdditive sibling of [`bridge_produce_token`] (which stays 2-part and byte-for-byte\nunchanged). `part3` failures degrade to an empty string (`unwrap_or_default`), and the\nmandatory 2-part fallback is enforced by the Kotlin assembler. Returns `None` only when\nraw_data decode or `part2` generation fails — Kotlin then degrades to the plain path."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_RISK_ERROR_DATASTORAGEEXPORTERROR",
+    "module": "risk",
+    "name": "DataStorageExportError",
+    "shape": 2,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "Message",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      }
+    ],
+    "doc": ""
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_KEY_EXCHANGE_GET_ENCRYPTION_BYTE",
+    "module": "risk",
+    "name": "key_exchange_get_encryption_byte",
+    "is_async": false,
+    "args": [
+      {
+        "name": "type_",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "client_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "version",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "sdk_version",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "message_id",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "data_str",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "timestamp",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "raw_data",
+        "type": "Vec<u8>",
+        "default": null
+      }
+    ],
+    "return_type": "Result<String, KeyExchangeExportError>",
+    "doc": "Biometric/app encryption: package JSON, gzip compress, AES whitebox, Base64. Params match get_encryption_byte."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_GET_CACHED_GPS_SPOOFING_APPS",
+    "module": "risk",
+    "name": "get_cached_gps_spoofing_apps",
+    "is_async": false,
+    "args": [],
+    "return_type": "String",
+    "doc": "Get cached GPS spoofing apps JSON (for SecToken generation).\nReturns JSON array string like [\"com.app1\", \"com.app2\"] or \"[]\" if empty.\nMatches C++ AppFilter::getCachedGpsSpoofingApps()."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_BRIDGE_PRODUCE_TOKEN",
+    "module": "risk",
+    "name": "bridge_produce_token",
+    "is_async": false,
+    "args": [
+      {
+        "name": "other_data",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "timestamp",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "ts",
+        "type": "Vec<u8>",
+        "default": null
+      },
+      {
+        "name": "ali_token_threshold",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "ali_device_token",
+        "type": "String",
+        "default": null
+      },
+      {
+        "name": "session_id",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "Result<String, SecTokenExportError>",
+    "doc": "Complete produceToken flow: decode raw_data + generate sec token\nMatches C++ produceSecJNI (part2 only)"
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_GET_DEVICE_INTEGRITY_STATUS",
+    "module": "risk",
+    "name": "get_device_integrity_status",
+    "is_async": false,
+    "args": [],
+    "return_type": "Result<DeviceIntegrityStatus, DeviceIntegrityReadError>",
+    "doc": "Read process-local states without detection, I/O, retries or logging."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_RISK_INIT",
+    "module": "risk",
+    "name": "risk_init",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Initializes the risk module.\n\nAutomatically uses the correct platform implementation.\n\nSpawns the initialize work on the global Tokio runtime and returns immediately,\nso this function is safe to call from the main thread.\n\n# Example\n```rust,ignore\nrisk_manager::initialize();\n```"
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_HANDLE_CHARGING_POWER",
+    "module": "risk",
+    "name": "handle_charging_power",
+    "is_async": false,
+    "args": [
+      {
+        "name": "value",
+        "type": "f32",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Stage 5: Set charging power override (mirrors C++ nativeHandleChargingPower / write_charging_power).\nDeviceinfoDataDetection.detect_udg_power() returns this value when set."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_IS_FG_V2_FIELD_ALLOWED",
+    "module": "risk",
+    "name": "is_fg_v2_field_allowed",
+    "is_async": false,
+    "args": [
+      {
+        "name": "detector_id",
+        "type": "i32",
+        "default": null
+      },
+      {
+        "name": "sn",
+        "type": "i32",
+        "default": null
+      }
+    ],
+    "return_type": "bool",
+    "doc": "FFI-friendly wrapper for `fg_v2_field_allowed`. Kotlin/Swift use this to consult\nthe gate without re-parsing the spec on their side. detector_id is passed as i32\n(instead of u8) to keep bindings simple; values outside [0, 255] always return false."
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RISK_RECORD_TEEATTESTRAW",
+    "module": "risk",
+    "name": "TeeAttestRaw",
+    "fields": [
+      {
+        "name": "boot_key_hex",
+        "type": "String",
+        "default": null,
+        "doc": "Full-length lowercase hex digest of the boot-image verification public key."
+      },
+      {
+        "name": "security_level",
+        "type": "String",
+        "default": null,
+        "doc": "Security level: \"0\"=Software / \"1\"=TEE / \"2\"=StrongBox (as a string slot)."
+      },
+      {
+        "name": "device_locked",
+        "type": "String",
+        "default": null,
+        "doc": "Device locked: \"1\"=locked / \"0\"=unlocked."
+      },
+      {
+        "name": "verified_boot_state",
+        "type": "String",
+        "default": null,
+        "doc": "Verified boot state: \"0\"=Verified / \"1\"=SelfSigned / \"2\"=Unverified / \"3\"=Failed."
+      },
+      {
+        "name": "failure_kind",
+        "type": "TeeAttestFailure",
+        "default": null,
+        "doc": "Failure classification when the fetch produced no usable segment (empty\notherwise-populated slots). Kotlin sets this; Rust reads it only on the\nall-empty path. Success rows leave it `Unknown`."
+      }
+    ],
+    "doc": "Raw AndroidKeyStore attestation values (batch-2). Each field is empty for a\nmissing slot; the Rust side owns the CSV assembly, cache, backoff, wait-cap,\nsingle-flight and stale-if-error (this is the raw fetch only).\n\nField names avoid `message` (which would collide with `kotlin.Throwable.message`\nin the generated binding); these are plain data fields on a `uniffi::Record`.\n\nThe 5th field `failure_kind` is a typed failure classification read by Rust\nONLY on the all-empty (no usable segment) path to pick the backoff tier;\nsuccess rows leave it `Unknown`."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_START_SENSITIVE_FILE_MONITOR",
+    "module": "risk",
+    "name": "start_sensitive_file_monitor",
+    "is_async": false,
+    "args": [],
+    "return_type": null,
+    "doc": "Start the long-running sensitive-file-access monitor daemon.\nIdempotent — safe to call more than once; only the first call spawns a thread."
+  },
+  {
+    "kind": "trait_method",
+    "symbol": "UNIFFI_META_RISK_METHOD_CALLSTATELISTENER_ON_CALL_STATE_CHANGED",
+    "module": "risk",
+    "interface": "CallStateListener",
+    "index": 0,
+    "name": "on_call_state_changed",
+    "is_async": false,
+    "args": [
+      {
+        "name": "state",
+        "type": "i32",
+        "default": null
+      }
+    ],
+    "return_type": "Result<(), CallMonitorError>",
+    "doc": ""
+  },
+  {
+    "kind": "interface",
+    "symbol": "UNIFFI_META_RISK_INTERFACE_CAMERA2COMPACTCOLLECTOR",
+    "module": "risk",
+    "name": "Camera2CompactCollector",
+    "trait_kind": 13,
+    "doc": "Foreign trait implemented by OKRisk: collect the Android Camera2 P0 static\ncapability snapshot without CAMERA permission (API 29+), normalize it to the\nfour-state (value / empty / `NA` / `ERR`) model, derive the two white-balance\npositions, and serialize the fixed 7/3/8/9 compact wire form. `collect`\nreturns the FINAL raw wire string — one of three legal forms:\n* a single-line compact JSON `{\"camera_list\":[...]}` (API 29+ success,\nincluding the empty `{\"camera_list\":[]}`),\n* the literal `NA` (API 28 and below — the permission-free scheme is not\nsupported on that platform), or\n* the literal `ERR` (camera-id list read / metadata / serialization / self\n-check failure, or the field-size budget was exceeded).\n\nThe Kotlin side owns all collection, normalization, derivation and compact\nserialization; Rust only schedules `(8,58)` and carries the string. The\nreturned value MUST NOT carry the report magic — the central Rust `Str`\nencoding path (`run_detection`) appends the configured magic exactly once, so\nappending it here would double it. Kotlin converts expected platform failures\ninto the `NA` / `ERR` sentinels itself; the `Result` additionally protects the\ngenerated callback boundary if an unexpected exception escapes that\nimplementation (mapped to the field's `ERR` default by the caller)."
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_RISK_REGISTER_CALL_MONITOR_CONTROLLER",
+    "module": "risk",
+    "name": "risk_register_call_monitor_controller",
+    "is_async": false,
+    "args": [
+      {
+        "name": "controller",
+        "type": "Arc<dyn CallMonitorController>",
+        "default": null
+      }
+    ],
+    "return_type": null,
+    "doc": "Register the process-global platform monitor controller (once, at init)."
+  },
+  {
+    "kind": "trait_method",
+    "symbol": "UNIFFI_META_RISK_METHOD_CALLMONITORCONTROLLER_START",
+    "module": "risk",
+    "interface": "CallMonitorController",
+    "index": 0,
+    "name": "start",
+    "is_async": false,
+    "args": [],
+    "return_type": "Result<(), CallMonitorError>",
+    "doc": ""
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_AES_WHITEBOX_ENCRYPT_GCM_UNIFFI",
+    "module": "risk",
+    "name": "aes_whitebox_encrypt_gcm_uniffi",
+    "is_async": false,
+    "args": [
+      {
+        "name": "tables_bytes",
+        "type": "Vec<u8>",
+        "default": null
+      },
+      {
+        "name": "plaintext",
+        "type": "Vec<u8>",
+        "default": null
+      },
+      {
+        "name": "timestamp",
+        "type": "String",
+        "default": null
+      }
+    ],
+    "return_type": "Result<AesEncryptResult, AesError>",
+    "doc": ""
+  },
+  {
+    "kind": "func",
+    "symbol": "UNIFFI_META_RISK_FUNC_GET_CACHED_ROOT",
+    "module": "risk",
+    "name": "get_cached_root",
+    "is_async": false,
+    "args": [],
+    "return_type": "i32",
+    "doc": "Get cached root detection result (for SecToken generation).\nReturns raw value where bit N = case N detected root.\nMatches C++ RootDetection::get_cached_is_root()."
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_RISK_ERROR_DATAMERGEEXPORTERROR",
+    "module": "risk",
+    "name": "DatamergeExportError",
+    "shape": 2,
+    "discr_type": null,
+    "non_exhaustive": true,
+    "variants": [
+      {
+        "name": "Message",
+        "discr": null,
+        "fields": [],
+        "doc": ""
+      }
+    ],
+    "doc": "ata_merge export for current test only; UniFFI requires Result's E to implement uniffi::Error, not raw String."
+  },
+  {
+    "kind": "namespace",
+    "symbol": "UNIFFI_META_NAMESPACE_RISK",
+    "module": "risk",
+    "name": "risk"
+  },
+  {
+    "kind": "enum",
+    "symbol": "UNIFFI_META_RISK_ERROR_COLLECTORERROR",
+    "module": "risk",
+    "name": "CollectorError",
+    "shape": 1,
+    "discr_type": null,
+    "non_exhaustive": false,
+    "variants": [
+      {
+        "name": "CallbackFailed",
+        "discr": null,
+        "fields": [
+          {
+            "name": "reason",
+            "type": "String",
+            "default": null,
+            "doc": ""
+          }
+        ],
+        "doc": ""
+      }
+    ],
+    "doc": "Error returned by the foreign signal collectors.\n\nThe conversion is required by UniFFI: without it, an exception escaping a\nKotlin/Swift callback with a plain return type is surfaced as a panic."
+  },
+  {
+    "kind": "trait_method",
+    "symbol": "UNIFFI_META_RISK_METHOD_CAMERA2COMPACTCOLLECTOR_COLLECT",
+    "module": "risk",
+    "interface": "Camera2CompactCollector",
+    "index": 0,
+    "name": "collect",
+    "is_async": false,
+    "args": [],
+    "return_type": "Result<String, CollectorError>",
+    "doc": ""
+  },
+  {
+    "kind": "record",
+    "symbol": "UNIFFI_META_RISK_RECORD_SECTOKENPARTS",
+    "module": "risk",
+    "name": "SecTokenParts",
+    "fields": [
+      {
+        "name": "part2",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      },
+      {
+        "name": "part3",
+        "type": "String",
+        "default": null,
+        "doc": ""
+      }
+    ],
+    "doc": "Encrypted parts of the 3-part `x-sec-token`.\n\n`part2` is the encrypted sec_data (identical producer as [`bridge_produce_token`]);\n`part3` is the request-bound signature. `part1` (token_info) is assembled on the\nKotlin side, so it is intentionally not carried here."
+  }
+]

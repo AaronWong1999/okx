@@ -1,0 +1,36 @@
+<!-- Layout Resource ID: 0x7f0d1ec1 | APK Entry: crl -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@id/AccountAuthcode" attr_0x010100d1="layout/trade_impl_grid_tp_sl_dialog2_0" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x010102c1="2" app:layout_constraintBottom_toTopOf="@id/AccountAuthcode" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+  <LinearLayout android:orientation="1" attr_0x010100d6="24dp" attr_0x010100d8="24dp" attr_0x010100d9="24dp" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x0101053d="24dp">
+    <LinearLayout android:orientation="1" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/margin_16dp" app:layout_constraintBottom_toTopOf="@id/AccountAuthcode">
+      <o.ZWw android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" app:inner_title="@string/pr_trade_spotgrid_title_latest_price" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+      </o.ZWw>
+      <o.ZWw android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp" app:inner_title="@string/pr_trade_spotgrid_input_stop_moving" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+      </o.ZWw>
+      <o.ZWw android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp" app:inner_title="@string/pr_trade_spotgrid_input_stop_down" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+      </o.ZWw>
+      <o.ZWw android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp" app:inner_title="@string/pr_trade_grid_title_price_range" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+      </o.ZWw>
+      <o.ZWw android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp" app:inner_title="@string/pr_infinitygrid_createbot_title_lowest_price_limit_wo_unit" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+      </o.ZWw>
+      <o.ZWw android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp" app:inner_title="@string/pr_trade_history_item_totle_pril" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+      </o.ZWw>
+    </LinearLayout>
+    <o.ZiJ android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp" app:layout_constraintBottom_toTopOf="@id/AccountAuthcode" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0">
+    </o.ZiJ>
+    <o.ZiJ android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/dp24" app:layout_constraintBottom_toTopOf="@id/AccountAuthcode" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0">
+    </o.ZiJ>
+    <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.12SP.Regular" android:textColor="@color/orange_lv1" android:gravity="0x800003" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/dp24" app:layout_constraintBottom_toTopOf="@id/AccountAuthcode" app:layout_constraintStart_toStartOf="0">
+    </androidx.appcompat.widget.AppCompatTextView>
+    <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/Label_2_Regular" android:textColor="@color/ContentPrimary" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/pr_chart_moresetting_title_additional_settings" attr_0x01010393="@0x7f0813e6">
+    </androidx.appcompat.widget.AppCompatTextView>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp">
+      <o.WQp android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0" app:oktInputLabel="" style="@style/OKTInputLayoutStyle_Bot">
+      </o.WQp>
+      <o.WQp android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:oktInputLabel="" style="@style/OKTInputLayoutStyle_Bot">
+      </o.WQp>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/Body_4" android:textColor="@color/ContentTertiary" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp">
+    </androidx.appcompat.widget.AppCompatTextView>
+  </LinearLayout>
+</androidx.core.widget.NestedScrollView>

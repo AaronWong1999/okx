@@ -1,0 +1,8 @@
+<!-- Layout Resource ID: 0x7f0d0825 | APK Entry: akZ -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" attr_0x010100d1="layout/dfragment_signal_bot_edit_instids_0" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <androidx.recyclerview.widget.RecyclerView android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_10dp" android:layout_marginRight="@dimen/margin_10dp" android:layout_marginBottom="@dimen/margin_24dp" attr_0x010102c1="2" attr_0x0101053b="@dimen/margin_10dp">
+  </androidx.recyclerview.widget.RecyclerView>
+  <androidx.appcompat.widget.AppCompatTextView android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_16dp" android:layout_marginRight="@dimen/margin_16dp" android:layout_marginBottom="@dimen/margin_24dp" android:text="@string/pr_signalbot_orderdetails_reminder_monitor_current_price" attr_0x01010217="@dimen/margin_4dp" attr_0x0101053b="@dimen/margin_16dp" style="@style/TextAppearance.Text.12SP.Regular">
+  </androidx.appcompat.widget.AppCompatTextView>
+</LinearLayout>

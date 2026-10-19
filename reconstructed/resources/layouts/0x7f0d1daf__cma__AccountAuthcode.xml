@@ -1,0 +1,8 @@
+<!-- Layout Resource ID: 0x7f0d1daf | APK Entry: cma -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" attr_0x010100d1="layout/spot_dca_explain_fragment_0" attr_0x010100d7="4dp" attr_0x010100d9="24dp" attr_0x010100eb="false" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x010102c1="2">
+  <LinearLayout android:orientation="1" attr_0x010100f1="2" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="match_parent" attr_0x010102c1="2">
+    </androidx.recyclerview.widget.RecyclerView>
+  </LinearLayout>
+</androidx.core.widget.NestedScrollView>

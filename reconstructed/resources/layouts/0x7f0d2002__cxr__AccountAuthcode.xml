@@ -1,0 +1,16 @@
+<!-- Layout Resource ID: 0x7f0d2002 | APK Entry: cxr -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" attr_0x010100d1="layout/trade_ui_contract_grid_related_pos_fg_0" android:background="@color/BasePrimary" android:layout_width="match_parent" android:layout_height="match_parent">
+  <com.okinc.uilab.reminder.OKReminder android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="24dp" android:layout_marginTop="20dp" android:layout_marginRight="24dp" attr_0x0101053b="24dp">
+  </com.okinc.uilab.reminder.OKReminder>
+  <o.aaMS android:id="@id/AccountAuthcode" attr_0x010100d6="24dp" attr_0x010100d7="@dimen/margin_20dp" attr_0x010100d8="24dp" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x0101053d="24dp">
+  </o.aaMS>
+  <LinearLayout android:orientation="0" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="24dp" android:layout_marginTop="20dp" android:layout_marginRight="24dp" attr_0x0101053b="24dp">
+    <o.abbN android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pr_trade_futuresgrid_tab_detail_positions" app:ok_buttonChipSelected="true" app:ok_buttonChipStyle="4" app:okds_size="-5">
+    </o.abbN>
+    <o.abbN android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pr_trade_futuresgrid_tab_detail_open_orders" android:layout_marginStart="@dimen/dp_8" app:ok_buttonChipSelected="false" app:ok_buttonChipStyle="4" app:okds_size="-5">
+    </o.abbN>
+  </LinearLayout>
+  <androidx.recyclerview.widget.RecyclerView android:id="@id/AccountAuthcode" attr_0x010100f1="0" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x010102c1="2">
+  </androidx.recyclerview.widget.RecyclerView>
+</LinearLayout>

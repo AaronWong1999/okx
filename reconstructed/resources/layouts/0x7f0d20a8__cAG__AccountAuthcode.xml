@@ -1,0 +1,6 @@
+<!-- Layout Resource ID: 0x7f0d20a8 | APK Entry: cAG -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" attr_0x010100d1="layout/trade_ui_signal_bot_explain_title_item_0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="12dp">
+  <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.16SP.Medium" android:textColor="@color/grey_g900" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="">
+  </androidx.appcompat.widget.AppCompatTextView>
+</LinearLayout>

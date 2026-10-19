@@ -1,0 +1,84 @@
+<!-- Layout Resource ID: 0x7f0d0939 | APK Entry: aqq -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" android:background="@color/BasePrimary" attr_0x010100d7="16dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <LinearLayout android:gravity="0x10" android:orientation="0" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="24dp" android:paddingEnd="24dp">
+    <TextView attr_0x01010034="@style/Label_2_Medium" android:textColor="@color/ContentPrimary" attr_0x010100ab="3" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" attr_0x0101015f="false">
+    </TextView>
+    <TextView attr_0x01010034="@style/Label_2_Medium" android:textColor="@color/ContentContrast" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" attr_0x0101015f="false" android:layout_marginStart="4dp">
+    </TextView>
+    <ImageView android:id="@id/AccountAuthcode" android:layout_width="16dp" android:layout_height="16dp" android:src="@0x7f0806a3" android:layout_marginStart="0dp" app:tint="@color/ContentContrast">
+    </ImageView>
+    <Space android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1">
+    </Space>
+    <o.abhL attr_0x01010034="@style/Label_3_Regular" android:textColor="@color/ContentContrast" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" app:show_underline="true" app:underline_color="@color/ContentContrast" app:underline_style="0">
+    </o.abhL>
+    <ImageView android:id="@id/AccountAuthcode" android:layout_width="18dp" android:layout_height="18dp" android:src="@0x7f08148b" android:layout_marginStart="8dp" app:tint="@color/ContentPrimary">
+    </ImageView>
+  </LinearLayout>
+  <LinearLayout android:gravity="0x10" android:orientation="0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:paddingStart="24dp" android:paddingEnd="24dp">
+    <o.abhx android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="4dp" app:okds_size="-5" app:okds_tag_paint="0">
+    </o.abhx>
+    <o.abhx android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="4dp" app:okds_size="-5" app:okds_tag_paint="0">
+    </o.abhx>
+    <LinearLayout android:gravity="0x10" android:orientation="0" android:id="@id/AccountAuthcode" android:background="@0x7f08095d" android:layout_width="wrap_content" android:layout_height="16dp" android:paddingStart="4dp" android:paddingEnd="4dp">
+      <TextView attr_0x01010034="@style/Label_4_Regular" android:textColor="@color/ContentPrimary" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" attr_0x0101015f="false">
+      </TextView>
+      <ImageView android:id="@id/AccountAuthcode" android:layout_width="12dp" android:layout_height="12dp" android:src="@0x7f08087e" android:layout_marginStart="2dp" app:tint="@color/ContentPrimary">
+      </ImageView>
+    </LinearLayout>
+    <Space android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1">
+    </Space>
+    <TextView attr_0x01010034="@style/Label_2_Bold" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" attr_0x0101015f="false" android:layout_marginStart="8dp">
+    </TextView>
+  </LinearLayout>
+  <LinearLayout android:orientation="0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" attr_0x01010126="false" android:paddingStart="24dp" android:paddingEnd="24dp">
+    <include android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" layout="@0x7f0d0938">
+    </include>
+    <include android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="8dp" layout="@0x7f0d0938">
+    </include>
+    <include android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="8dp" layout="@0x7f0d0938">
+    </include>
+  </LinearLayout>
+  <LinearLayout android:orientation="0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" attr_0x01010126="false" android:paddingStart="24dp" android:paddingEnd="24dp">
+    <include android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" layout="@0x7f0d0938">
+    </include>
+    <include android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="8dp" layout="@0x7f0d0938">
+    </include>
+    <include android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="8dp" layout="@0x7f0d0938">
+    </include>
+  </LinearLayout>
+  <LinearLayout android:gravity="0x10" android:orientation="0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:paddingStart="24dp" android:paddingEnd="24dp">
+    <o.abhL attr_0x01010034="@style/Label_3_Regular" android:textColor="@color/ContentContrast" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" app:show_underline="true" app:underline_color="@color/ContentContrast" app:underline_style="0">
+    </o.abhL>
+    <TextView attr_0x01010034="@style/Label_3_Regular" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" attr_0x0101015f="false" android:layout_marginStart="8dp">
+    </TextView>
+  </LinearLayout>
+  <LinearLayout android:gravity="0x10" android:orientation="0" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" attr_0x01010126="false" android:paddingStart="24dp" android:paddingEnd="24dp">
+    <LinearLayout android:gravity="0x10" android:orientation="0" android:layout_width="0dp" android:layout_height="wrap_content" attr_0x01010126="false" android:layout_weight="1">
+      <o.abhL attr_0x01010034="@style/Label_3_Regular" android:textColor="@color/ContentContrast" attr_0x010100ab="3" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" attr_0x0101015f="false" app:show_underline="false" app:underline_color="@color/ContentContrast" app:underline_style="0">
+      </o.abhL>
+      <LinearLayout android:gravity="0x10" android:orientation="0" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" attr_0x01010126="false" android:layout_marginStart="8dp">
+        <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/Label_3_Regular" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" attr_0x0101015f="false">
+        </androidx.appcompat.widget.AppCompatTextView>
+        <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/Label_3_Regular" android:textColor="@color/ContentPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="/" attr_0x0101015f="false" android:layout_marginStart="4dp" android:layout_marginEnd="4dp">
+        </androidx.appcompat.widget.AppCompatTextView>
+        <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/Label_3_Regular" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" attr_0x0101015f="false">
+        </androidx.appcompat.widget.AppCompatTextView>
+      </LinearLayout>
+      <o.abhL attr_0x01010034="@style/Label_3_Regular" android:textColor="@color/ContentContrast" attr_0x010100ab="3" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="0dp" android:layout_height="wrap_content" android:maxLines="1" attr_0x0101015f="false" android:layout_weight="1" android:layout_marginStart="8dp" app:show_underline="true" app:underline_color="@color/ContentContrast" app:underline_style="0">
+      </o.abhL>
+    </LinearLayout>
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/AccountAuthcode" android:layout_width="16dp" android:layout_height="16dp" android:src="@0x7f0806a3" android:layout_marginStart="8dp" app:tint="@color/ContentTertiary">
+    </androidx.appcompat.widget.AppCompatImageView>
+  </LinearLayout>
+  <LinearLayout android:orientation="0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:paddingStart="24dp" android:paddingEnd="24dp">
+    <o.aaXx android:gravity="0x11" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/pr_exos_futures_checkbox_tp_sl" android:layout_weight="1" app:okds_button_size="32" app:okds_button_type="0x104">
+    </o.aaXx>
+    <o.aaXx android:gravity="0x11" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/pr_exos_btn_close" android:layout_weight="1" android:layout_marginStart="8dp" app:okds_button_size="32" app:okds_button_type="0x104">
+    </o.aaXx>
+    <o.aaXx android:gravity="0x11" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/pr_exos_overview_textbtn_close_all_position" android:layout_weight="1" android:layout_marginStart="8dp" app:okds_button_size="32" app:okds_button_type="0x104">
+    </o.aaXx>
+  </LinearLayout>
+  <View android:background="@color/BorderPrimary" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginTop="16dp">
+  </View>
+</LinearLayout>

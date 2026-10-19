@@ -1,0 +1,20 @@
+<!-- Layout Resource ID: 0x7f0d0dbb | APK Entry: aMy -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" android:id="@id/AccountAuthcode" attr_0x010100d1="layout/fragment_signal_bot_entry_options_select_0" android:background="@color/BasePrimary" android:layout_width="match_parent" android:layout_height="match_parent">
+  <o.acvP android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" app:appBarTitle="@string/pr_signalbot_placeorder_title_entry_set" app:backImageResId="@0x7f08069c" app:backVisible="true">
+  </o.acvP>
+  <androidx.core.widget.NestedScrollView android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="0dp" android:layout_marginTop="8dp" attr_0x0101017a="true" android:layout_weight="1" attr_0x010102c1="2">
+    <LinearLayout android:orientation="1" android:layout_width="match_parent" android:layout_height="wrap_content">
+      <o.ZVb android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" app:setting_title="@string/pr_webhook_placeorder_dropdown_tradingview">
+      </o.ZVb>
+      <o.ZvB android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content">
+      </o.ZvB>
+      <o.ZvB android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content">
+      </o.ZvB>
+      <o.Zvz android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content">
+      </o.Zvz>
+    </LinearLayout>
+  </androidx.core.widget.NestedScrollView>
+  <o.aaXx attr_0x01010034="@style/TextAppearance.Text.16SP.Medium" android:gravity="0x11" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="44dp" android:layout_marginLeft="@dimen/margin_16dp" android:layout_marginTop="@dimen/margin_12dp" android:layout_marginRight="@dimen/margin_16dp" android:layout_marginBottom="@dimen/margin_24dp" android:text="@string/pr_optionstrade_settings_btn_confirm" attr_0x0101053b="@dimen/margin_16dp" app:okds_button_size="44" app:okds_button_type="0x101">
+  </o.aaXx>
+</LinearLayout>

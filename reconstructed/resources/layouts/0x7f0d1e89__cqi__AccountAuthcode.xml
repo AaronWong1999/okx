@@ -1,0 +1,10 @@
+<!-- Layout Resource ID: 0x7f0d1e89 | APK Entry: cqi -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" attr_0x010100d1="layout/trade_impl_bot_guide_smart_portfolio_desc_0" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <o.abhv android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/pr_trade_bot_nav_title_what_is_smart_portfolio" app:okds_helpLabelType="2" app:okds_hyperLabelColor="@color/ContentPrimary" app:okds_hyperLabelSize="@dimen/text_size_18sp" app:okds_hyperLabelWeight="700">
+  </o.abhv>
+  <o.abhv android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_16dp" android:text="@string/pr_trade_bot_nav_desc_smart_portfolio_is_the" app:okds_helpLabelType="2" app:okds_hyperLabelColor="@color/ContentTertiary" app:okds_hyperLabelSize="@dimen/text_size_14sp" app:okds_hyperLabelWeight="400">
+  </o.abhv>
+  <ImageView android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_8dp" android:src="@0x7f08153f" attr_0x0101011d="1" attr_0x0101011e="true">
+  </ImageView>
+</androidx.appcompat.widget.LinearLayoutCompat>

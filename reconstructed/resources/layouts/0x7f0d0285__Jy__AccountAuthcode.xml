@@ -1,0 +1,8 @@
+<!-- Layout Resource ID: 0x7f0d0285 | APK Entry: Jy -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" attr_0x010100d1="layout/activity_spot_grid_orders_0" android:background="@color/BasePrimary" android:layout_width="match_parent" android:layout_height="match_parent">
+  <o.uJD android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" app:appBarTitle="@string/pr_trade_history_tab_sliced_order" app:backImageResId="@0x7f08069c" app:doImageVisible="false">
+  </o.uJD>
+  <FrameLayout android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+  </FrameLayout>
+</LinearLayout>

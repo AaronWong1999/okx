@@ -1,0 +1,12 @@
+<!-- Layout Resource ID: 0x7f0d03c7 | APK Entry: PF -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" attr_0x010100d1="layout/bot_spot_dca_edit_start_condition_0" android:layout_width="match_parent" android:layout_height="match_parent">
+  <o.aaTo android:id="@id/AccountAuthcode" attr_0x010100d1="binding_1" android:layout_width="match_parent" android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="0">
+    <o.aaTm android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" app:selection_title="@string/pr_dcabot_placeorder_dropdown_instant">
+    </o.aaTm>
+    <o.aaTm android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" app:selection_title="@string/pr_spotbot_placeorder_dropdown_rsi14">
+    </o.aaTm>
+    <include android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp24" android:layout_marginRight="@dimen/dp24" android:layout_marginBottom="44dp" attr_0x0101053b="@dimen/dp24" layout="@0x7f0d1efb">
+    </include>
+  </o.aaTo>
+</androidx.constraintlayout.widget.ConstraintLayout>

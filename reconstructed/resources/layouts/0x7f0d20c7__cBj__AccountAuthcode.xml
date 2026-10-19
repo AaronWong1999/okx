@@ -1,0 +1,6 @@
+<!-- Layout Resource ID: 0x7f0d20c7 | APK Entry: cBj -->
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <com.okinc.uilab.banner.OKAlertBanner android:id="@id/AccountAuthcode" attr_0x010100d1="layout/trade_ui_view_arbitrage_smart_guide_0" android:layout_width="match_parent" android:layout_height="wrap_content" app:alert_banner_descriptionText="@string/pr_trade_top_alertbanner_desc_new_smart_arbitrage_available" app:alert_banner_primaryText="@string/pr_trade_top_btn_try_smart_arbitrage" app:alert_banner_style="0" app:alert_banner_titleText="@string/pr_trade_top_alertbanner_new_smart_arbitrage" app:alert_banner_type="4">
+  </com.okinc.uilab.banner.OKAlertBanner>
+</merge>

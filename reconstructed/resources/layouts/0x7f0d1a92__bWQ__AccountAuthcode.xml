@@ -1,0 +1,10 @@
+<!-- Layout Resource ID: 0x7f0d1a92 | APK Entry: bWQ -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:background="@0x7f080517" attr_0x010100d6="@dimen/padding_16dp" attr_0x010100d7="@dimen/padding_20dp" attr_0x010100d8="@dimen/padding_16dp" attr_0x010100d9="@dimen/padding_20dp" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x0101053d="@dimen/padding_16dp" attr_0x0101053e="@dimen/padding_20dp">
+  <TextView attr_0x01010034="@style/Label_1_Bold" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/lt_portfolio_card_recurring_buy" android:maxLines="2" android:layout_weight="1" android:layout_marginEnd="16dp">
+  </TextView>
+  <o.abjc android:id="@id/AccountAuthcode" attr_0x010100dc="0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="100dp" android:layout_marginEnd="6dp">
+  </o.abjc>
+  <ImageView attr_0x010100b3="0x800005" android:layout_width="24dp" android:layout_height="24dp" android:src="@0x7f0806a5">
+  </ImageView>
+</LinearLayout>

@@ -1,0 +1,14 @@
+<!-- Layout Resource ID: 0x7f0d1d74 | APK Entry: ckQ -->
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <androidx.appcompat.widget.LinearLayoutCompat android:gravity="0x11" android:id="@id/AccountAuthcode" attr_0x010100d1="layout/smart_arbitrage_advanced_setting_view_0" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x0101018c="true">
+    <TextView android:textColor="@color/ContentPrimary" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/pr_dcabot_placeorder_title_advanced" android:layout_weight="1" style="@style/Label_1_Medium">
+    </TextView>
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/AccountAuthcode" android:layout_width="20dp" android:layout_height="20dp" android:src="@0x7f0806aa" android:layout_marginStart="16dp">
+    </androidx.appcompat.widget.AppCompatImageView>
+  </androidx.appcompat.widget.LinearLayoutCompat>
+  <androidx.appcompat.widget.LinearLayoutCompat android:orientation="1" android:id="@id/AccountAuthcode" attr_0x010100d1="layout/smart_arbitrage_advanced_setting_view_1" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" attr_0x01010185="@id/AccountAuthcode">
+    <o.ZWJ android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" app:active_content="--" app:setting_title="@string/pr_smartarb_placeorder_header_opening_conditions">
+    </o.ZWJ>
+  </androidx.appcompat.widget.LinearLayoutCompat>
+</merge>

@@ -1,0 +1,40 @@
+<!-- Layout Resource ID: 0x7f0d0e25 | APK Entry: aOy -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" attr_0x010100d1="layout/fragment_tactics_signal_bot_create_0" attr_0x010100d9="@dimen/padding_24dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <TextView android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0" style="@style/TextAppearance.Title.14SP.Medium">
+  </TextView>
+  <o.ZWO android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+  </o.ZWO>
+  <View android:id="@id/AccountAuthcode" android:layout_width="@dimen/width_48dp" android:layout_height="4dp" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+  </View>
+  <o.abhv android:theme="@style/OKTheme" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20dp" app:layout_constrainedWidth="true" app:layout_constraintEnd_toStartOf="@id/AccountAuthcode" app:layout_constraintHorizontal_chainStyle="1" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:okds_helpLabelType="2" app:okds_hyperLabelColor="@color/okTradeG900" app:okds_hyperLabelSize="@dimen/text_size_14sp" app:okds_hyperLabelText="@string/pr_futuresbot_orderplace_title2_mode_and_quantity" app:okds_hyperLabelWeight="500">
+  </o.abhv>
+  <FrameLayout android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/margin_16dp" app:layout_constraintBottom_toBottomOf="@id/AccountAuthcode" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toEndOf="@id/AccountAuthcode" app:layout_constraintTop_toTopOf="@id/AccountAuthcode">
+    <TextView android:textColor="@color/okTradeG900" attr_0x010100b3="0x800005" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pr_signalbot_placeorder_btn_new_pair" attr_0x01010171="4dp" app:drawableTint="@color/ContentPrimary" style="@style/TextAppearance.Text.14SP.Medium">
+    </TextView>
+  </FrameLayout>
+  <o.ZvK android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+  </o.ZvK>
+  <androidx.recyclerview.widget.RecyclerView android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+  </androidx.recyclerview.widget.RecyclerView>
+  <o.abhv android:theme="@style/OKTheme" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_24dp" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:okds_helpLabelType="2" app:okds_hyperLabelColor="@color/okTradeG900" app:okds_hyperLabelSize="@dimen/text_size_14sp" app:okds_hyperLabelText="@string/pr_signalbot_placeorder_title_leverage_margin" app:okds_hyperLabelWeight="500">
+  </o.abhv>
+  <o.YKU android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="@id/AccountAuthcode" app:layout_constraintEnd_toEndOf="0" app:layout_constraintTop_toTopOf="@id/AccountAuthcode">
+  </o.YKU>
+  <o.WQp android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:oktInputSeekBarVisible="true" style="@style/OKTInputLayoutStyle_Bot">
+  </o.WQp>
+  <o.ZXc android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:footerAvaShowTransfer="true" app:footerAvaTitle="@string/pr_marginbot_footer_data_available" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+  </o.ZXc>
+  <o.aapy android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+  </o.aapy>
+  <LinearLayout android:orientation="0" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+    <TextView android:textColor="@color/grey_g400" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/pr_signalbot_placeorder_title_min_invest_amt" android:layout_weight="1" style="@style/TextAppearance.Text.14SP">
+    </TextView>
+    <TextView android:textColor="@color/grey_g900" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/TextAppearance.Text.14SP">
+    </TextView>
+  </LinearLayout>
+  <TextView attr_0x01010034="@style/TextAppearance.Text.12SP" android:textColor="@color/RubyRed500" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_8dp" android:text="@string/pr_dcabot_placeorder_fieldalert_exceed_available" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+  </TextView>
+  <o.ZvD android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_2dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+  </o.ZvD>
+</androidx.constraintlayout.widget.ConstraintLayout>

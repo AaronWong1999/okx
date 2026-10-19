@@ -1,0 +1,22 @@
+<!-- Layout Resource ID: 0x7f0d17e0 | APK Entry: bJJ -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" attr_0x010100d7="8dp" attr_0x010100d9="24dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_default" android:layout_marginRight="@dimen/margin_default" attr_0x0101053b="@dimen/margin_default">
+  <TextView android:textColor="@color/ContentPrimary" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/pr_trade_grid_title_amount" style="@style/Label_2_Medium">
+  </TextView>
+  <o.WQp android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:oktInputSeekBarVisible="true" style="@style/OKTInputLayoutStyle_Bot">
+  </o.WQp>
+  <o.ZXc android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:footerAvaShowTransfer="true" app:footerAvaTitle="@string/pr_marginbot_footer_data_available" app:footerAvaValue="@string/pr_trade_local_empty_string">
+  </o.ZXc>
+  <TextView android:textColor="@color/RubyRed500" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_8dp" android:text="@string/pr_dcabot_placeorder_fieldalert_exceed_available" style="@style/TextAppearance.Text.12SP">
+  </TextView>
+  <TextView android:textColor="@color/ContentPrimary" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="32dp" android:text="@string/pr_demotrade_checkbox_order_confirm_profit" style="@style/Label_2_Medium">
+  </TextView>
+  <o.WQp android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" style="@style/OKTInputLayoutStyle_Bot">
+  </o.WQp>
+  <TextView android:textColor="@color/ContentPrimary" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:text="@string/pr_demotrade_checkbox_order_confirm_loss" style="@style/Label_2_Medium">
+  </TextView>
+  <o.WQp android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" style="@style/OKTInputLayoutStyle_Bot">
+  </o.WQp>
+  <TextView android:textColor="@color/ContentDisabled" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:text="@string/pr_aitradingbot_placeorder_botsheet_tpsl_slippage_remind" style="@style/Label_3_Regular">
+  </TextView>
+</androidx.appcompat.widget.LinearLayoutCompat>

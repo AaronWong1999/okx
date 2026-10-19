@@ -1,0 +1,8 @@
+<!-- Layout Resource ID: 0x7f0d0fa9 | APK Entry: aVT -->
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <o.abhv android:id="@id/AccountAuthcode" attr_0x010100d1="layout/item_bot_lead_signal_bot_vertical_info_0" android:layout_width="wrap_content" android:layout_height="wrap_content" app:okds_helpLabelType="2" app:okds_hyperLabelColor="@color/grey_g400" app:okds_hyperLabelSize="@dimen/text_size_14sp">
+  </o.abhv>
+  <o.abhv android:id="@id/AccountAuthcode" attr_0x010100d1="layout/item_bot_lead_signal_bot_vertical_info_1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_4dp" app:okds_helpLabelType="2" app:okds_hyperLabelColor="@color/grey_g900" app:okds_hyperLabelSize="@dimen/text_size_16sp" app:okds_hyperLabelWeight="500">
+  </o.abhv>
+</merge>

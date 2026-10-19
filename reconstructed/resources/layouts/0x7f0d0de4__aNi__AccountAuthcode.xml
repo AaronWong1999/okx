@@ -1,0 +1,24 @@
+<!-- Layout Resource ID: 0x7f0d0de4 | APK Entry: aNi -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" attr_0x010100d1="layout/fragment_smart_iceberg_rust_0" attr_0x010100d9="@dimen/padding_24dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <o.ZTx android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="32dp" android:layout_marginTop="@dimen/margin_12dp" android:layout_marginBottom="@dimen/margin_12dp" app:okds_equal_width="true" app:okds_size="-4" app:okds_theme="match_parent">
+  </o.ZTx>
+  <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp">
+    <o.WLL android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:layout_marginBottom="6dp" attr_0x0101053c="6dp" app:layout_constrainedWidth="true" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintEnd_toStartOf="@id/AccountAuthcode" app:layout_constraintHorizontal_bias="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0" app:layout_goneMarginEnd="0dp">
+    </o.WLL>
+    <o.WLA android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="0dp" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintEnd_toEndOf="0" app:layout_constraintHorizontal_bias="1" app:layout_constraintStart_toEndOf="@id/AccountAuthcode" app:layout_constraintTop_toTopOf="0">
+    </o.WLA>
+  </androidx.constraintlayout.widget.ConstraintLayout>
+  <o.ZFE android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp">
+  </o.ZFE>
+  <o.WRN android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:contentTextAppearance="@style/text_appearance_12sp_color_content_primary" app:titleTextAppearance="@style/text_appearance_12sp_color_content_contrast">
+  </o.WRN>
+  <TextView android:textColor="@color/RubyRed500" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_4dp" style="@style/TextAppearance.Text.12SP.Regular">
+  </TextView>
+  <o.XyG android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:footerAvaShowTransfer="true">
+  </o.XyG>
+  <o.XyG android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:footerAvaShowTransfer="false">
+  </o.XyG>
+  <o.ZFi android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_4dp">
+  </o.ZFi>
+</LinearLayout>

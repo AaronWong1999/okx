@@ -1,0 +1,30 @@
+<!-- Layout Resource ID: 0x7f0d1e7c | APK Entry: cpZ -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" attr_0x010100d1="layout/trade_impl_activity_signal_bot_profit_0" android:background="@color/BasePrimary" attr_0x010100dd="true" android:layout_width="match_parent" android:layout_height="match_parent">
+  <androidx.appcompat.widget.AppCompatImageView android:id="@id/AccountAuthcode" android:layout_width="@dimen/width_24dp" android:layout_height="@dimen/height_24dp" android:src="@0x7f08069c" android:layout_marginStart="@dimen/margin_12dp" app:layout_constraintBottom_toBottomOf="@id/AccountAuthcode" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="@id/AccountAuthcode" app:tint="@color/grey_g900">
+  </androidx.appcompat.widget.AppCompatImageView>
+  <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Title.18SP.Semibold" android:textColor="@color/grey_g900" android:gravity="0x11" android:id="@id/AccountAuthcode" attr_0x010100d6="40dp" attr_0x010100d7="@dimen/padding_10dp" attr_0x010100d8="40dp" attr_0x010100d9="@dimen/padding_10dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/pr_marketplace_signaldetails_tab_pnl_performance" attr_0x0101053d="40dp" attr_0x0101053e="@dimen/padding_10dp" app:layout_constraintTop_toTopOf="0">
+  </androidx.appcompat.widget.AppCompatTextView>
+  <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" app:layout_constraintHorizontal_weight="4" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+    <androidx.appcompat.widget.LinearLayoutCompat android:orientation="0" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_16dp" android:layout_marginTop="@dimen/margin_18dp" android:layout_marginRight="@dimen/margin_16dp" attr_0x01010126="false" attr_0x0101053b="@dimen/margin_16dp" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0">
+      <o.Yvh attr_0x010100b3="0x30" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" app:sbhcCaptionColor="@color/grey_g400" app:sbhcCaptionTextAppearance="@style/TextAppearance.Text.12SP.Regular">
+      </o.Yvh>
+      <o.Yvh attr_0x010100b3="0x30" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="@dimen/margin_16dp" app:sbhcCaptionColor="@color/grey_g400" app:sbhcCaptionTextAppearance="@style/TextAppearance.Text.12SP.Regular" app:sbhcContentGravity="1">
+      </o.Yvh>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+  </androidx.constraintlayout.widget.ConstraintLayout>
+  <androidx.constraintlayout.widget.Barrier android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" app:barrierDirection="3" app:constraint_referenced_ids="title_constraint">
+  </androidx.constraintlayout.widget.Barrier>
+  <o.uJH android:id="@id/AccountAuthcode" attr_0x010100d6="@dimen/margin_16dp" attr_0x010100d8="@dimen/margin_16dp" android:layout_width="match_parent" android:layout_height="0dp" attr_0x0101053d="@dimen/margin_16dp" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:srlEnableAutoLoadMore="false" app:srlEnablePreviewInEditMode="true" app:srlEnableRefresh="true">
+    <o.uJN android:layout_width="match_parent" android:layout_height="wrap_content">
+    </o.uJN>
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="match_parent" attr_0x010102c1="2">
+    </androidx.recyclerview.widget.RecyclerView>
+    <o.uJM android:layout_width="match_parent" android:layout_height="wrap_content">
+    </o.uJM>
+  </o.uJH>
+  <androidx.constraintlayout.widget.Group android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" app:constraint_referenced_ids="smart_refresh,profit_back,profit_title,title_constraint">
+  </androidx.constraintlayout.widget.Group>
+  <FrameLayout android:id="@id/AccountAuthcode" android:background="@color/background_lv1" attr_0x010100d7="96dp" attr_0x010100da="true" attr_0x010100dc="2" attr_0x010100e5="true" android:layout_width="match_parent" android:layout_height="match_parent">
+  </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

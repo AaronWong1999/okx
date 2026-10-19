@@ -1,0 +1,16 @@
+<!-- Layout Resource ID: 0x7f0d1e35 | APK Entry: coB -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" attr_0x010100d1="layout/trade_contract_grid_position_details_bottom_sheet_0" attr_0x010100d6="24dp" attr_0x010100d7="8dp" attr_0x010100d8="24dp" attr_0x010100d9="24dp" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x0101053d="24dp">
+  <include android:id="@id/AccountAuthcode" layout="@0x7f0d1e34">
+  </include>
+  <include android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" layout="@0x7f0d1e34">
+  </include>
+  <include android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" layout="@0x7f0d1e34">
+  </include>
+  <View android:id="@id/AccountAuthcode" android:background="@color/LineSecondary" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginTop="24dp" android:layout_marginBottom="24dp">
+  </View>
+  <include android:id="@id/AccountAuthcode" layout="@0x7f0d1e34">
+  </include>
+  <TextView android:textColor="@color/color_content_static_subtler" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp" style="@style/Body_3_Regular">
+  </TextView>
+</LinearLayout>

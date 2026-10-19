@@ -1,0 +1,84 @@
+<!-- Layout Resource ID: 0x7f0d1cbb | APK Entry: chu -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent">
+  <androidx.core.widget.NestedScrollView android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="0dp" attr_0x010102c1="2" app:layout_constraintBottom_toTopOf="@id/AccountAuthcode" app:layout_constraintTop_toTopOf="0">
+    <LinearLayout android:orientation="1" attr_0x010100d6="16dp" attr_0x010100d7="8dp" attr_0x010100d8="16dp" attr_0x010100d9="16dp" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x0101053d="16dp">
+      <LinearLayout android:orientation="1" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp">
+          <TextView android:textColor="@color/ContentSecondary" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/pr_trade_mid_dropdown_commission_price" android:layout_weight="1" style="@style/TextAppearance.Text.12SP.Regular">
+          </TextView>
+          <TextView android:textColor="@color/ContentPrimary" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/TextAppearance.Text.12SP.Regular">
+          </TextView>
+        </LinearLayout>
+        <LinearLayout android:orientation="0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp">
+          <TextView android:textColor="@color/ContentSecondary" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/pr_demotrade_subtitle_info_amt_value" android:layout_weight="1" style="@style/TextAppearance.Text.12SP.Regular">
+          </TextView>
+          <TextView android:textColor="@color/ContentPrimary" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/TextAppearance.Text.12SP.Regular">
+          </TextView>
+        </LinearLayout>
+        <LinearLayout android:gravity="0x10" android:orientation="0" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp">
+          <TextView android:textColor="@color/ContentSecondary" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/pr_perp_function_label_trigger_type" android:layout_weight="1" style="@style/TextAppearance.Text.12SP.Regular">
+          </TextView>
+          <TextView android:textColor="@color/ContentPrimary" android:gravity="0x800015" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" attr_0x01010171="4dp" app:drawableEndCompat="@0x7f080a77" style="@style/TextAppearance.Text.12SP">
+          </TextView>
+        </LinearLayout>
+        <LinearLayout android:orientation="0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp">
+          <TextView android:textColor="@color/ContentSecondary" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/pr_perp_function_label_est_return" android:layout_weight="1" style="@style/TextAppearance.Text.12SP.Regular">
+          </TextView>
+          <TextView android:textColor="@color/ContentPrimary" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/TextAppearance.Text.12SP.Regular">
+          </TextView>
+        </LinearLayout>
+        <View android:background="@color/BorderSecondary" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginTop="16dp">
+        </View>
+      </LinearLayout>
+      <o.SGg android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content">
+      </o.SGg>
+      <o.WQp android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" app:oktInputSeekBarPercentScaleVisible="true" app:oktInputSeekBarVisible="true">
+      </o.WQp>
+      <LinearLayout android:orientation="0" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp">
+        <TextView android:textColor="@color/ContentContrast" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pr_trade_tpsl_title_estimated_amount" style="@style/TextAppearance.Text.12SP.Regular">
+        </TextView>
+        <TextView android:textColor="@color/ContentPrimary" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="4dp" style="@style/TextAppearance.Text.12SP.Regular">
+        </TextView>
+      </LinearLayout>
+      <LinearLayout android:orientation="0" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp">
+        <TextView android:textColor="@color/ContentContrast" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pr_perp_function_label_est_return" style="@style/TextAppearance.Text.12SP.Regular">
+        </TextView>
+        <TextView android:textColor="@color/ContentPrimary" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="4dp" style="@style/TextAppearance.Text.12SP.Regular">
+        </TextView>
+      </LinearLayout>
+      <LinearLayout android:orientation="1" android:id="@id/AccountAuthcode" android:background="@0x7f08051f" attr_0x010100d5="8dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp">
+        <TextView android:textSize="12sp" android:textColor="@color/Critical" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:text="@string/pr_social_tpsl_error_tp_order_invalid_clear">
+        </TextView>
+        <LinearLayout android:gravity="0x10" android:orientation="0" android:layout_width="wrap_content" android:layout_height="wrap_content">
+          <TextView android:textColor="@color/ContentContrast" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/TextAppearance.Text.12SP.Regular">
+          </TextView>
+          <View android:background="@color/line_amplifed" android:layout_width="1dp" android:layout_height="12dp" android:layout_marginLeft="8dp" android:layout_marginRight="8dp" attr_0x0101053b="8dp">
+          </View>
+          <TextView android:textColor="@color/ContentContrast" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/TextAppearance.Text.12SP.Regular">
+          </TextView>
+        </LinearLayout>
+        <o.SHp android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="10dp" android:layout_marginTop="8dp">
+        </o.SHp>
+        <LinearLayout android:orientation="0" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp">
+          <TextView android:textColor="@color/grey_g400" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/pr_demotrade_input_tp_order_price" android:layout_weight="1" style="@style/TextAppearance.Text.12SP.Regular">
+          </TextView>
+          <TextView android:textColor="@color/grey_g400" android:gravity="0x11" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/pr_tradeiceberg_placeorder_title_amount" android:layout_weight="1" style="@style/TextAppearance.Text.12SP.Regular">
+          </TextView>
+          <TextView android:textColor="@color/grey_g400" android:gravity="0x800005" android:layout_width="40dp" android:layout_height="wrap_content" android:text="@string/pr_trade_tpsl_colheader_delete" style="@style/TextAppearance.Text.12SP.Regular">
+          </TextView>
+        </LinearLayout>
+        <LinearLayout android:orientation="1" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp">
+        </LinearLayout>
+        <LinearLayout android:gravity="0x800015" android:orientation="0" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp">
+          <ImageView android:layout_width="16dp" android:layout_height="16dp" android:src="@0x7f0815eb" app:tint="@color/ContentPrimary">
+          </ImageView>
+          <TextView android:textColor="@color/ContentPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pr_trade_tpsl_btn_delete_all" android:layout_marginStart="4dp" style="@style/TextAppearance.Text.12SP.Regular">
+          </TextView>
+        </LinearLayout>
+      </LinearLayout>
+    </LinearLayout>
+  </androidx.core.widget.NestedScrollView>
+  <o.aaXx android:gravity="0x11" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginLeft="16dp" android:layout_marginRight="16dp" android:layout_marginBottom="18dp" android:text="@string/pr_perp_function_textbtn_add_tp" attr_0x0101053b="16dp" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0" app:okds_button_size="52" app:okds_button_type="0x101" style="@style/TextAppearance.Silka.MeDium">
+  </o.aaXx>
+</androidx.constraintlayout.widget.ConstraintLayout>

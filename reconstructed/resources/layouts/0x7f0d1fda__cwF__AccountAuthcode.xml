@@ -1,0 +1,22 @@
+<!-- Layout Resource ID: 0x7f0d1fda | APK Entry: cwF -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" attr_0x010100d1="layout/trade_ui_activity_contract_dca_start_condition_0" android:background="@color/BasePrimary" android:layout_width="match_parent" android:layout_height="match_parent">
+  <o.uJD android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" app:appBarTitle="@string/pr_dcabot_placeorder_title_start_condition" app:appBarTitleBold="true" app:backImageResId="@0x7f08069c" app:backVisible="true" app:dividerVisible="false" app:layout_constraintTop_toTopOf="0">
+  </o.uJD>
+  <o.aaTo android:id="@id/AccountAuthcode" attr_0x010100d1="binding_1" android:layout_width="match_parent" android:layout_height="wrap_content" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+    <o.aaTm android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" app:selection_title="@string/pr_fdcabot_placeorder_dropdown_instant">
+    </o.aaTm>
+    <o.aaTm android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" app:selection_title="@string/pr_fdacbot_bottomsheet_title_end_trigger_price">
+    </o.aaTm>
+    <o.WQp android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ok_dp_16" android:layout_marginRight="@dimen/ok_dp_16" android:layout_marginBottom="@dimen/margin_20dp" attr_0x0101053b="@dimen/ok_dp_16" app:oktInputLabel="@string/pr_trade_stoporder_input_triggerprice">
+    </o.WQp>
+    <o.aaTm android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" app:selection_title="@string/pr_fdcabot_placeorder_dropdown_signal">
+    </o.aaTm>
+    <include android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ok_dp_16" android:layout_marginRight="@dimen/ok_dp_16" attr_0x0101053b="@dimen/ok_dp_16" layout="@0x7f0d1efb">
+    </include>
+    <o.aaTm android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" app:selection_title="@string/pr_webhook_orderdetails_title_view_tradingview_signal">
+    </o.aaTm>
+  </o.aaTo>
+  <o.aaXx android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/ok_dp_16" android:layout_marginRight="@dimen/ok_dp_16" android:layout_marginBottom="@dimen/margin_20dp" android:text="@string/pr_common_btn_confirm" attr_0x0101053b="@dimen/ok_dp_16" app:layout_constraintBottom_toBottomOf="0" app:okds_button_size="52" app:okds_button_type="0x101">
+  </o.aaXx>
+</androidx.constraintlayout.widget.ConstraintLayout>

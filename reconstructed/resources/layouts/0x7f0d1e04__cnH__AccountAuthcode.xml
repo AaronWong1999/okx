@@ -1,0 +1,18 @@
+<!-- Layout Resource ID: 0x7f0d1e04 | APK Entry: cnH -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" attr_0x0101017a="true">
+  <androidx.appcompat.widget.LinearLayoutCompat android:orientation="1" attr_0x010100d6="@dimen/common_page_edge_space" attr_0x010100d8="@dimen/common_page_edge_space" attr_0x010100d9="32dp" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x0101053d="@dimen/common_page_edge_space">
+    <androidx.compose.ui.platform.ComposeView android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content">
+    </androidx.compose.ui.platform.ComposeView>
+    <o.XcC android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="32dp">
+    </o.XcC>
+    <o.XcB android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="32dp" app:bot_about_show_card_background="true">
+    </o.XcB>
+    <TextView attr_0x01010034="@style/Body_3_Regular" android:textColor="@color/color_content_static_subtle" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:layout_marginBottom="32dp" android:text="@string/pr_aitradingbot_placeorder_botsheet_reminder_backtest_data">
+    </TextView>
+    <TextView android:textColor="@color/ContentPrimary" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="32dp" android:text="@string/pr_trade_botdetails_colheader_historical_events" style="@style/Label_1_Bold">
+    </TextView>
+    <androidx.fragment.app.FragmentContainerView android:name="o.XcG" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_16dp">
+    </androidx.fragment.app.FragmentContainerView>
+  </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.core.widget.NestedScrollView>

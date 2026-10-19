@@ -1,0 +1,10 @@
+<!-- Layout Resource ID: 0x7f0d0de7 | APK Entry: aNp -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" android:id="@id/AccountAuthcode" attr_0x010100d1="layout/fragment_smart_portfolio_history_record_0" android:background="@color/BasePrimary" android:layout_width="match_parent" android:layout_height="match_parent">
+  <o.uJH android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" app:srlEnableAutoLoadMore="false" app:srlEnableRefresh="false">
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x010102c1="2">
+    </androidx.recyclerview.widget.RecyclerView>
+    <o.uJM android:layout_width="match_parent" android:layout_height="wrap_content">
+    </o.uJM>
+  </o.uJH>
+</LinearLayout>

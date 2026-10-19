@@ -1,0 +1,10 @@
+<!-- Layout Resource ID: 0x7f0d1f05 | APK Entry: csE -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" attr_0x010100d1="layout/trade_impl_signal_bot_update_dialog_0" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <androidx.core.widget.NestedScrollView android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="0dp" android:layout_marginLeft="@dimen/common_page_edge_space" android:layout_marginRight="@dimen/common_page_edge_space" android:layout_weight="1" attr_0x010102c1="2" attr_0x0101053b="@dimen/common_page_edge_space">
+    <o.ZvL android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp">
+    </o.ZvL>
+  </androidx.core.widget.NestedScrollView>
+  <o.aaXK android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" app:ok_buttonbox_primaryText="@string/pr_trade_general_btn_confirm" app:ok_buttonbox_secondaryText="@string/pr_trade_general_btn_cancel" app:okds_buttonbox_size="44" app:okds_buttonbox_type="14">
+  </o.aaXK>
+</LinearLayout>

@@ -1,0 +1,36 @@
+<!-- Layout Resource ID: 0x7f0d0c6a | APK Entry: aFZ -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" attr_0x010100d1="layout/fragment_market_place_copy_create_order_0" attr_0x010100d9="20dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <androidx.core.widget.NestedScrollView android:id="@id/AccountAuthcode" attr_0x010100d9="@dimen/padding_24dp" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" attr_0x010102c1="2" app:layout_constraintBottom_toTopOf="@id/AccountAuthcode" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+    <LinearLayout android:orientation="1" android:layout_width="match_parent" android:layout_height="wrap_content">
+      <FrameLayout android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_default" android:layout_marginRight="@dimen/margin_default" android:minHeight="70dp" attr_0x0101053b="@dimen/margin_default">
+      </FrameLayout>
+      <View android:id="@id/AccountAuthcode" android:background="@color/okTradeG100" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginLeft="@dimen/margin_default" android:layout_marginTop="@dimen/margin_16dp" android:layout_marginRight="@dimen/margin_default" attr_0x0101053b="@dimen/margin_default">
+      </View>
+      <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.12SP" android:textColor="@color/grey_g400" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_default" android:layout_marginTop="@dimen/margin_16dp" android:layout_marginRight="@dimen/margin_default" android:layout_marginBottom="@dimen/margin_16dp" attr_0x0101053b="@dimen/margin_default" attr_0x0101053c="@dimen/margin_16dp" attr_0x0101057f="20dp">
+      </androidx.appcompat.widget.AppCompatTextView>
+      <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.12SP" android:textColor="@color/grey_g400" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_default" android:layout_marginTop="-4dp" android:layout_marginRight="@dimen/margin_default" android:layout_marginBottom="@dimen/margin_16dp" attr_0x0101053b="@dimen/margin_default" attr_0x0101057f="20dp">
+      </androidx.appcompat.widget.AppCompatTextView>
+      <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.12SP" android:textColor="@color/grey_g400" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_default" android:layout_marginTop="@dimen/margin_12dp" android:layout_marginRight="@dimen/margin_default" attr_0x0101053b="@dimen/margin_default" attr_0x0101057f="20dp">
+      </androidx.appcompat.widget.AppCompatTextView>
+      <LinearLayout android:orientation="0" android:id="@id/AccountAuthcode" android:background="@color/grey_g50" android:layout_width="match_parent" android:layout_height="8dp" android:layout_marginTop="20dp">
+      </LinearLayout>
+      <LinearLayout android:orientation="0" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/margin_default">
+        <TextView attr_0x01010034="@style/TextAppearance.Title.16SP.Semibold" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:layout_marginBottom="16dp" android:text="@string/pr_marketplace_botdetails_title_bot_details" android:layout_weight="1" attr_0x0101053c="16dp">
+        </TextView>
+        <ImageView attr_0x010100b3="0x10" android:id="@id/AccountAuthcode" attr_0x010100d6="16dp" attr_0x010100d7="8dp" attr_0x010100d8="16dp" attr_0x010100d9="8dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@0x7f080697" android:layout_marginEnd="8dp" attr_0x0101053d="16dp" attr_0x0101053e="8dp" app:tint="@color/ContentSecondary">
+        </ImageView>
+      </LinearLayout>
+      <androidx.recyclerview.widget.RecyclerView android:id="@id/AccountAuthcode" attr_0x010100d6="@dimen/margin_default" attr_0x010100d8="@dimen/margin_default" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" attr_0x010102c1="2" attr_0x0101053d="@dimen/margin_default">
+      </androidx.recyclerview.widget.RecyclerView>
+      <View android:id="@id/AccountAuthcode" android:background="@color/okTradeG100" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginLeft="@dimen/margin_default" android:layout_marginTop="16dp" android:layout_marginRight="@dimen/margin_default" attr_0x0101053b="@dimen/margin_default">
+      </View>
+      <TextView attr_0x01010034="@style/TextAppearance.Text.12SP" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_default" android:layout_marginTop="16dp" android:layout_marginRight="@dimen/margin_default" android:text="@string/pr_marketplace_placeorder_notif_bot_individual_earn" attr_0x0101053b="@dimen/margin_default">
+      </TextView>
+      <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.14SP" android:textColor="@color/color_content_static_subtler" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_default" android:layout_marginTop="@dimen/margin_16dp" android:layout_marginRight="@dimen/margin_default" attr_0x0101053b="@dimen/margin_default" attr_0x0101057f="22dp">
+      </androidx.appcompat.widget.AppCompatTextView>
+    </LinearLayout>
+  </androidx.core.widget.NestedScrollView>
+  <o.aaXx android:gravity="0x11" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_16" android:layout_marginRight="@dimen/dp_16" attr_0x0101053b="@dimen/dp_16" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:okds_button_size="52" app:okds_button_type="0x103">
+  </o.aaXx>
+</LinearLayout>

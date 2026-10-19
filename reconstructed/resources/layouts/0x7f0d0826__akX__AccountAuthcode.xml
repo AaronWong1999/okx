@@ -1,0 +1,8 @@
+<!-- Layout Resource ID: 0x7f0d0826 | APK Entry: akX -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" attr_0x010100d1="layout/dfragment_signal_bot_instids_0" attr_0x010100d9="20dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <o.ZvK android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_16dp" android:layout_marginTop="16dp" android:layout_marginRight="@dimen/margin_16dp" attr_0x0101053b="@dimen/margin_16dp">
+  </o.ZvK>
+  <androidx.recyclerview.widget.RecyclerView android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_16dp" android:layout_marginTop="16dp" android:layout_marginRight="@dimen/margin_16dp" attr_0x010102c1="2" attr_0x0101053b="@dimen/margin_16dp">
+  </androidx.recyclerview.widget.RecyclerView>
+</LinearLayout>

@@ -1,0 +1,14 @@
+<!-- Layout Resource ID: 0x7f0d1e2d | APK Entry: cov -->
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" attr_0x010100d1="layout/trade_bot_contract_grid_switch_direction_view_0" attr_0x010100de="0x0" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <LinearLayout android:orientation="0" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <o.aaXx android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" app:okds_button_pill="match_parent" app:okds_button_size="32" app:okds_button_type="0x104">
+    </o.aaXx>
+    <o.aaXx android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/margin_8dp" app:okds_button_pill="match_parent" app:okds_button_size="32" app:okds_button_type="0x104">
+    </o.aaXx>
+    <o.aaXx android:theme="@style/OKTheme" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/margin_8dp" app:okds_button_pill="match_parent" app:okds_button_size="32" app:okds_button_type="0x104">
+    </o.aaXx>
+    <o.aaXx android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/margin_8dp" app:okds_button_pill="match_parent" app:okds_button_size="32" app:okds_button_type="0x104">
+    </o.aaXx>
+  </LinearLayout>
+</HorizontalScrollView>

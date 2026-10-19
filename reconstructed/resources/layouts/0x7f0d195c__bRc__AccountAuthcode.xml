@@ -1,0 +1,48 @@
+<!-- Layout Resource ID: 0x7f0d195c | APK Entry: bRc -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" attr_0x010100d1="layout/market_place_contract_grid_amt_view_0" attr_0x010100d7="@dimen/margin_20dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <o.YKT android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/dp_10">
+  </o.YKT>
+  <o.WQp android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" app:oktInputLabel="@string/pr_trade_recurbot_detail_tunbibao_input_amount" app:oktInputSeekBarVisible="true" app:oktInputUnit="USDT" style="@style/OKTInputLayoutStyle_Bot">
+  </o.WQp>
+  <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+    <LinearLayout android:orientation="0" android:id="@id/AccountAuthcode" attr_0x010100dc="0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_8dp" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0">
+      <o.aaXQ attr_0x010100b3="0x10" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" app:okds_size="-5">
+      </o.aaXQ>
+      <o.abhL android:textColor="@color/grey_g700" attr_0x010100b3="0x10" android:id="@id/AccountAuthcode" attr_0x010100d9="1dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pr_futuresgrid_placeorder_tips_autoreserve_margin" android:layout_marginStart="@dimen/dp_6" style="@style/TextAppearance.Text.12SP.Regular">
+      </o.abhL>
+    </LinearLayout>
+  </androidx.constraintlayout.widget.ConstraintLayout>
+  <FrameLayout android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+    <LinearLayout android:orientation="1" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content">
+      <o.abhv android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24dp" app:okds_helpLabelType="2" app:okds_hyperLabelColor="@color/okTradeG900" app:okds_hyperLabelSize="@dimen/text_size_14sp" app:okds_hyperLabelText="@string/pr_futuresgrid_placeorder_checkbox_reserved_margin_optional" app:okds_hyperLabelWeight="500">
+      </o.abhv>
+      <o.WQp android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" style="@style/OKTInputLayoutStyle_Bot">
+      </o.WQp>
+      <TextView attr_0x01010034="@style/TextAppearance.Orange.12SP" android:textColor="@color/SemanticNegative" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="@string/pr_futuresgrid_placeorder_input_desc_available_are_not_enough">
+      </TextView>
+    </LinearLayout>
+    <o.ZXc android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:footerAvaShowTransfer="false" app:footerAvaTitle="@string/pr_futuresgrid_placeorder_tips_actual_margin_reserved_margin" app:footerAvaValue="--">
+    </o.ZXc>
+  </FrameLayout>
+  <o.ZXc android:id="@id/AccountAuthcode" attr_0x010100dc="0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:footerAvaShowTransfer="true" app:footerAvaTitle="@string/pr_trade_recurbot_detail_tunbibao_avail">
+  </o.ZXc>
+  <TextView attr_0x01010034="@style/TextAppearance.Text.12SP" android:textColor="@color/RubyRed500" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_6dp" android:text="@string/pr_dcabot_placeorder_fieldalert_exceed_available">
+  </TextView>
+  <o.YSm android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp">
+  </o.YSm>
+  <o.YSm android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp">
+  </o.YSm>
+  <o.YSm android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp">
+  </o.YSm>
+  <o.aapy android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+  </o.aapy>
+  <TextView attr_0x01010034="@style/TextAppearance.Orange.12SP" android:textColor="@color/SemanticNotice" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="@string/pr_trade_strategy_alert_liquidate_tips">
+  </TextView>
+  <TextView attr_0x01010034="@style/TextAppearance.Orange.12SP" android:textColor="@color/SemanticNotice" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="@string/pr_futuresgrid_placeorder_tips_the_buffer_amount_youve" attr_0x01010217="3sp">
+  </TextView>
+  <LinearLayout android:orientation="1" android:id="@id/AccountAuthcode" attr_0x010100d7="@dimen/margin_24dp" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <o.abhv android:id="@id/AccountAuthcode" attr_0x010100d1="tv_invite_code_title" android:layout_width="wrap_content" android:layout_height="wrap_content" app:okds_helpLabelType="0" app:okds_hyperLabelColor="@color/okTradeG900" app:okds_hyperLabelSize="@dimen/text_size_14sp" app:okds_hyperLabelWeight="500">
+    </o.abhv>
+  </LinearLayout>
+</LinearLayout>

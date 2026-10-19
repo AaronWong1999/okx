@@ -1,0 +1,36 @@
+<!-- Layout Resource ID: 0x7f0d1ec0 | APK Entry: crm -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@id/AccountAuthcode" attr_0x010100d1="layout/trade_impl_grid_tp_sl_dialog_0" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x010102c1="2" app:layout_constraintBottom_toTopOf="@id/AccountAuthcode" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+  <LinearLayout android:orientation="1" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout android:orientation="1" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_16dp" android:layout_marginRight="@dimen/margin_16dp" android:layout_marginBottom="@dimen/margin_16dp" attr_0x0101053b="@dimen/margin_16dp" app:layout_constraintBottom_toTopOf="@id/AccountAuthcode">
+      <o.ZWw android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+      </o.ZWw>
+      <o.ZWw android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+      </o.ZWw>
+      <o.ZWw android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+      </o.ZWw>
+      <o.ZWw android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+      </o.ZWw>
+      <o.ZWw android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+      </o.ZWw>
+      <o.ZWw android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+      </o.ZWw>
+      <o.ZWw android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+      </o.ZWw>
+    </LinearLayout>
+    <o.YSL android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16dp" android:layout_marginRight="16dp" android:layout_marginBottom="16dp" attr_0x0101053b="16dp" app:layout_constraintBottom_toTopOf="@id/AccountAuthcode" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0">
+    </o.YSL>
+    <o.YSL android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16dp" android:layout_marginRight="16dp" android:layout_marginBottom="8dp" attr_0x0101053b="16dp" app:layout_constraintBottom_toTopOf="@id/AccountAuthcode" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0">
+    </o.YSL>
+    <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.12SP.Regular" android:textColor="@color/orange_lv1" android:gravity="0x800003" android:id="@id/AccountAuthcode" attr_0x010100d6="@dimen/margin_16dp" attr_0x010100d8="@dimen/margin_16dp" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/margin_12dp" attr_0x0101053d="@dimen/margin_16dp" attr_0x0101057f="18sp">
+    </androidx.appcompat.widget.AppCompatTextView>
+    <LinearLayout android:orientation="1" android:id="@id/AccountAuthcode" attr_0x010100d6="@dimen/margin_16dp" attr_0x010100d8="@dimen/margin_16dp" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/dp24" attr_0x0101053d="@dimen/margin_16dp">
+      <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.12SP.Regular" android:textColor="@color/grey_g400" android:gravity="0x800003" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x0101057f="18sp">
+      </androidx.appcompat.widget.AppCompatTextView>
+      <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.12SP.Regular" android:textColor="@color/grey_g400" android:gravity="0x800003" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp" attr_0x0101057f="18sp">
+      </androidx.appcompat.widget.AppCompatTextView>
+      <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.12SP.Regular" android:textColor="@color/grey_g900" android:gravity="0x800003" android:id="@id/AccountAuthcode" attr_0x010100da="true" attr_0x010100dc="2" attr_0x010100e5="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp">
+      </androidx.appcompat.widget.AppCompatTextView>
+    </LinearLayout>
+  </LinearLayout>
+</androidx.core.widget.NestedScrollView>

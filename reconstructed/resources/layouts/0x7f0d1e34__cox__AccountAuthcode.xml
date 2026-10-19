@@ -1,0 +1,8 @@
+<!-- Layout Resource ID: 0x7f0d1e34 | APK Entry: cox -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:gravity="0x10" android:orientation="0" attr_0x010100d1="layout/trade_contract_grid_position_detail_row_0" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <TextView android:textColor="@color/color_content_static_subtle" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" style="@style/Label_1_Regular">
+  </TextView>
+  <TextView android:textColor="@color/ContentPrimary" android:gravity="0x800005" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="16dp" style="@style/Label_1_Medium">
+  </TextView>
+</LinearLayout>

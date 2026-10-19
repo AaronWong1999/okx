@@ -1,0 +1,32 @@
+<!-- Layout Resource ID: 0x7f0d1e7b | APK Entry: cpR -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" attr_0x010100d1="layout/trade_impl_activity_signal_bot_copy_detail_0" android:background="@color/BasePrimary" attr_0x010100dd="true" android:layout_width="match_parent" android:layout_height="match_parent">
+  <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:src="@0x7f08069c" android:layout_marginStart="@dimen/common_page_edge_space" attr_0x0101046b="@color/grey_g900" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0">
+    </ImageView>
+    <o.abeF android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" app:empty_type="8" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:text="@string/pr_common_error_btn_reload" app:title="@string/pr_trade_empty_title_error">
+    </o.abeF>
+  </androidx.constraintlayout.widget.ConstraintLayout>
+  <RelativeLayout android:id="@id/AccountAuthcode" attr_0x010100d6="@dimen/common_page_edge_space" attr_0x010100d8="@dimen/common_page_edge_space" android:layout_width="match_parent" android:layout_height="@dimen/appbar_height" attr_0x0101053d="@dimen/common_page_edge_space">
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/AccountAuthcode" android:layout_width="@dimen/width_24dp" android:layout_height="@dimen/height_24dp" android:src="@0x7f08069c" attr_0x0101018f="true" attr_0x010103bb="true" app:tint="@color/grey_g900">
+    </androidx.appcompat.widget.AppCompatImageView>
+    <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Title.18SP.Semibold" android:textColor="@color/grey_g900" attr_0x010100ab="3" android:gravity="0x11" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x01010154="1" attr_0x0101018f="true" attr_0x0101031f="0" android:layout_marginStart="60dp" android:layout_marginEnd="60dp">
+    </androidx.appcompat.widget.AppCompatTextView>
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/AccountAuthcode" android:layout_width="24dp" android:layout_height="24dp" android:src="@0x7f080d7c" attr_0x0101018f="true" attr_0x010103bc="true" app:tint="@color/grey_g900">
+    </androidx.appcompat.widget.AppCompatImageView>
+  </RelativeLayout>
+  <androidx.core.widget.NestedScrollView android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="0dp" attr_0x0101017a="true" android:layout_weight="1" attr_0x010102c1="2">
+    <androidx.appcompat.widget.LinearLayoutCompat android:orientation="1" android:layout_width="match_parent" android:layout_height="match_parent">
+      <o.YuZ android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content">
+      </o.YuZ>
+      <o.Yvd android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_48dp">
+      </o.Yvd>
+      <o.Yvi android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_48dp">
+      </o.Yvi>
+      <o.Yut android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="32dp">
+      </o.Yut>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+  </androidx.core.widget.NestedScrollView>
+  <o.aaXx attr_0x01010034="@style/TextAppearance.Text.16SP.Medium" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_16dp" android:layout_marginTop="@dimen/margin_12dp" android:layout_marginRight="@dimen/margin_16dp" android:layout_marginBottom="@dimen/margin_24dp" attr_0x0101053b="@dimen/margin_16dp" app:okds_button_size="52" app:okds_button_type="0x103">
+  </o.aaXx>
+</androidx.appcompat.widget.LinearLayoutCompat>

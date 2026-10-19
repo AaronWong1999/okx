@@ -1,0 +1,24 @@
+<!-- Layout Resource ID: 0x7f0d23a1 | APK Entry: cOU -->
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <LinearLayout android:orientation="0" android:id="@id/AccountAuthcode" attr_0x010100d1="layout/view_smart_iceberg_trade_footer_rust_0" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x01010126="false">
+    <LinearLayout android:orientation="1" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1">
+      <o.XyG android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" app:footerAvaShowTransfer="false">
+      </o.XyG>
+      <o.XyG android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_4" app:footerAvaShowTransfer="false">
+      </o.XyG>
+      <o.XyG android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" app:footerAvaShowTransfer="false">
+      </o.XyG>
+    </LinearLayout>
+    <LinearLayout android:orientation="1" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="@dimen/margin_6dp">
+      <o.XyG android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" app:footerAvaShowTransfer="false">
+      </o.XyG>
+      <o.XyG android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" app:footerAvaShowTransfer="false">
+      </o.XyG>
+      <o.XyG android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_4" app:footerAvaShowTransfer="false">
+      </o.XyG>
+    </LinearLayout>
+  </LinearLayout>
+  <LinearLayout android:orientation="0" android:id="@id/AccountAuthcode" attr_0x010100d1="layout/view_smart_iceberg_trade_footer_rust_1" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_16dp">
+  </LinearLayout>
+</merge>

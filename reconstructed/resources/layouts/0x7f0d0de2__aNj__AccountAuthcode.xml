@@ -1,0 +1,26 @@
+<!-- Layout Resource ID: 0x7f0d0de2 | APK Entry: aNj -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" attr_0x010100d1="layout/fragment_smart_arbi_preview_profit_loss_0" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <LinearLayout android:orientation="1" attr_0x010100d9="@dimen/padding_24dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10dp">
+    <androidx.appcompat.widget.LinearLayoutCompat android:orientation="1" android:id="@id/AccountAuthcode" android:background="@0x7f080337" attr_0x010100d6="@dimen/padding_12dp" attr_0x010100d7="@dimen/padding_16dp" attr_0x010100d8="@dimen/padding_12dp" attr_0x010100d9="@dimen/padding_16dp" attr_0x010100dc="0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_10" attr_0x0101046b="@color/color_surface_structural_layer_2" attr_0x0101053d="@dimen/padding_12dp" attr_0x0101053e="@dimen/padding_16dp">
+      <androidx.constraintlayout.widget.ConstraintLayout android:gravity="0x10" android:id="@id/AccountAuthcode" attr_0x010100dc="0" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="0x800015" android:orientation="0" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0">
+          <androidx.appcompat.widget.AppCompatImageView attr_0x010100b3="0x10" android:id="@id/AccountAuthcode" android:layout_width="@dimen/width_16dp" android:layout_height="@dimen/height_16dp" android:src="@0x7f081101" attr_0x0101011d="3">
+          </androidx.appcompat.widget.AppCompatImageView>
+          <o.abhv android:gravity="0x800003" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/margin_4dp" app:okds_helpLabelType="2" app:okds_hyperLabelColor="@color/ContentPrimary" app:okds_hyperLabelSize="@dimen/text_size_14sp" app:okds_hyperLabelWeight="400">
+          </o.abhv>
+        </LinearLayout>
+      </androidx.constraintlayout.widget.ConstraintLayout>
+      <View android:id="@id/AccountAuthcode" android:background="@color/okTradeG100" android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginTop="@dimen/margin_10dp">
+      </View>
+      <TextView attr_0x01010034="@style/TextAppearance.Text.12SP.Regular" android:textColor="@color/ContentContrast" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10dp" android:text="@string/pr_smartarb_placeorder_dialog_order_optimized_formula">
+      </TextView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    <o.ZAY android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_20dp">
+    </o.ZAY>
+    <FrameLayout android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_24dp">
+    </FrameLayout>
+    <TextView attr_0x01010034="@style/TextAppearance.Text.12SP.Regular" android:textColor="@color/ContentContrast" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_24dp" android:text="@string/pr_smartarb_placeorder_tips_above_history_ref">
+    </TextView>
+  </LinearLayout>
+</androidx.core.widget.NestedScrollView>

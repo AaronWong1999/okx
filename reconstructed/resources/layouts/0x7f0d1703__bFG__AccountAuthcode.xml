@@ -1,0 +1,14 @@
+<!-- Layout Resource ID: 0x7f0d1703 | APK Entry: bFG -->
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <o.abhx android:id="@id/AccountAuthcode" attr_0x010100d1="layout/layout_signal_bot_type_view_0" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0" app:okds_size="-4" app:okds_tag_showIcon="false" app:okds_tag_style="6">
+  </o.abhx>
+  <TextView android:textColor="@color/okTradeG300" android:id="@id/AccountAuthcode" attr_0x010100d1="layout/layout_signal_bot_type_view_1" attr_0x010100d6="@dimen/margin_6dp" attr_0x010100d7="@dimen/margin_2dp" attr_0x010100d8="@dimen/margin_6dp" attr_0x010100d9="@dimen/margin_2dp" android:layout_width="wrap_content" android:layout_height="wrap_content" attr_0x0101053d="@dimen/margin_6dp" attr_0x0101053e="@dimen/margin_2dp" app:layout_constraintBottom_toBottomOf="@id/AccountAuthcode" app:layout_constraintStart_toEndOf="@id/AccountAuthcode" app:layout_constraintTop_toTopOf="@id/AccountAuthcode" style="@style/TextAppearance.Text.12SP.Regular">
+  </TextView>
+  <o.abhx android:id="@id/AccountAuthcode" attr_0x010100d1="layout/layout_signal_bot_type_view_2" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintStart_toEndOf="@id/AccountAuthcode" app:layout_constraintTop_toTopOf="@id/AccountAuthcode" app:okds_size="-4" app:okds_tag_showIcon="false" app:okds_tag_style="6">
+  </o.abhx>
+  <TextView android:textColor="@color/okTradeG300" android:id="@id/AccountAuthcode" attr_0x010100d1="layout/layout_signal_bot_type_view_3" attr_0x010100d6="@dimen/margin_6dp" attr_0x010100d7="@dimen/margin_2dp" attr_0x010100d8="@dimen/margin_6dp" attr_0x010100d9="@dimen/margin_2dp" attr_0x010100dc="2" android:layout_width="wrap_content" android:layout_height="wrap_content" attr_0x0101053d="@dimen/margin_6dp" attr_0x0101053e="@dimen/margin_2dp" app:layout_constraintBottom_toBottomOf="@id/AccountAuthcode" app:layout_constraintStart_toEndOf="@id/AccountAuthcode" app:layout_constraintTop_toTopOf="@id/AccountAuthcode" style="@style/TextAppearance.Text.12SP.Regular">
+  </TextView>
+  <o.abhx android:id="@id/AccountAuthcode" attr_0x010100d1="layout/layout_signal_bot_type_view_4" attr_0x010100dc="2" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintStart_toEndOf="@id/AccountAuthcode" app:layout_constraintTop_toTopOf="@id/AccountAuthcode" app:okds_size="-4" app:okds_tag_showIcon="false" app:okds_tag_style="6">
+  </o.abhx>
+</merge>

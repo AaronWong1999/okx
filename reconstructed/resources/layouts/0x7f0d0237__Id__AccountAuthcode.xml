@@ -1,0 +1,18 @@
+<!-- Layout Resource ID: 0x7f0d0237 | APK Entry: Id -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:background="@color/BasePrimary" android:layout_width="match_parent" android:layout_height="match_parent">
+  <com.google.android.material.appbar.MaterialToolbar android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="48dp" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0" app:navigationIcon="@0x7f08069f" app:navigationIconTint="@color/ContentPrimary" app:titleCentered="true" app:titleTextAppearance="@style/Title_2_Bold">
+  </com.google.android.material.appbar.MaterialToolbar>
+  <androidx.constraintlayout.widget.Group android:id="@id/AccountAuthcode" attr_0x010100dc="0" android:layout_width="wrap_content" android:layout_height="wrap_content" app:constraint_referenced_ids="loadingView,loadingText">
+  </androidx.constraintlayout.widget.Group>
+  <o.abdw android:id="@id/AccountAuthcode" android:layout_width="120dp" android:layout_height="120dp" app:layout_constraintBottom_toTopOf="@id/AccountAuthcode" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0" app:layout_constraintVertical_chainStyle="2" app:lottie_autoPlay="true" app:lottie_loop="true" app:lottie_rawRes="@0x7f120086">
+  </o.abdw>
+  <TextView attr_0x01010034="@style/Body_2_Regular" android:textColor="@color/color_content_static_default" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="@string/pr_aitradingbot_placeorder_status_optimizing_prompt" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:layout_constraintVertical_chainStyle="2" style="@style/Label_2_Medium">
+  </TextView>
+  <androidx.constraintlayout.widget.Group android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="wrap_content" android:layout_height="wrap_content" app:constraint_referenced_ids="composeView,confirmButton">
+  </androidx.constraintlayout.widget.Group>
+  <androidx.compose.ui.platform.ComposeView android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="0dp" app:layout_constraintBottom_toTopOf="@id/AccountAuthcode" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+  </androidx.compose.ui.platform.ComposeView>
+  <o.aaXK android:enabled="false" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="0" app:okds_buttonbox_size="52" app:okds_buttonbox_type="5">
+  </o.aaXK>
+</androidx.constraintlayout.widget.ConstraintLayout>

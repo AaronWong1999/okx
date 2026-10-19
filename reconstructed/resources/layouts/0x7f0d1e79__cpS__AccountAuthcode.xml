@@ -1,0 +1,42 @@
+<!-- Layout Resource ID: 0x7f0d1e79 | APK Entry: cpS -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" attr_0x010100d1="layout/trade_impl_activity_contract_grid_rsi_setting_0" android:background="@color/BasePrimary" android:layout_width="match_parent" android:layout_height="match_parent">
+  <o.acvP android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" app:appBarTitle="@string/pr_dcabot_placeorder_rsicharttooltip_oversold_intro_term_rsi" app:backImageResId="@0x7f08069c" app:backVisible="true">
+  </o.acvP>
+  <androidx.core.widget.NestedScrollView attr_0x010100d6="@dimen/padding_16dp" attr_0x010100d8="@dimen/padding_16dp" android:layout_width="match_parent" android:layout_height="0dp" android:layout_marginTop="@dimen/margin_8dp" attr_0x0101017a="true" android:layout_weight="1" attr_0x010102c1="2" attr_0x0101053d="@dimen/padding_16dp">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent">
+      <View android:background="@color/blue_lv1" android:layout_width="@dimen/dp_8" android:layout_height="2dp" android:layout_marginEnd="@dimen/dp_6" app:layout_constraintBottom_toBottomOf="@id/AccountAuthcode" app:layout_constraintEnd_toStartOf="@id/AccountAuthcode" app:layout_constraintTop_toTopOf="@id/AccountAuthcode">
+      </View>
+      <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.12SP.Regular" android:textColor="@color/okTradeG300" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_16dp" android:text="@string/pr_spotbot_chart_title_trigger_value" app:layout_constraintEnd_toEndOf="0" app:layout_constraintTop_toTopOf="0">
+      </androidx.appcompat.widget.AppCompatTextView>
+      <androidx.appcompat.widget.AppCompatImageView android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="0dp" android:layout_marginTop="@dimen/padding_11dp" app:layout_constraintDimensionRatio="2.15:1" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+      </androidx.appcompat.widget.AppCompatImageView>
+      <androidx.constraintlayout.widget.Guideline android:orientation="1" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" app:guidelineUseRtl="false" app:layout_constraintGuide_percent="0.6">
+      </androidx.constraintlayout.widget.Guideline>
+      <androidx.constraintlayout.widget.Guideline android:orientation="1" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" app:guidelineUseRtl="false" app:layout_constraintGuide_percent="0.12">
+      </androidx.constraintlayout.widget.Guideline>
+      <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.12SP.Regular" android:textColor="@color/blue_lv1" android:gravity="0x11" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="84dp" android:layout_height="wrap_content" android:text="@string/pr_spot_placeorder_rsichart_overbought_area" app:layout_constraintBottom_toBottomOf="@id/AccountAuthcode" app:layout_constraintLeft_toRightOf="@id/AccountAuthcode" app:layout_constraintTop_toTopOf="@id/AccountAuthcode">
+      </androidx.appcompat.widget.AppCompatTextView>
+      <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.12SP.Regular" android:textColor="@color/blue_lv1" android:gravity="0x11" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="67dp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_16dp" android:text="@string/pr_dcabot_placeorder_rsichart_oversold_zone" app:layout_constraintBottom_toBottomOf="@id/AccountAuthcode" app:layout_constraintLeft_toRightOf="@id/AccountAuthcode" app:layout_constraintTop_toTopOf="@id/AccountAuthcode">
+      </androidx.appcompat.widget.AppCompatTextView>
+      <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.12SP.Regular" android:textColor="@color/okTradeG400" attr_0x010100ab="3" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_24dp" android:maxLines="2" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+      </androidx.appcompat.widget.AppCompatTextView>
+      <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.12SP.Regular" android:textColor="@color/okTradeBlue700" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_8dp" android:text="@string/pr_trade_strategy_header_view_more" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+      </androidx.appcompat.widget.AppCompatTextView>
+      <o.WQp android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_24dp" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" style="@style/OKTInputLayoutStyle_Bot">
+      </o.WQp>
+      <o.ZWT android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_8dp" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+      </o.ZWT>
+      <o.WQp android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_8dp" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:oktInputHint="@string/pr_dcabot_placeorder_rsichart_oversold_1_100" app:oktInputLabel="@string/pr_spotbot_chart_title_trigger_value" style="@style/OKTInputLayoutStyle_Bot">
+      </o.WQp>
+      <o.ZWT android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_8dp" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+      </o.ZWT>
+      <o.abhv android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_8dp" android:text="@string/pr_dcabot_placeorder_rsitooltip_trigger_in_last_month" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:okds_hyperLabelColor="@color/grey_g400" app:okds_hyperLabelSize="@dimen/text_size_14sp">
+      </o.abhv>
+      <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.14SP.Regular" android:textColor="@color/okTradeG900" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/margin_2dp" app:layout_constraintBottom_toBottomOf="@id/AccountAuthcode" app:layout_constraintStart_toEndOf="@id/AccountAuthcode" app:layout_constraintTop_toTopOf="@id/AccountAuthcode">
+      </androidx.appcompat.widget.AppCompatTextView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </androidx.core.widget.NestedScrollView>
+  <o.aaXx attr_0x01010034="@style/TextAppearance.Medium" android:textSize="@dimen/text_size_16sp" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="44dp" android:layout_marginLeft="@dimen/margin_16dp" android:layout_marginTop="@dimen/margin_12dp" android:layout_marginRight="@dimen/margin_16dp" android:layout_marginBottom="@dimen/margin_20dp" android:text="@string/pr_optionstrade_settings_btn_confirm" attr_0x0101053b="@dimen/margin_16dp" app:okds_button_size="52" app:okds_button_type="0x101">
+  </o.aaXx>
+</LinearLayout>

@@ -1,0 +1,28 @@
+<!-- Layout Resource ID: 0x7f0d23f0 | APK Entry: cQp -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" attr_0x010100d1="layout/view_twap_rust_input_panel_0" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <TextView android:textColor="@color/ContentPrimary" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constrainedWidth="true" app:layout_constraintEnd_toStartOf="@id/AccountAuthcode" app:layout_constraintHorizontal_chainStyle="1" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0" style="@style/TextAppearance.Title.14SP.Medium">
+  </TextView>
+  <o.WJR android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="@id/AccountAuthcode" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toEndOf="@id/AccountAuthcode" app:layout_constraintTop_toTopOf="@id/AccountAuthcode">
+  </o.WJR>
+  <o.WQp android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_8dp" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:oktInputLabel="@string/pr_marginbot_input_twap_price_variance" style="@style/OKTInputLayoutStyle_Bot">
+  </o.WQp>
+  <o.WQp android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:oktInputLabel="@string/pr_marginbot_input_twap_price_limit" style="@style/OKTInputLayoutStyle_Bot">
+  </o.WQp>
+  <TextView android:textColor="@color/ContentPrimary" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24dp" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" style="@style/TextAppearance.Title.14SP.Medium">
+  </TextView>
+  <o.WQp android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:oktInputLabel="@string/pr_marginbot_input_time_interval" app:oktInputUnit="@string/pr_trade_stgy_label_twap_unit" style="@style/OKTInputLayoutStyle_Bot">
+  </o.WQp>
+  <TextView android:textColor="@color/ContentPrimary" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24dp" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" style="@style/TextAppearance.Title.14SP.Medium">
+  </TextView>
+  <o.WQp android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:oktInputLabel="@string/pr_marginbot_input_iceberg_average_amount" style="@style/OKTInputLayoutStyle_Bot">
+  </o.WQp>
+  <o.WQp android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:oktInputLabel="@string/pr_trade_history_item_selloder_volume" app:oktInputSeekBarVisible="true" style="@style/OKTInputLayoutStyle_Bot">
+  </o.WQp>
+  <o.WRN android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_8dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+  </o.WRN>
+  <o.XyG android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_8dp" app:footerAvaShowTransfer="true" app:footerAvaTitle="@string/pr_trade_text_avail" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+  </o.XyG>
+  <o.XyG android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_8dp" app:footerAvaShowTransfer="false" app:footerAvaTitle="@string/pr_trade_mid_max_buy" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+  </o.XyG>
+</androidx.constraintlayout.widget.ConstraintLayout>

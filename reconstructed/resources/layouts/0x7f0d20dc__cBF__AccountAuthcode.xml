@@ -1,0 +1,18 @@
+<!-- Layout Resource ID: 0x7f0d20dc | APK Entry: cBF -->
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <o.abhx android:id="@id/AccountAuthcode" attr_0x010100d1="layout/trade_ui_view_smart_arbitrage_inst_info_0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pr_trade_bot_label_sell" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0" app:okds_size="-4" app:okds_tag_style="13">
+  </o.abhx>
+  <o.abhx android:id="@id/AccountAuthcode" attr_0x010100d1="layout/trade_ui_view_smart_arbitrage_inst_info_1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_8" android:text="@string/pr_trade_bot_label_buy" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:okds_size="-4" app:okds_tag_style="14">
+  </o.abhx>
+  <androidx.constraintlayout.widget.Barrier android:id="@id/AccountAuthcode" attr_0x010100d1="layout/trade_ui_view_smart_arbitrage_inst_info_2" android:layout_width="wrap_content" android:layout_height="wrap_content" app:barrierDirection="6" app:constraint_referenced_ids="sellTag,buyTag">
+  </androidx.constraintlayout.widget.Barrier>
+  <TextView attr_0x01010034="@style/TextAppearance.Text.14SP.Medium" android:textColor="@color/ContentPrimary" android:id="@id/AccountAuthcode" attr_0x010100d1="layout/trade_ui_view_smart_arbitrage_inst_info_3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/dp_8" app:layout_constraintBottom_toBottomOf="@id/AccountAuthcode" app:layout_constraintStart_toEndOf="@id/AccountAuthcode" app:layout_constraintTop_toTopOf="@id/AccountAuthcode">
+  </TextView>
+  <com.okinc.tradingbot.impl.strategy.view.TickerIconView android:id="@id/AccountAuthcode" attr_0x010100d1="layout/trade_ui_view_smart_arbitrage_inst_info_4" android:layout_width="0dp" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="@id/AccountAuthcode" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toEndOf="@id/AccountAuthcode" app:layout_constraintTop_toTopOf="@id/AccountAuthcode">
+  </com.okinc.tradingbot.impl.strategy.view.TickerIconView>
+  <TextView attr_0x01010034="@style/TextAppearance.Text.14SP.Medium" android:textColor="@color/ContentPrimary" android:id="@id/AccountAuthcode" attr_0x010100d1="layout/trade_ui_view_smart_arbitrage_inst_info_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/dp_8" app:layout_constraintBottom_toBottomOf="@id/AccountAuthcode" app:layout_constraintStart_toEndOf="@id/AccountAuthcode" app:layout_constraintTop_toTopOf="@id/AccountAuthcode">
+  </TextView>
+  <com.okinc.tradingbot.impl.strategy.view.TickerIconView android:id="@id/AccountAuthcode" attr_0x010100d1="layout/trade_ui_view_smart_arbitrage_inst_info_6" android:layout_width="0dp" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="@id/AccountAuthcode" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toEndOf="@id/AccountAuthcode" app:layout_constraintTop_toTopOf="@id/AccountAuthcode">
+  </com.okinc.tradingbot.impl.strategy.view.TickerIconView>
+</merge>

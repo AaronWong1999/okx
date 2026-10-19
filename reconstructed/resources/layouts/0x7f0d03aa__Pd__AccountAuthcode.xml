@@ -1,0 +1,14 @@
+<!-- Layout Resource ID: 0x7f0d03aa | APK Entry: Pd -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" attr_0x010100d1="layout/bot_contract_dca_sync_confirm_dialog_0" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x010102c1="2">
+  <LinearLayout android:orientation="1" attr_0x010100d9="@dimen/ok_dp_24" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/dp24" android:paddingEnd="@dimen/dp24">
+    <com.okinc.uilab.reminder.OKReminder android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_16dp">
+    </com.okinc.uilab.reminder.OKReminder>
+    <o.abhv android:theme="@style/OKTheme" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ok_dp_24" app:okds_helpLabelType="0" app:okds_hyperLabelColor="@color/okTradeG900" app:okds_hyperLabelSize="@dimen/text_size_14sp" app:okds_hyperLabelText="@string/pr_fdcabot_placeorder_item_investment_amount" app:okds_hyperLabelWeight="500">
+    </o.abhv>
+    <o.WQp android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:oktInputLabel="@string/pr_spotgrid_placeorder_header_additional_investment" style="@style/OKTInputLayoutStyle_Bot">
+    </o.WQp>
+    <o.ZXc android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:footerAvaShowTransfer="true" app:footerAvaTitle="@string/pr_marginbot_footer_data_available">
+    </o.ZXc>
+  </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,36 @@
+<!-- Layout Resource ID: 0x7f0d1edf | APK Entry: crP -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" attr_0x010100d1="layout/trade_impl_mp_spot_grid_amt_view_0" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <o.aaMX android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0">
+  </o.aaMX>
+  <o.WQp android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:layout_goneMarginTop="@dimen/margin_20dp" app:oktInputLabel="@string/pr_trade_recurbot_detail_tunbibao_input_amount" app:oktInputSeekBarVisible="true" app:oktInputUnit="USDT" style="@style/OKTInputLayoutStyle_Bot">
+  </o.WQp>
+  <o.WSc android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:contentTextAppearance="@style/text_appearance_12sp_color_content_primary" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:titleTextAppearance="@style/text_appearance_12sp_color_content_contrast">
+  </o.WSc>
+  <o.ZXc android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:footerAvaShowTransfer="true" app:footerAvaTitle="@string/pr_trade_recurbot_detail_tunbibao_avail" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:layout_goneMarginTop="0dp">
+  </o.ZXc>
+  <o.aapy android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+  </o.aapy>
+  <TextView attr_0x01010034="@style/TextAppearance.Text.12SP" android:textColor="@color/RubyRed500" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_6dp" android:text="@string/pr_dcabot_placeorder_fieldalert_exceed_available" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+  </TextView>
+  <o.WGM android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_6dp" app:horizontalGap="4dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:verticalGap="4dp">
+    <TextView attr_0x01010034="@style/TextAppearance.Text.12SP" android:textColor="@color/okTradeG400" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pr_dcabot_placeorder_item_current_usage">
+    </TextView>
+    <TextView attr_0x01010034="@style/TextAppearance.Text.12SP" android:textColor="@color/okTradeG700" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    </TextView>
+  </o.WGM>
+  <androidx.appcompat.widget.LinearLayoutCompat android:orientation="0" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_6dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+    <TextView attr_0x01010034="@style/TextAppearance.Text.12SP" android:textColor="@color/okTradeG400" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pr_dcabot_placeorder_item_max_potential_usage">
+    </TextView>
+    <TextView attr_0x01010034="@style/TextAppearance.Text.12SP" android:textColor="@color/okTradeG700" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/dp_4">
+    </TextView>
+  </androidx.appcompat.widget.LinearLayoutCompat>
+  <androidx.appcompat.widget.LinearLayoutCompat android:gravity="0x10" android:orientation="0" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_6dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+    <o.aaXQ android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" attr_0x01010106="true">
+    </o.aaXQ>
+    <o.abhv android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/margin_6dp" app:okds_helpLabelType="1" app:okds_hyperLabelColor="@color/okTradeG900" app:okds_hyperLabelSize="@dimen/text_size_12sp" app:okds_hyperLabelText="@string/pr_dcabot_placeorder_checkbox_reserve_sufficient_funds" app:okds_hyperLabelWeight="400">
+    </o.abhv>
+  </androidx.appcompat.widget.LinearLayoutCompat>
+  <TextView attr_0x01010034="@style/TextAppearance.Text.12SP.Regular" android:textColor="@color/orange_lv1" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp" android:text="@string/pr_trade_futuresgrid_placeholder_errortext_not_reserved" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+  </TextView>
+</androidx.constraintlayout.widget.ConstraintLayout>

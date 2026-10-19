@@ -1,0 +1,20 @@
+<!-- Layout Resource ID: 0x7f0d2026 | APK Entry: cyi -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" attr_0x010100d1="layout/trade_ui_fragment_dcd_manual_create_rust_0" attr_0x010100d7="@dimen/height_20dp" attr_0x010100d9="@dimen/margin_12dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+    <o.abhv android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0" app:okds_helpLabelType="2" app:okds_hyperLabelColor="@color/ContentPrimary" app:okds_hyperLabelSize="14sp" app:okds_hyperLabelText="@string/pr_dcdbot_placeorder_title_buying_method" app:okds_hyperLabelWeight="500">
+    </o.abhv>
+    <o.abcb android:gravity="0x10" attr_0x010100b3="0x10" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintEnd_toEndOf="0" app:layout_constraintTop_toTopOf="0" app:menuChipTitle="@string/pr_dcdbot_placeorder_cell_label_buy_when_price_drops" app:okds_size="-4">
+    </o.abcb>
+  </androidx.constraintlayout.widget.ConstraintLayout>
+  <o.YVz android:id="@id/AccountAuthcode" attr_0x010100dc="0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_8dp">
+  </o.YVz>
+  <o.WQp android:id="@id/AccountAuthcode" attr_0x010100dc="0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_8dp" style="@style/OKTInputLayoutStyle_Bot_V2">
+  </o.WQp>
+  <o.YVt android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/padding_32dp">
+  </o.YVt>
+  <o.YVr android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/padding_32dp">
+  </o.YVr>
+  <TextView android:textColor="@color/ContentContrast" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/padding_32dp" android:text="@string/pr_dcdbot_placeorder_reminder_flywheel_principle_desc" style="@style/Body_4">
+  </TextView>
+</LinearLayout>

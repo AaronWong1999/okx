@@ -1,0 +1,18 @@
+<!-- Layout Resource ID: 0x7f0d20a6 | APK Entry: cAC -->
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <TextView attr_0x01010034="@style/TextAppearance.Title.14SP.Medium" attr_0x010100d1="layout/trade_ui_signal_bot_edit_view_0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pr_signalbot_placeorder_title_signal_name">
+  </TextView>
+  <com.okinc.uilab.edit.OKEditText android:textSize="14sp" android:textColor="@color/grey_g900" android:textColorHint="@color/grey_g300" android:gravity="0x800033" android:id="@id/AccountAuthcode" attr_0x010100d1="layout/trade_ui_signal_bot_edit_view_1" android:background="@0x7f080546" attr_0x010100d5="12dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:hint="@string/pr_signalbot_placeorder_title_input_signal_name" android:maxLines="3" attr_0x01010160="30">
+  </com.okinc.uilab.edit.OKEditText>
+  <o.abhv attr_0x01010034="@style/TextAppearance.Text.14SP" android:id="@id/AccountAuthcode" attr_0x010100d1="layout/trade_ui_signal_bot_edit_view_2" attr_0x010100dc="2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:okds_helpLabelType="2" app:okds_hyperLabelColor="@color/RubyRed500" app:okds_hyperLabelText="">
+  </o.abhv>
+  <TextView attr_0x01010034="@style/TextAppearance.Text.14SP" android:textColor="@color/grey_g400" attr_0x010100b3="0x800005" android:id="@id/AccountAuthcode" attr_0x010100d1="layout/trade_ui_signal_bot_edit_view_3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp">
+  </TextView>
+  <TextView attr_0x01010034="@style/TextAppearance.Title.14SP.Medium" attr_0x010100d1="layout/trade_ui_signal_bot_edit_view_4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:text="@string/pr_signalbot_placeorder_title_signal_profile">
+  </TextView>
+  <com.okinc.uilab.edit.OKEditText android:textSize="14sp" android:textColor="@color/grey_g900" android:textColorHint="@color/grey_g300" android:gravity="0x800033" android:id="@id/AccountAuthcode" attr_0x010100d1="layout/trade_ui_signal_bot_edit_view_5" android:background="@0x7f080546" attr_0x010100d5="10dp" android:layout_width="match_parent" android:layout_height="@dimen/height_120dp" android:layout_marginTop="8dp" attr_0x01010160="500">
+  </com.okinc.uilab.edit.OKEditText>
+  <TextView attr_0x01010034="@style/TextAppearance.Text.14SP" android:textColor="@color/grey_g400" attr_0x010100b3="0x800005" android:id="@id/AccountAuthcode" attr_0x010100d1="layout/trade_ui_signal_bot_edit_view_6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_8">
+  </TextView>
+</merge>

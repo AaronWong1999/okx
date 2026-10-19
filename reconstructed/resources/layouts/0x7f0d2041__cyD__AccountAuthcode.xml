@@ -1,0 +1,8 @@
+<!-- Layout Resource ID: 0x7f0d2041 | APK Entry: cyD -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" android:id="@id/AccountAuthcode" attr_0x010100d1="layout/trade_ui_fragment_signal_bot_trades_0" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <o.abhg android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="-15dp" app:okds_size="-5" app:okds_tabButtonChipStyle="4" app:tabIndicatorFullWidth="false" app:tabSelectedTextColor="@color/okTradeG900" app:tabTextAppearance="@style/TextAppearance.Text.14SP.Medium" app:tabTextColor="@color/okTradeG400">
+  </o.abhg>
+  <androidx.viewpager2.widget.ViewPager2 android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="3dp">
+  </androidx.viewpager2.widget.ViewPager2>
+</LinearLayout>

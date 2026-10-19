@@ -1,0 +1,36 @@
+<!-- Layout Resource ID: 0x7f0d0948 | APK Entry: aqD -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" attr_0x010100d9="24dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <LinearLayout android:gravity="0x10" android:orientation="0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:layout_marginStart="24dp" android:layout_marginEnd="24dp">
+    <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/Label_2_Medium" android:textColor="@color/color_content_static_default" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    </androidx.appcompat.widget.AppCompatTextView>
+    <o.abhx android:gravity="0x10" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="4dp" app:okds_size="-4" app:okds_tag_paint="0">
+    </o.abhx>
+    <o.abhx android:gravity="0x10" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="4dp" app:okds_size="-4" app:okds_tag_paint="0">
+    </o.abhx>
+  </LinearLayout>
+  <LinearLayout android:orientation="1" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:layout_marginStart="24dp" android:layout_marginEnd="24dp">
+  </LinearLayout>
+  <LinearLayout android:orientation="1" android:id="@id/AccountAuthcode" attr_0x010100d9="24dp" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <View android:background="@color/SurfaceDisabled" android:layout_width="match_parent" android:layout_height="6dp">
+    </View>
+    <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/Label_2_Bold" android:textColor="@color/ContentPrimary" android:id="@id/AccountAuthcode" attr_0x010100d7="12dp" attr_0x010100d9="12dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/pr_exos_futures_checkbox_tp_sl" android:layout_marginStart="24dp" android:layout_marginEnd="24dp" attr_0x0101053e="12dp">
+    </androidx.appcompat.widget.AppCompatTextView>
+    <LinearLayout android:orientation="1" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="24dp" android:layout_marginEnd="24dp">
+    </LinearLayout>
+  </LinearLayout>
+  <LinearLayout android:orientation="1" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:layout_marginStart="24dp" android:layout_marginEnd="24dp">
+    <View android:background="@color/ContentTertiary" android:layout_width="match_parent" android:layout_height="0.5dp" attr_0x0101031f="0.15">
+    </View>
+    <LinearLayout android:orientation="1" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp">
+    </LinearLayout>
+  </LinearLayout>
+  <LinearLayout android:gravity="0x10" android:orientation="0" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:layout_marginStart="24dp" android:layout_marginEnd="24dp">
+    <o.aaXQ android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" app:okds_size="-5">
+    </o.aaXQ>
+    <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/Body_4" android:textColor="@color/color_content_static_default" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pr_exos_alert_not_tips" android:layout_marginStart="8dp">
+    </androidx.appcompat.widget.AppCompatTextView>
+  </LinearLayout>
+  <o.aaXx android:gravity="0x11" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="@string/pr_exos_settings_btn_confirm" android:layout_marginStart="24dp" android:layout_marginEnd="24dp" app:okds_button_size="52" app:okds_button_type="0x101">
+  </o.aaXx>
+</LinearLayout>

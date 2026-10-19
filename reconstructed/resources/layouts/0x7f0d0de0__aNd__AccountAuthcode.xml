@@ -1,0 +1,22 @@
+<!-- Layout Resource ID: 0x7f0d0de0 | APK Entry: aNd -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" attr_0x010100d1="layout/fragment_smart_arbi_arbitrage_apy_dialog_0" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <LinearLayout android:orientation="1" attr_0x010100d6="@dimen/padding_24dp" attr_0x010100d8="@dimen/padding_24dp" attr_0x010100d9="@dimen/padding_24dp" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x0101053d="@dimen/padding_24dp">
+    <TextView attr_0x01010034="@style/TextAppearance.Text.14SP.Regular" android:textColor="@color/ContentPrimary" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="@string/pr_smartarb_placeorder_dialog_title_3day_annualized_yield">
+    </TextView>
+    <TextView attr_0x01010034="@style/TextAppearance.Text.12SP.Regular" android:textColor="@color/ContentContrast" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp" android:text="@string/pr_smartarb_placeorder_dialog_title_recent_3d_arbitrage_apy">
+    </TextView>
+    <TextView attr_0x01010034="@style/TextAppearance.Text.16SP" android:textSize="16sp" android:textColor="@color/ContentPrimary" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_24dp" android:text="@string/pr_smartarb_placeorder_header_tips_fund_ratecountdown">
+    </TextView>
+    <FrameLayout android:layout_width="match_parent" android:layout_height="250dp">
+      <o.ZAO android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="match_parent">
+      </o.ZAO>
+      <o.abdw attr_0x010100b3="0x11" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content">
+      </o.abdw>
+    </FrameLayout>
+    <LinearLayout android:orientation="0" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content">
+      <o.ZAJ android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content">
+      </o.ZAJ>
+    </LinearLayout>
+  </LinearLayout>
+</androidx.core.widget.NestedScrollView>

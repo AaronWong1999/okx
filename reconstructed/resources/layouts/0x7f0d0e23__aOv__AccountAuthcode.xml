@@ -1,0 +1,22 @@
+<!-- Layout Resource ID: 0x7f0d0e23 | APK Entry: aOv -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" attr_0x010100d1="layout/fragment_tactics_normal_information_0" android:background="@color/BasePrimary" android:layout_width="match_parent" android:layout_height="match_parent" attr_0x0101017a="true" attr_0x010102c1="2">
+  <LinearLayout android:orientation="1" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="1" android:id="@id/AccountAuthcode" android:background="@0x7f080547" attr_0x010100d6="16dp" attr_0x010100d7="@dimen/padding_12dp" attr_0x010100d8="16dp" attr_0x010100d9="@dimen/padding_12dp" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_default" android:layout_marginTop="@dimen/margin_16dp" android:layout_marginRight="@dimen/margin_default" attr_0x0101053b="@dimen/margin_default" attr_0x0101053d="16dp" attr_0x0101053e="@dimen/padding_12dp">
+      <o.abhv android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pr_trade_strategy_item_current_holding" app:okds_helpLabelType="1" app:okds_hyperLabelColor="@color/okTradeG400" app:okds_hyperLabelSize="@dimen/text_size_14sp" app:okds_hyperLabelWeight="400" app:okds_underlineStyle="0">
+      </o.abhv>
+      <TextView attr_0x01010034="@style/TextAppearance.Text.Medium" android:textSize="@dimen/text_size_14sp" android:textColor="@color/grey_g900" android:id="@id/AccountAuthcode" attr_0x010100d7="@dimen/padding_4dp" attr_0x010100d9="@dimen/padding_16dp" attr_0x010100dc="2" android:layout_width="wrap_content" android:layout_height="wrap_content">
+      </TextView>
+      <o.abhv android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pr_trade_strategy_item_total_investment" app:okds_helpLabelType="1" app:okds_hyperLabelColor="@color/okTradeG400" app:okds_hyperLabelSize="@dimen/text_size_14sp" app:okds_hyperLabelWeight="400" app:okds_underlineStyle="0">
+      </o.abhv>
+      <TextView attr_0x01010034="@style/TextAppearance.Text.Medium" android:textSize="@dimen/text_size_14sp" android:textColor="@color/grey_g900" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp">
+      </TextView>
+      <o.abhv android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="@string/pr_trade_botdetails_subtitle_spot_grid_earn_holdings" app:okds_helpLabelType="1" app:okds_hyperLabelColor="@color/okTradeG400" app:okds_hyperLabelSize="@dimen/text_size_14sp" app:okds_hyperLabelWeight="400" app:okds_underlineStyle="0">
+      </o.abhv>
+      <TextView attr_0x01010034="@style/TextAppearance.Text.Medium" android:textSize="@dimen/text_size_14sp" android:textColor="@color/grey_g900" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp">
+      </TextView>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/AccountAuthcode" attr_0x010100d6="@dimen/margin_default" attr_0x010100d8="@dimen/margin_default" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_10dp" attr_0x010102c1="2" attr_0x0101053d="@dimen/margin_default">
+    </androidx.recyclerview.widget.RecyclerView>
+  </LinearLayout>
+</androidx.core.widget.NestedScrollView>

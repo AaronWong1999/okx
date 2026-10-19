@@ -1,0 +1,26 @@
+<!-- Layout Resource ID: 0x7f0d2369 | APK Entry: cNJ -->
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" android:layout_width="match_parent" android:layout_height="match_parent">
+  <LinearLayout android:gravity="0x10" android:orientation="0" attr_0x010100d1="layout/view_recurring_coin_config_0" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout android:orientation="0" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1">
+      <TextView attr_0x01010034="@style/TextAppearance.Text.14SP.Medium" android:textColor="@color/ContentPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pr_trade_recurbot_detail_tunbibao_ccy_need_config">
+      </TextView>
+      <TextView attr_0x01010034="@style/TextAppearance.Text.14SP.Medium" android:textColor="@color/ContentContrast" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/margin_4dp" attr_0x010104dd="0">
+      </TextView>
+    </LinearLayout>
+    <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/margin_16dp">
+      <TextView android:textColor="@color/okTradeG900" attr_0x010100b3="0x800005" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pr_trade_label_recurring_add_coin" attr_0x01010171="4dp" app:drawableTint="@color/ContentPrimary" style="@style/TextAppearance.Text.14SP.Medium">
+      </TextView>
+    </FrameLayout>
+  </LinearLayout>
+  <androidx.appcompat.widget.LinearLayoutCompat android:orientation="0" android:id="@id/AccountAuthcode" attr_0x010100d1="layout/view_recurring_coin_config_1" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp">
+    <o.abbN android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/pr_smartportfolio_placeorder_tag_smart_allocate" android:layout_weight="1" app:okds_size="-4">
+    </o.abbN>
+    <o.abbN android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/pr_smartportfolio_placeorder_tag_equal_allocate" android:layout_weight="1" android:layout_marginStart="@dimen/margin_8dp" app:okds_size="-4">
+    </o.abbN>
+  </androidx.appcompat.widget.LinearLayoutCompat>
+  <LinearLayout android:orientation="1" android:id="@id/AccountAuthcode" attr_0x010100d1="layout/view_recurring_coin_config_2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_4dp">
+  </LinearLayout>
+  <TextView attr_0x01010034="@style/TextAppearance.Text.12SP.Medium" android:textColor="@color/RubyRed500" android:id="@id/AccountAuthcode" attr_0x010100d1="layout/view_recurring_coin_config_3" attr_0x010100dc="2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp">
+  </TextView>
+</merge>

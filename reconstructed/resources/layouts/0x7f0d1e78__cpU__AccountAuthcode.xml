@@ -1,0 +1,90 @@
+<!-- Layout Resource ID: 0x7f0d1e78 | APK Entry: cpU -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" attr_0x010100d1="layout/trade_impl_activity_contract_dca_auto_margin_setting_0" android:background="@color/BasePrimary" android:layout_width="match_parent" android:layout_height="match_parent">
+  <o.uJD android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" app:appBarTitle="@string/pr_fdcabot_placeorder_title_auto_transfer_margin" app:appBarTitleBold="true" app:backImageResId="@0x7f08069c" app:backVisible="true" app:dividerVisible="false" app:layout_constraintTop_toTopOf="0">
+  </o.uJD>
+  <androidx.core.widget.NestedScrollView android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="0dp" attr_0x0101017a="true" app:layout_constraintBottom_toTopOf="@id/AccountAuthcode" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+    <LinearLayout android:orientation="1" attr_0x010100d6="@dimen/margin_24dp" attr_0x010100d8="@dimen/margin_24dp" attr_0x010100d9="@dimen/margin_24dp" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x0101053d="@dimen/margin_24dp">
+      <LinearLayout android:orientation="1" android:id="@id/AccountAuthcode" attr_0x010100d7="@dimen/margin_24dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="0x10" android:orientation="0" android:id="@id/AccountAuthcode" attr_0x010100d7="@dimen/padding_10dp" attr_0x010100d9="@dimen/padding_10dp" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x0101053e="@dimen/padding_10dp">
+          <o.abhv attr_0x01010034="@style/TextAppearance.Text.16SP.Medium" android:textSize="16sp" android:textColor="@color/color_content_static_default" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/pr_perpetual_settings_label_margin_ratio" android:layout_weight="1" app:okds_helpLabelType="1" app:okds_underlineStyle="0">
+          </o.abhv>
+          <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Title.Bold.20SP" android:textColor="@color/color_content_static_default" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content">
+          </androidx.appcompat.widget.AppCompatTextView>
+        </LinearLayout>
+        <o.YGL android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_8dp">
+        </o.YGL>
+        <LinearLayout android:gravity="0x10" android:orientation="0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_16dp">
+          <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.14SP.Regular" android:textColor="@color/color_content_static_subtle" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/pr_perpetual_settings_label_trigger_threshold" android:layout_weight="1">
+          </androidx.appcompat.widget.AppCompatTextView>
+          <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.14SP.Medium" android:textColor="@color/color_content_static_default" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content">
+          </androidx.appcompat.widget.AppCompatTextView>
+        </LinearLayout>
+      </LinearLayout>
+      <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.12SP.Regular" android:textColor="@color/color_content_warning_default" android:id="@id/AccountAuthcode" android:background="@0x7f08154b" attr_0x010100d7="@dimen/padding_10dp" attr_0x010100d9="@dimen/padding_10dp" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_16dp" android:text="@string/pr_fdcabot_setting_banner_limit_reached" android:paddingStart="@dimen/padding_12dp" android:paddingEnd="@dimen/padding_12dp">
+      </androidx.appcompat.widget.AppCompatTextView>
+      <o.XyK android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_16dp" app:useMdInput="true">
+      </o.XyK>
+      <View android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginTop="@dimen/margin_24dp" style="@style/WidgetDivisionLine">
+      </View>
+      <LinearLayout android:orientation="1" android:id="@id/AccountAuthcode" attr_0x010100d7="@dimen/margin_24dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="0x10" android:orientation="0" attr_0x010100d7="@dimen/padding_2dp" attr_0x010100d9="@dimen/padding_2dp" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x0101053e="@dimen/padding_2dp">
+          <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.16SP.Medium" android:textColor="@color/color_content_static_default" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/pr_fdcabot_placeorder_input_upper_limit" android:layout_weight="1">
+          </androidx.appcompat.widget.AppCompatTextView>
+          <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Title.Bold.20SP" android:textColor="@color/color_content_static_default" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content">
+          </androidx.appcompat.widget.AppCompatTextView>
+        </LinearLayout>
+        <LinearLayout android:gravity="0x10" android:orientation="0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_16dp">
+          <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.14SP.Regular" android:textColor="@color/color_content_static_subtle" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/pr_perpetual_settings_label_current_progress" android:layout_weight="1">
+          </androidx.appcompat.widget.AppCompatTextView>
+          <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.14SP.Regular" android:textColor="@color/color_content_static_default" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content">
+          </androidx.appcompat.widget.AppCompatTextView>
+        </LinearLayout>
+        <o.abeH android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_8dp" app:okpb_animated="false" app:okpb_cornerRadius="@dimen/margin_4dp" app:okpb_progress="0.8" app:okpb_progressColor="@color/color_content_static_default" app:okpb_showLabel="false" app:okpb_trackColor="@color/color_surface_interactive_default">
+        </o.abeH>
+        <LinearLayout android:gravity="0x10" android:orientation="0" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_16dp">
+          <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.14SP.Regular" android:textColor="@color/color_content_static_subtle" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/pr_perpetual_settings_label_remaining_limit" android:layout_weight="1">
+          </androidx.appcompat.widget.AppCompatTextView>
+          <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.14SP.Regular" android:textColor="@color/color_content_static_default" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content">
+          </androidx.appcompat.widget.AppCompatTextView>
+        </LinearLayout>
+      </LinearLayout>
+      <LinearLayout android:gravity="0x10" android:orientation="0" android:id="@id/AccountAuthcode" android:background="?0x0101030e" attr_0x010100d7="@dimen/margin_8dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_8dp">
+        <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.14SP.Regular" android:textColor="@color/color_content_static_subtle" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/pr_margin_history_regularcell_auto_transfer" android:layout_weight="1">
+        </androidx.appcompat.widget.AppCompatTextView>
+        <o.aaXL android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pr_commonall_text_btn_view" app:okds_size="-4" app:textButtonPadding="1" app:textButtonType="1" app:textWeight="0">
+        </o.aaXL>
+      </LinearLayout>
+      <o.XyK android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_24dp" app:useMdInput="true">
+      </o.XyK>
+      <View android:layout_width="match_parent" android:layout_height="0.5dp" android:layout_marginTop="@dimen/margin_24dp" style="@style/WidgetDivisionLine">
+      </View>
+      <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.14SP.Medium" android:textColor="@color/color_content_static_default" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_24dp" android:text="@string/pr_fdcabot_placeorder_dialog_application_scenario">
+      </androidx.appcompat.widget.AppCompatTextView>
+      <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.14SP.Regular" android:textColor="@color/color_content_static_subtle" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp" android:text="@string/pr_fdcabot_placeorder_dialog_when_the_margin_rate" attr_0x0101057f="22dp">
+      </androidx.appcompat.widget.AppCompatTextView>
+      <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.14SP.Medium" android:textColor="@color/color_content_static_default" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_24dp" android:text="@string/pr_fdcabot_placeorder_input_upper_limit">
+      </androidx.appcompat.widget.AppCompatTextView>
+      <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.14SP.Regular" android:textColor="@color/color_content_static_subtle" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp" android:text="@string/pr_fdcabot_placeorder_dialog_it_is_recommended_to" attr_0x0101057f="22dp">
+      </androidx.appcompat.widget.AppCompatTextView>
+      <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.14SP.Medium" android:textColor="@color/color_content_static_default" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_24dp" android:text="@string/pr_futuresgrid_settings_label_target_margin_ratio">
+      </androidx.appcompat.widget.AppCompatTextView>
+      <androidx.appcompat.widget.AppCompatTextView attr_0x01010034="@style/TextAppearance.Text.14SP.Regular" android:textColor="@color/color_content_static_subtle" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_12dp" android:text="@string/pr_futuresgrid_settings_tips_target_margin_rate" attr_0x0101057f="22dp">
+      </androidx.appcompat.widget.AppCompatTextView>
+    </LinearLayout>
+  </androidx.core.widget.NestedScrollView>
+  <LinearLayout android:orientation="1" android:id="@id/AccountAuthcode" attr_0x010100d6="@dimen/margin_24dp" attr_0x010100d7="@dimen/margin_16dp" attr_0x010100d8="@dimen/margin_24dp" attr_0x010100d9="@dimen/margin_20dp" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x0101053d="@dimen/margin_24dp" app:layout_constraintBottom_toBottomOf="0">
+    <LinearLayout android:orientation="0" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content">
+      <o.aaXx android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/pr_trade_settings_button_save" android:layout_weight="1" android:layout_marginEnd="@dimen/margin_8dp" app:okds_button_size="52" app:okds_button_type="0x101">
+      </o.aaXx>
+      <o.aaXx android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/pr_trade_cooltime_calmdown_preiod_btn_stop" android:layout_weight="1" app:okds_button_size="52" app:okds_button_type="0x101">
+      </o.aaXx>
+    </LinearLayout>
+    <o.aaXx android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/pr_trade_cooltime_calmdown_preiod_btn_start" app:okds_button_size="52" app:okds_button_type="0x101">
+    </o.aaXx>
+  </LinearLayout>
+  <FrameLayout android:id="@id/AccountAuthcode" android:background="#66000000" attr_0x010100da="true" attr_0x010100dc="2" attr_0x010100e5="true" android:layout_width="match_parent" android:layout_height="match_parent" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintTop_toTopOf="0">
+    <ProgressBar attr_0x010100b3="0x11" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    </ProgressBar>
+  </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

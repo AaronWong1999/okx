@@ -1,0 +1,32 @@
+<!-- Layout Resource ID: 0x7f0d2015 | APK Entry: cxL -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" attr_0x010100d1="layout/trade_ui_dialog_spot_dca_make_order_confirm_content_0" android:layout_width="match_parent" android:layout_height="match_parent">
+  <androidx.core.widget.NestedScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+    <androidx.constraintlayout.widget.ConstraintLayout attr_0x010100d6="@dimen/ok_dp_16" attr_0x010100d7="@dimen/padding_20dp" attr_0x010100d8="@dimen/ok_dp_16" attr_0x010100d9="@dimen/padding_20dp" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x0101053d="@dimen/ok_dp_16" attr_0x0101053e="@dimen/padding_20dp">
+      <TextView attr_0x01010034="@style/TextAppearance.Title.14SP.Medium" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0">
+      </TextView>
+      <TextView android:textSize="@dimen/text_size_12sp" android:textColor="@color/grey_g700" android:id="@id/AccountAuthcode" android:background="@0x7f0801f8" attr_0x010100d6="4dp" attr_0x010100d7="2dp" attr_0x010100d8="4dp" attr_0x010100d9="2dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pr_trade_bot_title_spot_dca" attr_0x0101046b="@color/background_lv3" attr_0x0101053d="4dp" attr_0x0101053e="2dp">
+      </TextView>
+      <TextView android:textSize="@dimen/text_size_12sp" android:textColor="@color/grey_g700" android:id="@id/AccountAuthcode" android:background="@0x7f0801f8" attr_0x010100d6="4dp" attr_0x010100d7="2dp" attr_0x010100d8="4dp" attr_0x010100d9="2dp" android:layout_width="wrap_content" android:layout_height="wrap_content" attr_0x0101046b="@color/background_lv3" attr_0x0101053d="4dp" attr_0x0101053e="2dp">
+      </TextView>
+      <androidx.constraintlayout.helper.widget.Flow android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_4dp" app:constraint_referenced_ids="type, reserveFundsFlag" app:flow_horizontalBias="0" app:flow_horizontalGap="@dimen/padding_6dp" app:flow_horizontalStyle="2" app:flow_verticalGap="@dimen/padding_4dp" app:flow_wrapMode="1" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+      </androidx.constraintlayout.helper.widget.Flow>
+      <androidx.recyclerview.widget.RecyclerView android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_20dp" attr_0x010102c1="2" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+      </androidx.recyclerview.widget.RecyclerView>
+      <LinearLayout android:orientation="1" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x01010329="0x2" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+        <View android:id="@id/AccountAuthcode" android:layout_marginTop="11dp" style="@style/WidgetDivisionLine">
+        </View>
+        <TextView attr_0x01010034="@style/TextAppearance.Text.12SP" android:textColor="@color/okTradeG400" attr_0x010100ab="3" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="@string/pr_dcabot_orderconfirm_modal_funds_notice" android:maxLines="2" attr_0x01010217="2dp">
+        </TextView>
+        <TextView attr_0x01010034="@style/TextAppearance.Text.12SP" android:textColor="@color/okTradeG400" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="@string/pr_dcabot_orderconfirm_modal_risks_notice" attr_0x01010217="2dp">
+        </TextView>
+        <TextView attr_0x01010034="@style/TextAppearance.Blue.12SP" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="@string/pr_trade_strategy_header_view_more">
+        </TextView>
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp" attr_0x010102c1="2" attr_0x01010436="false">
+        </androidx.recyclerview.widget.RecyclerView>
+      </LinearLayout>
+      <o.aaXQ android:theme="@style/OKUITheme" android:textColor="@color/okTradeG900" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:text="@string/pr_options_alert_not_tips" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:okds_size="-4">
+      </o.aaXQ>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </androidx.core.widget.NestedScrollView>
+</LinearLayout>

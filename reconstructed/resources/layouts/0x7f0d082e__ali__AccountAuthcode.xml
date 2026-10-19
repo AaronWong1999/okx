@@ -1,0 +1,10 @@
+<!-- Layout Resource ID: 0x7f0d082e | APK Entry: ali -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent">
+  <com.okinc.uilab.item.OKRegularCell android:id="@id/AccountAuthcode" attr_0x010100d6="24dp" attr_0x010100d7="16dp" attr_0x010100d8="24dp" attr_0x010100d9="16dp" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:minHeight="56dp" attr_0x0101053d="24dp" attr_0x0101053e="16dp" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0" app:title="@string/pr_trade_quick_recurring_buy_bttmsheet_label_trading">
+    <ImageView attr_0x010100b3="0x11" android:id="@id/AccountAuthcode" android:layout_width="20dp" android:layout_height="20dp" android:src="@0x7f080a25" app:tint="@color/ContentDisabled">
+    </ImageView>
+  </com.okinc.uilab.item.OKRegularCell>
+  <androidx.recyclerview.widget.RecyclerView android:id="@id/AccountAuthcode" android:layout_width="@dimen/width_0dp" android:layout_height="wrap_content" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+  </androidx.recyclerview.widget.RecyclerView>
+</androidx.constraintlayout.widget.ConstraintLayout>

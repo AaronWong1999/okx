@@ -1,0 +1,12 @@
+<!-- Layout Resource ID: 0x7f0d0fa8 | APK Entry: aVW -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" attr_0x010100d1="layout/item_bot_lead_signal_bot_settlement_0" attr_0x010100d9="@dimen/margin_12dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_16dp" android:layout_marginRight="@dimen/margin_16dp" attr_0x0101053b="@dimen/margin_16dp">
+  <TextView android:textColor="@color/okTradeG400" android:id="@id/AccountAuthcode" attr_0x010100d7="@dimen/margin_8dp" attr_0x010100d9="@dimen/margin_8dp" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x0101053e="@dimen/margin_8dp" app:layout_constraintTop_toTopOf="0" style="@style/TextAppearance.Text.12SP">
+  </TextView>
+  <ImageView android:id="@id/AccountAuthcode" android:layout_width="@dimen/height_36dp" android:layout_height="@dimen/height_36dp" android:layout_marginTop="@dimen/margin_12dp" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+  </ImageView>
+  <TextView android:textColor="@color/okTradeG900" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="@dimen/margin_8dp" app:layout_constraintBottom_toBottomOf="@id/AccountAuthcode" app:layout_constraintStart_toEndOf="@id/AccountAuthcode" app:layout_constraintTop_toTopOf="@id/AccountAuthcode" style="@style/TextAppearance.Text.14SP">
+  </TextView>
+  <TextView android:textColor="@color/okTradeG900" android:gravity="0x800005" android:id="@id/AccountAuthcode" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="@dimen/margin_16dp" app:layout_constraintEnd_toEndOf="0" app:layout_constraintHorizontal_bias="1" app:layout_constraintStart_toEndOf="@id/AccountAuthcode" app:layout_constraintTop_toTopOf="@id/AccountAuthcode" style="@style/TextAppearance.Text.14SP.Medium">
+  </TextView>
+</androidx.constraintlayout.widget.ConstraintLayout>

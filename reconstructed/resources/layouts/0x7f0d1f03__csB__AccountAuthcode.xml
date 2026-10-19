@@ -1,0 +1,18 @@
+<!-- Layout Resource ID: 0x7f0d1f03 | APK Entry: csB -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" attr_0x010100d1="layout/trade_impl_signal_bot_sign_intro_dialog_0" attr_0x010100d9="@dimen/margin_12dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_20dp">
+  <androidx.core.widget.NestedScrollView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/margin_12dp" app:layout_constrainedHeight="true" app:layout_constraintBottom_toTopOf="@id/AccountAuthcode" app:layout_constraintTop_toTopOf="0">
+    <LinearLayout android:orientation="1" attr_0x010100d9="20dp" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="@dimen/ok_dp_16" android:layout_marginRight="@dimen/ok_dp_16" attr_0x0101053b="@dimen/ok_dp_16">
+      <TextView attr_0x01010034="@style/TextAppearance.Silka.MeDium" android:textSize="@dimen/text_size_14sp" android:textColor="@color/okTradeG400" android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_20dp" attr_0x01010217="@dimen/height_2dp">
+      </TextView>
+      <TextView attr_0x01010034="@style/TextAppearance.Silka.MeDium" android:textSize="@dimen/text_size_14sp" android:textColor="@color/okTradeG900" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="@string/pr_trade_general_expand_show_more">
+      </TextView>
+      <androidx.fragment.app.FragmentContainerView android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp24">
+      </androidx.fragment.app.FragmentContainerView>
+      <TextView android:textSize="@dimen/text_size_12sp" android:textColor="@color/okTradeG400" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp24" android:text="@string/pr_signalbot_dialog_text_copy_paste_info">
+      </TextView>
+    </LinearLayout>
+  </androidx.core.widget.NestedScrollView>
+  <o.aaXx android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16dp" android:layout_marginRight="16dp" android:text="@string/pr_webhook_placeorder_modalbtn_open_tradingview" attr_0x0101053b="16dp" app:layout_constraintBottom_toBottomOf="0" app:okds_button_size="52" app:okds_button_type="0x101">
+  </o.aaXx>
+</androidx.constraintlayout.widget.ConstraintLayout>

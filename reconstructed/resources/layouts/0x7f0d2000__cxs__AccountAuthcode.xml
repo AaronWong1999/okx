@@ -1,0 +1,30 @@
+<!-- Layout Resource ID: 0x7f0d2000 | APK Entry: cxs -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="1" attr_0x010100d1="layout/trade_ui_contract_grid_close_pos_fg_0" android:layout_width="match_parent" android:layout_height="wrap_content">
+  <o.abiK android:orientation="0" android:id="@id/AccountAuthcode" attr_0x010100dc="0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16dp" android:layout_marginTop="16dp" android:layout_marginRight="16dp" attr_0x0101053b="16dp" app:ok_flowHorizontalSpacing="6dp" app:ok_flowVerticalSpacing="6dp">
+  </o.abiK>
+  <o.WQb android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16dp" android:layout_marginTop="10dp" android:layout_marginRight="16dp" attr_0x0101053b="16dp">
+  </o.WQb>
+  <LinearLayout android:gravity="0x10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16dp" android:layout_marginTop="4dp" android:layout_marginRight="16dp" attr_0x0101053b="16dp">
+    <TextView attr_0x01010034="@style/TextAppearance.Text.12SP" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pr_trade_futuresgrid_dialog_last_price">
+    </TextView>
+    <TextView attr_0x01010034="@style/TextAppearance.Text.12SP" android:textColor="@color/color_content_static_default" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="4dp">
+    </TextView>
+  </LinearLayout>
+  <o.WQp android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="16dp" android:layout_marginTop="16dp" android:layout_marginRight="16dp" attr_0x0101053b="16dp" app:oktInputSeekBarVisible="true">
+  </o.WQp>
+  <LinearLayout android:gravity="0x10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16dp" android:layout_marginTop="6dp" android:layout_marginRight="16dp" attr_0x0101053b="16dp">
+    <TextView attr_0x01010034="@style/TextAppearance.Text.12SP" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pr_trade_futuresgrid_dialog_open_interest">
+    </TextView>
+    <TextView attr_0x01010034="@style/TextAppearance.Text.12SP" android:textColor="@color/grey_g700" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="4dp">
+    </TextView>
+  </LinearLayout>
+  <LinearLayout android:gravity="0x10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16dp" android:layout_marginTop="6dp" android:layout_marginRight="16dp" attr_0x0101053b="16dp">
+    <o.abhv android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" app:okds_helpLabelType="1" app:okds_hyperLabelColor="@color/grey_g400" app:okds_hyperLabelSize="@dimen/text_size_12sp" app:okds_hyperLabelText="@string/pr_trade_futuresgrid_dialog_estimated_pnl" app:okds_hyperLabelWeight="400">
+    </o.abhv>
+    <TextView attr_0x01010034="@style/TextAppearance.Text.12SP" android:textColor="@color/grey_g700" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="4dp">
+    </TextView>
+  </LinearLayout>
+  <o.aaXK android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" app:ok_buttonbox_primaryText="@string/pr_trade_btn_close" app:okds_buttonbox_size="44" app:okds_buttonbox_type="5">
+  </o.aaXK>
+</LinearLayout>

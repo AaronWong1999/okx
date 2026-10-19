@@ -1,0 +1,44 @@
+<!-- Layout Resource ID: 0x7f0d03a9 | APK Entry: Pc -->
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" attr_0x010100d1="layout/bot_contract_dca_edit_dialog_0" android:layout_width="match_parent" android:layout_height="wrap_content" attr_0x0101017a="true" attr_0x010102c1="2">
+  <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/ok_dp_24" android:layout_marginStart="@dimen/dp24" android:layout_marginEnd="@dimen/dp24">
+    <TextView android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="@string/pr_dcabot_modifyparam_reminder_modified_take_effect" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0" style="@style/Body_4">
+    </TextView>
+    <o.abhv android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:okds_helpLabelType="0" app:okds_hyperLabelColor="@color/okTradeG900" app:okds_hyperLabelSize="@dimen/text_size_14sp" app:okds_hyperLabelText="@string/pr_trade_bot_placeorder_fdca_trigger_settings" app:okds_hyperLabelWeight="500">
+    </o.abhv>
+    <o.WQp android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:oktInputLabel="@string/pr_dcabot_placeorder_item_price_steps" style="@style/OKTInputLayoutStyle_Bot">
+    </o.WQp>
+    <o.WQp android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:oktInputLabel="@string/pr_dcabot_placeorder_item_take_profit_perc_per_cycle" style="@style/OKTInputLayoutStyle_Bot">
+    </o.WQp>
+    <o.abhv android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24dp" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:okds_helpLabelType="0" app:okds_hyperLabelColor="@color/okTradeG900" app:okds_hyperLabelSize="@dimen/text_size_14sp" app:okds_hyperLabelText="@string/pr_fdcabot_placeorder_item_investment_amount" app:okds_hyperLabelWeight="500">
+    </o.abhv>
+    <o.WQp android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:oktInputLabel="@string/pr_fdcabot_placeorder_item_initial_order_amount" style="@style/OKTInputLayoutStyle_Bot">
+    </o.WQp>
+    <o.WQp android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:oktInputLabel="@string/pr_fdcabot_placeorder_item_safety_order_amount" style="@style/OKTInputLayoutStyle_Bot">
+    </o.WQp>
+    <o.WQp android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:oktInputLabel="@string/pr_fdcabot_placeorder_item_max_safety_orders" style="@style/OKTInputLayoutStyle_Bot">
+    </o.WQp>
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_8dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+      <TextView android:textColor="@color/ContentContrast" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pr_dcabot_placeorder_item_current_usage" app:layout_constraintEnd_toStartOf="@id/AccountAuthcode" app:layout_constraintHorizontal_chainStyle="1" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0" style="@style/TextAppearance.Text.12SP.Regular">
+      </TextView>
+      <TextView android:textColor="@color/okTradeG900" android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="@dimen/ok_dp_12" app:layout_constrainedWidth="true" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toEndOf="@id/AccountAuthcode" app:layout_constraintTop_toTopOf="0" style="@style/TextAppearance.Text.12SP.Regular">
+      </TextView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <o.abhv android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24dp" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:okds_helpLabelType="0" app:okds_hyperLabelColor="@color/okTradeG900" app:okds_hyperLabelSize="@dimen/text_size_14sp" app:okds_hyperLabelText="@string/pr_dcabot_placeorder_title_advanced" app:okds_hyperLabelWeight="500">
+    </o.abhv>
+    <o.ZWJ android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_8dp" app:item_type="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:setting_title="@string/pr_fdcabot_placeorder_title_safety_order_details_wo_num">
+    </o.ZWJ>
+    <o.ZWJ android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_8dp" app:active_content="@string/pr_trade_spotgrid_title_not_set" app:item_type="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:setting_title="@string/pr_fdcabot_placeorder_advancedtitle_stop_loss_cond_wo_no">
+    </o.ZWJ>
+    <TextView android:textColor="@color/RubyRed500" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_12" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" style="@style/Body_4">
+    </TextView>
+    <o.abhv android:id="@id/AccountAuthcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24dp" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:okds_helpLabelType="0" app:okds_hyperLabelColor="@color/okTradeG900" app:okds_hyperLabelSize="@dimen/text_size_14sp" app:okds_hyperLabelText="@string/pr_trade_text_add_margin" app:okds_hyperLabelWeight="500">
+    </o.abhv>
+    <o.WQp android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" app:oktInputLabel="@string/pr_trade_text_add_margin" style="@style/OKTInputLayoutStyle_Bot">
+    </o.WQp>
+    <o.ZXc android:id="@id/AccountAuthcode" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" app:footerAvaShowTransfer="true" app:footerAvaTitle="@string/pr_marginbot_footer_data_available" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+    </o.ZXc>
+    <TextView android:textColor="@color/ContentContrast" android:id="@id/AccountAuthcode" attr_0x010100dc="2" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_16dp" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode" style="@style/Body_4">
+    </TextView>
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

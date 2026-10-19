@@ -1,0 +1,16 @@
+<!-- Layout Resource ID: 0x7f0d20da | APK Entry: cBz -->
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent">
+  <ImageView android:id="@id/AccountAuthcode" attr_0x010100d1="layout/trade_ui_view_smart_arb_pnl_chart_0" attr_0x010100dc="2" android:layout_width="20dp" android:layout_height="20dp" android:layout_marginBottom="16dp" android:src="@0x7f080697" attr_0x01010273="@0x00000000" app:layout_constraintEnd_toEndOf="0" app:layout_constraintTop_toTopOf="0">
+  </ImageView>
+  <o.abcb android:id="@id/AccountAuthcode" attr_0x010100d1="layout/trade_ui_view_smart_arb_pnl_chart_1" attr_0x010100dc="2" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintEnd_toEndOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+  </o.abcb>
+  <androidx.constraintlayout.widget.Barrier android:id="@id/AccountAuthcode" attr_0x010100d1="layout/trade_ui_view_smart_arb_pnl_chart_2" android:layout_width="wrap_content" android:layout_height="match_parent" app:barrierDirection="0" app:constraint_referenced_ids="imageView,filterChip">
+  </androidx.constraintlayout.widget.Barrier>
+  <o.abhv android:id="@id/AccountAuthcode" attr_0x010100d1="layout/trade_ui_view_smart_arb_pnl_chart_3" android:layout_width="0dp" android:layout_height="wrap_content" android:maxLines="2" android:layout_marginEnd="@dimen/ok_dp_16" app:layout_constraintEnd_toStartOf="@id/AccountAuthcode" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0" app:okds_helpLabelType="0" app:okds_hyperLabelColor="@color/ContentPrimary" app:okds_hyperLabelSize="16sp" app:okds_hyperLabelText="@string/pr_smartarb_placeorder_title_backtest_annual_return" app:okds_hyperLabelWeight="500">
+  </o.abhv>
+  <androidx.constraintlayout.widget.Barrier android:id="@id/AccountAuthcode" attr_0x010100d1="layout/trade_ui_view_smart_arb_pnl_chart_4" android:layout_width="match_parent" android:layout_height="wrap_content" app:barrierDirection="3" app:constraint_referenced_ids="imageView,filterChip,title">
+  </androidx.constraintlayout.widget.Barrier>
+  <com.github.mikephil.charting.charts.LineChart android:id="@id/AccountAuthcode" attr_0x010100d1="layout/trade_ui_view_smart_arb_pnl_chart_5" android:layout_width="match_parent" android:layout_height="200dp" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toBottomOf="@id/AccountAuthcode">
+  </com.github.mikephil.charting.charts.LineChart>
+</merge>
